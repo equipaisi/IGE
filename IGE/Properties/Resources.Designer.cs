@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IGE.Properties {
+namespace Middleware.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace IGE.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IGE.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Middleware.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -83,7 +83,8 @@ namespace IGE.Properties {
         ///3750,045,AGUADA DE CIMA
         ///3750,046,AGUADA DE CIMA
         ///3750,047,AGUADA DE CIMA
-        ///3750, [rest of string was truncated]&quot;;.
+        ///3750,048,AGUADA DE CIMA
+        ///375 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CPData {
             get {
