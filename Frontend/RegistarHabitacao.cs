@@ -10,7 +10,7 @@ namespace Frontend
 {
     public partial class RegistarHabitacao : Form
     {
-        private HashSet<string> _imgFilenames = new HashSet<string>();
+        private List<string> _imgFilenames = new List<string>();
         private int _indexImgAtual = -1;
         private ErrorProvider _errorProvider1 = new ErrorProvider();
 
@@ -125,8 +125,8 @@ namespace Frontend
             {
                 quartos.Add(new Quarto(new List<ICama> {new Cama(TipoCama.Single)}));
             }
-//            var morada = new Middleware.Morada(null, 0, null); // TODO
-//            var habitacao = new Middleware.Habitacao(quartos, numAssoalhadas, metrosQuadrados, anoDeConstrucao, null, comodidades);
+//            var morada = new Morada(null, 0, null); // TODO
+//            var habitacao = new Habitacao(quartos, numAssoalhadas, metrosQuadrados, anoDeConstrucao, null, comodidades);
 //            MessageBox.Show(habitacao.ToString());
         }
 
@@ -155,18 +155,15 @@ namespace Frontend
             {
                 foreach (var filename in openFileDialog1.FileNames)
                 {
+                    if (_imgFilenames.Contains(filename)) continue;
+
                     // Adiciona filename ao nosso nomes de ficheiros
                     _imgFilenames.Add(filename);
-                    var img = Image.FromFile(filename);
-                    
-                    pictureBoxImagem.Image = img;
-                    //pictureBoxImagem.SizeMode = PictureBoxSizeMode.StretchImage;
-
+                    _indexImgAtual += 1;
+                    AtualizarFoto(_indexImgAtual);
                 }
-                _indexImgAtual = _imgFilenames.Count - 1;
             }
-            MessageBox.Show(_imgFilenames.Count.ToString());
-            
+            MessageBox.Show(_imgFilenames.Count.ToString());      
         }
 
         /// <summary>
@@ -195,11 +192,18 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            if (_indexImgAtual > -1)
+            if (_indexImgAtual >= 0)
             {
-                _indexImgAtual -= 1;
+                if (_indexImgAtual + 1 < _imgFilenames.Count) // index 1, 2 fotos -> index 0, 2 fotos
+                {
+                    _indexImgAtual -= 1;
+                    AtualizarFoto(_indexImgAtual);
+                }
             }
-            //pictureBoxImagem.Image = Image.FromFile(_imgFilenames.Where());
+            else
+            {
+                AtualizarFoto(-1);
+            }
         }
 
         /// <summary>
@@ -209,9 +213,34 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            _indexImgAtual += 1;
+            if (_imgFilenames.Count > 0)
+            {
+                if (_indexImgAtual + 1 < _imgFilenames.Count)
+                {
+                    _indexImgAtual += 1;
+                    AtualizarFoto(_indexImgAtual);
+                }
+            }
+            else
+            {
+                AtualizarFoto(-1);
+            }
         }
 
+        private void AtualizarFoto(int index)
+        {
+            // bounds checking
+            if (index >= 0 && index < _imgFilenames.Count)
+            {
+                var img = _imgFilenames[index];
+                if (img == null) throw new ArgumentNullException(nameof(img));
+                pictureBoxImagem.Image = Image.FromFile(img);
+            }
+            else
+            {
+                pictureBoxImagem.Image = null;
+            }
+        }
 
         private void label10_Click(object sender, EventArgs e)
         {

@@ -15,7 +15,7 @@ namespace Frontend
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new PesquisarProprietario());
+                Application.Run(new FormPrincipal());
             }
             catch (Exception e)
             {

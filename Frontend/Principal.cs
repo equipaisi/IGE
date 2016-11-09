@@ -17,8 +17,7 @@ namespace Frontend
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            RegistarHabitacao newForm3 = new RegistarHabitacao();
-            newForm3.ShowDialog();
+            new RegistarHabitacao().ShowDialog();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -28,20 +27,17 @@ namespace Frontend
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            PesquisarHabitacao newForm1 = new PesquisarHabitacao();
-            newForm1.ShowDialog();
+            new PesquisarHabitacao().ShowDialog();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            PesquisarProprietario newForm3 = new PesquisarProprietario();
-            newForm3.ShowDialog();
+            new PesquisarProprietario().ShowDialog();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            PesquisarAluno newForm4 = new PesquisarAluno ();
-            newForm4.ShowDialog();
+            new PesquisarAluno().ShowDialog();
         }
     }
 }
