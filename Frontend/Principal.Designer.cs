@@ -158,6 +158,7 @@
             this.Controls.Add(this.labelRegistHab);
             this.Controls.Add(this.pictureBoxRegistHab);
             this.Controls.Add(this.pictureBoxLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";

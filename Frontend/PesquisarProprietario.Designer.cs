@@ -64,11 +64,12 @@
             // 
             // listBox1
             // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(76, 144);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(413, 84);
+            this.listBox1.Size = new System.Drawing.Size(413, 82);
             this.listBox1.TabIndex = 3;
             // 
             // PesquisarProprietario

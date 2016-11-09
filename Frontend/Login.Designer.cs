@@ -76,6 +76,7 @@
             // textBox_Name
             // 
             resources.ApplyResources(this.textBox_Name, "textBox_Name");
+            this.textBox_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_Name.Name = "textBox_Name";
             // 
             // textBox_Password

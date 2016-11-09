@@ -159,14 +159,8 @@
   <data name="&gt;&gt;textBox_Password.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pictureBoxLogin.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="&gt;&gt;labelNome.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureBoxLogo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="textBox_Name.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 20</value>
@@ -192,8 +186,8 @@
   <data name="imageList1.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
   </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
   </data>
   <data name="&gt;&gt;labelNome.Name" xml:space="preserve">
     <value>labelNome</value>
@@ -228,8 +222,8 @@
   <data name="textBox_Password.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="labelPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
+  <data name="labelNome.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="labelNome.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -239,6 +233,9 @@
   </data>
   <data name="&gt;&gt;labelPassword.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="pictureBoxLogo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;pictureBoxLogo.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -622,11 +619,14 @@
   <data name="pictureBoxLogo.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 145</value>
   </data>
-  <data name="labelNome.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pictureBoxLogin.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="pictureBoxLogo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="pictureBoxLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelPassword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
