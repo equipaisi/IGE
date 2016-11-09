@@ -96,6 +96,7 @@
             this.Controls.Add(this.pictureBoxLogin);
             this.Controls.Add(this.pictureBoxLogo);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();

@@ -313,7 +313,7 @@
             // 
             this.maskedTextBoxCodigoPostal.BeepOnError = true;
             this.maskedTextBoxCodigoPostal.Location = new System.Drawing.Point(121, 103);
-            this.maskedTextBoxCodigoPostal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTextBoxCodigoPostal.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBoxCodigoPostal.Mask = "0000-999";
             this.maskedTextBoxCodigoPostal.Name = "maskedTextBoxCodigoPostal";
             this.maskedTextBoxCodigoPostal.Size = new System.Drawing.Size(76, 22);
@@ -515,7 +515,7 @@
             this.groupBoxInfo.Controls.Add(this.labelNumDeQuartos);
             this.groupBoxInfo.Controls.Add(this.comboBoxNumDeQuartos);
             this.groupBoxInfo.Location = new System.Drawing.Point(69, 270);
-            this.groupBoxInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxInfo.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBoxInfo.Size = new System.Drawing.Size(543, 153);
@@ -584,7 +584,7 @@
             // 
             this.descricaoGroupBox.Controls.Add(this.textBoxDescricao);
             this.descricaoGroupBox.Location = new System.Drawing.Point(71, 497);
-            this.descricaoGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.descricaoGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.descricaoGroupBox.Name = "descricaoGroupBox";
             this.descricaoGroupBox.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.descricaoGroupBox.Size = new System.Drawing.Size(543, 187);
@@ -613,7 +613,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "RegistarHabitacao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registar Habitação";
             this.Load += new System.EventHandler(this.RegistarHabitacao_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).EndInit();
