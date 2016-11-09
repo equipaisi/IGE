@@ -66,13 +66,13 @@
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonRemoverFoto = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
-            this.toolTipCodigoPostal = new System.Windows.Forms.ToolTip(this.components);
-            this.descricaoGroupBox = new System.Windows.Forms.GroupBox();
-            this.labelPreco = new System.Windows.Forms.Label();
-            this.textBoxPreco = new System.Windows.Forms.TextBox();
-            this.checkBoxDespesasIncluidas = new System.Windows.Forms.CheckBox();
             this.labelNumDeWC = new System.Windows.Forms.Label();
             this.comboBoxNumDeWC = new System.Windows.Forms.ComboBox();
+            this.checkBoxDespesasIncluidas = new System.Windows.Forms.CheckBox();
+            this.textBoxPreco = new System.Windows.Forms.TextBox();
+            this.labelPreco = new System.Windows.Forms.Label();
+            this.toolTipCodigoPostal = new System.Windows.Forms.ToolTip(this.components);
+            this.descricaoGroupBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
@@ -218,7 +218,7 @@
             this.button1.TabIndex = 80;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonAdicionar_Click);
             // 
             // imageList1
             // 
@@ -235,7 +235,7 @@
             this.buttonAdicionarFotos.TabIndex = 20;
             this.buttonAdicionarFotos.Text = "+";
             this.buttonAdicionarFotos.UseVisualStyleBackColor = true;
-            this.buttonAdicionarFotos.Click += new System.EventHandler(this.button2_Click);
+            this.buttonAdicionarFotos.Click += new System.EventHandler(this.buttonAdicionarFotos_Click);
             // 
             // openFileDialog1
             // 
@@ -454,6 +454,9 @@
             this.pictureBoxImagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagem.TabIndex = 22;
             this.pictureBoxImagem.TabStop = false;
+            this.pictureBoxImagem.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxImagem_DragDrop);
+            this.pictureBoxImagem.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxImagem_DragEnter);
+            this.pictureBoxImagem.DoubleClick += new System.EventHandler(this.buttonAdicionarFotos_Click);
             // 
             // groupBoxFotos
             // 
@@ -492,7 +495,7 @@
             this.buttonNext.TabIndex = 36;
             this.buttonNext.Text = "=>";
             this.buttonNext.UseVisualStyleBackColor = true;
-            this.buttonNext.Click += new System.EventHandler(this.button4_Click);
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonRemoverFoto
             // 
@@ -503,7 +506,7 @@
             this.buttonRemoverFoto.TabIndex = 35;
             this.buttonRemoverFoto.Text = "-";
             this.buttonRemoverFoto.UseVisualStyleBackColor = true;
-            this.buttonRemoverFoto.Click += new System.EventHandler(this.button3_Click);
+            this.buttonRemoverFoto.Click += new System.EventHandler(this.buttonRemoverFoto_Click);
             // 
             // groupBoxInfo
             // 
@@ -527,47 +530,6 @@
             this.groupBoxInfo.TabIndex = 94;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Informações";
-            // 
-            // descricaoGroupBox
-            // 
-            this.descricaoGroupBox.Controls.Add(this.textBoxDescricao);
-            this.descricaoGroupBox.Location = new System.Drawing.Point(53, 404);
-            this.descricaoGroupBox.Name = "descricaoGroupBox";
-            this.descricaoGroupBox.Padding = new System.Windows.Forms.Padding(10);
-            this.descricaoGroupBox.Size = new System.Drawing.Size(407, 152);
-            this.descricaoGroupBox.TabIndex = 82;
-            this.descricaoGroupBox.TabStop = false;
-            this.descricaoGroupBox.Text = "Descrição";
-            // 
-            // labelPreco
-            // 
-            this.labelPreco.AutoSize = true;
-            this.labelPreco.Location = new System.Drawing.Point(8, 96);
-            this.labelPreco.Name = "labelPreco";
-            this.labelPreco.Size = new System.Drawing.Size(81, 13);
-            this.labelPreco.TabIndex = 84;
-            this.labelPreco.Text = "Preço (Mensal):";
-            // 
-            // textBoxPreco
-            // 
-            this.textBoxPreco.Location = new System.Drawing.Point(94, 93);
-            this.textBoxPreco.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxPreco.Name = "textBoxPreco";
-            this.textBoxPreco.Size = new System.Drawing.Size(55, 20);
-            this.textBoxPreco.TabIndex = 9;
-            this.textBoxPreco.TextChanged += new System.EventHandler(this.textBoxPreco_TextChanged);
-            // 
-            // checkBoxDespesasIncluidas
-            // 
-            this.checkBoxDespesasIncluidas.AutoSize = true;
-            this.checkBoxDespesasIncluidas.Location = new System.Drawing.Point(280, 94);
-            this.checkBoxDespesasIncluidas.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxDespesasIncluidas.Name = "checkBoxDespesasIncluidas";
-            this.checkBoxDespesasIncluidas.Size = new System.Drawing.Size(120, 17);
-            this.checkBoxDespesasIncluidas.TabIndex = 11;
-            this.checkBoxDespesasIncluidas.Text = "Despesas Incluídas";
-            this.checkBoxDespesasIncluidas.UseVisualStyleBackColor = true;
-            this.checkBoxDespesasIncluidas.CheckedChanged += new System.EventHandler(this.checkBoxDespesasIncluidas_CheckedChanged);
             // 
             // labelNumDeWC
             // 
@@ -595,6 +557,47 @@
             this.comboBoxNumDeWC.Name = "comboBoxNumDeWC";
             this.comboBoxNumDeWC.Size = new System.Drawing.Size(46, 21);
             this.comboBoxNumDeWC.TabIndex = 10;
+            // 
+            // checkBoxDespesasIncluidas
+            // 
+            this.checkBoxDespesasIncluidas.AutoSize = true;
+            this.checkBoxDespesasIncluidas.Location = new System.Drawing.Point(280, 94);
+            this.checkBoxDespesasIncluidas.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxDespesasIncluidas.Name = "checkBoxDespesasIncluidas";
+            this.checkBoxDespesasIncluidas.Size = new System.Drawing.Size(120, 17);
+            this.checkBoxDespesasIncluidas.TabIndex = 11;
+            this.checkBoxDespesasIncluidas.Text = "Despesas Incluídas";
+            this.checkBoxDespesasIncluidas.UseVisualStyleBackColor = true;
+            this.checkBoxDespesasIncluidas.CheckedChanged += new System.EventHandler(this.checkBoxDespesasIncluidas_CheckedChanged);
+            // 
+            // textBoxPreco
+            // 
+            this.textBoxPreco.Location = new System.Drawing.Point(94, 93);
+            this.textBoxPreco.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPreco.Name = "textBoxPreco";
+            this.textBoxPreco.Size = new System.Drawing.Size(55, 20);
+            this.textBoxPreco.TabIndex = 9;
+            this.textBoxPreco.TextChanged += new System.EventHandler(this.textBoxPreco_TextChanged);
+            // 
+            // labelPreco
+            // 
+            this.labelPreco.AutoSize = true;
+            this.labelPreco.Location = new System.Drawing.Point(8, 96);
+            this.labelPreco.Name = "labelPreco";
+            this.labelPreco.Size = new System.Drawing.Size(81, 13);
+            this.labelPreco.TabIndex = 84;
+            this.labelPreco.Text = "Preço (Mensal):";
+            // 
+            // descricaoGroupBox
+            // 
+            this.descricaoGroupBox.Controls.Add(this.textBoxDescricao);
+            this.descricaoGroupBox.Location = new System.Drawing.Point(53, 404);
+            this.descricaoGroupBox.Name = "descricaoGroupBox";
+            this.descricaoGroupBox.Padding = new System.Windows.Forms.Padding(10);
+            this.descricaoGroupBox.Size = new System.Drawing.Size(407, 152);
+            this.descricaoGroupBox.TabIndex = 82;
+            this.descricaoGroupBox.TabStop = false;
+            this.descricaoGroupBox.Text = "Descrição";
             // 
             // RegistarHabitacao
             // 

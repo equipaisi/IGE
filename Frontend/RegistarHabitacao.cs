@@ -23,6 +23,7 @@ namespace Frontend
         {
             //maskedTextBoxCodigoPostal.Mask = "4715-343";
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
+            AllowDrop = true;
         }
 
 
@@ -56,10 +57,11 @@ namespace Frontend
 
         /// <summary>
         /// Clique no botão "buttonAdicionar".
+        /// Extrai toda a informação introduzida pelo utilizador e procede à sua validação.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAdicionar_Click(object sender, EventArgs e)
         {
             #region Morada
             // Rua
@@ -149,7 +151,7 @@ namespace Frontend
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonAdicionarFotos_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png"; // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
             openFileDialog1.Multiselect = true; // Aceitar múltiplas fotos
@@ -174,28 +176,25 @@ namespace Frontend
 
         /// <summary>
         /// Clique no botão "buttonRemoverFoto".
+        /// Remove a foto atualmente selecionada e visível em pictureBoxImagem. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonRemoverFoto_Click(object sender, EventArgs e)
         {
-            // Remover a última foto
-            _imgFilenames.Remove(_imgFilenames.Last());
             var ultimaFoto = _imgFilenames.LastOrDefault();
+            
             if (!string.IsNullOrEmpty(ultimaFoto))
             {
-                pictureBoxImagem.Image = Image.FromFile(ultimaFoto);
+                // Remover a última foto
+                _imgFilenames.Remove(ultimaFoto);
+                ultimaFoto = _imgFilenames.LastOrDefault();
             }
-            else
-            {
-                // no caso de não termos fotos para mostrar
-                pictureBoxImagem.Image = null;
-            }
-            
+            pictureBoxImagem.Image = ultimaFoto != null ? Image.FromFile(ultimaFoto) : null;
         }
 
         /// <summary>
-        /// Clique no bõtão "buttonPrevious".
+        /// Clique no botão "buttonPrevious".
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -209,11 +208,11 @@ namespace Frontend
         }
 
         /// <summary>
-        /// Clique no bõtão "buttonNext".
+        /// Clique no botão "buttonNext".
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
             _indexImgAtual += 1;
         }
@@ -302,6 +301,27 @@ namespace Frontend
         private void textBoxPreco_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBoxImagem_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
+        {
+            /*int x = this.PointToClient(new Point(e.X, e.Y)).X;
+            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
+
+            if (x >= pictureBoxImagem.Location.X && x <= pictureBoxImagem.Location.X + pictureBoxImagem.Width && y >= pictureBoxImagem.Location.Y && y <= pictureBoxImagem.Location.Y + pictureBoxImagem.Height)
+            {
+                var files = (string[]) e.Data.GetData(DataFormats.FileDrop);
+                pictureBoxImagem.Image = Image.FromFile(files[0]);
+
+            }*/
+
+            var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            transfo.Location = this.PointToClient(new Point(e.X, e.Y));
         }
     }
 }
