@@ -102,6 +102,11 @@
     <Compile Include="Proprietarios.Designer.cs">
       <DependentUpon>Proprietarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proprietarios1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Proprietarios.resx</DependentUpon>
+    </Compile>
     <Compile Include="RegistarHabitacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,7 +147,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Proprietarios.resx" />
+    <EmbeddedResource Include="Proprietarios.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Proprietarios1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegistarHabitacao.resx">
       <DependentUpon>RegistarHabitacao.cs</DependentUpon>
     </EmbeddedResource>

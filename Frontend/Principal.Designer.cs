@@ -50,10 +50,10 @@
             this.pictureBoxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(174, 32);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(232, 39);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(196, 121);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(321, 170);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -62,10 +62,10 @@
             // pictureBoxRegistHab
             // 
             this.pictureBoxRegistHab.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistHab.Image")));
-            this.pictureBoxRegistHab.Location = new System.Drawing.Point(174, 196);
-            this.pictureBoxRegistHab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxRegistHab.Location = new System.Drawing.Point(232, 241);
+            this.pictureBoxRegistHab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxRegistHab.Name = "pictureBoxRegistHab";
-            this.pictureBoxRegistHab.Size = new System.Drawing.Size(88, 89);
+            this.pictureBoxRegistHab.Size = new System.Drawing.Size(117, 110);
             this.pictureBoxRegistHab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRegistHab.TabIndex = 1;
             this.pictureBoxRegistHab.TabStop = false;
@@ -74,20 +74,19 @@
             // labelRegistHab
             // 
             this.labelRegistHab.AutoSize = true;
-            this.labelRegistHab.Location = new System.Drawing.Point(172, 287);
-            this.labelRegistHab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelRegistHab.Location = new System.Drawing.Point(229, 353);
             this.labelRegistHab.Name = "labelRegistHab";
-            this.labelRegistHab.Size = new System.Drawing.Size(98, 13);
+            this.labelRegistHab.Size = new System.Drawing.Size(129, 17);
             this.labelRegistHab.TabIndex = 2;
             this.labelRegistHab.Text = "Registar Habitação";
             // 
             // pictureBoxPesqHab
             // 
             this.pictureBoxPesqHab.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPesqHab.Image")));
-            this.pictureBoxPesqHab.Location = new System.Drawing.Point(38, 196);
-            this.pictureBoxPesqHab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxPesqHab.Location = new System.Drawing.Point(51, 241);
+            this.pictureBoxPesqHab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxPesqHab.Name = "pictureBoxPesqHab";
-            this.pictureBoxPesqHab.Size = new System.Drawing.Size(88, 89);
+            this.pictureBoxPesqHab.Size = new System.Drawing.Size(117, 110);
             this.pictureBoxPesqHab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPesqHab.TabIndex = 3;
             this.pictureBoxPesqHab.TabStop = false;
@@ -96,20 +95,19 @@
             // labelPesqHab
             // 
             this.labelPesqHab.AutoSize = true;
-            this.labelPesqHab.Location = new System.Drawing.Point(35, 287);
-            this.labelPesqHab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPesqHab.Location = new System.Drawing.Point(47, 353);
             this.labelPesqHab.Name = "labelPesqHab";
-            this.labelPesqHab.Size = new System.Drawing.Size(105, 13);
+            this.labelPesqHab.Size = new System.Drawing.Size(139, 17);
             this.labelPesqHab.TabIndex = 4;
             this.labelPesqHab.Text = "Pesquisar Habitação";
             // 
             // pictureBoxAlunos
             // 
             this.pictureBoxAlunos.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAlunos.Image")));
-            this.pictureBoxAlunos.Location = new System.Drawing.Point(440, 196);
-            this.pictureBoxAlunos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxAlunos.Location = new System.Drawing.Point(587, 241);
+            this.pictureBoxAlunos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxAlunos.Name = "pictureBoxAlunos";
-            this.pictureBoxAlunos.Size = new System.Drawing.Size(88, 89);
+            this.pictureBoxAlunos.Size = new System.Drawing.Size(117, 110);
             this.pictureBoxAlunos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlunos.TabIndex = 5;
             this.pictureBoxAlunos.TabStop = false;
@@ -118,20 +116,19 @@
             // labelAlunos
             // 
             this.labelAlunos.AutoSize = true;
-            this.labelAlunos.Location = new System.Drawing.Point(470, 287);
-            this.labelAlunos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAlunos.Location = new System.Drawing.Point(627, 353);
             this.labelAlunos.Name = "labelAlunos";
-            this.labelAlunos.Size = new System.Drawing.Size(39, 13);
+            this.labelAlunos.Size = new System.Drawing.Size(51, 17);
             this.labelAlunos.TabIndex = 6;
             this.labelAlunos.Text = "Alunos";
             // 
             // pictureBoxproprietario
             // 
             this.pictureBoxproprietario.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxproprietario.Image")));
-            this.pictureBoxproprietario.Location = new System.Drawing.Point(313, 196);
-            this.pictureBoxproprietario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxproprietario.Location = new System.Drawing.Point(417, 241);
+            this.pictureBoxproprietario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxproprietario.Name = "pictureBoxproprietario";
-            this.pictureBoxproprietario.Size = new System.Drawing.Size(87, 89);
+            this.pictureBoxproprietario.Size = new System.Drawing.Size(116, 110);
             this.pictureBoxproprietario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxproprietario.TabIndex = 7;
             this.pictureBoxproprietario.TabStop = false;
@@ -140,19 +137,18 @@
             // labelProprietarios
             // 
             this.labelProprietarios.AutoSize = true;
-            this.labelProprietarios.Location = new System.Drawing.Point(334, 287);
-            this.labelProprietarios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProprietarios.Location = new System.Drawing.Point(428, 353);
             this.labelProprietarios.Name = "labelProprietarios";
-            this.labelProprietarios.Size = new System.Drawing.Size(65, 13);
+            this.labelProprietarios.Size = new System.Drawing.Size(89, 17);
             this.labelProprietarios.TabIndex = 8;
             this.labelProprietarios.Text = "Proprietários";
             this.labelProprietarios.Click += new System.EventHandler(this.label4_Click);
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 355);
+            this.ClientSize = new System.Drawing.Size(788, 437);
             this.Controls.Add(this.labelProprietarios);
             this.Controls.Add(this.pictureBoxproprietario);
             this.Controls.Add(this.labelAlunos);
@@ -162,7 +158,8 @@
             this.Controls.Add(this.labelRegistHab);
             this.Controls.Add(this.pictureBoxRegistHab);
             this.Controls.Add(this.pictureBoxLogo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
             this.Text = "Main";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
