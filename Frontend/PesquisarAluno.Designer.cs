@@ -38,8 +38,6 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "JOão "});
             this.listBox1.Location = new System.Drawing.Point(49, 121);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(413, 84);
@@ -83,7 +81,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "PesquisarAluno";
-            this.Text = "Pesquisar Aluno";
+            this.Text = "PesquisarAluno";
             this.ResumeLayout(false);
             this.PerformLayout();
 

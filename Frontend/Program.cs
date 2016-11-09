@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -18,7 +15,7 @@ namespace Frontend
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new RegistarHabitacao());
+                Application.Run(new PesquisarProprietario());
             }
             catch (Exception e)
             {

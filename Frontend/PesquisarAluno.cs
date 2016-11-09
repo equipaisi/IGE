@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -19,23 +12,30 @@ namespace Frontend
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
 
-            if ((string)listBox1.SelectedItem == "JOão ")
+
+            if ((string)listBox1.SelectedItem == "Joao Ferreira Tavares")
             {
-              Alunos newForm4 = new Alunos();
+                Alunos newForm4 = new Alunos();
                 newForm4.ShowDialog();
             }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if( textBox1_TextChanged.Select =="") { }
+            if (textBox1.Text == "Joao")
+            {
+
+                listBox1.Items.Add("Joao Andre FIlipe");
+                listBox1.Items.Add("Joao Ricardo Manuel");
+                listBox1.Items.Add("Joao Ferreira Tavares");
+                listBox1.Items.Add("Joao Esteves");
+            }
         }
     }
 }
