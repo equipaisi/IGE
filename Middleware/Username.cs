@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Middleware
 {
@@ -19,7 +17,7 @@ namespace Middleware
 
         public static bool ComplexValid(string username, IEnumerable<Predicate<string>> predicates)
         {
-            return Username.Valid(username) && predicates.All(pred => pred(username));
+            return Valid(username) && predicates.All(pred => pred(username));
         }
     }
 }

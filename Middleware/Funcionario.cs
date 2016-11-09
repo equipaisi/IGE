@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net.Mail;
 
 namespace Middleware
@@ -27,7 +24,8 @@ namespace Middleware
         /// <param name="ultimoNome">Último nome do funcionário.</param>
         /// <param name="nomesIntermedios"></param>
         /// <param name="email">Endereço electrónico do funcionário.</param>
-        public Funcionario(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, string username, string password, string email) : base()
+        /// <param name="password">Password em cleartext do funcionário.</param>
+        public Funcionario(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, string username, string password, string email)
         {
             Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(primeiroNome), "Primeiro nome do funcionário não pode ser null ou vazio");
             Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(ultimoNome), "Último nome do funcionário não pode ser null ou vazio");

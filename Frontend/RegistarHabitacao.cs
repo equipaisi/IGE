@@ -32,11 +32,6 @@ namespace Frontend
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -119,13 +114,13 @@ namespace Frontend
             #endregion
 
             // Comodidades
-            var comodidades = new Middleware.Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked, checkBoxServicosDeLimpeza.Checked);
+            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked, checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
             var descricao = textBoxDescricao.Text;
 
             // Construir a habitação
-            var quartos = new List<Middleware.Quarto>(numQuartos);
+            var quartos = new List<Quarto>(numQuartos);
             for (var i = 0; i < numQuartos; i++)
             {
                 quartos.Add(new Quarto(new List<ICama> {new Cama(TipoCama.Single)}));
@@ -321,7 +316,7 @@ namespace Frontend
             }*/
 
             var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
-            transfo.Location = this.PointToClient(new Point(e.X, e.Y));
+            transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
     }
 }

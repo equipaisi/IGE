@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Middleware
 {
@@ -52,9 +48,8 @@ namespace Middleware
 
         private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputBytes)
     {
-        var pbkdf2 = new Rfc2898DeriveBytes(password, salt);
-        pbkdf2.IterationCount = iterations;
-        return pbkdf2.GetBytes(outputBytes);
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt) {IterationCount = iterations};
+            return pbkdf2.GetBytes(outputBytes);
     }
 }
 }

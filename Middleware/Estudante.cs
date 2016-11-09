@@ -80,9 +80,10 @@ namespace Middleware
         /// </summary>
         /// <param name="primeiroNome">Primeiro nome do Estudante.</param>
         /// <param name="ultimoNome">Último nome do Estudante.</param>
-        /// <param name="nomesIntermedios"></param>
+        /// <param name="nomesIntermedios">Nomes intermédios do Estudante.</param>
         /// <param name="dataDeNascimento">Data de nascimento do Estudante.</param>
         /// <param name="sexo">Género Sexual do Estudante.</param>
+        /// <param name="ensino">InstituicaoEnsino (Instituição, Curso, Ano) do Estudante.</param>
         public Estudante(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, DateTime dataDeNascimento, GeneroSexual sexo, InstituicaoEnsino ensino)
         {
             Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(primeiroNome), "Primeiro nome do funcionário não pode ser null ou vazio");

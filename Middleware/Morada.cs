@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Windows.Forms;
 
 // Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("IGE.Resources.cp.csv"))
 

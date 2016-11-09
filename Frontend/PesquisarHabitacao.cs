@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -17,16 +10,8 @@ namespace Frontend
             InitializeComponent();
         }
 
-        private void PesquisarHabitacao_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             if ((string)comboBox1.SelectedItem == "Braga")
             {
                 comboBox2.Items.Add("xau");
@@ -40,16 +25,6 @@ namespace Frontend
         }
 
         private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
