@@ -28,6 +28,7 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             if (textBox1.Text == "Joao")
             {
 
@@ -35,6 +36,15 @@ namespace Frontend
                 listBox1.Items.Add("Joao Ricardo Manuel");
                 listBox1.Items.Add("Joao Ferreira Tavares");
                 listBox1.Items.Add("Joao Esteves");
+            }
+
+            if (textBox1.Text == "Andre")
+            {
+
+                listBox1.Items.Add("Andre Filipe Jorge");
+                listBox1.Items.Add("Andre GIl");
+                listBox1.Items.Add("Andre Pedro Figueiredo");
+               
             }
         }
     }

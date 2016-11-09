@@ -117,27 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlh3gGCAIEAAJmZmf///wAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQAFAAAACwAAAAA3gGC
-        AAAI9gABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaNHhwFCihxJsqTJkyhTqlzJsqXLlzBj
-        ypxJs6bNmzhz6tzJs6dKgT6DCh1KtKjRo0iTKl16FCjTp1CjSp1KtarVq06vat3KtavXr2B7Zg1LtqzZ
-        s2jTBh2rtq3bt3DjcmUrt67du3jzxqSrt6/fv4DR8g1MuLDhw0gHI17MuLFjloofS55MmXDkypgza257
-        ebPnz6Ctdg5NurTpoaNPq17NGmbq1rBjy34tu7Zt0rRv695NOTfv38AN+w5OvDje4caTK1eLfLnz516b
-        Q59OXar06tizG329rr27d53cv4sf7xoA+fPo15pPz759zfDu43+HL78+dvr28z/Hr7+/cf7+BfgbgAIW
-        aBuBBibYGoIKNmgagw5G+BmEElaIGYUWZvgYhhp2iBiHHoYYGIgilqgXiSamWBeKKrboFosuxngWjDLW
-        CBaNNua4FY469kgVjz4G+WsUkEIWmdh6RiZ5IpJKNrkik05G+SKUUlY5I5VWZnkjllp2uSOXXob5I5hi
-        ljkkmWameaSabEJFZJtlvglnmHLO2WWddmaJZ55V7slnlH7+2WSggiZJaKFFHopokIou2mOjjuYIaaQ1
-        TkppjF2WXtpippqmyGmnJX4KaoiijtphqaZmiGqqFa7KaoSuvtpgrLImSGutBd6Ka4C67tpfr77mB2yw
-        9Q1LbHzGHttessqmx2yz5z0L7XjSTjsfmtaaWW222m3L7X3YfutepbfiTkduufuFi66V566rXLvu/qdu
-        vE7CS29w9t474Lz6Gplvv7r9C/CB/A7so8AGx4ZwwgsWzLCNCz+sWsQSP+hwxS5SjHFoGm884cUem9hx
-        yJqNTPKFIJ/sockqTyHGcssbpgyzhS/PzFjNNn/40c489+zzz0AHLfTQRBc9dEAAOw==
-</value>
-  </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAEBAAAAAAIABoBAAAZgAAACAgAAAAACAAqBAAAM4EAAAwMAAAAAAgAKglAAB2FQAAQEAAAAAA

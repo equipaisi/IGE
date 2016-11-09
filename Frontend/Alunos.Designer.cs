@@ -44,13 +44,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(420, 31);
+            this.label13.Location = new System.Drawing.Point(507, 31);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 17);
             this.label13.TabIndex = 31;
@@ -59,7 +62,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(148, 292);
+            this.label12.Location = new System.Drawing.Point(143, 278);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(159, 17);
             this.label12.TabIndex = 30;
@@ -68,7 +71,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 292);
+            this.label11.Location = new System.Drawing.Point(174, 312);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 17);
             this.label11.TabIndex = 29;
@@ -77,7 +80,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(148, 249);
+            this.label10.Location = new System.Drawing.Point(148, 235);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(191, 17);
             this.label10.TabIndex = 28;
@@ -86,7 +89,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(157, 201);
+            this.label9.Location = new System.Drawing.Point(157, 187);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 17);
             this.label9.TabIndex = 27;
@@ -95,7 +98,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(83, 201);
+            this.label7.Location = new System.Drawing.Point(83, 187);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 17);
             this.label7.TabIndex = 25;
@@ -104,7 +107,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 292);
+            this.label5.Location = new System.Drawing.Point(83, 278);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 17);
             this.label5.TabIndex = 24;
@@ -113,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 292);
+            this.label4.Location = new System.Drawing.Point(83, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 23;
@@ -122,7 +125,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 249);
+            this.label3.Location = new System.Drawing.Point(83, 235);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 22;
@@ -131,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(381, 31);
+            this.label2.Location = new System.Drawing.Point(468, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 21;
@@ -184,16 +187,36 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(468, 106);
+            this.groupBox1.Size = new System.Drawing.Size(515, 106);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Escola";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(67, 375);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(515, 88);
+            this.dataGridView1.TabIndex = 36;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(255, 355);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(116, 17);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "Historico Aluguer";
             // 
             // Alunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 348);
+            this.ClientSize = new System.Drawing.Size(667, 475);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -216,6 +239,7 @@
             this.Load += new System.EventHandler(this.Alunos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +262,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label15;
     }
 }
