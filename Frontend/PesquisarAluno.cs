@@ -46,6 +46,20 @@ namespace Frontend
                 listBox1.Items.Add("Andre Pedro Figueiredo");
                
             }
+            if (textBox3.Text == "12345678")
+            {
+
+
+                listBox1.Items.Add("Joao Ferreira Tavares");
+
+            }
+            if (textBox3.Text == " " || textBox1.Text == " ")
+            {
+
+
+                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
+
+            }
         }
     }
 }

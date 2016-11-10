@@ -13,7 +13,7 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            if (textBox1.Text == "Joao")
+            if (textBox1.Text == "Joao"  )
             {
 
                 listBox1.Items.Add("Joao Andre FIlipe");
@@ -21,6 +21,22 @@ namespace Frontend
                 listBox1.Items.Add("Joao Ferreira Tavares");
                 listBox1.Items.Add("Joao Esteves");
             }
+            if (textBox3.Text == "12345678")
+            {
+
+               
+                listBox1.Items.Add("Joao Ferreira Tavares");
+              
+            }
+            if (textBox3.Text == " " || textBox1.Text==" ")
+            {
+
+
+                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
+
+            }
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
