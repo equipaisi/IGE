@@ -73,6 +73,8 @@
             this.labelPreco = new System.Windows.Forms.Label();
             this.toolTipCodigoPostal = new System.Windows.Forms.ToolTip(this.components);
             this.descricaoGroupBox = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
@@ -199,7 +201,7 @@
             this.comboBoxProprietario.Location = new System.Drawing.Point(160, 70);
             this.comboBoxProprietario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxProprietario.Name = "comboBoxProprietario";
-            this.comboBoxProprietario.Size = new System.Drawing.Size(451, 24);
+            this.comboBoxProprietario.Size = new System.Drawing.Size(369, 24);
             this.comboBoxProprietario.TabIndex = 1;
             this.comboBoxProprietario.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -592,11 +594,31 @@
             this.descricaoGroupBox.TabStop = false;
             this.descricaoGroupBox.Text = "Descrição";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(535, 50);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 23);
+            this.button2.TabIndex = 96;
+            this.button2.Text = "CRIAR";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(535, 74);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(83, 31);
+            this.button3.TabIndex = 97;
+            this.button3.Text = "Pesquisar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // RegistarHabitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 764);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBoxInfo);
             this.Controls.Add(this.groupBoxFotos);
             this.Controls.Add(this.groupBoxComodidades);
@@ -680,5 +702,7 @@
         private System.Windows.Forms.CheckBox checkBoxDespesasIncluidas;
         private System.Windows.Forms.Label labelNumDeWC;
         private System.Windows.Forms.ComboBox comboBoxNumDeWC;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

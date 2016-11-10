@@ -14,11 +14,6 @@ namespace Frontend
         {
 
 
-            if ((string)listBox1.SelectedItem == "Joao Ferreira Tavares")
-            {
-                Alunos newForm4 = new Alunos();
-                newForm4.ShowDialog();
-            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -28,38 +23,8 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            if (textBox1.Text == "Joao")
-            {
-
-                listBox1.Items.Add("Joao Andre FIlipe");
-                listBox1.Items.Add("Joao Ricardo Manuel");
-                listBox1.Items.Add("Joao Ferreira Tavares");
-                listBox1.Items.Add("Joao Esteves");
-            }
-
-            if (textBox1.Text == "Andre")
-            {
-
-                listBox1.Items.Add("Andre Filipe Jorge");
-                listBox1.Items.Add("Andre GIl");
-                listBox1.Items.Add("Andre Pedro Figueiredo");
-               
-            }
-            if (textBox3.Text == "12345678")
-            {
-
-
-                listBox1.Items.Add("Joao Ferreira Tavares");
-
-            }
-            if (textBox3.Text == " " || textBox1.Text == " ")
-            {
-
-
-                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
-
-            }
+            
+            
         }
     }
 }
