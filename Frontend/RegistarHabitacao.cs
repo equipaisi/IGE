@@ -347,5 +347,17 @@ namespace Frontend
             var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PesquisarProprietario prop = new PesquisarProprietario();
+            prop.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NovoProprietario newProp = new NovoProprietario();
+            newProp.ShowDialog();
+        }
     }
 }
