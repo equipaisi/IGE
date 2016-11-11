@@ -23,8 +23,11 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
+            if (textBox1.Text == " " || textBox3.Text == " " )
+            {
+                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
+            }
+
         }
     }
 }

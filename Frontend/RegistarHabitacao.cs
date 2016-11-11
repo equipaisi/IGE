@@ -44,10 +44,7 @@ namespace Frontend
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((string)comboBoxProprietario.SelectedItem == "ADICIONAR ")
-            {
-                new NovoProprietario().ShowDialog();
-            }
+           
         }
 
         /// <summary>

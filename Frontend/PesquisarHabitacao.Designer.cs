@@ -323,7 +323,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(285, 241);
+            this.linkLabel2.Location = new System.Drawing.Point(285, 228);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(93, 17);
             this.linkLabel2.TabIndex = 19;
@@ -334,7 +334,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(285, 60);
+            this.linkLabel1.Location = new System.Drawing.Point(298, 53);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(80, 17);
             this.linkLabel1.TabIndex = 18;
@@ -345,13 +345,13 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(261, 228);
+            this.richTextBox2.Location = new System.Drawing.Point(261, 257);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(382, 156);
+            this.richTextBox2.Size = new System.Drawing.Size(382, 127);
             this.richTextBox2.TabIndex = 17;
-            this.richTextBox2.Text = "\n\nBraga\nArcozelo , Barcelos\nIncluido : Internet  \n\n2 Quarto Disponível\n\nQuarto : " +
-    "250€/mes";
+            this.richTextBox2.Text = "Braga\nArcozelo , Barcelos\nIncluido : Internet  \n\n2 Quarto Disponível\n\nQuarto : 25" +
+    "0€/mes";
             this.richTextBox2.Visible = false;
             // 
             // pictureBox2
@@ -367,13 +367,13 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(261, 53);
+            this.richTextBox1.Location = new System.Drawing.Point(261, 83);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(382, 156);
+            this.richTextBox1.Size = new System.Drawing.Size(382, 126);
             this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "\n\nBraga\nAlvelos , Barcelos\nIncluido : Internet , TV \n\n1 Quarto Disponível\n\nQuarto" +
-    " : 210€/mes";
+            this.richTextBox1.Text = "Braga\nAlvelos , Barcelos\nIncluido : Internet , TV \n\n1 Quarto Disponível\n\nQuarto :" +
+    " 210€/mes";
             this.richTextBox1.Visible = false;
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
@@ -406,6 +406,7 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pesquisar";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // button1
             // 

@@ -54,6 +54,7 @@
             this.checkBoxTelevisao = new System.Windows.Forms.CheckBox();
             this.checkBoxServicosDeLimpeza = new System.Windows.Forms.CheckBox();
             this.descricaoGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.pictureBoxMapa = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,14 +65,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
@@ -367,6 +368,15 @@
             this.descricaoGroupBox.Text = "Descrição";
             this.descricaoGroupBox.Enter += new System.EventHandler(this.descricaoGroupBox_Enter);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(35, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 51);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Casa bastante moderna \r\n\r\nExcelente Localização\r\n";
+            // 
             // pictureBoxMapa
             // 
             this.pictureBoxMapa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -479,15 +489,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Proprietário:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(189, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Nome : Filipe Andre Gouveia";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(344, 28);
@@ -498,6 +499,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(189, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nome : Filipe Andre Gouveia";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(891, 668);
@@ -506,15 +516,7 @@
             this.button2.TabIndex = 100;
             this.button2.Text = "ALUGAR QUARTO";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 51);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Casa bastante moderna \r\n\r\nExcelente Localização\r\n";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox2
             // 
@@ -539,7 +541,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(151, 18);
+            this.label11.Location = new System.Drawing.Point(72, 18);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(165, 17);
             this.label11.TabIndex = 103;
@@ -547,12 +549,22 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(596, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(465, 43);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(292, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "210€/MÊS";
             // 
             // Habitação
             // 
@@ -643,5 +655,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label12;
     }
 }

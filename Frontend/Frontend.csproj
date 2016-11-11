@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aluguer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluguer.Designer.cs">
+      <DependentUpon>Aluguer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alunos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NovoAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovoAluno.Designer.cs">
+      <DependentUpon>NovoAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="NovoProprietario.cs">
       <SubType>Form</SubType>
@@ -120,6 +132,9 @@
     <Compile Include="RegistarHabitacao.Designer.cs">
       <DependentUpon>RegistarHabitacao.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aluguer.resx">
+      <DependentUpon>Aluguer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alunos.resx">
       <DependentUpon>Alunos.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovoAluno.resx">
+      <DependentUpon>NovoAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NovoProprietario.resx">
       <DependentUpon>NovoProprietario.cs</DependentUpon>

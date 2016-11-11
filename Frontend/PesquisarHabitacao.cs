@@ -58,7 +58,9 @@ namespace Frontend
 
         {
             if (comboBox1.Text == "Braga" || comboBox2.Text == ("Barcelos") || comboBox3.Text == ("IPCA - Instituto Politécnico Cavado Ave")){ pictureBox1.Show();
-                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show(); linkLabel1.Show(); linkLabel2.Show();
+                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show();  linkLabel1.Show();
+                linkLabel2.Show();
+               
             }
                 
                     }
@@ -73,6 +75,11 @@ namespace Frontend
         {
             Habitação hab = new Habitação();
             hab.ShowDialog();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
