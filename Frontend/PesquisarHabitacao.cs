@@ -14,8 +14,8 @@ namespace Frontend
         {
             if ((string)comboBox1.SelectedItem == "Braga")
             {
-                comboBox2.Items.Add("xau");
-                comboBox2.Items.Add("ola");
+                comboBox2.Items.Add("Barcelos");
+                comboBox2.Items.Add("Povoa de Lanhoso");
             }
         }
 
@@ -31,9 +31,12 @@ namespace Frontend
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((string)comboBox2.SelectedItem == "ola")
+            if ((string)comboBox2.SelectedItem == "Barcelos")
             {
-                label9.Text = " HELLOOOOO";
+               
+                    comboBox3.Items.Add("IPCA - Instituto Politécnico Cavado Ave");
+                    
+                
             }
 
             label8.Text = trackBar1.Value.ToString();
@@ -44,6 +47,26 @@ namespace Frontend
             trackBar1.Minimum = 80;
             trackBar1.Maximum = 400;
             label8.Text = trackBar1.Value.ToString();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+
+        {
+            if (comboBox1.Text == "Braga" || comboBox2.Text == ("Barcelos") || comboBox3.Text == ("IPCA - Instituto Politécnico Cavado Ave")){ pictureBox1.Show();
+                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show();
+            }
+                
+                    }
+        
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
