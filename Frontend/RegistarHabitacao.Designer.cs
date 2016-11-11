@@ -302,7 +302,7 @@
             this.groupBoxMorada.Controls.Add(this.labelLocalidade);
             this.groupBoxMorada.Controls.Add(this.labelCodigoPostal);
             this.groupBoxMorada.Controls.Add(this.labelRua);
-            this.groupBoxMorada.Location = new System.Drawing.Point(69, 116);
+            this.groupBoxMorada.Location = new System.Drawing.Point(69, 119);
             this.groupBoxMorada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxMorada.Name = "groupBoxMorada";
             this.groupBoxMorada.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -585,7 +585,7 @@
             // descricaoGroupBox
             // 
             this.descricaoGroupBox.Controls.Add(this.textBoxDescricao);
-            this.descricaoGroupBox.Location = new System.Drawing.Point(71, 497);
+            this.descricaoGroupBox.Location = new System.Drawing.Point(70, 496);
             this.descricaoGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.descricaoGroupBox.Name = "descricaoGroupBox";
             this.descricaoGroupBox.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
