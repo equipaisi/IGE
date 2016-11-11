@@ -33,5 +33,12 @@ namespace Frontend
             NovoAluno novo_alu = new NovoAluno();
             novo_alu.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Quarto Alugado com sucesso ");
+            Aluguer al = new Aluguer();
+            al.Close();
+        }
     }
 }

@@ -37,15 +37,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.labelProprietario = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBoxMorada.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -149,6 +149,45 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Aluguer";
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(104, 197);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 107;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(49, 197);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 17);
+            this.label5.TabIndex = 106;
+            this.label5.Text = "Fim :";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(104, 144);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 105;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(49, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.TabIndex = 104;
+            this.label4.Text = " Inicio : ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(104, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(322, 22);
+            this.textBox1.TabIndex = 103;
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(450, 57);
@@ -186,45 +225,6 @@
             this.labelProprietario.TabIndex = 100;
             this.labelProprietario.Text = "Aluno: ";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(104, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(322, 22);
-            this.textBox1.TabIndex = 103;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
-            this.label4.TabIndex = 104;
-            this.label4.Text = " Inicio : ";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 144);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 105;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(49, 197);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 17);
-            this.label5.TabIndex = 106;
-            this.label5.Text = "Fim :";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(104, 197);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 107;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(691, 606);
@@ -233,6 +233,7 @@
             this.button1.TabIndex = 98;
             this.button1.Text = "FINALIZAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Aluguer
             // 

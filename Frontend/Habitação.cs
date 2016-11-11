@@ -34,7 +34,8 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Proprietario prt = new Proprietario();
+            prt.ShowDialog();
 
         }
 
@@ -42,6 +43,12 @@ namespace Frontend
         {
             Aluguer alug = new Aluguer();
             alug.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
+            
         }
     }
 }
