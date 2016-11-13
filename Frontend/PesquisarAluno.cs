@@ -29,5 +29,11 @@ namespace Frontend
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Alunos alun = new Alunos();
+            alun.ShowDialog();
+        }
     }
 }
