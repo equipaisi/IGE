@@ -9,15 +9,10 @@ namespace Middleware
 
     public static class Username
     {
-        public static bool Valid(string username)
-        {
-            // TODO: develop this?
-            return !string.IsNullOrWhiteSpace(username);
-        }
+        // TODO: develop this?
+        public static bool Valid(string username) => !string.IsNullOrWhiteSpace(username);
 
         public static bool ComplexValid(string username, IEnumerable<Predicate<string>> predicates)
-        {
-            return Valid(username) && predicates.All(pred => pred(username));
-        }
+            => Valid(username) && predicates.All(pred => pred(username));
     }
 }

@@ -7,12 +7,12 @@ namespace Middleware
         /// <summary>
         /// O nome da rede social em questão. (eg: Facebook)
         /// </summary>
-        string Nome { get; }
+        string Nome { get; set; }
 
         /// <summary>
         /// O Uri (Uniform Resource Identifier) da rede social. (eg: "https://www.facebook.com")
         /// </summary>
-        Uri Uri { get; }
+        Uri Uri { get; set; }
     }
 
     public class RedeSocial: IRedeSocial
@@ -22,7 +22,7 @@ namespace Middleware
             Nome = nome;
             Uri = new Uri(uri);
         }
-        public string Nome { get; }
-        public Uri Uri { get; }
+        public string Nome { get; set; }
+        public Uri Uri { get; set; }
     }
 }

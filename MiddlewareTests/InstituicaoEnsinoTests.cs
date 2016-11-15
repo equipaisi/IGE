@@ -8,7 +8,7 @@ namespace Middleware.Tests
         [TestMethod()]
         public void ToStringTest()
         {
-            Assert.AreEqual(new InstituicaoEnsino()
+            Assert.AreEqual(new InstituicaoDeEnsino()
             {
                 Instituicao = "Instituto Politécnico do Cávado e do Ave",
                 Curso = "Design Industrial",

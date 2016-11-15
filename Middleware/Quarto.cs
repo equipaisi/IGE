@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 
 namespace Middleware
@@ -10,26 +9,33 @@ namespace Middleware
         /// Retorna o número de camas do quarto.
         /// </summary>
         int NumeroDeCamas { get; }
+
         /// <summary>
         /// Retorna o número máximo de pessoas que podem dormir no quarto.
         /// </summary>
         int Capacidade { get; }
     }
 
-    public class Quarto: IQuarto
+    public class Quarto : IQuarto
     {
-        public Quarto(IEnumerable<ICama> camas)
+        #region Constructores
+        public Quarto()
         {
-            Contract.Requires(camas != null);
-            Camas = camas;
-            NumeroDeCamas = Camas.Count();
+            Camas = new List<ICama> { new Cama(TipoCama.Single) };
         }
 
+        public Quarto(IEnumerable<ICama> camas)
+        {
+            Camas = camas;
+        }
+        #endregion
+
         public IEnumerable<ICama> Camas { get; set; }
+
         /// <summary>
         /// Retorna o número de camas do quarto.
         /// </summary>
-        public int NumeroDeCamas { get; }
+        public int NumeroDeCamas => Camas.Count();
         /// <summary>
         /// Retorna o número máximo de pessoas que podem dormir no quarto.
         /// </summary>

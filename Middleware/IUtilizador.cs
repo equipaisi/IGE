@@ -11,16 +11,16 @@ namespace Middleware
         /// <summary>
         /// O username do utilizador.
         /// </summary>
-        string Username { get; } // TODO: make Username type, think about password policy checking
+        string Username { get; set; } // TODO: make Username type, think about password policy checking
         /// <summary>
         /// A hash da password do utilizador.
         /// TODO: use a hash function like
         /// </summary>
-        string PasswordHash { get; }
+        string PasswordHash { get; set; }
         /// <summary>
         /// O nome completo do utilizador.
         /// </summary>
-        string NomeCompleto { get; }
+        string NomeCompleto { get; set; }
         /// <summary>
         /// O email do utilizador.
         /// TODO: email type
@@ -40,9 +40,9 @@ namespace Middleware
            DataDeCriacao = DateTime.Now;
         }
 
-        public abstract string Username { get; }
-        public abstract string PasswordHash { get; }
-        public abstract string NomeCompleto { get; }
+        public abstract string Username { get; set; }
+        public abstract string PasswordHash { get; set; }
+        public abstract string NomeCompleto { get; set; }
         public abstract MailAddress Email { get; set; }
         public DateTime DataDeCriacao { get; }
     }

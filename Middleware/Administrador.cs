@@ -18,9 +18,9 @@ namespace Middleware
         }
 
         #region Utilizador / IUTilizador
-        public override string Username { get; }
-        public override string PasswordHash { get; }
-        public override string NomeCompleto { get; }
+        public override string Username { get; set; }
+        public override string PasswordHash { get; set; }
+        public override string NomeCompleto { get; set; }
         public override MailAddress Email { get; set; }
         #endregion
 

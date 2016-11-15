@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using System.Linq;
 using System.Net.Mail;
 
 namespace Middleware
 {
+    /// <summary>
+    /// Interface IFuncionário.
+    /// </summary>
     public interface IFuncionario: IUtilizador
-    {
+    {   
+        /// <summary>
+        /// O género sexual do funcionário.
+        /// </summary>
         GeneroSexual Genero { get; set; }
     }
 
     public sealed class Funcionario : Utilizador, IFuncionario
     {
+        #region Constructors
         /// <summary>
         /// Constrói um novo funcionário.
         /// </summary>
@@ -27,8 +34,6 @@ namespace Middleware
         /// <param name="password">Password em cleartext do funcionário.</param>
         public Funcionario(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, string username, string password, string email)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(primeiroNome), "Primeiro nome do funcionário não pode ser null ou vazio");
-            Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(ultimoNome), "Último nome do funcionário não pode ser null ou vazio");
             PrimeiroNome = primeiroNome;
             UltimoNome = ultimoNome;
             NomesIntermedios = nomesIntermedios ?? new List<string>();
@@ -42,20 +47,11 @@ namespace Middleware
             Email = new MailAddress(email);
             PasswordHash = Middleware.PasswordHash.HashPassword(password);
         }
-
-        /// <summary>
-        /// <remarks>Obrigatório</remarks>
-        /// </summary>
-        public string PrimeiroNome { get; }
-        /// <summary>
-        /// <remarks>Obrigatório</remarks>
-        /// </summary>
-        public string UltimoNome { get; }
-        public IEnumerable<string> NomesIntermedios { get; }
+        #endregion
 
         #region Utilizador / IUtilizador
-        public override string Username { get; }
-        public override string PasswordHash { get; }
+        public override string Username { get; set; }
+        public override string PasswordHash { get; set; }
         /// <summary>
         /// O email do utilizador.
         /// TODO: email type
@@ -75,18 +71,49 @@ namespace Middleware
                 names.Add(UltimoNome);
                 return string.Join(" ", names);
             }
-            
-        }
+            set
+            {
+                var names = value.Split(' ');
+                var namesLength = names.Length;
+                switch (namesLength)
+                {
+                    case 1:
+                        PrimeiroNome = names[0];
+                        NomesIntermedios = null;
+                        UltimoNome = null;
+                        break;
+                    case 2:
+                        PrimeiroNome = names[0];
+                        NomesIntermedios = null;
+                        UltimoNome = names[1];
+                        break;
+                    default:
+                        PrimeiroNome = names[0];
+                        NomesIntermedios = names.AsEnumerable().Skip(1).Take(namesLength - 2);
+                        UltimoNome = names[1];
+                        break;
+                }
+            }
 
+        }
         #endregion
 
+        #region IFuncionario
+        public GeneroSexual Genero { get; set; }
+        #endregion
+
+        /// <summary>
+        /// <remarks>Obrigatório</remarks>
+        /// </summary>
+        public string PrimeiroNome { get; set; }
+        /// <summary>
+        /// <remarks>Obrigatório</remarks>
+        /// </summary>
+        public string UltimoNome { get; set; }
+        public IEnumerable<string> NomesIntermedios { get; set; }
         /// <summary>
         /// Retorna o primeiro e último nome do utilizador.
         /// </summary>
         public string NomeCurto => $"{PrimeiroNome} {UltimoNome}";
-
-
-
-        public GeneroSexual Genero { get; set; }
     }
 }
