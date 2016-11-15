@@ -5,6 +5,7 @@ namespace Frontend
 {
     public partial class FormPrincipal : Form
     {
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -38,6 +39,18 @@ namespace Frontend
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             new PesquisarAluno().ShowDialog();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+        PictureBox s;
+       
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

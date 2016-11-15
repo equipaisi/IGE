@@ -584,7 +584,10 @@
             this.Controls.Add(this.groupBoxMorada);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxFotos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Habitação";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Habitação";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxFotos.ResumeLayout(false);

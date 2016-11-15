@@ -22,6 +22,8 @@ namespace Frontend
                 var newForm2 = new FormPrincipal();
                 newForm2.ShowDialog();
             }
+
+          
         }
 
         private void label1_Click(object sender, EventArgs e)
