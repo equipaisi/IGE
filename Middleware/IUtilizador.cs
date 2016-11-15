@@ -29,8 +29,12 @@ namespace Middleware
         /// <summary>
         /// A data de criação desta conta de utilizador.
         /// </summary>
-        DateTime DataDeCriacao { get; }
         // TODO: data de última modificação, ou lista de modificações e datas associadas? ou nada?
+        DateTime DataDeCriacao { get; }
+        /// <summary>
+        /// Um par (username, password) deste utilizador.
+        /// </summary>
+        //Tuple<string,string> Credentiais { get; }
     }
 
     public abstract class Utilizador : IUtilizador
@@ -45,5 +49,6 @@ namespace Middleware
         public abstract string NomeCompleto { get; set; }
         public abstract MailAddress Email { get; set; }
         public DateTime DataDeCriacao { get; }
+        //public abstract Tuple<string, string> Credentiais { get; }
     }
 }

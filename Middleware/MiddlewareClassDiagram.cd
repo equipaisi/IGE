@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Middleware.Administrador">
+    <Position X="1" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAEAQAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Administrador.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Middleware.Cama" BaseTypeListCollapsed="true">
+    <Position X="17" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Cama.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Middleware.InstituicaoDeEnsino">
+    <Position X="5.25" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Estudante.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Middleware.Estudante" BaseTypeListCollapsed="true">
+    <Position X="10" Y="3.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>IQACEAAggCAAAAAEAAAAAAJAAAAAAEAABAAgCAECAAA=</HashCode>
+      <FileName>Estudante.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Middleware.Funcionario">
+    <Position X="3.75" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAQAAAAJAAAAAAAAAAAAgAIACCAA=</HashCode>
+      <FileName>Funcionario.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Middleware.Habitacao" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAQABBAAJAFjAAAAAABAAQAAAAAgAA=</HashCode>
+      <FileName>Habitacao.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Middleware.Utilizador">
+    <Position X="1" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAQAAAAAAAAAAAAAABAAAAIAAAAA=</HashCode>
+      <FileName>IUtilizador.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Middleware.CodigoPostal">
+    <Position X="14.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAQAgCQAAA=</HashCode>
+      <FileName>Morada.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Middleware.Morada">
+    <Position X="14.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAgEACQAAAAAAAQgAAAAAAAAAAARAAA=</HashCode>
+      <FileName>Morada.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Middleware.PasswordHash">
+    <Position X="21.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAEEQAEBAAIAAAAAAAAAAAAAAAgAAJAAAAA=</HashCode>
+      <FileName>PasswordHash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Middleware.Quarto" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAFAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quarto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Middleware.RedeSocial" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <FileName>RedeSocial.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Middleware.Username">
+    <Position X="21.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Username.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Middleware.Comodidades">
+    <Position X="19.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAQAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Comodidades.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Middleware.IAdministrador" Collapsed="true">
+    <Position X="3.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administrador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.ICama">
+    <Position X="17.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cama.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IEstudante">
+    <Position X="10" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>IQACAAAggCAAAAAAAAAAAAIAAAAAAEAABAAACAEAAAA=</HashCode>
+      <FileName>Estudante.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IFuncionario" Collapsed="true">
+    <Position X="3.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Funcionario.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IHabitacao">
+    <Position X="7.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAQABBAAIAEDAAAAAABAAQAAAAAgAA=</HashCode>
+      <FileName>Habitacao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IUtilizador">
+    <Position X="1" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAQAAAAAAAAAAAAAABAAAAIAAAAA=</HashCode>
+      <FileName>IUtilizador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IQuarto">
+    <Position X="17.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quarto.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Middleware.IRedeSocial">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <FileName>RedeSocial.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Middleware.TipoCama">
+    <Position X="19.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cama.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Middleware.GeneroSexual">
+    <Position X="21.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>GeneroSexual.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
