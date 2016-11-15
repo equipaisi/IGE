@@ -22,8 +22,14 @@ namespace Frontend
                 var newForm2 = new FormPrincipal();
                 newForm2.ShowDialog();
             }
+            if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
+            {
+                var newForm2 = new Administrador();
+                newForm2.ShowDialog();
+            }
 
-          
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,6 +45,37 @@ namespace Frontend
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             // ipsum lorem
+        }
+
+       // private void button1_Click(object sender, EventArgs e)
+       // {
+
+            //Conexao conex = new Conexao();
+
+//            SqlCommand cmd = new SqlCommand("Select * from LoginUsuario where usuario = '" + txtUsuario.Text + "' and senha = '" + txtSenha.Text + "'", conex.conectar());
+  //          SqlDataReader dr = cmd.ExecuteReader();
+
+    //        if (dr.Read())
+         //   {
+
+      //          this.Hide();
+        //         Principal princ = new Principal();
+          //      princ.ShowDialog();
+
+            //}
+
+
+       //     else
+         //   {
+           //     MessageBox.Show("[Usuario][Senha] incorretos. Tente Novamente");
+
+            //}
+            //
+        //}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
