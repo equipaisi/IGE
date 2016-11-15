@@ -16,5 +16,11 @@ namespace Frontend
         {
             InitializeComponent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Configurações_Admin config = new Configurações_Admin();
+            config.ShowDialog();
+        }
     }
 }
