@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using Backend;
+using Middleware;
 
 namespace Frontend
 {
     public partial class FormLogin : Form
     {
-        public FormLogin()
+        private MySqlDb _db;
+
+        public FormLogin(MySqlDb db)
         {
+            _db = db;
             InitializeComponent();
         }
 
@@ -17,17 +22,31 @@ namespace Frontend
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
+            var username = textBox_Name.Text;
+            var password = textBox_Password.Text;
+
+            if (_db.ValidUser(username, password))
+            {
+                // ver que tipo de utilizador e fazer o dispatch apropriado
+                var newForm2 = new FormPrincipal();
+                newForm2.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Username ou password incorrecta.", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            /*
+            if (username == "a" && password == "a")
             {
                 var newForm2 = new FormPrincipal();
                 newForm2.ShowDialog();
             }
-            if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
+            if (username == "admin" && password == "admin")
             {
                 var newForm2 = new Administrador();
                 newForm2.ShowDialog();
             }
-
+            */
 
 
         }
