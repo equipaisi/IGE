@@ -92,6 +92,30 @@
     <Compile Include="Configurações Admin.Designer.cs">
       <DependentUpon>Configurações Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesativarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesativarAluno.Designer.cs">
+      <DependentUpon>DesativarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DesativarHabitacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesativarHabitacao.Designer.cs">
+      <DependentUpon>DesativarHabitacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DesativarPropriatario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesativarPropriatario.Designer.cs">
+      <DependentUpon>DesativarPropriatario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerarRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerarRelatorio.Designer.cs">
+      <DependentUpon>GerarRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Habitação.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +194,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configurações Admin.resx">
       <DependentUpon>Configurações Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesativarAluno.resx">
+      <DependentUpon>DesativarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesativarHabitacao.resx">
+      <DependentUpon>DesativarHabitacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesativarPropriatario.resx">
+      <DependentUpon>DesativarPropriatario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerarRelatorio.resx">
+      <DependentUpon>GerarRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Habitação.resx">
       <DependentUpon>Habitação.cs</DependentUpon>

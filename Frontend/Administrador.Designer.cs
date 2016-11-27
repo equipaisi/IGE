@@ -68,6 +68,7 @@
             this.pictureBoxproprietario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxproprietario.TabIndex = 16;
             this.pictureBoxproprietario.TabStop = false;
+            this.pictureBoxproprietario.Click += new System.EventHandler(this.pictureBoxproprietario_Click);
             // 
             // labelAlunos
             // 
@@ -88,6 +89,7 @@
             this.pictureBoxAlunos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlunos.TabIndex = 14;
             this.pictureBoxAlunos.TabStop = false;
+            this.pictureBoxAlunos.Click += new System.EventHandler(this.pictureBoxAlunos_Click);
             // 
             // labelPesqHab
             // 
@@ -108,6 +110,7 @@
             this.pictureBoxPesqHab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPesqHab.TabIndex = 12;
             this.pictureBoxPesqHab.TabStop = false;
+            this.pictureBoxPesqHab.Click += new System.EventHandler(this.pictureBoxPesqHab_Click);
             // 
             // labelRegistHab
             // 
@@ -128,6 +131,7 @@
             this.pictureBoxRegistHab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRegistHab.TabIndex = 10;
             this.pictureBoxRegistHab.TabStop = false;
+            this.pictureBoxRegistHab.Click += new System.EventHandler(this.pictureBoxRegistHab_Click);
             // 
             // pictureBoxLogo
             // 
