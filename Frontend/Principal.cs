@@ -28,7 +28,11 @@ namespace Frontend
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            new PesquisarHabitacao().ShowDialog();
+            
+           PesquisarHabitacao habit = new PesquisarHabitacao();
+           // habit.MdiParent= this;
+            habit.Show();
+
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)

@@ -19,13 +19,15 @@ namespace Frontend
         {
             if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
             {
-                var newForm2 = new FormPrincipal();
-                newForm2.ShowDialog();
+                IGE xpto = new IGE();
+                xpto.Show();
             }
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
-                var newForm2 = new Administrador();
-                newForm2.ShowDialog();
+                IGE xpto = new IGE();
+                xpto.Show();
+                //var newForm2 = new Administrador();
+                //newForm2.ShowDialog();
             }
 
 
