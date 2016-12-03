@@ -11,7 +11,6 @@ namespace Backend
 {
     public interface IDbConnection : IDisposable, ICloneable
     {
-        void Initialize(string server, string database);
         void Open();
         void Close();
         /// <summary>
@@ -29,27 +28,25 @@ namespace Backend
     public class MySqlDb : IDbConnection
     {
         private MySqlConnection _con;
-        private string _uid;
-        private string _password;
-        private string _database;
+        private readonly string _database;
 
-        public MySqlDb(string server = "localhost", string database = "ige")
-        {
-            Initialize(server, database);
-        }
-
-        #region Métodos
-        public void Initialize(string server = "localhost", string database = "ige")
+        #region Constructors
+        public MySqlDb()
         {
             var connString = GetConnectionStringFromAppConfig();
             // DEBUG: Console.WriteLine($"Connection string from App.config {connString}");
-            //_uid = "igeuser";
-            //_password = "password";
-            //_database = database;
-            _con = new MySqlConnection(connString); // $"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};");
+            _con = new MySqlConnection(connString);
+            _database = _con.Database;
         }
 
+        public MySqlDb(string uid, string password, string server = "localhost", string database = "ige")
+        {
+            _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};");
+            _database = _con.Database;
+        }
+        #endregion
 
+        #region Métodos
         /// <summary>
         /// Lê o valor da connectionString na App.config do Frontend.
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Backend;
 using Middleware;
@@ -28,12 +29,12 @@ namespace Frontend
                 dbCon.Open();
 
                 dbCon.DropDatabase();
-                MessageBox.Show($"Apagada a base de dados `ige`"); 
+                MessageBox.Show($"Apagada a base de dados `ige`");
+                
                 //MessageBox.Show($"Criação da base de dados: {(dbCon.CreateDatabaseAndTables() ? "Sucesso" : "Insucesso")}");
                 //MessageBox.Show($"Populating da base de dados: {(dbCon.PopulateDatabase() ? "Sucesso" : "Insucesso")}");
                 Application.Run(new FormLogin(dbCon));
             }
-
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Erro fatal", MessageBoxButtons.OK, MessageBoxIcon.Error);

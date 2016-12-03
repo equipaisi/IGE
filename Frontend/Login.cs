@@ -9,6 +9,11 @@ namespace Frontend
     {
         private readonly MySqlDb _db;
 
+        public FormLogin()
+        {
+            _db = new MySqlDb();
+            InitializeComponent();
+        }
         public FormLogin(MySqlDb db)
         {
             _db = db;
