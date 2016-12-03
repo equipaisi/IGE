@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.OleDb;
+using System.Linq;
 using System.Threading.Tasks;
 using Middleware;
 using MySql.Data.MySqlClient;
@@ -29,6 +31,7 @@ namespace Backend
         private MySqlConnection _con;
         private string _uid;
         private string _password;
+        private string _database;
 
         public MySqlDb(string server = "localhost", string database = "ige")
         {
@@ -41,6 +44,7 @@ namespace Backend
             //var connString = GetConnectionStringFromAppConfig();
             _uid = "igeuser";
             _password = "password";
+            _database = database;
             _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};"); // $"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};"
         }
 
@@ -63,6 +67,7 @@ namespace Backend
         #region Queries
         // Estes métodos de registar não devem estar acessíveis ao exterior. Eventualmente remover daqui.
         //TODO: RegistarAdministrador(string username, string password, string nome, string email)
+        /*
         public void RegistarFuncionario(string username, string password, string nome, string email)
         {
             // Primeiro vemos qual o utilizador_tipo_id para um funcionário.
@@ -80,17 +85,126 @@ namespace Backend
             cmd2.Parameters.Add(new MySqlParameter("password_hash", PasswordHash.HashPassword(password)));
             cmd2.Parameters.Add(new MySqlParameter("utilizador_tipo_id", userId));
             Console.WriteLine(cmd2.CommandText);
+        }*/
+
+        // TODO: apagar este código na versão final
+        public void DropDatabase()
+        {
+            const string dropDbStmt = "DROP DATABASE IF EXISTS `@dbname`;";
+            var cmd = new MySqlCommand(dropDbStmt, _con);
+            //cmd.Prepare();
+            cmd.Parameters.AddWithValue("@dbname", this._database);
+            Console.WriteLine("Executing " + cmd.CommandText);
+            cmd.ExecuteNonQuery();
         }
 
-        public bool ValidUser(string username, string password)
+        /// <summary>
+        /// Cria a base de dados e as suas tabelas;
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateDatabaseAndTables()
         {
-            const string query = "SELECT password_hash FROM utilizador WHERE username = ?";
+            const string createDbStmt = "CREATE DATABASE IF NOT EXISTS `@dbname`;";
+            var cmd1 = new MySqlCommand(createDbStmt, _con);
+            cmd1.Prepare();
+            cmd1.Parameters.AddWithValue("@dbname", this._database);
+            Console.WriteLine("Executing " + cmd1.CommandText);
+            var r1 = Convert.ToInt32(cmd1.ExecuteNonQuery());
+
+            const string createUserTypeTableStmt = @"CREATE TABLE IF NOT EXISTS `@dbname`.`UserType` (
+                                                      `UserTypeId` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                      `UserTypeDescription` VARCHAR(45) NOT NULL,
+                                                      PRIMARY KEY (`UserTypeId`),
+                                                      UNIQUE INDEX `UserTypeId_UNIQUE` (`UserTypeId` ASC),
+                                                      UNIQUE INDEX `UserTypeDescription_UNIQUE` (`UserTypeDescription` ASC))
+                                                    ENGINE = InnoDB;";
+            var cmd2 = new MySqlCommand(createUserTypeTableStmt, _con);
+            cmd2.Parameters.AddWithValue("@dbname", this._database);
+            var r2 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+
+            const string createUserTableStmt = @"CREATE TABLE IF NOT EXISTS `@dbname`.`User` (
+                                                  `UserId` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                  `UserTypeId` INT UNSIGNED NOT NULL,
+                                                  `Username` VARCHAR(45) NOT NULL,
+                                                  `Email` VARCHAR(100) NOT NULL,
+                                                  `PasswordHash` CHAR(128) NOT NULL,
+                                                  `DataDeCriacao` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                                  PRIMARY KEY (`UserId`),
+                                                  UNIQUE INDEX `UserId_UNIQUE` (`UserId` ASC),
+                                                  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC),
+                                                  UNIQUE INDEX `Username_UNIQUE` (`Username` ASC),
+                                                  INDEX `fk_User_UserType_idx` (`UserTypeId` ASC),
+                                                  CONSTRAINT `fk_User_UserType`
+                                                    FOREIGN KEY (`UserTypeId`)
+                                                    REFERENCES `@dbname`.`UserType` (`UserTypeId`)
+                                                    ON DELETE NO ACTION
+                                                    ON UPDATE NO ACTION)
+                                                ENGINE = InnoDB;";
+            var cmd3 = new MySqlCommand(createUserTableStmt, _con);
+            cmd3.Parameters.AddWithValue("@dbname", this._database);
+            var r3 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+
+            return new List<int> {r1, r2, r3}.All(v => v == 0); // se todos os resultados da execução dos comandos tiverem sido 0 então tudo correu bem
+        }
+
+        /// <summary>
+        /// Popula a base de dados.
+        /// </summary>
+        /// <returns></returns>
+        public bool PopulateDatabase()
+        {
+            const string populateUserTypeTable = "INSERT INTO `@dbname`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');";
+            var cmd1 = new MySqlCommand(populateUserTypeTable, _con);
+            cmd1.Parameters.AddWithValue("@dbname", this._database);
+            var r1 = Convert.ToInt32(cmd1.ExecuteNonQuery());
+
+            const string funcionarioQuery = "SELECT `UserTypeId` FROM `@dbname`.`UserType` WHERE `UserTypeDescription` = 'funcionario';";
+            var cmd2 = new MySqlCommand(funcionarioQuery, _con);
+            cmd2.Parameters.AddWithValue("@dbname", this._database);
+            var funcionarioId = Convert.ToInt32(cmd2.ExecuteScalar());
+
+            const string administradorQuery = "SELECT `UserTypeId` FROM `@dbname`.`UserType` WHERE `UserTypeDescription` = 'administrador';";
+            var cmd3 = new MySqlCommand(administradorQuery, _con);
+            cmd3.Parameters.AddWithValue("@dbname", this._database);
+            var administradorId = Convert.ToInt32(cmd3.ExecuteScalar());
+
+            const string populateUserTable = @"INSERT INTO `@dbname`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES
+                              ('jferreira', 'jferreira@imovcelos.pt', 'foo', @funcionarioId),
+                              ('sgomes', 'sgomes@imovcelos.pt', 'bar', @funcionarioId),
+                              ('afonseca', 'afonseca@imovcelos.pt', 'tar', @administradorId);";
+            var cmd4 = new MySqlCommand(populateUserTable, _con);
+            cmd4.Parameters.AddWithValue("@dbname", this._database);
+            cmd4.Parameters.AddWithValue("@funcionarioId", funcionarioId);
+            cmd4.Parameters.AddWithValue("@administradorId", administradorId);
+            var r2 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+
+            return new List<int> { r1, r2 }.All(v => v == 0); // se todos os resultados da execução dos comandos tiverem sido 0 então tudo correu bem
+        }
+
+        /// <summary>
+        /// Faz a autenticação de um utilizador. 
+        /// </summary>
+        /// <param name="username">Username do utilizador</param>
+        /// <param name="password">Password do utilizador</param>
+        /// <returns></returns>
+        public string ValidUser(string username, string password)
+        {
+            const string query = "SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = ?";
             var command = new MySqlCommand(query, _con);
-            command.Parameters.Add(new MySqlParameter("username", username));
-            var reader = command.ExecuteScalar();
-            if (reader == null) return false; // got nothing
-            var passwordHash = reader.ToString();
-            return PasswordHash.ValidatePassword(username, passwordHash);
+            command.Parameters.Add(new MySqlParameter("Username", username));
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    var passwordHash = reader.GetString(reader.GetOrdinal("PasswordHash"));
+                    var userType = reader.GetString(reader.GetOrdinal("userTypeDescription"));
+
+                    if (password == passwordHash) return userType;
+                    return null;
+                    //return new Tuple<bool, string>(PasswordHash.ValidatePassword(username, passwordHash), userType);
+                }
+            }
+            return null;
         }
         #endregion
         #endregion

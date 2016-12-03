@@ -46,7 +46,6 @@
             resources.ApplyResources(this.pictureBoxLogo, "pictureBoxLogo");
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // imageList1
             // 
@@ -65,13 +64,11 @@
             // 
             resources.ApplyResources(this.labelNome, "labelNome");
             this.labelNome.Name = "labelNome";
-            this.labelNome.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelPassword
             // 
             resources.ApplyResources(this.labelPassword, "labelPassword");
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox_Name
             // 
@@ -98,7 +95,6 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "FormLogin";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();
             this.ResumeLayout(false);
