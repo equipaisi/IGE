@@ -28,7 +28,8 @@ namespace Frontend
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            new PesquisarHabitacao().ShowDialog();
+            
+          
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -45,11 +46,15 @@ namespace Frontend
         {
 
         }
-       
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        public static implicit operator bool(FormPrincipal v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

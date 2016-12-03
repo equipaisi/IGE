@@ -28,8 +28,10 @@ namespace Frontend
             if (_db.ValidUser(username, password))
             {
                 // ver que tipo de utilizador e fazer o dispatch apropriado
-                var newForm2 = new FormPrincipal();
-                newForm2.ShowDialog();
+                //var newForm2 = new FormPrincipal();
+                //newForm2.ShowDialog();
+                IGE xpto = new IGE();
+                xpto.Show();
             }
             else
             {
@@ -43,8 +45,10 @@ namespace Frontend
             }
             if (username == "admin" && password == "admin")
             {
-                var newForm2 = new Administrador();
-                newForm2.ShowDialog();
+                IGE xpto = new IGE();
+                xpto.Show();
+                //var newForm2 = new Administrador();
+                //newForm2.ShowDialog();
             }
             */
 
