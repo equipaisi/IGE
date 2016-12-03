@@ -8,11 +8,13 @@ namespace Frontend
         public FormLogin()
         {
             InitializeComponent();
+            // A janela do login vai ficar centralizada no monitor do pc
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -21,7 +23,7 @@ namespace Frontend
             {
                 IGE xpto = new IGE();
                 xpto.Show();
-                this.Hide();
+                this.Hide();// a janela fica oculta
             }
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
