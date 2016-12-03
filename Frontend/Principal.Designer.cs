@@ -1,4 +1,6 @@
-﻿namespace Frontend
+﻿using System.Windows.Forms;
+
+namespace Frontend
 {
     partial class FormPrincipal
     {
@@ -28,6 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            //Method 1. center at initilization
+            //this.StartPosition = FormStartPosition.CenterParent;
+
+            //***********************************************************************************************************************************//
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxRegistHab = new System.Windows.Forms.PictureBox();

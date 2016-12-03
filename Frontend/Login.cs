@@ -21,6 +21,7 @@ namespace Frontend
             {
                 IGE xpto = new IGE();
                 xpto.Show();
+                this.Hide();
             }
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
