@@ -41,17 +41,22 @@ namespace Backend
         #region Métodos
         public void Initialize(string server = "localhost", string database = "ige")
         {
-            //var connString = GetConnectionStringFromAppConfig();
-            _uid = "igeuser";
-            _password = "password";
-            _database = database;
-            _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};"); // $"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};"
+            var connString = GetConnectionStringFromAppConfig();
+            // DEBUG: Console.WriteLine($"Connection string from App.config {connString}");
+            //_uid = "igeuser";
+            //_password = "password";
+            //_database = database;
+            _con = new MySqlConnection(connString); // $"SERVER={server};DATABASE={database};UID={_uid};PASSWORD={_password};");
         }
 
-        // TODO: read configuration from configuration file
+
+        /// <summary>
+        /// Lê o valor da connectionString na App.config do Frontend.
+        /// </summary>
+        /// <returns></returns>
         private string GetConnectionStringFromAppConfig()
         {
-            return ConfigurationManager.ConnectionStrings["Dev"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
         }
 
         public void Open() => _con.Open();
