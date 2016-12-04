@@ -9,6 +9,7 @@ namespace Frontend
         public FormPrincipal()
         {
             InitializeComponent();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -45,6 +46,8 @@ namespace Frontend
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            Left = (MdiParent.ClientRectangle.Width - Width) / 2;
+            Top = (MdiParent.ClientRectangle.Height - Height) / 2;
 
         }
        

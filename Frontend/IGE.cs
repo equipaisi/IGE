@@ -18,17 +18,27 @@ namespace Frontend
             FormPrincipal xpto = new FormPrincipal();
             xpto.MdiParent = this;
             xpto.Show();
-            PesquisarAluno aaa = new PesquisarAluno ();
-            aaa.MdiParent = this;
-             PesquisarHabitacao bbb = new PesquisarHabitacao();
-            bbb.MdiParent = this;
 
 
         }
+        protected override void OnResize(EventArgs e)
+        {
+            CenterForms();
+            base.OnResize(e);
+        }
+        private void CenterForms()
+        {
+            //Isto vai centralizar todos os filhos do forms
+            foreach (var form in MdiChildren) 
+            {
+                form.Left = (ClientRectangle.Width - form.Width) / 2;
+                form.Top = (ClientRectangle.Height - form.Height) / 2;
+            }
 
+        }
         private void IGE_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
