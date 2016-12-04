@@ -18,8 +18,12 @@ namespace Frontend
             FormPrincipal xpto = new FormPrincipal();
             xpto.MdiParent = this;
             xpto.Show();
-          
-           
+            PesquisarAluno aaa = new PesquisarAluno ();
+            aaa.MdiParent = this;
+             PesquisarHabitacao bbb = new PesquisarHabitacao();
+            bbb.MdiParent = this;
+
+
         }
 
         private void IGE_Load(object sender, EventArgs e)

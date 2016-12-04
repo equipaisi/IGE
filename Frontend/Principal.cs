@@ -28,8 +28,9 @@ namespace Frontend
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            
-          
+            new PesquisarHabitacao().ShowDialog();
+           
+
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
