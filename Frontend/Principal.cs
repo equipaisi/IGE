@@ -27,14 +27,21 @@ namespace Frontend
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        protected void pictureBox3_Click(object sender, EventArgs e)
         {
             new PesquisarHabitacao().ShowDialog();
-           
+          //  PesquisarHabitacao xpto = new PesquisarHabitacao();
+            //xpto.MdiParent = this;
+            //this.Show();
 
-        }
+         
+        
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+
+
+    }
+
+    private void pictureBox5_Click(object sender, EventArgs e)
         {
             new PesquisarProprietario().ShowDialog();
         }
