@@ -59,15 +59,5 @@ namespace Frontend.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Logo_png {
-            get {
-                object obj = ResourceManager.GetObject("Logo_png", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }

@@ -40,5 +40,17 @@ namespace Frontend
         {
             
         }
+
+        private void toolStripButtonSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripButtonSobre_Click(object sender, EventArgs e)
+        {
+            Sobre sobreForm = new Sobre();
+            sobreForm.MdiParent = this;
+            sobreForm.Show();
+        }
     }
 }
