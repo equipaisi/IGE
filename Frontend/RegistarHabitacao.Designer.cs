@@ -632,7 +632,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "RegistarHabitacao";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Habitação";
             this.Load += new System.EventHandler(this.RegistarHabitacao_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).EndInit();

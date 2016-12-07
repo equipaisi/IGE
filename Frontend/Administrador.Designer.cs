@@ -181,6 +181,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 497);
+            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -194,6 +195,7 @@
             this.Controls.Add(this.pictureBoxRegistHab);
             this.Controls.Add(this.pictureBoxLogo);
             this.Name = "Administrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxproprietario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlunos)).EndInit();
