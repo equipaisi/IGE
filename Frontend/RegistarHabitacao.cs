@@ -348,13 +348,15 @@ namespace Frontend
         private void button3_Click(object sender, EventArgs e)
         {
             PesquisarProprietario prop = new PesquisarProprietario();
-            prop.ShowDialog();
+            prop.MdiParent = IGE.ActiveForm;
+            prop.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             NovoProprietario newProp = new NovoProprietario();
-            newProp.ShowDialog();
+            newProp.MdiParent = IGE.ActiveForm;
+            newProp.Show();
         }
     }
 }
