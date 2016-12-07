@@ -15,10 +15,7 @@ namespace Frontend
         public IGE()
         {
             InitializeComponent();
-            FormPrincipal xpto = new FormPrincipal();
-            xpto.MdiParent = this;
-            xpto.Show();
-
+           
 
         }
         protected override void OnResize(EventArgs e)

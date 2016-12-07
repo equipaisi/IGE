@@ -20,25 +20,29 @@ namespace Frontend
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             GerarRelatorio relat = new GerarRelatorio();
-            relat.ShowDialog();
+            relat.MdiParent = IGE.ActiveForm;
+            relat.Show();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            DesativarPropriatario Desatprop = new DesativarPropriatario();
-            Desatprop.ShowDialog();
+            DesativarPropriatario desatProp = new DesativarPropriatario();
+            desatProp.MdiParent = IGE.ActiveForm;
+            desatProp.Show();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             DesativarHabitacao desat_hab = new DesativarHabitacao();
-            desat_hab.ShowDialog();
+            desat_hab.MdiParent = IGE.ActiveForm;
+            desat_hab.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             DesativarAluno desat_aluno = new DesativarAluno();
-            desat_aluno.ShowDialog();
+            desat_aluno.MdiParent = IGE.ActiveForm;
+            desat_aluno.Show();
         }
     }
 }

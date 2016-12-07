@@ -23,14 +23,19 @@ namespace Frontend
             {
                 IGE xpto = new IGE();
                 xpto.Show();
+                FormPrincipal fp = new FormPrincipal();
+                fp.MdiParent = xpto;
+                fp.Show();            
                 this.Hide();// a janela fica oculta
             }
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
                 IGE xpto = new IGE();
                 xpto.Show();
-                //var newForm2 = new Administrador();
-                //newForm2.ShowDialog();
+                Administrador adm = new Administrador();
+                adm.MdiParent = IGE.ActiveForm;
+                adm.Show();
+                this.Hide(); // a janela fica oculta
             }
 
 

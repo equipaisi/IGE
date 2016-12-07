@@ -20,31 +20,36 @@ namespace Frontend
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Configurações_Admin config = new Configurações_Admin();
-            config.ShowDialog();
+            config.MdiParent = IGE.ActiveForm;
+            config.Show();
         }
 
         private void pictureBoxPesqHab_Click(object sender, EventArgs e)
         {
             PesquisarHabitacao pesq = new PesquisarHabitacao();
-            pesq.ShowDialog();
+            pesq.MdiParent = IGE.ActiveForm;
+            pesq.Show();
         }
 
         private void pictureBoxRegistHab_Click(object sender, EventArgs e)
         {
             RegistarHabitacao regist = new RegistarHabitacao();
-            regist.ShowDialog();
+            regist.MdiParent = IGE.ActiveForm;
+            regist.Show();
         }
 
         private void pictureBoxproprietario_Click(object sender, EventArgs e)
         {
             Proprietario prop = new Proprietario();
-            prop.ShowDialog();
+            prop.MdiParent = IGE.ActiveForm;
+            prop.Show();
         }
 
         private void pictureBoxAlunos_Click(object sender, EventArgs e)
         {
             Alunos alun = new Alunos();
-            alun.ShowDialog();
+            alun.MdiParent = IGE.ActiveForm;
+            alun.Show();
         }
     }
 }
