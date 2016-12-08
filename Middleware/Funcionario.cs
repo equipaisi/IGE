@@ -50,6 +50,8 @@ namespace Middleware
         #endregion
 
         #region Utilizador / IUtilizador
+
+        public override string TypeDescriptor => "funcionario";
         public override string Username { get; set; }
         public override string PasswordHash { get; set; }
         /// <summary>

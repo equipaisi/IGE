@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
+using System.Net.Mail;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Middleware;
@@ -35,7 +37,7 @@ namespace Backend
         Task CloseAsync();
     }
 
-    public class MySqlDb : IDbConnection
+    public sealed class MySqlDb : IDbConnection
     {
         private readonly MySqlConnection _con;
 
@@ -107,7 +109,7 @@ namespace Backend
                 CreateUserTypeTable();
                 CreateUserTable();
             }
-            catch (IncorrectNumberOfAffectedRows e)
+            catch (IncorrectNumberOfAffectedRows)
             {
                 //TODO
             }
@@ -212,11 +214,10 @@ namespace Backend
             var funcionarioId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("funcionario"));
             var administradorId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("administrador"));
 
-            var users = new []
-            {
-                new User {Username = "jferreira", Email = "jferreira@imovcelos.pt", PasswordHash = "jfonseca", UserTypeId = funcionarioId},
-                new User { Username = "sgomes", Email = "sgomes@imovcelos.pt", PasswordHash = "sgomes", UserTypeId = funcionarioId},
-                new User {Username = "afonseca", Email = "afonseca@imovcelos.pt", PasswordHash = "afonseca", UserTypeId = administradorId},
+            var users = new List<IUtilizador> {
+                new Funcionario("João", "Ferreira", null, "jferreira", "jfonseca", "jferreira@imovcelos.pt"),
+                new Funcionario("Sónia", "Gomes", null, "sgomes", "sgomes", "sgomes@imovcelos.pt"),
+                new Administrador("António Fonseca", "afonseca", "afonseca", "afonseca@imovcelos.pt")
             };
 
             var r1 = PopulateUserTypeTable();
@@ -228,10 +229,10 @@ namespace Backend
         }
 
         // TODO: refactor
-        private static int PopulateUserTable(MySqlCommand command) => Convert.ToInt32(command.ExecuteNonQuery());
+        private static int PopulateUserTable(IDbCommand command) => Convert.ToInt32(command.ExecuteNonQuery());
 
         // TODO: refactor
-        private static int SelectUserTypeId(MySqlCommand command) => Convert.ToInt32(command.ExecuteScalar());
+        private static int SelectUserTypeId(IDbCommand command) => Convert.ToInt32(command.ExecuteScalar());
 
         /// <summary>
         /// Retorna o comando que lê o UserTypeId do UserType com um determinado UserTypeDescription.
@@ -239,10 +240,10 @@ namespace Backend
         private MySqlCommand SelectUserTypeIdByUserTypeDescriptionCommand(string userTypeDescription) => new MySqlCommand(
             $"SELECT `UserTypeId` FROM `{DatabaseName}`.`UserType` WHERE `UserTypeDescription` = '{userTypeDescription}';", _con);
 
-        private MySqlCommand PopulateUserTableCommand(IEnumerable<User> users) =>
+        private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
             new MySqlCommand($@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows(users)};", _con);
 
-        private static string CreateUserRows(IEnumerable<User> users)
+        private static string CreateUserRows(IEnumerable<IUtilizador> users)
         {
             var userRows = new List<string>();
             userRows.AddRange(users.Select(CreateUserRow));
@@ -253,10 +254,10 @@ namespace Backend
         /// Cria uma string que representa um valor de User a ser inserido na tabela User.
         /// </summary>
         /// <example>('jfonseca','jfonseca@foo.com','passwordsecreta','1')</example>
-        private static string CreateUserRow(User user)
+        private static string CreateUserRow(IUtilizador user)
         {
             var userRow = "(";
-            userRow += string.Join(",", new List<string> { user.Username , user.Email , user.PasswordHash, user.UserTypeId.ToString() });
+            userRow += string.Join(",", new List<string> { user.Username , user.Email.Address, user.PasswordHash, user.TypeDescriptor });
             userRow += ")";
             return userRow;
         }
@@ -336,11 +337,4 @@ namespace Backend
         public override string Message => $"Expected to have effected {_expectedAffectedRows} rows but affected {_actualAffectedRows}";
     }
 
-    internal class User
-    {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public int UserTypeId { get; set; }
-    }
 }
