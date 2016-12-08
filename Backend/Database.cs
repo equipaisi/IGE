@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.OleDb;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Middleware;
 using MySql.Data.MySqlClient;
 
 namespace Backend
 {
+    /// <summary>
+    /// Representa uma conexão à base de dados.
+    /// </summary>
     public interface IDbConnection : IDisposable, ICloneable
     {
+        /// <summary>
+        /// Abre uma nova conexão à base de dados.
+        /// </summary>
         void Open();
+        /// <summary>
+        /// Fecha a conexão atual à base de dados.
+        /// </summary>
         void Close();
         /// <summary>
-        /// Abrir assincronamente a conecção à base de dados.
+        /// Abre uma nova conexão à base de dados assincronamente.
         /// </summary>
         /// <returns>Uma task representando uma operação assíncrona.</returns>
         Task OpenAsync();
         /// <summary>
-        /// Fechar assincronamente a conecção à base de dados.
+        /// Fecha a conexão atual à base de dados assincronamente.
         /// </summary>
         /// <returns>Uma task representando uma operação assíncrona.</returns>
         Task CloseAsync();
@@ -27,104 +37,151 @@ namespace Backend
 
     public class MySqlDb : IDbConnection
     {
-        private MySqlConnection _con;
-        private readonly string _database;
+        private readonly MySqlConnection _con;
 
         #region Constructors
+        /// <summary>
+        /// Construtor por defeito de MySqlDb.
+        /// Lê a connection string a partir da App.config do Frontend.
+        /// </summary>
         public MySqlDb()
         {
-            var connString = GetConnectionStringFromAppConfig();
-            // DEBUG: Console.WriteLine($"Connection string from App.config {connString}");
-            _con = new MySqlConnection(connString);
-            _database = _con.Database;
+            _con = new MySqlConnection(ConnectionStringFromAppConfig);
         }
 
         public MySqlDb(string uid, string password, string server = "localhost", string database = "ige")
         {
             _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};");
-            _database = _con.Database;
         }
         #endregion
 
-        #region Métodos
-        /// <summary>
-        /// Lê o valor da connectionString na App.config do Frontend.
-        /// </summary>
-        /// <returns></returns>
-        private string GetConnectionStringFromAppConfig()
-        {
-            return ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
-        }
+        #region IDbConnection
 
         public void Open() => _con.Open();
         public Task OpenAsync() => _con.CloseAsync();
-
         public void Close() => _con.Close();
-
         public Task CloseAsync() => _con.CloseAsync();
-
         public void Dispose() => _con.Dispose();
         public object Clone() => _con.Clone();
 
+        #endregion
+
+        /// <summary>
+        /// Retorna o valor da connectionString na App.config do Frontend.
+        /// </summary>
+        private static string ConnectionStringFromAppConfig => ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
+
+        /// <summary>
+        /// Retorna o nome da base de dados atual ou a base de dados a ser usada após a abertura da conexão.
+        /// O nome da base de dados foi préviamente especificado na connection string.
+        /// </summary>
+        private string DatabaseName => _con.Database;
+
         #region Queries
-        // Estes métodos de registar não devem estar acessíveis ao exterior. Eventualmente remover daqui.
-        //TODO: RegistarAdministrador(string username, string password, string nome, string email)
-        /*
-        public void RegistarFuncionario(string username, string password, string nome, string email)
-        {
-            // Primeiro vemos qual o utilizador_tipo_id para um funcionário.
-            const string userTypeQuery = "SELECT utilizador_tipo_id FROM utilizador_tipo WHERE utilizador_tipo_tipo = `funcionario`";
-            var cmd1 = new MySqlCommand(userTypeQuery, _con);
-            int userId = (int) cmd1.ExecuteScalar();
 
-            // Depois inserimos um novo utilizador
-            const string query = "INSERT INTO `ige`.`utilizador` (`username`, `nome`, `email`, `password_hash`, `data_de_criacao`, `utilizador_tipo_id`) VALUES(?,?,?,?,?,?);";
-            var cmd2 = new MySqlCommand(query, _con);
-            // todo: validar dados
-            cmd2.Parameters.Add(new MySqlParameter("username", username));
-            cmd2.Parameters.Add(new MySqlParameter("nome", nome));
-            cmd2.Parameters.Add(new MySqlParameter("email", email));
-            cmd2.Parameters.Add(new MySqlParameter("password_hash", PasswordHash.HashPassword(password)));
-            cmd2.Parameters.Add(new MySqlParameter("utilizador_tipo_id", userId));
-            Console.WriteLine(cmd2.CommandText);
-        }*/
+        #region DropDatabase
 
-        // TODO: apagar este código na versão final
+        /// <summary>
+        /// Apaga a base de dados com o nome <see cref="DatabaseName"/>.
+        /// </summary>
         public void DropDatabase()
         {
-            const string dropDbStmt = "DROP DATABASE IF EXISTS `@dbname`;";
-            var cmd = new MySqlCommand(dropDbStmt, _con);
-            //cmd.Prepare();
-            cmd.Parameters.AddWithValue("@dbname", this._database);
-            Console.WriteLine("Executing " + cmd.CommandText);
-            cmd.ExecuteNonQuery();
+            DropDatabaseCommand.ExecuteNonQuery();
         }
 
         /// <summary>
-        /// Cria a base de dados e as suas tabelas;
+        /// Retorna o comando que apaga a base de dados com o nome <see cref="DatabaseName"/>.
         /// </summary>
-        /// <returns></returns>
-        public bool CreateDatabaseAndTables()
-        {
-            const string createDbStmt = "CREATE DATABASE IF NOT EXISTS `@dbname`;";
-            var cmd1 = new MySqlCommand(createDbStmt, _con);
-            cmd1.Prepare();
-            cmd1.Parameters.AddWithValue("@dbname", this._database);
-            Console.WriteLine("Executing " + cmd1.CommandText);
-            var r1 = Convert.ToInt32(cmd1.ExecuteNonQuery());
+        private MySqlCommand DropDatabaseCommand => new MySqlCommand($"DROP DATABASE IF EXISTS `{DatabaseName}`;", _con);
 
-            const string createUserTypeTableStmt = @"CREATE TABLE IF NOT EXISTS `@dbname`.`UserType` (
+        #endregion
+
+        /// <summary>
+        /// Cria a base de dados <see cref="DatabaseName"/> e as tabelas necessárias;
+        /// </summary>
+        public void CreateDatabaseAndTables()
+        {
+            try
+            {
+                CreateDatabase();
+                CreateUserTypeTable();
+                CreateUserTable();
+            }
+            catch (IncorrectNumberOfAffectedRows e)
+            {
+                //TODO
+            }
+        }
+
+        #region CreateDatabase
+
+        /// <summary>
+        /// Cria a base de dados com o nome <see cref="DatabaseName"/>.
+        /// </summary>
+        private void CreateDatabase()
+        {
+            const int expectedAffectedRows = 1;
+            var affectedRows = CreateDatabaseCommand.ExecuteNonQuery();
+            if (affectedRows != expectedAffectedRows)
+                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
+        }
+
+        /// <summary>
+        /// Retorna o comando que cria a base de dados com o nome <see cref="DatabaseName"/>.
+        /// </summary>
+        private MySqlCommand CreateDatabaseCommand => new MySqlCommand($"CREATE DATABASE IF NOT EXISTS `{DatabaseName}`;", _con);
+
+        #endregion
+
+        #region CreateUserTypeTable
+
+        /// <summary>
+        /// Cria a tabela UserType.
+        /// </summary>
+        private void CreateUserTypeTable()
+        {
+            const int expectedAffectedRows = 0;
+            var affectedRows = CreateUserTypeTableCommand.ExecuteNonQuery();
+            if (affectedRows != expectedAffectedRows)
+                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
+        }
+
+        /// <summary>
+        /// Retorna o comando que cria a tabela UserType.
+        /// </summary>
+        private MySqlCommand CreateUserTypeTableCommand => new MySqlCommand(
+            $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`UserType` (
                                                       `UserTypeId` INT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                       `UserTypeDescription` VARCHAR(45) NOT NULL,
                                                       PRIMARY KEY (`UserTypeId`),
                                                       UNIQUE INDEX `UserTypeId_UNIQUE` (`UserTypeId` ASC),
                                                       UNIQUE INDEX `UserTypeDescription_UNIQUE` (`UserTypeDescription` ASC))
-                                                    ENGINE = InnoDB;";
-            var cmd2 = new MySqlCommand(createUserTypeTableStmt, _con);
-            cmd2.Parameters.AddWithValue("@dbname", this._database);
-            var r2 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+                                                    ENGINE = InnoDB;",
+            _con);
 
-            const string createUserTableStmt = @"CREATE TABLE IF NOT EXISTS `@dbname`.`User` (
+        #endregion
+
+        #region CreateUserTable
+
+        /// <summary>
+        /// Cria a tabela User.
+        /// </summary>
+        /// <returns></returns>
+        private void CreateUserTable()
+        {
+            const int expectedAffectedRows = 0;
+            var affectedRows = CreateUserTableCommand.ExecuteNonQuery();
+            if (affectedRows != expectedAffectedRows)
+                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
+        }
+
+        /// <summary>
+        /// Retorna o comando que cria a tabela User.
+        /// </summary>
+        private MySqlCommand CreateUserTableCommand
+            =>
+                new MySqlCommand(
+                    $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`User` 
                                                   `UserId` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                   `UserTypeId` INT UNSIGNED NOT NULL,
                                                   `Username` VARCHAR(45) NOT NULL,
@@ -138,50 +195,77 @@ namespace Backend
                                                   INDEX `fk_User_UserType_idx` (`UserTypeId` ASC),
                                                   CONSTRAINT `fk_User_UserType`
                                                     FOREIGN KEY (`UserTypeId`)
-                                                    REFERENCES `@dbname`.`UserType` (`UserTypeId`)
+                                                    REFERENCES `{DatabaseName}`.`UserType` (`UserTypeId`)
                                                     ON DELETE NO ACTION
                                                     ON UPDATE NO ACTION)
-                                                ENGINE = InnoDB;";
-            var cmd3 = new MySqlCommand(createUserTableStmt, _con);
-            cmd3.Parameters.AddWithValue("@dbname", this._database);
-            var r3 = Convert.ToInt32(cmd2.ExecuteNonQuery());
+                                                ENGINE = InnoDB;",
+                    _con);
 
-            return new List<int> {r1, r2, r3}.All(v => v == 0); // se todos os resultados da execução dos comandos tiverem sido 0 então tudo correu bem
+        #endregion
+
+        #region PopulateDatabase
+        /// <summary>
+        /// Popula a base de dados com o nome <see cref="DatabaseName"/>.
+        /// </summary>
+        public void PopulateDatabase()
+        {
+            var funcionarioId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("funcionario"));
+            var administradorId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("administrador"));
+
+            var users = new []
+            {
+                new User {Username = "jferreira", Email = "jferreira@imovcelos.pt", PasswordHash = "jfonseca", UserTypeId = funcionarioId},
+                new User { Username = "sgomes", Email = "sgomes@imovcelos.pt", PasswordHash = "sgomes", UserTypeId = funcionarioId},
+                new User {Username = "afonseca", Email = "afonseca@imovcelos.pt", PasswordHash = "afonseca", UserTypeId = administradorId},
+            };
+
+            var r1 = PopulateUserTypeTable();
+            var r2 = PopulateUserTable(PopulateUserTableCommand(users));
+
+            // TODO: error handling, make sure each command returns the appropriate result (number of rows affected?)
+
+            //return NoCommandExecutionErrors(r1, r2);
+        }
+
+        // TODO: refactor
+        private static int PopulateUserTable(MySqlCommand command) => Convert.ToInt32(command.ExecuteNonQuery());
+
+        // TODO: refactor
+        private static int SelectUserTypeId(MySqlCommand command) => Convert.ToInt32(command.ExecuteScalar());
+
+        /// <summary>
+        /// Retorna o comando que lê o UserTypeId do UserType com um determinado UserTypeDescription.
+        /// </summary>
+        private MySqlCommand SelectUserTypeIdByUserTypeDescriptionCommand(string userTypeDescription) => new MySqlCommand(
+            $"SELECT `UserTypeId` FROM `{DatabaseName}`.`UserType` WHERE `UserTypeDescription` = '{userTypeDescription}';", _con);
+
+        private MySqlCommand PopulateUserTableCommand(IEnumerable<User> users) =>
+            new MySqlCommand($@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows(users)};", _con);
+
+        private static string CreateUserRows(IEnumerable<User> users)
+        {
+            var userRows = new List<string>();
+            userRows.AddRange(users.Select(CreateUserRow));
+            return string.Join(",", userRows);
         }
 
         /// <summary>
-        /// Popula a base de dados.
+        /// Cria uma string que representa um valor de User a ser inserido na tabela User.
         /// </summary>
-        /// <returns></returns>
-        public bool PopulateDatabase()
+        /// <example>('jfonseca','jfonseca@foo.com','passwordsecreta','1')</example>
+        private static string CreateUserRow(User user)
         {
-            const string populateUserTypeTable = "INSERT INTO `@dbname`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');";
-            var cmd1 = new MySqlCommand(populateUserTypeTable, _con);
-            cmd1.Parameters.AddWithValue("@dbname", this._database);
-            var r1 = Convert.ToInt32(cmd1.ExecuteNonQuery());
-
-            const string funcionarioQuery = "SELECT `UserTypeId` FROM `@dbname`.`UserType` WHERE `UserTypeDescription` = 'funcionario';";
-            var cmd2 = new MySqlCommand(funcionarioQuery, _con);
-            cmd2.Parameters.AddWithValue("@dbname", this._database);
-            var funcionarioId = Convert.ToInt32(cmd2.ExecuteScalar());
-
-            const string administradorQuery = "SELECT `UserTypeId` FROM `@dbname`.`UserType` WHERE `UserTypeDescription` = 'administrador';";
-            var cmd3 = new MySqlCommand(administradorQuery, _con);
-            cmd3.Parameters.AddWithValue("@dbname", this._database);
-            var administradorId = Convert.ToInt32(cmd3.ExecuteScalar());
-
-            const string populateUserTable = @"INSERT INTO `@dbname`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES
-                              ('jferreira', 'jferreira@imovcelos.pt', 'foo', @funcionarioId),
-                              ('sgomes', 'sgomes@imovcelos.pt', 'bar', @funcionarioId),
-                              ('afonseca', 'afonseca@imovcelos.pt', 'tar', @administradorId);";
-            var cmd4 = new MySqlCommand(populateUserTable, _con);
-            cmd4.Parameters.AddWithValue("@dbname", this._database);
-            cmd4.Parameters.AddWithValue("@funcionarioId", funcionarioId);
-            cmd4.Parameters.AddWithValue("@administradorId", administradorId);
-            var r2 = Convert.ToInt32(cmd2.ExecuteNonQuery());
-
-            return new List<int> { r1, r2 }.All(v => v == 0); // se todos os resultados da execução dos comandos tiverem sido 0 então tudo correu bem
+            var userRow = "(";
+            userRow += string.Join(",", new List<string> { user.Username , user.Email , user.PasswordHash, user.UserTypeId.ToString() });
+            userRow += ")";
+            return userRow;
         }
+
+        private int PopulateUserTypeTable() => Convert.ToInt32(PopulateUserTypeTableCommand.ExecuteNonQuery());
+
+        private MySqlCommand PopulateUserTypeTableCommand => new MySqlCommand($"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');", _con);
+
+        #endregion
 
         /// <summary>
         /// Faz a autenticação de um utilizador. 
@@ -191,9 +275,8 @@ namespace Backend
         /// <returns></returns>
         public string ValidUser(string username, string password)
         {
-            const string query = "SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = ?";
-            var command = new MySqlCommand(query, _con);
-            command.Parameters.Add(new MySqlParameter("Username", username));
+            var command = SelectPasswordHashAndUserTypeDescriptionByUsernameCommand(username);
+            //TODO: refactor
             using (var reader = command.ExecuteReader())
             {
                 if (reader.Read())
@@ -208,26 +291,56 @@ namespace Backend
             }
             return null;
         }
-        #endregion
+
+        /// <summary>
+        /// Retorna o comando que lê a PasswordHash e o UserTypeDescription de um determinado User pelo seu Username.
+        /// </summary>
+        /// <param name="username">Username do utilizador</param>
+        /// <returns></returns>
+        private MySqlCommand SelectPasswordHashAndUserTypeDescriptionByUsernameCommand(string username) =>
+            new MySqlCommand($"SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = {username}", _con);
+
         #endregion
     }
 
-    /*
-    public static class Configuration
+    [Serializable]
+    internal class IncorrectNumberOfAffectedRows : Exception
     {
-        public static void Read()
+        private readonly int _actualAffectedRows;
+        private readonly int _expectedAffectedRows;
+
+        public IncorrectNumberOfAffectedRows(int actualAffectedRows, int expectedAffectedRows)
         {
-            //var env = ConfigurationManager.AppSettings["current_environment"];
-            Console.WriteLine(ConfigurationManager.AppSettings.AllKeys);
+            _actualAffectedRows = actualAffectedRows;
+            _expectedAffectedRows = expectedAffectedRows;
         }
+
+        public IncorrectNumberOfAffectedRows(string message, int actualAffectedRows, int expectedAffectedRows) : base(message)
+        {
+            _actualAffectedRows = actualAffectedRows;
+            _expectedAffectedRows = expectedAffectedRows;
+        }
+
+        public IncorrectNumberOfAffectedRows(string message, Exception innerException, int actualAffectedRows, int expectedAffectedRows) : base(message, innerException)
+        {
+            _actualAffectedRows = actualAffectedRows;
+            _expectedAffectedRows = expectedAffectedRows;
+        }
+
+        protected IncorrectNumberOfAffectedRows(SerializationInfo info, StreamingContext context, int actualAffectedRows, int expectedAffectedRows) : base(info, context)
+        {
+            _actualAffectedRows = actualAffectedRows;
+            _expectedAffectedRows = expectedAffectedRows;
+        }
+
+        public override string Message => $"Expected to have effected {_expectedAffectedRows} rows but affected {_actualAffectedRows}";
     }
 
-    public class Program
+    internal class User
     {
-        public static void Main(string[] _)
-        {
-            Configuration.Read();
-        }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public int UserTypeId { get; set; }
     }
-    */
 }
