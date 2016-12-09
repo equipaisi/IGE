@@ -254,13 +254,7 @@ namespace Backend
         /// Cria uma string que representa um valor de User a ser inserido na tabela User.
         /// </summary>
         /// <example>('jfonseca','jfonseca@foo.com','passwordsecreta','1')</example>
-        private static string CreateUserRow(IUtilizador user)
-        {
-            var userRow = "(";
-            userRow += string.Join(",", new List<string> { user.Username , user.Email.Address, user.PasswordHash, user.TypeDescriptor });
-            userRow += ")";
-            return userRow;
-        }
+        private static string CreateUserRow(IUtilizador user) => string.Join(",", new List<string> { "(", user.Username , user.Email.Address, user.PasswordHash, user.TypeDescriptor, ")" });
 
         private int PopulateUserTypeTable() => Convert.ToInt32(PopulateUserTypeTableCommand.ExecuteNonQuery());
 
