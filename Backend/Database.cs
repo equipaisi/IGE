@@ -12,32 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace Backend
 {
-    /// <summary>
-    /// Representa uma conexão à base de dados.
-    /// </summary>
-    public interface IDbConnection : IDisposable, ICloneable
-    {
-        /// <summary>
-        /// Abre uma nova conexão à base de dados.
-        /// </summary>
-        void Open();
-        /// <summary>
-        /// Fecha a conexão atual à base de dados.
-        /// </summary>
-        void Close();
-        /// <summary>
-        /// Abre uma nova conexão à base de dados assincronamente.
-        /// </summary>
-        /// <returns>Uma task representando uma operação assíncrona.</returns>
-        Task OpenAsync();
-        /// <summary>
-        /// Fecha a conexão atual à base de dados assincronamente.
-        /// </summary>
-        /// <returns>Uma task representando uma operação assíncrona.</returns>
-        Task CloseAsync();
-    }
-
-    public sealed class MySqlDb : IDbConnection
+    public sealed class MySqlDb : IDatabaseConnection
     {
         private readonly MySqlConnection _con;
 
@@ -57,7 +32,7 @@ namespace Backend
         }
         #endregion
 
-        #region IDbConnection
+        #region IDatabaseConnection
 
         public void Open() => _con.Open();
         public Task OpenAsync() => _con.CloseAsync();
@@ -101,6 +76,7 @@ namespace Backend
         /// <summary>
         /// Cria a base de dados <see cref="DatabaseName"/> e as tabelas necessárias;
         /// </summary>
+        // TODO: rename to something better, maybe SetupDatabase
         public void CreateDatabaseAndTables()
         {
             try
@@ -111,7 +87,6 @@ namespace Backend
             }
             catch (IncorrectNumberOfAffectedRows)
             {
-                //TODO
             }
         }
 
@@ -297,38 +272,4 @@ namespace Backend
 
         #endregion
     }
-
-    [Serializable]
-    internal class IncorrectNumberOfAffectedRows : Exception
-    {
-        private readonly int _actualAffectedRows;
-        private readonly int _expectedAffectedRows;
-
-        public IncorrectNumberOfAffectedRows(int actualAffectedRows, int expectedAffectedRows)
-        {
-            _actualAffectedRows = actualAffectedRows;
-            _expectedAffectedRows = expectedAffectedRows;
-        }
-
-        public IncorrectNumberOfAffectedRows(string message, int actualAffectedRows, int expectedAffectedRows) : base(message)
-        {
-            _actualAffectedRows = actualAffectedRows;
-            _expectedAffectedRows = expectedAffectedRows;
-        }
-
-        public IncorrectNumberOfAffectedRows(string message, Exception innerException, int actualAffectedRows, int expectedAffectedRows) : base(message, innerException)
-        {
-            _actualAffectedRows = actualAffectedRows;
-            _expectedAffectedRows = expectedAffectedRows;
-        }
-
-        protected IncorrectNumberOfAffectedRows(SerializationInfo info, StreamingContext context, int actualAffectedRows, int expectedAffectedRows) : base(info, context)
-        {
-            _actualAffectedRows = actualAffectedRows;
-            _expectedAffectedRows = expectedAffectedRows;
-        }
-
-        public override string Message => $"Expected to have effected {_expectedAffectedRows} rows but affected {_actualAffectedRows}";
-    }
-
 }
