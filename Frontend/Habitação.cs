@@ -35,6 +35,7 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
         {
             Proprietario prt = new Proprietario();
+            prt.MdiParent = IGE.ActiveForm;
             prt.ShowDialog();
 
         }
@@ -42,6 +43,7 @@ namespace Frontend
         private void button2_Click(object sender, EventArgs e)
         {
             Aluguer alug = new Aluguer();
+            alug.MdiParent = IGE.ActiveForm;
             alug.ShowDialog();
         }
 

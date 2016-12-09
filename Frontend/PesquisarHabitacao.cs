@@ -74,6 +74,7 @@ namespace Frontend
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Habitação hab = new Habitação();
+            hab.MdiParent = IGE.ActiveForm;
             hab.ShowDialog();
         }
 

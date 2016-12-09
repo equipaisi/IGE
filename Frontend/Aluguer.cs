@@ -25,12 +25,14 @@ namespace Frontend
         private void button3_Click(object sender, EventArgs e)
         {
             PesquisarAluno pesqAluno = new PesquisarAluno();
+            pesqAluno.MdiParent = IGE.ActiveForm;
             pesqAluno.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             NovoAluno novo_alu = new NovoAluno();
+            novo_alu.MdiParent = IGE.ActiveForm;
             novo_alu.ShowDialog();
         }
 
