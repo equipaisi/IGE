@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.OleDb;
 using System.Linq;
-using System.Net.Mail;
-using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Middleware;
 using MySql.Data.MySqlClient;
@@ -17,9 +14,10 @@ namespace Backend
         private readonly MySqlConnection _con;
 
         #region Constructors
+
         /// <summary>
-        /// Construtor por defeito de MySqlDb.
-        /// Lê a connection string a partir da App.config do Frontend.
+        ///     Construtor por defeito de MySqlDb.
+        ///     Lê a connection string a partir da App.config do Frontend.
         /// </summary>
         public MySqlDb()
         {
@@ -30,6 +28,7 @@ namespace Backend
         {
             _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};");
         }
+
         #endregion
 
         #region IDatabaseConnection
@@ -44,13 +43,14 @@ namespace Backend
         #endregion
 
         /// <summary>
-        /// Retorna o valor da connectionString na App.config do Frontend.
+        ///     Retorna o valor da connectionString na App.config do Frontend.
         /// </summary>
-        private static string ConnectionStringFromAppConfig => ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
+        private static string ConnectionStringFromAppConfig
+            => ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
 
         /// <summary>
-        /// Retorna o nome da base de dados atual ou a base de dados a ser usada após a abertura da conexão.
-        /// O nome da base de dados foi préviamente especificado na connection string.
+        ///     Retorna o nome da base de dados atual ou a base de dados a ser usada após a abertura da conexão.
+        ///     O nome da base de dados foi préviamente especificado na connection string.
         /// </summary>
         private string DatabaseName => _con.Database;
 
@@ -59,7 +59,7 @@ namespace Backend
         #region DropDatabase
 
         /// <summary>
-        /// Apaga a base de dados com o nome <see cref="DatabaseName"/>.
+        ///     Apaga a base de dados com o nome <see cref="DatabaseName" />.
         /// </summary>
         public void DropDatabase()
         {
@@ -67,14 +67,15 @@ namespace Backend
         }
 
         /// <summary>
-        /// Retorna o comando que apaga a base de dados com o nome <see cref="DatabaseName"/>.
+        ///     Retorna o comando que apaga a base de dados com o nome <see cref="DatabaseName" />.
         /// </summary>
-        private MySqlCommand DropDatabaseCommand => new MySqlCommand($"DROP DATABASE IF EXISTS `{DatabaseName}`;", _con);
+        private MySqlCommand DropDatabaseCommand => new MySqlCommand($"DROP DATABASE IF EXISTS `{DatabaseName}`;", _con)
+            ;
 
         #endregion
 
         /// <summary>
-        /// Cria a base de dados <see cref="DatabaseName"/> e as tabelas necessárias;
+        ///     Cria a base de dados <see cref="DatabaseName" /> e as tabelas necessárias;
         /// </summary>
         // TODO: rename to something better, maybe SetupDatabase
         public void CreateDatabaseAndTables()
@@ -93,7 +94,7 @@ namespace Backend
         #region CreateDatabase
 
         /// <summary>
-        /// Cria a base de dados com o nome <see cref="DatabaseName"/>.
+        ///     Cria a base de dados com o nome <see cref="DatabaseName" />.
         /// </summary>
         private void CreateDatabase()
         {
@@ -104,16 +105,17 @@ namespace Backend
         }
 
         /// <summary>
-        /// Retorna o comando que cria a base de dados com o nome <see cref="DatabaseName"/>.
+        ///     Retorna o comando que cria a base de dados com o nome <see cref="DatabaseName" />.
         /// </summary>
-        private MySqlCommand CreateDatabaseCommand => new MySqlCommand($"CREATE DATABASE IF NOT EXISTS `{DatabaseName}`;", _con);
+        private MySqlCommand CreateDatabaseCommand
+            => new MySqlCommand($"CREATE DATABASE IF NOT EXISTS `{DatabaseName}`;", _con);
 
         #endregion
 
         #region CreateUserTypeTable
 
         /// <summary>
-        /// Cria a tabela UserType.
+        ///     Cria a tabela UserType.
         /// </summary>
         private void CreateUserTypeTable()
         {
@@ -124,7 +126,7 @@ namespace Backend
         }
 
         /// <summary>
-        /// Retorna o comando que cria a tabela UserType.
+        ///     Retorna o comando que cria a tabela UserType.
         /// </summary>
         private MySqlCommand CreateUserTypeTableCommand => new MySqlCommand(
             $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`UserType` (
@@ -141,7 +143,7 @@ namespace Backend
         #region CreateUserTable
 
         /// <summary>
-        /// Cria a tabela User.
+        ///     Cria a tabela User.
         /// </summary>
         /// <returns></returns>
         private void CreateUserTable()
@@ -153,7 +155,7 @@ namespace Backend
         }
 
         /// <summary>
-        /// Retorna o comando que cria a tabela User.
+        ///     Retorna o comando que cria a tabela User.
         /// </summary>
         private MySqlCommand CreateUserTableCommand
             =>
@@ -181,42 +183,32 @@ namespace Backend
         #endregion
 
         #region PopulateDatabase
+
         /// <summary>
-        /// Popula a base de dados com o nome <see cref="DatabaseName"/>.
+        ///     Popula a base de dados com o nome <see cref="DatabaseName" />.
         /// </summary>
         public void PopulateDatabase()
         {
-            var funcionarioId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("funcionario"));
-            var administradorId = SelectUserTypeId(SelectUserTypeIdByUserTypeDescriptionCommand("administrador"));
-
-            var users = new List<IUtilizador> {
+            // TODO: get data from external file
+            var users = new List<IUtilizador>
+            {
                 new Funcionario("João", "Ferreira", null, "jferreira", "jfonseca", "jferreira@imovcelos.pt"),
                 new Funcionario("Sónia", "Gomes", null, "sgomes", "sgomes", "sgomes@imovcelos.pt"),
                 new Administrador("António Fonseca", "afonseca", "afonseca", "afonseca@imovcelos.pt")
             };
 
+            // TODO: error handling, make sure each command returns the appropriate result (number of rows affected?)
             var r1 = PopulateUserTypeTable();
             var r2 = PopulateUserTable(PopulateUserTableCommand(users));
-
-            // TODO: error handling, make sure each command returns the appropriate result (number of rows affected?)
-
-            //return NoCommandExecutionErrors(r1, r2);
         }
 
         // TODO: refactor
-        private static int PopulateUserTable(IDbCommand command) => Convert.ToInt32(command.ExecuteNonQuery());
-
-        // TODO: refactor
-        private static int SelectUserTypeId(IDbCommand command) => Convert.ToInt32(command.ExecuteScalar());
-
-        /// <summary>
-        /// Retorna o comando que lê o UserTypeId do UserType com um determinado UserTypeDescription.
-        /// </summary>
-        private MySqlCommand SelectUserTypeIdByUserTypeDescriptionCommand(string userTypeDescription) => new MySqlCommand(
-            $"SELECT `UserTypeId` FROM `{DatabaseName}`.`UserType` WHERE `UserTypeDescription` = '{userTypeDescription}';", _con);
+        private static int PopulateUserTable(IDbCommand command) => command.ExecuteNonQuery();
 
         private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
-            new MySqlCommand($@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows(users)};", _con);
+            new MySqlCommand(
+                $@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows
+                    (users)};", _con);
 
         private static string CreateUserRows(IEnumerable<IUtilizador> users)
         {
@@ -226,19 +218,34 @@ namespace Backend
         }
 
         /// <summary>
-        /// Cria uma string que representa um valor de User a ser inserido na tabela User.
+        ///     Cria uma string que representa um valor de User a ser inserido na tabela User.
         /// </summary>
         /// <example>('jfonseca','jfonseca@foo.com','passwordsecreta','1')</example>
-        private static string CreateUserRow(IUtilizador user) => string.Join(",", new List<string> { "(", user.Username , user.Email.Address, user.PasswordHash, user.TypeDescriptor, ")" });
+        private static string CreateUserRow(IUtilizador user)
+            =>
+                string.Join(",",
+                    new List<string>
+                    {
+                        "(",
+                        user.Username,
+                        user.Email.Address,
+                        user.PasswordHash,
+                        user.TypeDescriptor,
+                        ")"
+                    });
 
         private int PopulateUserTypeTable() => Convert.ToInt32(PopulateUserTypeTableCommand.ExecuteNonQuery());
 
-        private MySqlCommand PopulateUserTypeTableCommand => new MySqlCommand($"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');", _con);
+        private MySqlCommand PopulateUserTypeTableCommand
+            =>
+                new MySqlCommand(
+                    $"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');",
+                    _con);
 
         #endregion
 
         /// <summary>
-        /// Faz a autenticação de um utilizador. 
+        ///     Faz a autenticação de um utilizador.
         /// </summary>
         /// <param name="username">Username do utilizador</param>
         /// <param name="password">Password do utilizador</param>
@@ -263,12 +270,14 @@ namespace Backend
         }
 
         /// <summary>
-        /// Retorna o comando que lê a PasswordHash e o UserTypeDescription de um determinado User pelo seu Username.
+        ///     Retorna o comando que lê a PasswordHash e o UserTypeDescription de um determinado User pelo seu Username.
         /// </summary>
         /// <param name="username">Username do utilizador</param>
         /// <returns></returns>
         private MySqlCommand SelectPasswordHashAndUserTypeDescriptionByUsernameCommand(string username) =>
-            new MySqlCommand($"SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = {username}", _con);
+            new MySqlCommand(
+                $"SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = {username}",
+                _con);
 
         #endregion
     }
