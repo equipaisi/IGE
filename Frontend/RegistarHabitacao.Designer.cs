@@ -45,7 +45,6 @@
             this.buttonAdicionarFotos = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBoxMapa = new System.Windows.Forms.PictureBox();
             this.checkBoxInternet = new System.Windows.Forms.CheckBox();
             this.checkBoxTelevisao = new System.Windows.Forms.CheckBox();
             this.checkBoxServicosDeLimpeza = new System.Windows.Forms.CheckBox();
@@ -76,7 +75,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).BeginInit();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnoDeConstrucao)).BeginInit();
@@ -232,20 +232,6 @@
             this.label10.TabIndex = 21;
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // pictureBoxMapa
-            // 
-            this.pictureBoxMapa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMapa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxMapa.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMapa.Image")));
-            this.pictureBoxMapa.Location = new System.Drawing.Point(659, 426);
-            this.pictureBoxMapa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxMapa.Name = "pictureBoxMapa";
-            this.pictureBoxMapa.Size = new System.Drawing.Size(533, 307);
-            this.pictureBoxMapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMapa.TabIndex = 23;
-            this.pictureBoxMapa.TabStop = false;
-            this.pictureBoxMapa.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // checkBoxInternet
             // 
             this.checkBoxInternet.AutoSize = true;
@@ -282,6 +268,7 @@
             // 
             // groupBoxMorada
             // 
+            this.groupBoxMorada.Controls.Add(this.button4);
             this.groupBoxMorada.Controls.Add(this.maskedTextBoxCodigoPostal);
             this.groupBoxMorada.Controls.Add(this.textBoxLocalidade);
             this.groupBoxMorada.Controls.Add(this.textBoxRua);
@@ -300,7 +287,7 @@
             // maskedTextBoxCodigoPostal
             // 
             this.maskedTextBoxCodigoPostal.BeepOnError = true;
-            this.maskedTextBoxCodigoPostal.Location = new System.Drawing.Point(121, 103);
+            this.maskedTextBoxCodigoPostal.Location = new System.Drawing.Point(122, 84);
             this.maskedTextBoxCodigoPostal.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBoxCodigoPostal.Mask = "0000-999";
             this.maskedTextBoxCodigoPostal.Name = "maskedTextBoxCodigoPostal";
@@ -319,16 +306,16 @@
             "Sesimbra"});
             this.textBoxLocalidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxLocalidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBoxLocalidade.Location = new System.Drawing.Point(324, 103);
+            this.textBoxLocalidade.Location = new System.Drawing.Point(325, 84);
             this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLocalidade.Name = "textBoxLocalidade";
-            this.textBoxLocalidade.Size = new System.Drawing.Size(191, 22);
+            this.textBoxLocalidade.Size = new System.Drawing.Size(189, 22);
             this.textBoxLocalidade.TabIndex = 4;
             this.textBoxLocalidade.TextChanged += new System.EventHandler(this.textBoxLocalidade_TextChanged);
             // 
             // textBoxRua
             // 
-            this.textBoxRua.Location = new System.Drawing.Point(59, 32);
+            this.textBoxRua.Location = new System.Drawing.Point(59, 23);
             this.textBoxRua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRua.Multiline = true;
             this.textBoxRua.Name = "textBoxRua";
@@ -339,7 +326,7 @@
             // labelLocalidade
             // 
             this.labelLocalidade.AutoSize = true;
-            this.labelLocalidade.Location = new System.Drawing.Point(236, 107);
+            this.labelLocalidade.Location = new System.Drawing.Point(237, 88);
             this.labelLocalidade.Name = "labelLocalidade";
             this.labelLocalidade.Size = new System.Drawing.Size(81, 17);
             this.labelLocalidade.TabIndex = 89;
@@ -349,7 +336,7 @@
             // labelCodigoPostal
             // 
             this.labelCodigoPostal.AutoSize = true;
-            this.labelCodigoPostal.Location = new System.Drawing.Point(9, 107);
+            this.labelCodigoPostal.Location = new System.Drawing.Point(10, 88);
             this.labelCodigoPostal.Name = "labelCodigoPostal";
             this.labelCodigoPostal.Size = new System.Drawing.Size(103, 17);
             this.labelCodigoPostal.TabIndex = 90;
@@ -607,11 +594,31 @@
             this.textBox1.Size = new System.Drawing.Size(351, 22);
             this.textBox1.TabIndex = 104;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(687, 458);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(452, 250);
+            this.webBrowser1.TabIndex = 105;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(439, 113);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 92;
+            this.button4.Text = "Procurar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // RegistarHabitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 764);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -619,7 +626,6 @@
             this.Controls.Add(this.groupBoxFotos);
             this.Controls.Add(this.groupBoxComodidades);
             this.Controls.Add(this.groupBoxMorada);
-            this.Controls.Add(this.pictureBoxMapa);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelProprietario);
@@ -635,7 +641,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Habitação";
             this.Load += new System.EventHandler(this.RegistarHabitacao_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).EndInit();
             this.groupBoxMorada.ResumeLayout(false);
             this.groupBoxMorada.PerformLayout();
             this.groupBoxComodidades.ResumeLayout(false);
@@ -669,7 +674,6 @@
         private System.Windows.Forms.Button buttonAdicionarFotos;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBoxMapa;
         private System.Windows.Forms.CheckBox checkBoxInternet;
         private System.Windows.Forms.CheckBox checkBoxTelevisao;
         private System.Windows.Forms.CheckBox checkBoxServicosDeLimpeza;
@@ -700,5 +704,7 @@
         private System.Windows.Forms.Button button3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

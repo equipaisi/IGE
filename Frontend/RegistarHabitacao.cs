@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Middleware;
+using System.Text;
 
 namespace Frontend
 {
@@ -55,6 +56,9 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
+            
+
+            
             #region Morada
             // Rua
             var rua = textBoxRua.Text;
@@ -357,6 +361,25 @@ namespace Frontend
             NovoProprietario newProp = new NovoProprietario();
             newProp.MdiParent = IGE.ActiveForm;
             newProp.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string rua = textBoxRua.Text;
+            string loc = textBoxLocalidade.Text;
+            //string cod = maskedTextBoxCodigoPostal.Text.ToString();
+
+            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+            add.Append(rua);
+            add.Append(loc);
+            //add.Append(cod);
+            webBrowser1.Navigate(add.ToString());
+         
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
