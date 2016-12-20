@@ -367,12 +367,12 @@ namespace Frontend
         {
             string rua = textBoxRua.Text;
             string loc = textBoxLocalidade.Text;
-            //string cod = maskedTextBoxCodigoPostal.Text.ToString();
+            string cod = maskedTextBoxCodigoPostal.Text.ToString();
 
             StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
             add.Append(rua);
             add.Append(loc);
-            //add.Append(cod);
+            add.Append(cod);
             webBrowser1.Navigate(add.ToString());
          
         }

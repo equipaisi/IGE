@@ -84,6 +84,7 @@
             resources.ApplyResources(this.textBox_Password, "textBox_Password");
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.UseSystemPasswordChar = true;
+            this.textBox_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Password_KeyDown);
             // 
             // FormLogin
             // 
@@ -98,7 +99,6 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "FormLogin";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();
             this.ResumeLayout(false);

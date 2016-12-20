@@ -49,6 +49,7 @@
             this.checkBoxTelevisao = new System.Windows.Forms.CheckBox();
             this.checkBoxServicosDeLimpeza = new System.Windows.Forms.CheckBox();
             this.groupBoxMorada = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.maskedTextBoxCodigoPostal = new System.Windows.Forms.MaskedTextBox();
             this.textBoxLocalidade = new System.Windows.Forms.TextBox();
             this.textBoxRua = new System.Windows.Forms.TextBox();
@@ -76,7 +77,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnoDeConstrucao)).BeginInit();
@@ -283,6 +283,16 @@
             this.groupBoxMorada.TabIndex = 93;
             this.groupBoxMorada.TabStop = false;
             this.groupBoxMorada.Text = "Morada";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(439, 113);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 92;
+            this.button4.Text = "Procurar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // maskedTextBoxCodigoPostal
             // 
@@ -596,22 +606,12 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(687, 458);
+            this.webBrowser1.Location = new System.Drawing.Point(668, 447);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(452, 250);
+            this.webBrowser1.Size = new System.Drawing.Size(514, 271);
             this.webBrowser1.TabIndex = 105;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(439, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 92;
-            this.button4.Text = "Procurar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // RegistarHabitacao
             // 
@@ -636,9 +636,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
             this.Name = "RegistarHabitacao";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registar Habitação";
             this.Load += new System.EventHandler(this.RegistarHabitacao_Load_1);
             this.groupBoxMorada.ResumeLayout(false);
