@@ -21,5 +21,10 @@ namespace Frontend
         {
 
         }
+
+        private void groupBoxMorada_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

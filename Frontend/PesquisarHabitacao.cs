@@ -73,9 +73,9 @@ namespace Frontend
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Habitação hab = new Habitação();
-            hab.MdiParent = IGE.ActiveForm;
-            hab.ShowDialog();
+            Habitação alun = new Habitação();
+            alun.MdiParent = IGE.ActiveForm;
+            alun.ShowDialog();
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)

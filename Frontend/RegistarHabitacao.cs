@@ -162,6 +162,7 @@ namespace Frontend
                     _imgFilenames.Add(filename);
                     _indexImgAtual += 1;
                     AtualizarFoto(_indexImgAtual);
+                   
                 }
             }
             MessageBox.Show(_imgFilenames.Count.ToString());      

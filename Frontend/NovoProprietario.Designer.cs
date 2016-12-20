@@ -69,9 +69,9 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 353);
+            this.textBox5.Location = new System.Drawing.Point(141, 353);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(356, 22);
+            this.textBox5.Size = new System.Drawing.Size(422, 22);
             this.textBox5.TabIndex = 25;
             // 
             // textBox4
@@ -83,16 +83,16 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(398, 135);
+            this.textBox2.Location = new System.Drawing.Point(440, 135);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 22);
             this.textBox2.TabIndex = 22;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 101);
+            this.textBox1.Location = new System.Drawing.Point(141, 101);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(443, 22);
+            this.textBox1.Size = new System.Drawing.Size(422, 22);
             this.textBox1.TabIndex = 21;
             // 
             // label5
@@ -116,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 138);
+            this.label2.Location = new System.Drawing.Point(402, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 15;
@@ -196,11 +196,11 @@
             // 
             // textBoxRua
             // 
-            this.textBoxRua.Location = new System.Drawing.Point(59, 32);
+            this.textBoxRua.Location = new System.Drawing.Point(93, 32);
             this.textBoxRua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRua.Multiline = true;
             this.textBoxRua.Name = "textBoxRua";
-            this.textBoxRua.Size = new System.Drawing.Size(456, 57);
+            this.textBoxRua.Size = new System.Drawing.Size(422, 57);
             this.textBoxRua.TabIndex = 2;
             // 
             // labelLocalidade

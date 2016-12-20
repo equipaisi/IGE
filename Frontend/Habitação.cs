@@ -52,5 +52,19 @@ namespace Frontend
            
             
         }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void Habitação_MouseMove(object sender, MouseEventArgs e)
+        {
+            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+            add.Append(labelRua.Text);
+            add.Append(labelLocalidade.Text);
+            add.Append(labelCodigoPostal.Text);
+            webBrowser1.Navigate(add.ToString());
+        }
     }
 }

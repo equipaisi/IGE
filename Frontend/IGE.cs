@@ -15,7 +15,9 @@ namespace Frontend
         public IGE()
         {
             InitializeComponent();
-           
+            this.WindowState = FormWindowState.Maximized;
+
+
 
         }
         //protected override void OnResize(EventArgs e)

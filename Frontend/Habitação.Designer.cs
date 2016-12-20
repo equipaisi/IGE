@@ -55,7 +55,6 @@
             this.checkBoxServicosDeLimpeza = new System.Windows.Forms.CheckBox();
             this.descricaoGroupBox = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBoxMapa = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -73,6 +72,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
@@ -80,7 +80,6 @@
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
             this.descricaoGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -377,19 +376,6 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Casa bastante moderna \r\n\r\nExcelente Localização\r\n";
             // 
-            // pictureBoxMapa
-            // 
-            this.pictureBoxMapa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMapa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxMapa.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMapa.Image")));
-            this.pictureBoxMapa.Location = new System.Drawing.Point(596, 423);
-            this.pictureBoxMapa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxMapa.Name = "pictureBoxMapa";
-            this.pictureBoxMapa.Size = new System.Drawing.Size(465, 218);
-            this.pictureBoxMapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMapa.TabIndex = 98;
-            this.pictureBoxMapa.TabStop = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
@@ -566,17 +552,26 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "210€/MÊS";
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(596, 422);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(465, 240);
+            this.webBrowser1.TabIndex = 106;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            // 
             // Habitação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 725);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.pictureBoxMapa);
             this.Controls.Add(this.descricaoGroupBox);
             this.Controls.Add(this.groupBoxComodidades);
             this.Controls.Add(this.groupBox1);
@@ -589,6 +584,7 @@
             this.Name = "Habitação";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Habitação";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Habitação_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxFotos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).EndInit();
@@ -600,7 +596,6 @@
             this.groupBoxComodidades.PerformLayout();
             this.descricaoGroupBox.ResumeLayout(false);
             this.descricaoGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMapa)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -640,7 +635,6 @@
         private System.Windows.Forms.CheckBox checkBoxTelevisao;
         private System.Windows.Forms.CheckBox checkBoxServicosDeLimpeza;
         private System.Windows.Forms.GroupBox descricaoGroupBox;
-        private System.Windows.Forms.PictureBox pictureBoxMapa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -659,5 +653,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
