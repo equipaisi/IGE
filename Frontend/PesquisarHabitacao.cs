@@ -257,12 +257,23 @@ namespace Frontend
             Portugal.Distritos.Add(coimbra);
             #endregion
             //EVORA
+            #region evora
+
             Distrito evora = new Distrito("Évora");
+
+            Concelho evorC = new Concelho("Évora");
+            evorC.Universidades.Add(new Universidade("Universidade de Évora (UEv)"));
+
+           
+
+
+            evora.Concelhos.Add(evorC);
+
             evora.Concelhos.Add(new Concelho("Alandroal"));
             evora.Concelhos.Add(new Concelho("Arraiolos"));
             evora.Concelhos.Add(new Concelho("Borba"));
             evora.Concelhos.Add(new Concelho("Estremoz"));
-            evora.Concelhos.Add(new Concelho("Évora"));
+            //evora.Concelhos.Add(new Concelho("Évora"));
             evora.Concelhos.Add(new Concelho("Montemor-o-Novo"));
             evora.Concelhos.Add(new Concelho("Mora"));
             evora.Concelhos.Add(new Concelho("Mourão"));
@@ -275,14 +286,26 @@ namespace Frontend
             evora.Concelhos.Add(new Concelho("Vila Viçosa"));
 
             Portugal.Distritos.Add(evora);
-
+            #endregion
             //FARO
+            #region faro
             Distrito faro = new Distrito("Faro");
+
+
+            Concelho farC = new Concelho("Faro");
+            farC.Universidades.Add(new Universidade("Universidade do Algarve(UAlg)"));
+            farC.Universidades.Add(new Universidade("Instituto Superior D. Afonso III (INUAF)"));
+            farC.Universidades.Add(new Universidade("Instituto Superior Manuel Teixeira Gomes(ISMAT)"));
+            farC.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget - Algarve"));
+
+
+            faro.Concelhos.Add(farC);
+
             faro.Concelhos.Add(new Concelho("Albufeira"));
             faro.Concelhos.Add(new Concelho("Alcoutim"));
             faro.Concelhos.Add(new Concelho("Aljezur"));
             faro.Concelhos.Add(new Concelho("Castro Marim"));
-            faro.Concelhos.Add(new Concelho("Faro"));
+           // faro.Concelhos.Add(new Concelho("Faro"));
             faro.Concelhos.Add(new Concelho("Lagoa"));
             faro.Concelhos.Add(new Concelho("Lagos"));
             faro.Concelhos.Add(new Concelho("Loulé"));
@@ -296,17 +319,26 @@ namespace Frontend
             faro.Concelhos.Add(new Concelho("Vila Real de Santo António"));
 
             Portugal.Distritos.Add(faro);
-
+            #endregion
 
             //GUARDA
+            #region Guarda
             Distrito guarda = new Distrito("Guarda");
+
+            Concelho guarC = new Concelho("Guarda");
+            guarC.Universidades.Add(new Universidade("Instituto Politécnico da Guarda (IPG)"));
+            
+
+            guarda.Concelhos.Add(guarC);
+
+
             guarda.Concelhos.Add(new Concelho("Aguiar da Beira"));
             guarda.Concelhos.Add(new Concelho("Almeida"));
             guarda.Concelhos.Add(new Concelho("Celorico da Beira"));
             guarda.Concelhos.Add(new Concelho("Figueira de Castelo Rodrigo"));
             guarda.Concelhos.Add(new Concelho("Fornos de Algodres"));
             guarda.Concelhos.Add(new Concelho("Gouveia"));
-            guarda.Concelhos.Add(new Concelho("Guarda"));
+           // guarda.Concelhos.Add(new Concelho("Guarda"));
             guarda.Concelhos.Add(new Concelho("Manteigas"));
             guarda.Concelhos.Add(new Concelho("Mêda"));
             guarda.Concelhos.Add(new Concelho("Pinhel"));
@@ -316,19 +348,37 @@ namespace Frontend
             guarda.Concelhos.Add(new Concelho("Vila Nova de Foz Côa"));
 
             Portugal.Distritos.Add(guarda);
-
+            #endregion
             //LEIRIA
+        
+            #region leiria
             Distrito leiria = new Distrito("Leiria");
+
+            Concelho leirC = new Concelho("Leiria");
+            leirC.Universidades.Add(new Universidade("Instituto Politécnico de Leiria (IPL)"));
+            leirC.Universidades.Add(new Universidade("Universidade Católica Portuguesa(UCP) - Caldas da Rainha"));
+            leirC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Leiria"));
+            leirC.Universidades.Add(new Universidade("Instituto Superior D.Dinis"));
+
+
+            leiria.Concelhos.Add(leirC);
+            Concelho caldas = new Concelho("Caldas da Rainha");
+            caldas.Universidades.Add(new Universidade("Universidade Católica Portuguesa(UCP) - Caldas da Rainha"));
+
+            leiria.Concelhos.Add(caldas);
+
+
+
 
             leiria.Concelhos.Add(new Concelho("Alcobaça"));
             leiria.Concelhos.Add(new Concelho("Alvaiázere"));
             leiria.Concelhos.Add(new Concelho("Ansião"));
             leiria.Concelhos.Add(new Concelho("Batalha"));
             leiria.Concelhos.Add(new Concelho("Bombarral"));
-            leiria.Concelhos.Add(new Concelho("Caldas da Rainha"));
+           // leiria.Concelhos.Add(new Concelho("Caldas da Rainha"));
             leiria.Concelhos.Add(new Concelho("Castanheira de Pera"));
             leiria.Concelhos.Add(new Concelho("Figueiró dos Vinhos"));
-            leiria.Concelhos.Add(new Concelho("Leiria"));
+           // leiria.Concelhos.Add(new Concelho("Leiria"));
             leiria.Concelhos.Add(new Concelho("Marinha Grande"));
             leiria.Concelhos.Add(new Concelho("Nazaré"));
             leiria.Concelhos.Add(new Concelho("Óbidos"));
@@ -338,10 +388,62 @@ namespace Frontend
             leiria.Concelhos.Add(new Concelho("Porto de Mós"));
 
             Portugal.Distritos.Add(leiria);
-
+            #endregion
 
             //LISBOA
+            #region Lisboa
             Distrito lisboa = new Distrito("Lisboa");
+
+            Concelho lisbC = new Concelho("Lisboa");
+            lisbC.Universidades.Add(new Universidade("Academia da Força Aérea (AFA)"));
+            lisbC.Universidades.Add(new Universidade("Academia Militar"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Artes Decorativas (ESAD)"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Design(ESD)"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Educação de Almeida Garrett"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Educação de João de Deus"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Educadores de Infância Maria Ulrich"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Enfermagem de Lisboa"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Enfermagem S.Francisco das Misericórdias"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Hotelaria e Turismo do Estoril"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Marketing e Publicidade"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior Náutica Infante D.Henrique"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Saúde do Alcoitão"));
+
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Saúde da Cruz Vermelha Portuguesa"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Saúde Ribeiro Sanches"));
+            lisbC.Universidades.Add(new Universidade("Escola Superior de Tecnologias e Artes de Lisboa (ESTAL)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Politécnico de Lisboa(IPL)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Lisboa(IPAM)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior Autónomo de Estudos Politécnicos(IPA)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Administração(ISCA)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Ciências Educativas"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Ciências Policiais e Segurança Interna"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Comunicação Empresarial(ISCEM)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Educação e Ciências(ISEC)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Gestão"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Gestão Bancária"));
+
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Lisboa(ISLA)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Novas Profissões(ISNP)"));
+            lisbC.Universidades.Add(new Universidade("ISPA - Instituto Universitário de Psicologia Aplicada(ISPA - IU)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Tecnologias Avançadas de Lisboa(ISTEC)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior Politécnico do Oeste(ISPO)"));
+            lisbC.Universidades.Add(new Universidade("ISCTE - Instituto Universitário de Lisboa(ISCTE)"));
+            lisbC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Administração(ISCA)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Aberta (UAb)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Atlântica(EIA)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Católica Portuguesa(UCP)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Nova de Lisboa(UNL)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Europeia(UE)"));
+            lisbC.Universidades.Add(new Universidade("Universidade de Lisboa(UL)"));
+            lisbC.Universidades.Add(new Universidade("Universidade Lusófona de Humanidades e Tecnologias(ULHT)"));
+
+
+
+
+
+            lisboa.Concelhos.Add(lisbC);
+
 
             lisboa.Concelhos.Add(new Concelho("Alenquer"));
             lisboa.Concelhos.Add(new Concelho("Amadora"));
@@ -349,7 +451,7 @@ namespace Frontend
             lisboa.Concelhos.Add(new Concelho("Azambuja"));
             lisboa.Concelhos.Add(new Concelho("Cadaval"));
             lisboa.Concelhos.Add(new Concelho("Cascais"));
-            lisboa.Concelhos.Add(new Concelho("Lisboa"));
+            //lisboa.Concelhos.Add(new Concelho("Lisboa"));
             lisboa.Concelhos.Add(new Concelho("Loures"));
             lisboa.Concelhos.Add(new Concelho("Lourinhã"));
             lisboa.Concelhos.Add(new Concelho("Mafra"));
@@ -361,9 +463,19 @@ namespace Frontend
             lisboa.Concelhos.Add(new Concelho("Vila Franca de Xira"));
 
             Portugal.Distritos.Add(lisboa);
+            #endregion
 
-            //PORTALEGRE
+            //PORTALEGRE 
+            #region portalegre
             Distrito portalegre = new Distrito("Portalegre");
+
+            Concelho portC = new Concelho("Portalegre");
+            portC.Universidades.Add(new Universidade("Instituto Politécnico de Portalegre"));
+
+
+            portalegre.Concelhos.Add(portC);
+
+            
 
             portalegre.Concelhos.Add(new Concelho("Alter do Chão"));
             portalegre.Concelhos.Add(new Concelho("Arronches"));
@@ -378,37 +490,123 @@ namespace Frontend
             portalegre.Concelhos.Add(new Concelho("Monforte"));
             portalegre.Concelhos.Add(new Concelho("Nisa"));
             portalegre.Concelhos.Add(new Concelho("Ponte de Sor"));
-            portalegre.Concelhos.Add(new Concelho("Portalegre"));
+           // portalegre.Concelhos.Add(new Concelho("Portalegre"));
             portalegre.Concelhos.Add(new Concelho("Sousel"));
 
             Portugal.Distritos.Add(portalegre);
-
+            #endregion
             //PORTO
+            #region porto
             Distrito porto = new Distrito("Porto");
+
+            Concelho portoC = new Concelho("Porto");
+            portC.Universidades.Add(new Universidade(" Universidade do Porto(UP)"));
+
+            portoC.Universidades.Add(new Universidade("Instituto Politécnico do Porto(IPP)"));            
+
+            portoC.Universidades.Add(new Universidade("Universidade Fernando Pessoa(UFP"));
+            portoC.Universidades.Add(new Universidade("Universidade Católica Portuguesa (UCP) - Centro Regional do Porto"));
+            portoC.Universidades.Add(new Universidade("Universidade Lusófona do Porto"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior Politécnico Gaya (ISPGaya)"));
+            portoC.Universidades.Add(new Universidade("Instituto Universitário da Maia - ISMAI"));
+
+            portoC.Universidades.Add(new Universidade("Instituto Politécnico da Maia - IPMAIA"));
+            portoC.Universidades.Add(new Universidade("Escola Superior Artística do Porto(ESAP)"));
+            portoC.Universidades.Add(new Universidade("Universidade Portucalense Infante D.Henrique(UPT)"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Enfermagem do Porto"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Saúde -Norte"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Educação e Trabalho"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Vila Nova de Gaia"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Serviço Social do Porto"));
+            portoC.Universidades.Add(new Universidade("Conservatório Superior de Música de Gaia"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Artes e Design"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Arcozelo"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Educação de Paula Frassinetti"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Educação de Santa Maria"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Enfermagem de Santa Maria"));
+            portoC.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget de Vila Nova de Gaia"));
+            portoC.Universidades.Add(new Universidade("Instituto de Estudos Superiores Financeiros e Fiscais - Porto"));
+            portoC.Universidades.Add(new Universidade("Instituto Politécnico de Saúde do Norte - Escola Superior de Saúde do Vale do Sousa"));
+            portoC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Administração e Gestão"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Ciências Educativas de Felgueiras"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Ciências Empresariais e do Turismo"));
+            portoC.Universidades.Add(new Universidade("Instituto Superior de Tecnologias Avançadas de Lisboa - Porto"));
+
+            porto.Concelhos.Add(portoC);
+
+            Concelho maia = new Concelho("Maia");
+            maia.Universidades.Add(new Universidade("Instituto Politécnico da Maia - IPMAIA"));
+
+            maia.Universidades.Add(new Universidade("Instituto Universitário da Maia - ISMAI"));
+
+            porto.Concelhos.Add(maia);
+
+            Concelho gaia = new Concelho("Vila Nova de Gaia");
+            gaia.Universidades.Add(new Universidade("Conservatório Superior de Música de Gaia"));
+            gaia.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Vila Nova de Gaia"));
+            gaia.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget de Vila Nova de Gaia"));
+
+           
+
+            porto.Concelhos.Add(gaia);
+
+
+            Concelho matosinhos = new Concelho("Matosinhos");
+            matosinhos.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos"));
+            
+            porto.Concelhos.Add(matosinhos);
+
+
+            Concelho felgueiras = new Concelho("Felgueiras");
+            felgueiras.Universidades.Add(new Universidade("Instituto Superior de Ciências Educativas de Felgueiras"));
+
+            porto.Concelhos.Add(felgueiras);
+
 
             porto.Concelhos.Add(new Concelho("Amarante"));
             porto.Concelhos.Add(new Concelho("Baião"));
-            porto.Concelhos.Add(new Concelho("Felgueiras"));
+           // porto.Concelhos.Add(new Concelho("Felgueiras"));
             porto.Concelhos.Add(new Concelho("Gondomar"));
             porto.Concelhos.Add(new Concelho("Lousada"));
-            porto.Concelhos.Add(new Concelho("Maia"));
+           // porto.Concelhos.Add(new Concelho("Maia"));
             porto.Concelhos.Add(new Concelho("Marco de Canaveses"));
-            porto.Concelhos.Add(new Concelho("Matosinhos"));
+           // porto.Concelhos.Add(new Concelho("Matosinhos"));
             porto.Concelhos.Add(new Concelho("Paços de Ferreira"));
             porto.Concelhos.Add(new Concelho("Paredes"));
             porto.Concelhos.Add(new Concelho("Penafiel"));
-            porto.Concelhos.Add(new Concelho("Porto"));
+            // porto.Concelhos.Add(new Concelho("Porto"));
             porto.Concelhos.Add(new Concelho("Póvoa de Varzim"));
             porto.Concelhos.Add(new Concelho("Santo Tirso"));
             porto.Concelhos.Add(new Concelho("Trofa"));
             porto.Concelhos.Add(new Concelho("Valongo"));
             porto.Concelhos.Add(new Concelho("Vila do Conde"));
-            porto.Concelhos.Add(new Concelho("Vila Nova de Gaia"));
+          //  porto.Concelhos.Add(new Concelho("Vila Nova de Gaia"));
 
             Portugal.Distritos.Add(porto);
-
+            #endregion
             //SANTAREM
+            #region Santarem
             Distrito santarem = new Distrito("Santarém");
+
+            Concelho santarC = new Concelho("Santarém");
+            santarC.Universidades.Add(new Universidade("Instituto Politécnico de Santarém (IPS)"));
+            santarC.Universidades.Add(new Universidade("Instituto Politécnico de Tomar(IPT)"));
+            santarC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Santarém(ISLA)"));
+            santarC.Universidades.Add(new Universidade("Escola Superior de Educação de Torres Novas"));
+            santarem.Concelhos.Add(santarC);
+
+            Concelho tomar = new Concelho("Tomar");
+            tomar.Universidades.Add(new Universidade("Instituto Politécnico de Tomar(IPT)"));
+
+
+            santarem.Concelhos.Add(tomar);
+
+            Concelho torres = new Concelho("Torres Novas");
+            torres.Universidades.Add(new Universidade(" Escola Superior de Educação de Torres Novas"));
+
+
+            santarem.Concelhos.Add(torres);
 
             santarem.Concelhos.Add(new Concelho("Abrantes"));
             santarem.Concelhos.Add(new Concelho("Alcanena"));
@@ -426,20 +624,37 @@ namespace Frontend
             santarem.Concelhos.Add(new Concelho("Ourém"));
             santarem.Concelhos.Add(new Concelho("Rio Maior"));
             santarem.Concelhos.Add(new Concelho("Salvaterra de Magos"));
-            santarem.Concelhos.Add(new Concelho("Santarém"));
+            //santarem.Concelhos.Add(new Concelho("Santarém"));
             santarem.Concelhos.Add(new Concelho("Sardoal"));
-            santarem.Concelhos.Add(new Concelho("Tomar"));
-            santarem.Concelhos.Add(new Concelho("Torres Novas"));
+           // santarem.Concelhos.Add(new Concelho("Tomar"));
+            //santarem.Concelhos.Add(new Concelho("Torres Novas"));
             santarem.Concelhos.Add(new Concelho("Vila Nova da Barquinha"));
 
             Portugal.Distritos.Add(santarem);
-
+            #endregion
             //SETUBAL
+            #region setubal
             Distrito setubal = new Distrito("Setubal");
+
+            Concelho setC = new Concelho("Setubal");
+            setC.Universidades.Add(new Universidade("Instituto Politécnico de Setúbal"));
+            setC.Universidades.Add(new Universidade("Universidade Nova de Lisboa (UNL) -Escola Naval"));
+            setC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Saúde Egas Moniz"));
+            setC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
+            setC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Santo André"));
+            setC.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Almada"));
+
+            setubal.Concelhos.Add(setC);
+
+            Concelho almada = new Concelho("Almada");
+            almada.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
+            almada.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Almada"));
+
+            setubal.Concelhos.Add(almada);
 
             setubal.Concelhos.Add(new Concelho("Alcácer do Sal"));
             setubal.Concelhos.Add(new Concelho("Alcochete"));
-            setubal.Concelhos.Add(new Concelho("Almada"));
+           // setubal.Concelhos.Add(new Concelho("Almada"));
             setubal.Concelhos.Add(new Concelho("Barreiro"));
             setubal.Concelhos.Add(new Concelho("Grândola"));
             setubal.Concelhos.Add(new Concelho("Moita"));
@@ -448,13 +663,27 @@ namespace Frontend
             setubal.Concelhos.Add(new Concelho("Santiago do Cacém"));
             setubal.Concelhos.Add(new Concelho("Seixal"));
             setubal.Concelhos.Add(new Concelho("Sesimbra"));
-            setubal.Concelhos.Add(new Concelho("Setúbal"));
+            //setubal.Concelhos.Add(new Concelho("Setúbal"));
             setubal.Concelhos.Add(new Concelho("Sines"));
 
             Portugal.Distritos.Add(setubal);
-
+            #endregion
             //VIANA DO CASTELO
+            #region Viana do Castelo
             Distrito vianaDoCastelo = new Distrito("Viana do Castelo");
+
+            Concelho vianC = new Concelho("Viana do Castelo");
+            vianC.Universidades.Add(new Universidade("Instituto Politécnico de Viana do Castelo"));
+            vianC.Universidades.Add(new Universidade("Escola Superior Gallaecia"));
+            vianC.Universidades.Add(new Universidade("Universidade Fernando Pessoa (UFP) - Ponte de Lima"));
+
+           vianaDoCastelo.Concelhos.Add(vianC);
+
+            Concelho ponteDeLima = new Concelho("Ponte de Lima");
+           
+            ponteDeLima.Universidades.Add(new Universidade("Universidade Fernando Pessoa (UFP) - Ponte de Lima"));
+
+            vianaDoCastelo.Concelhos.Add(ponteDeLima);
 
             vianaDoCastelo.Concelhos.Add(new Concelho("Arcos de Valdevez"));
             vianaDoCastelo.Concelhos.Add(new Concelho("Caminha"));
@@ -462,15 +691,25 @@ namespace Frontend
             vianaDoCastelo.Concelhos.Add(new Concelho("Monção"));
             vianaDoCastelo.Concelhos.Add(new Concelho("Paredes de Coura"));
             vianaDoCastelo.Concelhos.Add(new Concelho("Ponte da Barca"));
-            vianaDoCastelo.Concelhos.Add(new Concelho("Ponte de Lima"));
+            //vianaDoCastelo.Concelhos.Add(new Concelho("Ponte de Lima"));
             vianaDoCastelo.Concelhos.Add(new Concelho("Valença"));
-            vianaDoCastelo.Concelhos.Add(new Concelho("Viana do Castelo"));
+            //vianaDoCastelo.Concelhos.Add(new Concelho("Viana do Castelo"));
             vianaDoCastelo.Concelhos.Add(new Concelho("Vila Nova de Cerveira"));
 
             Portugal.Distritos.Add(vianaDoCastelo);
 
+            #endregion
             //VILA REAL
+            #region Vila Real
             Distrito vilaReal = new Distrito("Vila Real");
+
+            Concelho vilaC = new Concelho("Vila Real");
+
+            vilaC.Universidades.Add(new Universidade("Universidade de Trás - os - Montes e Alto Douro(UTAD)"));
+            vilaC.Universidades.Add(new Universidade(" Escola Superior de Enfermagem Dr.José Timóteo Montalvão Machado"));
+
+            
+            vilaReal.Concelhos.Add(vilaC);
 
             vilaReal.Concelhos.Add(new Concelho("Alijó"));
             vilaReal.Concelhos.Add(new Concelho("Boticas"));
@@ -485,13 +724,28 @@ namespace Frontend
             vilaReal.Concelhos.Add(new Concelho("Santa Marta de Penaguião"));
             vilaReal.Concelhos.Add(new Concelho("Valpaços"));
             vilaReal.Concelhos.Add(new Concelho("Vila Pouca de Aguiar"));
-            vilaReal.Concelhos.Add(new Concelho("Vila Real"));
+            //vilaReal.Concelhos.Add(new Concelho("Vila Real"));
 
             Portugal.Distritos.Add(vilaReal);
-
+            #endregion
 
             //VISEU
+            #region viseu
             Distrito viseu = new Distrito("Viseu");
+
+            Concelho viseC = new Concelho("Viseu");
+
+            viseC.Universidades.Add(new Universidade("Universidade Católica Portuguesa(UCP) - Centro Regional das Beiras"));
+            viseC.Universidades.Add(new Universidade("Instituto Politécnico de Viseu(IPV)"));
+
+            viseC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Viseu"));
+            viseC.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Arcozelo -Viseu"));
+            viseC.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget"));
+
+
+            
+
+            viseu.Concelhos.Add(viseC);
 
             viseu.Concelhos.Add(new Concelho("Armamar"));
             viseu.Concelhos.Add(new Concelho("Carregal do Sal"));
@@ -519,7 +773,7 @@ namespace Frontend
             viseu.Concelhos.Add(new Concelho("Vouzela"));
 
             Portugal.Distritos.Add(viseu);
-
+            #endregion
 
 
 
