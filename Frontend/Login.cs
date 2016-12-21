@@ -2,18 +2,26 @@
 using System.Windows.Forms;
 
 namespace Frontend
+
 {
+
+    
     public partial class FormLogin : Form
     {
+       
+
         public FormLogin()
         {
             InitializeComponent();
             // A janela do login vai ficar centralizada no monitor do pc
             this.StartPosition = FormStartPosition.CenterScreen;
+
+           
         }
 
         private void Form1_Load(object sender, Keys e)
         {
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -36,7 +44,7 @@ namespace Frontend
                 adm.Show();
                 this.Hide(); // a janela fica oculta
             }
-
+            
 
 
         }
@@ -110,6 +118,11 @@ namespace Frontend
                     this.Hide(); // a janela fica oculta
                 }
             }
+        }
+
+        private void textBox_Name_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

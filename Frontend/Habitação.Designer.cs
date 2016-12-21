@@ -584,7 +584,7 @@
             this.Name = "Habitação";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Habitação";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Habitação_MouseMove);
+          //  this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Habitação_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxFotos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).EndInit();

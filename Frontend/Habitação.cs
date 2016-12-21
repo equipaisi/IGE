@@ -15,6 +15,11 @@ namespace Frontend
         public Habitação()
         {
             InitializeComponent();
+            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+            add.Append(labelRua.Text);
+            add.Append(labelLocalidade.Text);
+            add.Append(labelCodigoPostal.Text);
+            webBrowser1.Navigate(add.ToString());
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,7 +41,7 @@ namespace Frontend
         {
             Proprietario prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
-            prt.ShowDialog();
+            prt.Show();
 
         }
 
@@ -44,7 +49,7 @@ namespace Frontend
         {
             Aluguer alug = new Aluguer();
             alug.MdiParent = IGE.ActiveForm;
-            alug.ShowDialog();
+            alug.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -58,13 +63,6 @@ namespace Frontend
 
         }
 
-        private void Habitação_MouseMove(object sender, MouseEventArgs e)
-        {
-            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
-            add.Append(labelRua.Text);
-            add.Append(labelLocalidade.Text);
-            add.Append(labelCodigoPostal.Text);
-            webBrowser1.Navigate(add.ToString());
-        }
+     
     }
 }

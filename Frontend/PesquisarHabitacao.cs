@@ -1,388 +1,456 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Frontend
 {
     public partial class PesquisarHabitacao : Form
     {
+        Pais Portugal = new Pais("Portugal");
+
         public PesquisarHabitacao()
         {
             InitializeComponent();
+            
+            // BRAGA 
+            Distrito braga = new Distrito("Braga");
+            braga.Concelhos.Add(new Concelho("Amares"));
+            braga.Concelhos.Add(new Concelho("Barcelos"));
+            braga.Concelhos.Add(new Concelho("Braga"));
+            braga.Concelhos.Add(new Concelho("Cabeceuras de Basto"));
+            braga.Concelhos.Add(new Concelho("Celorico de Basto"));
+            braga.Concelhos.Add(new Concelho("Esposende"));
+            braga.Concelhos.Add(new Concelho("Fafe"));
+            braga.Concelhos.Add(new Concelho("Guimarães"));
+            braga.Concelhos.Add(new Concelho("Póvoa de Lanhoso"));
+            braga.Concelhos.Add(new Concelho("Terras de Bouro"));
+            braga.Concelhos.Add(new Concelho("Vieira do Minho"));
+            braga.Concelhos.Add(new Concelho("Vila Nova de Famalicão"));
+            braga.Concelhos.Add(new Concelho("Vila Verde"));
+            braga.Concelhos.Add(new Concelho("Vizela"));
+
+            Portugal.Distritos.Add(braga);
+
+            //CASTELO BRANCO 
+            Distrito casteloBranco = new Distrito("Castelo Branco");
+            casteloBranco.Concelhos.Add(new Concelho("Belmonte"));
+            casteloBranco.Concelhos.Add(new Concelho("Castelo Branco"));
+            casteloBranco.Concelhos.Add(new Concelho("Covilhã"));
+            casteloBranco.Concelhos.Add(new Concelho("Fundão"));
+            casteloBranco.Concelhos.Add(new Concelho("Idanha a Nova"));
+            casteloBranco.Concelhos.Add(new Concelho("Oleiros"));
+            casteloBranco.Concelhos.Add(new Concelho("Penamacor"));
+            casteloBranco.Concelhos.Add(new Concelho("Proença a Nova"));
+            casteloBranco.Concelhos.Add(new Concelho("Sertã"));
+            casteloBranco.Concelhos.Add(new Concelho("Vila de Rei"));
+            casteloBranco.Concelhos.Add(new Concelho("Vila Velha de Ródão"));
+
+            Portugal.Distritos.Add(casteloBranco);
+
+            //AVEIRO 
+            Distrito aveiro = new Distrito("Aveiro");
+            aveiro.Concelhos.Add(new Concelho("Agueda"));
+            aveiro.Concelhos.Add(new Concelho("Albergaria a Velha"));
+            aveiro.Concelhos.Add(new Concelho("Anadia"));
+            aveiro.Concelhos.Add(new Concelho("Arouca"));
+            aveiro.Concelhos.Add(new Concelho("Aveiro"));
+            aveiro.Concelhos.Add(new Concelho("Castelo de Paiva"));
+            aveiro.Concelhos.Add(new Concelho("Espinho"));
+            aveiro.Concelhos.Add(new Concelho("Estarreja "));
+            aveiro.Concelhos.Add(new Concelho("Ilhavo"));
+            aveiro.Concelhos.Add(new Concelho("Mealhada"));
+            aveiro.Concelhos.Add(new Concelho("Murtosa"));
+
+            aveiro.Concelhos.Add(new Concelho("Oliveira de Azemeis"));
+            aveiro.Concelhos.Add(new Concelho("Oliveira do Bairro"));
+            aveiro.Concelhos.Add(new Concelho("Ovar"));
+            aveiro.Concelhos.Add(new Concelho("Santa Maria da Feira"));
+            aveiro.Concelhos.Add(new Concelho("São João da Madeira"));
+            aveiro.Concelhos.Add(new Concelho("Sever do Vouga"));
+            aveiro.Concelhos.Add(new Concelho("Vagos"));
+            aveiro.Concelhos.Add(new Concelho("Vale de Cambra"));
+
+            Portugal.Distritos.Add(aveiro);
+
+            //BEJA
+            Distrito beja = new Distrito("Beja");
+            beja.Concelhos.Add(new Concelho("Aljustrel"));
+            beja.Concelhos.Add(new Concelho("Almodovar"));
+            beja.Concelhos.Add(new Concelho("Alvito"));
+            beja.Concelhos.Add(new Concelho("Barrancos"));
+            beja.Concelhos.Add(new Concelho("Beja"));
+            beja.Concelhos.Add(new Concelho("Castro Verde"));
+            beja.Concelhos.Add(new Concelho("Cuba"));
+            beja.Concelhos.Add(new Concelho("Ferreira do Alentejo"));
+            beja.Concelhos.Add(new Concelho("Mertola"));
+            beja.Concelhos.Add(new Concelho("Moura"));
+            beja.Concelhos.Add(new Concelho("Odemira"));
+
+            beja.Concelhos.Add(new Concelho("Ourique"));
+            beja.Concelhos.Add(new Concelho("Serpa"));
+            beja.Concelhos.Add(new Concelho("Vidigueira"));
+
+            Portugal.Distritos.Add(beja);
+
+
+            //BRAGANÇA
+            Distrito braganca = new Distrito("Bragança");
+           braganca.Concelhos.Add(new Concelho("Alfândega da Fé"));
+           braganca.Concelhos.Add(new Concelho("Bragança"));
+           braganca.Concelhos.Add(new Concelho("Carrazeda de Ansiães"));
+           braganca.Concelhos.Add(new Concelho("Freixo de Espada à Cinta"));
+           braganca.Concelhos.Add(new Concelho("Macedo de Cavaleiros"));
+           braganca.Concelhos.Add(new Concelho("Miranda do Douro"));
+           braganca.Concelhos.Add(new Concelho("Mirandela"));
+           braganca.Concelhos.Add(new Concelho("Mogadouro"));
+           braganca.Concelhos.Add(new Concelho("Torre de Moncorvo"));
+           braganca.Concelhos.Add(new Concelho("Vila Flor"));
+           braganca.Concelhos.Add(new Concelho("Vimioso"));
+
+            Portugal.Distritos.Add(braganca);
+
+
+            //COIMBRA
+            Distrito coimbra = new Distrito("Coimbra");
+            coimbra.Concelhos.Add(new Concelho("Arganil"));
+            coimbra.Concelhos.Add(new Concelho("Cantanhede"));
+            coimbra.Concelhos.Add(new Concelho("Coimbra"));
+            coimbra.Concelhos.Add(new Concelho("Condeixa-a-Nova"));
+            coimbra.Concelhos.Add(new Concelho("Figueira da Foz"));
+            coimbra.Concelhos.Add(new Concelho("Góis"));
+            coimbra.Concelhos.Add(new Concelho("Lousã"));
+            coimbra.Concelhos.Add(new Concelho("Mira"));
+            coimbra.Concelhos.Add(new Concelho("Miranda do Corvo"));
+            coimbra.Concelhos.Add(new Concelho("Montemor-o-Velho"));
+            coimbra.Concelhos.Add(new Concelho("Oliveira do Hospital"));
+            coimbra.Concelhos.Add(new Concelho("Pampilhosa da Serra"));
+            coimbra.Concelhos.Add(new Concelho("Penacova"));
+            coimbra.Concelhos.Add(new Concelho("Penela"));
+            coimbra.Concelhos.Add(new Concelho("Soure"));
+            coimbra.Concelhos.Add(new Concelho("Tábua"));
+            coimbra.Concelhos.Add(new Concelho("Vila Nova de Poiares"));
+
+            Portugal.Distritos.Add(coimbra);
+
+            //EVORA
+            Distrito evora = new Distrito("Évora");
+            evora.Concelhos.Add(new Concelho("Alandroal"));
+            evora.Concelhos.Add(new Concelho("Arraiolos"));
+            evora.Concelhos.Add(new Concelho("Borba"));
+            evora.Concelhos.Add(new Concelho("Estremoz"));
+            evora.Concelhos.Add(new Concelho("Évora"));
+            evora.Concelhos.Add(new Concelho("Montemor-o-Novo"));
+            evora.Concelhos.Add(new Concelho("Mora"));
+            evora.Concelhos.Add(new Concelho("Mourão"));
+            evora.Concelhos.Add(new Concelho("Olivença"));
+            evora.Concelhos.Add(new Concelho("Portel"));
+            evora.Concelhos.Add(new Concelho("Redondo"));
+            evora.Concelhos.Add(new Concelho("Reguengos de Monsaraz"));
+            evora.Concelhos.Add(new Concelho("Vendas Novas"));
+            evora.Concelhos.Add(new Concelho("Viana do Alentejo"));
+            evora.Concelhos.Add(new Concelho("Vila Viçosa"));
+
+            Portugal.Distritos.Add(evora);
+
+            //FARO
+            Distrito faro = new Distrito("Faro");
+            faro.Concelhos.Add(new Concelho("Albufeira"));
+            faro.Concelhos.Add(new Concelho("Alcoutim"));
+            faro.Concelhos.Add(new Concelho("Aljezur"));
+            faro.Concelhos.Add(new Concelho("Castro Marim"));
+            faro.Concelhos.Add(new Concelho("Faro"));
+            faro.Concelhos.Add(new Concelho("Lagoa"));
+            faro.Concelhos.Add(new Concelho("Lagos"));
+            faro.Concelhos.Add(new Concelho("Loulé"));
+            faro.Concelhos.Add(new Concelho("Monchique"));
+            faro.Concelhos.Add(new Concelho("Olhão"));
+            faro.Concelhos.Add(new Concelho("Portimão"));
+            faro.Concelhos.Add(new Concelho("São Brás de Alportel"));
+            faro.Concelhos.Add(new Concelho("Silves"));
+            faro.Concelhos.Add(new Concelho("Tavira"));
+            faro.Concelhos.Add(new Concelho("Vila do Bispo"));
+            faro.Concelhos.Add(new Concelho("Vila Real de Santo António"));
+
+            Portugal.Distritos.Add(faro);
+
+
+            //GUARDA
+            Distrito guarda = new Distrito("Guarda");
+            guarda.Concelhos.Add(new Concelho("Aguiar da Beira"));
+            guarda.Concelhos.Add(new Concelho("Almeida"));
+            guarda.Concelhos.Add(new Concelho("Celorico da Beira"));
+            guarda.Concelhos.Add(new Concelho("Figueira de Castelo Rodrigo"));
+            guarda.Concelhos.Add(new Concelho("Fornos de Algodres"));
+            guarda.Concelhos.Add(new Concelho("Gouveia"));
+            guarda.Concelhos.Add(new Concelho("Guarda"));
+            guarda.Concelhos.Add(new Concelho("Manteigas"));
+            guarda.Concelhos.Add(new Concelho("Mêda"));
+            guarda.Concelhos.Add(new Concelho("Pinhel"));
+            guarda.Concelhos.Add(new Concelho("Sabugal"));
+            guarda.Concelhos.Add(new Concelho("Seia"));
+            guarda.Concelhos.Add(new Concelho("Trancoso"));
+            guarda.Concelhos.Add(new Concelho("Vila Nova de Foz Côa"));
+
+            Portugal.Distritos.Add(guarda);
+
+            //LEIRIA
+            Distrito leiria = new Distrito("Leiria");
+
+            leiria.Concelhos.Add(new Concelho("Alcobaça"));
+            leiria.Concelhos.Add(new Concelho("Alvaiázere"));
+            leiria.Concelhos.Add(new Concelho("Ansião"));
+            leiria.Concelhos.Add(new Concelho("Batalha"));
+            leiria.Concelhos.Add(new Concelho("Bombarral"));
+            leiria.Concelhos.Add(new Concelho("Caldas da Rainha"));
+            leiria.Concelhos.Add(new Concelho("Castanheira de Pera"));
+            leiria.Concelhos.Add(new Concelho("Figueiró dos Vinhos"));
+            leiria.Concelhos.Add(new Concelho("Leiria"));
+            leiria.Concelhos.Add(new Concelho("Marinha Grande"));
+            leiria.Concelhos.Add(new Concelho("Nazaré"));
+            leiria.Concelhos.Add(new Concelho("Óbidos"));
+            leiria.Concelhos.Add(new Concelho("Pedrógão Grande"));
+            leiria.Concelhos.Add(new Concelho("Peniche"));
+            leiria.Concelhos.Add(new Concelho("Pombal"));
+            leiria.Concelhos.Add(new Concelho("Porto de Mós"));
+
+            Portugal.Distritos.Add(leiria);
+
+
+            //LISBOA
+            Distrito lisboa = new Distrito("Lisboa");
+
+            lisboa.Concelhos.Add(new Concelho("Alenquer"));
+            lisboa.Concelhos.Add(new Concelho("Amadora"));
+            lisboa.Concelhos.Add(new Concelho("Arruda dos Vinhos"));
+            lisboa.Concelhos.Add(new Concelho("Azambuja"));
+            lisboa.Concelhos.Add(new Concelho("Cadaval"));
+            lisboa.Concelhos.Add(new Concelho("Cascais"));
+            lisboa.Concelhos.Add(new Concelho("Lisboa"));
+            lisboa.Concelhos.Add(new Concelho("Loures"));
+            lisboa.Concelhos.Add(new Concelho("Lourinhã"));
+            lisboa.Concelhos.Add(new Concelho("Mafra"));
+            lisboa.Concelhos.Add(new Concelho("Odivelas"));
+            lisboa.Concelhos.Add(new Concelho("Oeiras"));
+            lisboa.Concelhos.Add(new Concelho("Sintra"));
+            lisboa.Concelhos.Add(new Concelho("Sobral de Monte Agraço"));
+            lisboa.Concelhos.Add(new Concelho("Torres Vedras"));
+            lisboa.Concelhos.Add(new Concelho("Vila Franca de Xira"));
+
+            Portugal.Distritos.Add(lisboa);
+
+            //PORTALEGRE
+            Distrito portalegre = new Distrito("Portalegre");
+
+            portalegre.Concelhos.Add(new Concelho("Alter do Chão"));
+            portalegre.Concelhos.Add(new Concelho("Arronches"));
+            portalegre.Concelhos.Add(new Concelho("Avis"));
+            portalegre.Concelhos.Add(new Concelho("Campo Maior"));
+            portalegre.Concelhos.Add(new Concelho("Castelo de Vide"));
+            portalegre.Concelhos.Add(new Concelho("Crato"));
+            portalegre.Concelhos.Add(new Concelho("Elvas"));
+            portalegre.Concelhos.Add(new Concelho("Fronteira"));
+            portalegre.Concelhos.Add(new Concelho("Gavião"));
+            portalegre.Concelhos.Add(new Concelho("Marvão"));
+            portalegre.Concelhos.Add(new Concelho("Monforte"));
+            portalegre.Concelhos.Add(new Concelho("Nisa"));
+            portalegre.Concelhos.Add(new Concelho("Ponte de Sor"));
+            portalegre.Concelhos.Add(new Concelho("Portalegre"));
+            portalegre.Concelhos.Add(new Concelho("Sousel"));
+
+            Portugal.Distritos.Add(portalegre);
+
+            //PORTO
+            Distrito porto = new Distrito("Porto");
+
+            porto.Concelhos.Add(new Concelho("Amarante"));
+            porto.Concelhos.Add(new Concelho("Baião"));
+            porto.Concelhos.Add(new Concelho("Felgueiras"));
+            porto.Concelhos.Add(new Concelho("Gondomar"));
+            porto.Concelhos.Add(new Concelho("Lousada"));
+            porto.Concelhos.Add(new Concelho("Maia"));
+            porto.Concelhos.Add(new Concelho("Marco de Canaveses"));
+            porto.Concelhos.Add(new Concelho("Matosinhos"));
+            porto.Concelhos.Add(new Concelho("Paços de Ferreira"));
+            porto.Concelhos.Add(new Concelho("Paredes"));
+            porto.Concelhos.Add(new Concelho("Penafiel"));
+            porto.Concelhos.Add(new Concelho("Porto"));
+            porto.Concelhos.Add(new Concelho("Póvoa de Varzim"));
+            porto.Concelhos.Add(new Concelho("Santo Tirso"));
+            porto.Concelhos.Add(new Concelho("Trofa"));
+            porto.Concelhos.Add(new Concelho("Valongo"));
+            porto.Concelhos.Add(new Concelho("Vila do Conde"));
+            porto.Concelhos.Add(new Concelho("Vila Nova de Gaia"));
+
+            Portugal.Distritos.Add(porto);
+
+            //SANTAREM
+            Distrito santarem = new Distrito("Santarém");
+
+            santarem.Concelhos.Add(new Concelho("Abrantes"));
+            santarem.Concelhos.Add(new Concelho("Alcanena"));
+            santarem.Concelhos.Add(new Concelho("Almeirim"));
+            santarem.Concelhos.Add(new Concelho("Alpiarça"));
+            santarem.Concelhos.Add(new Concelho("Benavente"));
+            santarem.Concelhos.Add(new Concelho("Cartaxo"));
+            santarem.Concelhos.Add(new Concelho("Chamusca"));
+            santarem.Concelhos.Add(new Concelho("Constância"));
+            santarem.Concelhos.Add(new Concelho("Coruche"));
+            santarem.Concelhos.Add(new Concelho("Entroncamento"));
+            santarem.Concelhos.Add(new Concelho("Ferreira do Zêzere"));
+            santarem.Concelhos.Add(new Concelho("Golegã"));
+            santarem.Concelhos.Add(new Concelho("Mação"));
+            santarem.Concelhos.Add(new Concelho("Ourém"));
+            santarem.Concelhos.Add(new Concelho("Rio Maior"));
+            santarem.Concelhos.Add(new Concelho("Salvaterra de Magos"));
+            santarem.Concelhos.Add(new Concelho("Santarém"));
+            santarem.Concelhos.Add(new Concelho("Sardoal"));
+            santarem.Concelhos.Add(new Concelho("Tomar"));
+            santarem.Concelhos.Add(new Concelho("Torres Novas"));
+            santarem.Concelhos.Add(new Concelho("Vila Nova da Barquinha"));
+
+            Portugal.Distritos.Add(santarem);
+
+            //SETUBAL
+            Distrito setubal = new Distrito("Setubal");
+
+            setubal.Concelhos.Add(new Concelho("Alcácer do Sal"));
+            setubal.Concelhos.Add(new Concelho("Alcochete"));
+            setubal.Concelhos.Add(new Concelho("Almada"));
+            setubal.Concelhos.Add(new Concelho("Barreiro"));
+            setubal.Concelhos.Add(new Concelho("Grândola"));
+            setubal.Concelhos.Add(new Concelho("Moita"));
+            setubal.Concelhos.Add(new Concelho("Montijo"));
+            setubal.Concelhos.Add(new Concelho("Palmela"));
+            setubal.Concelhos.Add(new Concelho("Santiago do Cacém"));
+            setubal.Concelhos.Add(new Concelho("Seixal"));
+            setubal.Concelhos.Add(new Concelho("Sesimbra"));
+            setubal.Concelhos.Add(new Concelho("Setúbal"));
+            setubal.Concelhos.Add(new Concelho("Sines"));
+
+            Portugal.Distritos.Add(setubal);
+
+            //VIANA DO CASTELO
+            Distrito vianaDoCastelo = new Distrito("Viana do Castelo");
+
+            vianaDoCastelo.Concelhos.Add(new Concelho("Arcos de Valdevez"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Caminha"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Melgaço"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Monção"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Paredes de Coura"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Ponte da Barca"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Ponte de Lima"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Valença"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Viana do Castelo"));
+            vianaDoCastelo.Concelhos.Add(new Concelho("Vila Nova de Cerveira"));
+
+            Portugal.Distritos.Add(vianaDoCastelo);
+
+            //VILA REAL
+            Distrito vilaReal = new Distrito("Vila Real");
+
+            vilaReal.Concelhos.Add(new Concelho("Alijó"));
+            vilaReal.Concelhos.Add(new Concelho("Boticas"));
+            vilaReal.Concelhos.Add(new Concelho("Chaves"));
+            vilaReal.Concelhos.Add(new Concelho("Mesão Frio"));
+            vilaReal.Concelhos.Add(new Concelho("Mondim de Basto"));
+            vilaReal.Concelhos.Add(new Concelho("Montalegre"));
+            vilaReal.Concelhos.Add(new Concelho("Murça"));
+            vilaReal.Concelhos.Add(new Concelho("Peso da Régua"));
+            vilaReal.Concelhos.Add(new Concelho("Ribeira de Pena"));
+            vilaReal.Concelhos.Add(new Concelho("Sabrosa"));
+            vilaReal.Concelhos.Add(new Concelho("Santa Marta de Penaguião"));
+            vilaReal.Concelhos.Add(new Concelho("Valpaços"));
+            vilaReal.Concelhos.Add(new Concelho("Vila Pouca de Aguiar"));
+            vilaReal.Concelhos.Add(new Concelho("Vila Real"));
+
+            Portugal.Distritos.Add(vilaReal);
+
+
+            //VISEU
+            Distrito viseu = new Distrito("Viseu");
+
+            viseu.Concelhos.Add(new Concelho("Armamar"));
+            viseu.Concelhos.Add(new Concelho("Carregal do Sal"));
+            viseu.Concelhos.Add(new Concelho("Castro Daire"));
+            viseu.Concelhos.Add(new Concelho("Cinfães"));
+            viseu.Concelhos.Add(new Concelho("Lamego"));
+            viseu.Concelhos.Add(new Concelho("Mangualde"));
+            viseu.Concelhos.Add(new Concelho("Moimenta da Beira"));
+            viseu.Concelhos.Add(new Concelho("Mortágua"));
+            viseu.Concelhos.Add(new Concelho("Nelas"));
+            viseu.Concelhos.Add(new Concelho("Oliveira de Frades"));
+            viseu.Concelhos.Add(new Concelho("Penalva do Castelo"));
+            viseu.Concelhos.Add(new Concelho("Penedono"));
+            viseu.Concelhos.Add(new Concelho("Resende"));
+            viseu.Concelhos.Add(new Concelho("Santa Comba Dão"));
+            viseu.Concelhos.Add(new Concelho("São João da Pesqueira"));
+            viseu.Concelhos.Add(new Concelho("São Pedro do Sul"));
+            viseu.Concelhos.Add(new Concelho("Sátão"));
+            viseu.Concelhos.Add(new Concelho("Sernancelhe"));
+            viseu.Concelhos.Add(new Concelho("Tabuaço"));
+            viseu.Concelhos.Add(new Concelho("Tarouca"));
+            viseu.Concelhos.Add(new Concelho("Tondela"));
+            viseu.Concelhos.Add(new Concelho("Vila Nova de Paiva"));
+            viseu.Concelhos.Add(new Concelho("Viseu"));
+            viseu.Concelhos.Add(new Concelho("Vouzela"));
+
+            Portugal.Distritos.Add(viseu);
+
+
+
+
+            cbxDistritos.Items.Clear();
+            foreach (Distrito distrito in Portugal.Distritos)
+            {
+                cbxDistritos.Items.Add(distrito.nome);
+            }
         }
 
+        public class Pais
+        {
+            public string nome;
+            public List<Distrito> Distritos;
+
+            public Pais(string name)
+            {
+                nome = name;
+                Distritos = new List<Distrito>();
+            }
+        }
+
+        public class Distrito
+        {
+            public string nome;
+            public List<Concelho> Concelhos;
+
+            public Distrito(string name)
+            {
+                nome = name;
+                Concelhos = new List<Concelho>();
+            }
+        }
+        public class Concelho
+        {
+            public string nome;
+
+            public Concelho(string name)
+            {
+                nome = name;
+            }
+
+
+        }
+
+
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {  
-            if ((string)comboBox1.SelectedItem == "Castelo Branco")
+        {
+            comboBox2.Items.Clear();
+
+            foreach (Concelho concelho in Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedItem).Concelhos)
             {
-                comboBox2.Items.Add("Belmonte");
-                comboBox2.Items.Add("Castelo Branco");
-                comboBox2.Items.Add("Covilhã");
-                comboBox2.Items.Add("Fundão");
-                comboBox2.Items.Add("Idanha a Nova");
-                comboBox2.Items.Add("Oleiros");
-                comboBox2.Items.Add("Penamacor");
-                comboBox2.Items.Add("Proença a Nova");
-                comboBox2.Items.Add("Sertã");
-                comboBox2.Items.Add("Vila de Rei");
-                comboBox2.Items.Add("Vila Velha de Ródão");
-            } else if ((string)comboBox1.SelectedItem == "Aveiro")
-            {
-                comboBox2.Items.Add("Agueda");
-                comboBox2.Items.Add("Albergaria a Velha");
-                comboBox2.Items.Add("Anadia");
-                comboBox2.Items.Add("Arouca");
-                comboBox2.Items.Add("Aveiro");
-                comboBox2.Items.Add("Castelo de Paiva");
-                comboBox2.Items.Add("Espinho");
-                comboBox2.Items.Add("Estarreja ");
-                comboBox2.Items.Add("Ilhavo");
-                comboBox2.Items.Add("Mealhada");
-                comboBox2.Items.Add("Murtosa");
-                
-                    comboBox2.Items.Add("Oliveira de Azemeis");
-                    comboBox2.Items.Add("Oliveira do Bairro");
-                    comboBox2.Items.Add("Ovar");
-                    comboBox2.Items.Add("Santa Maria da Feira");
-                    comboBox2.Items.Add("São João da Madeira");
-                    comboBox2.Items.Add("Sever do Vouga");
-                    comboBox2.Items.Add("Vagos");
-                    comboBox2.Items.Add("Vale de Cambra");
-                
+                comboBox2.Items.Add(concelho.nome);
             }
-
-            else if ((string)comboBox1.SelectedItem == "Beja")
-            {
-                comboBox2.Items.Add("Aljustrel");
-                comboBox2.Items.Add("Almodovar");
-                comboBox2.Items.Add("Alvito");
-                comboBox2.Items.Add("Barrancos");
-                comboBox2.Items.Add("Beja");
-                comboBox2.Items.Add("Castro Verde");
-                comboBox2.Items.Add("Cuba");
-                comboBox2.Items.Add("Ferreira do Alentejo");
-                comboBox2.Items.Add("Mertola");
-                comboBox2.Items.Add("Moura");
-                comboBox2.Items.Add("Odemira");
-
-                comboBox2.Items.Add("Ourique");
-                comboBox2.Items.Add("Serpa");
-                comboBox2.Items.Add("Vidigueira");
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Braga")
-            {
-                comboBox2.Items.Add("Amares");
-                comboBox2.Items.Add("Barcelos");
-                comboBox2.Items.Add("Braga");
-                comboBox2.Items.Add("Cabeceuras de Basto");
-                comboBox2.Items.Add("Celorico de Basto");
-                comboBox2.Items.Add("Esposende");
-                comboBox2.Items.Add("Fafe");
-                comboBox2.Items.Add("Guimarães");
-                comboBox2.Items.Add("Póvoa de Lanhoso");
-                comboBox2.Items.Add("Terras de Bouro");
-                comboBox2.Items.Add("Vieira do Minho");
-
-                comboBox2.Items.Add("Vila Nova de Famalicão");
-                comboBox2.Items.Add("Vila Verde");
-                comboBox2.Items.Add("Vizela");
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Bragança")
-            {
-                comboBox2.Items.Add("Alfândega da Fé");
-                comboBox2.Items.Add("Bragança");
-                comboBox2.Items.Add("Carrazeda de Ansiães");
-                comboBox2.Items.Add("Freixo de Espada à Cinta");
-                comboBox2.Items.Add("Macedo de Cavaleiros");
-                comboBox2.Items.Add("Miranda do Douro");
-                comboBox2.Items.Add("Mirandela");
-                comboBox2.Items.Add("Mogadouro");
-                comboBox2.Items.Add("Torre de Moncorvo");
-                comboBox2.Items.Add("Vila Flor");
-                comboBox2.Items.Add("Vimioso");
-               
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Coimbra")
-            {
-                comboBox2.Items.Add("Arganil");
-                comboBox2.Items.Add("Cantanhede");
-                comboBox2.Items.Add("Coimbra");
-                comboBox2.Items.Add("Condeixa-a-Nova");
-                comboBox2.Items.Add("Figueira da Foz");
-                comboBox2.Items.Add("Góis");
-                comboBox2.Items.Add("Lousã");
-                comboBox2.Items.Add("Mira");
-                comboBox2.Items.Add("Miranda do Corvo");
-                comboBox2.Items.Add("Montemor-o-Velho");
-                comboBox2.Items.Add("Oliveira do Hospital");
-                comboBox2.Items.Add("Pampilhosa da Serra");
-                comboBox2.Items.Add("Penacova");
-                comboBox2.Items.Add("Penela");
-                comboBox2.Items.Add("Soure");
-                comboBox2.Items.Add("Tábua");
-                comboBox2.Items.Add("Vila Nova de Poiares");
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Évora")
-            {
-                comboBox2.Items.Add("Alandroal");
-                comboBox2.Items.Add("Arraiolos");
-                comboBox2.Items.Add("Borba");
-                comboBox2.Items.Add("Estremoz");
-                comboBox2.Items.Add("Évora");
-                comboBox2.Items.Add("Montemor-o-Novo");
-                comboBox2.Items.Add("Mora");
-                comboBox2.Items.Add("Mourão");
-                comboBox2.Items.Add("Olivença");
-                comboBox2.Items.Add("Portel");
-                comboBox2.Items.Add("Redondo");
-                comboBox2.Items.Add("Reguengos de Monsaraz");
-                comboBox2.Items.Add("Vendas Novas");
-                comboBox2.Items.Add("Viana do Alentejo");
-                comboBox2.Items.Add("Vila Viçosa");
-                
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Faro")
-            {
-                comboBox2.Items.Add("Albufeira");
-                comboBox2.Items.Add("Alcoutim");
-                comboBox2.Items.Add("Aljezur");
-                comboBox2.Items.Add("Castro Marim");
-                comboBox2.Items.Add("Faro");
-                comboBox2.Items.Add("Lagoa");
-                comboBox2.Items.Add("Lagos");
-                comboBox2.Items.Add("Loulé");
-                comboBox2.Items.Add("Monchique");
-                comboBox2.Items.Add("Olhão");
-                comboBox2.Items.Add("Portimão");
-                comboBox2.Items.Add("São Brás de Alportel");
-                comboBox2.Items.Add("Silves");
-                comboBox2.Items.Add("Tavira");
-                comboBox2.Items.Add("Vila do Bispo");
-                comboBox2.Items.Add("Vila Real de Santo António");
-
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Guarda")
-            {
-                comboBox2.Items.Add("Aguiar da Beira");
-                comboBox2.Items.Add("Almeida");
-                comboBox2.Items.Add("Celorico da Beira");
-                comboBox2.Items.Add("Figueira de Castelo Rodrigo");
-                comboBox2.Items.Add("Fornos de Algodres");
-                comboBox2.Items.Add("Gouveia");
-                comboBox2.Items.Add("Guarda");
-                comboBox2.Items.Add("Manteigas");
-                comboBox2.Items.Add("Mêda");
-                comboBox2.Items.Add("Pinhel");
-                comboBox2.Items.Add("Sabugal");
-                comboBox2.Items.Add("Seia");
-                comboBox2.Items.Add("Trancoso");
-                comboBox2.Items.Add("Vila Nova de Foz Côa");
-             
-
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Leiria")
-            {
-                comboBox2.Items.Add("Alcobaça");
-                comboBox2.Items.Add("Alvaiázere");
-                comboBox2.Items.Add("Ansião");
-                comboBox2.Items.Add("Batalha");
-                comboBox2.Items.Add("Bombarral");
-                comboBox2.Items.Add("Caldas da Rainha");
-                comboBox2.Items.Add("Castanheira de Pera");
-                comboBox2.Items.Add("Figueiró dos Vinhos");
-                comboBox2.Items.Add("Leiria");
-                comboBox2.Items.Add("Marinha Grande");
-                comboBox2.Items.Add("Nazaré");
-                comboBox2.Items.Add("Óbidos");
-                comboBox2.Items.Add("Pedrógão Grande");
-                comboBox2.Items.Add("Peniche");
-                comboBox2.Items.Add("Pombal");
-                comboBox2.Items.Add("Porto de Mós");
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Lisboa")
-            {
-                comboBox2.Items.Add("Alenquer");
-                comboBox2.Items.Add("Amadora");
-                comboBox2.Items.Add("Arruda dos Vinhos");
-                comboBox2.Items.Add("Azambuja");
-                comboBox2.Items.Add("Cadaval");
-                comboBox2.Items.Add("Cascais");
-                comboBox2.Items.Add("Lisboa");
-                comboBox2.Items.Add("Loures");
-                comboBox2.Items.Add("Lourinhã");
-                comboBox2.Items.Add("Mafra");
-                comboBox2.Items.Add("Odivelas");
-                comboBox2.Items.Add("Oeiras");
-                comboBox2.Items.Add("Sintra");
-                comboBox2.Items.Add("Sobral de Monte Agraço");
-                comboBox2.Items.Add("Torres Vedras");
-                comboBox2.Items.Add("Vila Franca de Xira");
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Portalegre")
-            {
-                comboBox2.Items.Add("Alter do Chão");
-                comboBox2.Items.Add("Arronches");
-                comboBox2.Items.Add("Avis");
-                comboBox2.Items.Add("Campo Maior");
-                comboBox2.Items.Add("Castelo de Vide");
-                comboBox2.Items.Add("Crato");
-                comboBox2.Items.Add("Elvas");
-                comboBox2.Items.Add("Fronteira");
-                comboBox2.Items.Add("Gavião");
-                comboBox2.Items.Add("Marvão");
-                comboBox2.Items.Add("Monforte");
-                comboBox2.Items.Add("Nisa");
-                comboBox2.Items.Add("Ponte de Sor");
-                comboBox2.Items.Add("Portalegre");
-                comboBox2.Items.Add("Sousel");
-              
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Porto")
-            {
-                comboBox2.Items.Add("Amarante");
-                comboBox2.Items.Add("Baião");
-                comboBox2.Items.Add("Felgueiras");
-                comboBox2.Items.Add("Gondomar");
-                comboBox2.Items.Add("Lousada");
-                comboBox2.Items.Add("Maia");
-                comboBox2.Items.Add("Marco de Canaveses");
-                comboBox2.Items.Add("Matosinhos");
-                comboBox2.Items.Add("Paços de Ferreira");
-                comboBox2.Items.Add("Paredes");
-                comboBox2.Items.Add("Penafiel");
-                comboBox2.Items.Add("Porto");
-                comboBox2.Items.Add("Póvoa de Varzim");
-                comboBox2.Items.Add("Santo Tirso");
-                comboBox2.Items.Add("Trofa");
-                comboBox2.Items.Add("Valongo");
-                comboBox2.Items.Add("Vila do Conde");
-                comboBox2.Items.Add("Vila Nova de Gaia");
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Santarém")
-            {
-                comboBox2.Items.Add("Abrantes");
-                comboBox2.Items.Add("Alcanena");
-                comboBox2.Items.Add("Almeirim");
-                comboBox2.Items.Add("Alpiarça");
-                comboBox2.Items.Add("Benavente");
-                comboBox2.Items.Add("Cartaxo");
-                comboBox2.Items.Add("Chamusca");
-                comboBox2.Items.Add("Constância");
-                comboBox2.Items.Add("Coruche");
-                comboBox2.Items.Add("Entroncamento");
-                comboBox2.Items.Add("Ferreira do Zêzere");
-                comboBox2.Items.Add("Golegã");
-                comboBox2.Items.Add("Mação");
-                comboBox2.Items.Add("Ourém");
-                comboBox2.Items.Add("Rio Maior");
-                comboBox2.Items.Add("Salvaterra de Magos");
-                comboBox2.Items.Add("Santarém");
-                comboBox2.Items.Add("Sardoal");
-                comboBox2.Items.Add("Tomar");
-                comboBox2.Items.Add("Torres Novas");
-                comboBox2.Items.Add("Vila Nova da Barquinha");
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Setúbal")
-            {
-                comboBox2.Items.Add("Alcácer do Sal");
-                comboBox2.Items.Add("Alcochete");
-                comboBox2.Items.Add("Almada");
-                comboBox2.Items.Add("Barreiro");
-                comboBox2.Items.Add("Grândola");
-                comboBox2.Items.Add("Moita");
-                comboBox2.Items.Add("Montijo");
-                comboBox2.Items.Add("Palmela");
-                comboBox2.Items.Add("Santiago do Cacém");
-                comboBox2.Items.Add("Seixal");
-                comboBox2.Items.Add("Sesimbra");
-                comboBox2.Items.Add("Setúbal");
-                comboBox2.Items.Add("Sines");
-               
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Viana do Castelo")
-            {
-                comboBox2.Items.Add("Arcos de Valdevez");
-                comboBox2.Items.Add("Caminha");
-                comboBox2.Items.Add("Melgaço");
-                comboBox2.Items.Add("Monção");
-                comboBox2.Items.Add("Paredes de Coura");
-                comboBox2.Items.Add("Ponte da Barca");
-                comboBox2.Items.Add("Ponte de Lima");
-                comboBox2.Items.Add("Valença");
-                comboBox2.Items.Add("Viana do Castelo");
-                comboBox2.Items.Add("Vila Nova de Cerveira");
-              
-
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Vila Real")
-            {
-                comboBox2.Items.Add("Alijó");
-                comboBox2.Items.Add("Boticas");
-                comboBox2.Items.Add("Chaves");
-                comboBox2.Items.Add("Mesão Frio");
-                comboBox2.Items.Add("Mondim de Basto");
-                comboBox2.Items.Add("Montalegre");
-                comboBox2.Items.Add("Murça");
-                comboBox2.Items.Add("Peso da Régua");
-                comboBox2.Items.Add("Ribeira de Pena");
-                comboBox2.Items.Add("Sabrosa");
-                comboBox2.Items.Add("Santa Marta de Penaguião");
-                comboBox2.Items.Add("Valpaços");
-                comboBox2.Items.Add("Vila Pouca de Aguiar");
-                comboBox2.Items.Add("Vila Real");
-
-            }
-
-            else if ((string)comboBox1.SelectedItem == "Vila Real")
-            {
-                comboBox2.Items.Add("Armamar");
-                comboBox2.Items.Add("Carregal do Sal");
-                comboBox2.Items.Add("Castro Daire");
-                comboBox2.Items.Add("Cinfães");
-                comboBox2.Items.Add("Lamego");
-                comboBox2.Items.Add("Mangualde");
-                comboBox2.Items.Add("Moimenta da Beira");
-                comboBox2.Items.Add("Mortágua");
-                comboBox2.Items.Add("Nelas");
-                comboBox2.Items.Add("Oliveira de Frades");
-                comboBox2.Items.Add("Penalva do Castelo");
-                comboBox2.Items.Add("Penedono");
-                comboBox2.Items.Add("Resende");
-                comboBox2.Items.Add("Santa Comba Dão");
-                comboBox2.Items.Add("São João da Pesqueira");
-                comboBox2.Items.Add("São Pedro do Sul");
-                comboBox2.Items.Add("Sátão");
-                comboBox2.Items.Add("Sernancelhe");
-                comboBox2.Items.Add("Tabuaço");
-                comboBox2.Items.Add("Tarouca");
-                comboBox2.Items.Add("Tondela");
-                comboBox2.Items.Add("Vila Nova de Paiva");
-                comboBox2.Items.Add("Viseu");
-                comboBox2.Items.Add("Vouzela");
-
-            }
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -423,7 +491,7 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
 
         {
-            if (comboBox1.Text == "Braga" || comboBox2.Text == ("Barcelos") || comboBox3.Text == ("IPCA - Instituto Politécnico Cavado Ave")){ pictureBox1.Show();
+            if (cbxDistritos.Text == "Braga" || comboBox2.Text == ("Barcelos") || comboBox3.Text == ("IPCA - Instituto Politécnico Cavado Ave")){ pictureBox1.Show();
                 pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show();  linkLabel1.Show();
                 linkLabel2.Show();
                
@@ -445,6 +513,25 @@ namespace Frontend
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxDistritos_SelectedValueChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            if (cbxDistritos.SelectedValue == null)
+            {
+                return;
+            }
+
+            foreach (Concelho concelho in Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedValue).Concelhos)
+            {
+                comboBox2.Items.Add(concelho.nome);
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
