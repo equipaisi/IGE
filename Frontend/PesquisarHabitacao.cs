@@ -11,9 +11,45 @@ namespace Frontend
         public PesquisarHabitacao()
         {
             InitializeComponent();
-            
+
+            #region Conselhos
             // BRAGA 
+            #region Braga
             Distrito braga = new Distrito("Braga");
+
+            Concelho bragC = new Concelho("Braga");
+            bragC.Universidades.Add(new Universidade(" Universidade do Minho(UM)"));
+            bragC.Universidades.Add(new Universidade("Universidade Católica Portuguesa (UCP) - Centro Regional de Braga"));
+            bragC.Universidades.Add(new Universidade(" Instituto Politécnico de Saúde do Norte"));
+            bragC.Universidades.Add(new Universidade("Instituto Superior de Saúde do Alto Ave"));
+            bragC.Universidades.Add(new Universidade("Instituto Politécnico do Cávado e do Ave(IPCA)"));
+
+            braga.Concelhos.Add(bragC);
+
+            Concelho famalicao = new Concelho("Vila Nova de Famalicão");
+            famalicao.Universidades.Add(new Universidade("Universidade Lusíada de Vila Nova de Famalicão"));
+
+
+            braga.Concelhos.Add(famalicao);
+
+            Concelho barcelos = new Concelho("Barcelos");
+            barcelos.Universidades.Add(new Universidade("Instituto Politécnico do Cávado e do Ave(IPCA)"));
+
+
+            braga.Concelhos.Add(barcelos);
+
+            Concelho guimaraes = new Concelho("Guimarães");
+            guimaraes.Universidades.Add(new Universidade("Instituto Politécnico do Cávado e do Ave(IPCA)"));
+            guimaraes.Universidades.Add(new Universidade("Escola Superior Artística do Porto(ESAP) - Guimarães"));
+
+            braga.Concelhos.Add(guimaraes);
+
+            Concelho fafe = new Concelho("Fafe");
+            fafe.Universidades.Add(new Universidade("Instituto de Estudos Superiores de Fafe(IESF)"));
+
+
+            braga.Concelhos.Add(fafe);
+
             braga.Concelhos.Add(new Concelho("Amares"));
             braga.Concelhos.Add(new Concelho("Barcelos"));
             braga.Concelhos.Add(new Concelho("Braga"));
@@ -29,10 +65,30 @@ namespace Frontend
             braga.Concelhos.Add(new Concelho("Vila Verde"));
             braga.Concelhos.Add(new Concelho("Vizela"));
 
+            
+
+
+
+         
+
             Portugal.Distritos.Add(braga);
 
+            #endregion
+
+
             //CASTELO BRANCO 
+            #region castelo branco
+
             Distrito casteloBranco = new Distrito("Castelo Branco");
+            Concelho castC = new Concelho("Castelo Branco");
+            castC.Universidades.Add(new Universidade("Universidade da Beira Interior (UBI)"));
+            castC.Universidades.Add(new Universidade("Instituto Politécnico de Castelo Branco(IPCB)"));
+            
+
+            casteloBranco.Concelhos.Add(castC);
+
+
+            
             casteloBranco.Concelhos.Add(new Concelho("Belmonte"));
             casteloBranco.Concelhos.Add(new Concelho("Castelo Branco"));
             casteloBranco.Concelhos.Add(new Concelho("Covilhã"));
@@ -45,10 +101,32 @@ namespace Frontend
             casteloBranco.Concelhos.Add(new Concelho("Vila de Rei"));
             casteloBranco.Concelhos.Add(new Concelho("Vila Velha de Ródão"));
 
+
+
+
             Portugal.Distritos.Add(casteloBranco);
+            #endregion
+
 
             //AVEIRO 
+            #region Aveiro
             Distrito aveiro = new Distrito("Aveiro");
+
+            Concelho aveiroC = new Concelho("Aveiro");
+            aveiroC.Universidades.Add(new Universidade("Universidade de Aveiro"));
+            aveiroC.Universidades.Add(new Universidade("Instituto Superior de Entre Douro e Vouga(ISVOUGA)"));
+            aveiroC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Informação e da Administração(ISCIA)"));
+            aveiroC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos(IPAM) - Aveiro"));
+
+            Concelho espinho = new Concelho("Espinho");
+            espinho.Universidades.Add(new Universidade(" Instituto Superior de Espinho (ISESP)"));
+            aveiro.Concelhos.Add(espinho);
+
+            Concelho oliveiraAz = new Concelho("Oliveira de Azemeis");
+            oliveiraAz.Universidades.Add(new Universidade(" Escola Superior de Enfermagem da Cruz Vermelha Portuguesa de Oliveira de Azeméis"));
+            aveiro.Concelhos.Add(oliveiraAz);
+
+            aveiro.Concelhos.Add(aveiroC);
             aveiro.Concelhos.Add(new Concelho("Agueda"));
             aveiro.Concelhos.Add(new Concelho("Albergaria a Velha"));
             aveiro.Concelhos.Add(new Concelho("Anadia"));
@@ -56,12 +134,17 @@ namespace Frontend
             aveiro.Concelhos.Add(new Concelho("Aveiro"));
             aveiro.Concelhos.Add(new Concelho("Castelo de Paiva"));
             aveiro.Concelhos.Add(new Concelho("Espinho"));
+
+            
+
             aveiro.Concelhos.Add(new Concelho("Estarreja "));
             aveiro.Concelhos.Add(new Concelho("Ilhavo"));
             aveiro.Concelhos.Add(new Concelho("Mealhada"));
             aveiro.Concelhos.Add(new Concelho("Murtosa"));
-
             aveiro.Concelhos.Add(new Concelho("Oliveira de Azemeis"));
+
+           
+
             aveiro.Concelhos.Add(new Concelho("Oliveira do Bairro"));
             aveiro.Concelhos.Add(new Concelho("Ovar"));
             aveiro.Concelhos.Add(new Concelho("Santa Maria da Feira"));
@@ -72,13 +155,26 @@ namespace Frontend
 
             Portugal.Distritos.Add(aveiro);
 
+            #endregion
             //BEJA
+
+            
+            #region Beja
             Distrito beja = new Distrito("Beja");
+
+            Concelho bejC = new Concelho("Beja");
+            bejC.Universidades.Add(new Universidade("Instituto Politécnico de Beja (IPBeja)"));
+            beja.Concelhos.Add(bejC);
+
             beja.Concelhos.Add(new Concelho("Aljustrel"));
             beja.Concelhos.Add(new Concelho("Almodovar"));
             beja.Concelhos.Add(new Concelho("Alvito"));
             beja.Concelhos.Add(new Concelho("Barrancos"));
             beja.Concelhos.Add(new Concelho("Beja"));
+
+
+           
+
             beja.Concelhos.Add(new Concelho("Castro Verde"));
             beja.Concelhos.Add(new Concelho("Cuba"));
             beja.Concelhos.Add(new Concelho("Ferreira do Alentejo"));
@@ -92,20 +188,20 @@ namespace Frontend
 
             Portugal.Distritos.Add(beja);
 
-
+            #endregion
             //BRAGANÇA
             Distrito braganca = new Distrito("Bragança");
-           braganca.Concelhos.Add(new Concelho("Alfândega da Fé"));
-           braganca.Concelhos.Add(new Concelho("Bragança"));
-           braganca.Concelhos.Add(new Concelho("Carrazeda de Ansiães"));
-           braganca.Concelhos.Add(new Concelho("Freixo de Espada à Cinta"));
-           braganca.Concelhos.Add(new Concelho("Macedo de Cavaleiros"));
-           braganca.Concelhos.Add(new Concelho("Miranda do Douro"));
-           braganca.Concelhos.Add(new Concelho("Mirandela"));
-           braganca.Concelhos.Add(new Concelho("Mogadouro"));
-           braganca.Concelhos.Add(new Concelho("Torre de Moncorvo"));
-           braganca.Concelhos.Add(new Concelho("Vila Flor"));
-           braganca.Concelhos.Add(new Concelho("Vimioso"));
+            braganca.Concelhos.Add(new Concelho("Alfândega da Fé"));
+            braganca.Concelhos.Add(new Concelho("Bragança"));
+            braganca.Concelhos.Add(new Concelho("Carrazeda de Ansiães"));
+            braganca.Concelhos.Add(new Concelho("Freixo de Espada à Cinta"));
+            braganca.Concelhos.Add(new Concelho("Macedo de Cavaleiros"));
+            braganca.Concelhos.Add(new Concelho("Miranda do Douro"));
+            braganca.Concelhos.Add(new Concelho("Mirandela"));
+            braganca.Concelhos.Add(new Concelho("Mogadouro"));
+            braganca.Concelhos.Add(new Concelho("Torre de Moncorvo"));
+            braganca.Concelhos.Add(new Concelho("Vila Flor"));
+            braganca.Concelhos.Add(new Concelho("Vimioso"));
 
             Portugal.Distritos.Add(braganca);
 
@@ -404,6 +500,10 @@ namespace Frontend
             {
                 cbxDistritos.Items.Add(distrito.nome);
             }
+
+            #endregion
+
+
         }
 
         public class Pais
@@ -432,8 +532,22 @@ namespace Frontend
         public class Concelho
         {
             public string nome;
+            public List<Universidade> Universidades;
 
             public Concelho(string name)
+            {
+                nome = name;
+                Universidades = new List<Universidade>();
+            }
+
+
+        }
+
+        public class Universidade
+        {
+            public string nome;
+
+            public Universidade(string name)
             {
                 nome = name;
             }
@@ -441,16 +555,38 @@ namespace Frontend
 
         }
 
+        private Distrito selectedDistrict;
+        private Concelho selectedConselho;
+        private Universidade selectedUniversidade;
 
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxDistritos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.Items.Clear();
+            cbxConcelhos.Items.Clear();
+            cbxUniversidades.Items.Clear();
 
-            foreach (Concelho concelho in Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedItem).Concelhos)
+            selectedDistrict = Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedItem);
+
+            foreach (Concelho concelho in selectedDistrict.Concelhos)
             {
-                comboBox2.Items.Add(concelho.nome);
+                cbxConcelhos.Items.Add(concelho.nome);
             }
+        }
+
+        private void cbxConcelhos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxUniversidades.Items.Clear();
+
+            selectedConselho = selectedDistrict.Concelhos.Find(x => x.nome == (string)cbxConcelhos.SelectedItem);
+
+            foreach (Universidade universidade in selectedConselho.Universidades)
+            {
+                cbxUniversidades.Items.Add(universidade.nome);
+            }
+        }
+
+        private void cbxUniversidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -463,14 +599,14 @@ namespace Frontend
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((string)comboBox2.SelectedItem == "Barcelos")
+            if ((string)cbxConcelhos.SelectedItem == "Barcelos")
             {
-               
-                    comboBox3.Items.Add("IPCA - Instituto Politécnico Cavado Ave");
-                    
-                
+
+                cbxUniversidades.Items.Add("IPCA - Instituto Politécnico Cavado Ave");
+
+
             }
 
             label8.Text = trackBar1.Value.ToString();
@@ -491,17 +627,11 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
 
         {
-            if (cbxDistritos.Text == "Braga" || comboBox2.Text == ("Barcelos") || comboBox3.Text == ("IPCA - Instituto Politécnico Cavado Ave")){ pictureBox1.Show();
-                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show();  linkLabel1.Show();
+            if (cbxDistritos.Text == "Braga" || cbxConcelhos.Text == ("Barcelos") || cbxUniversidades.Text == ("IPCA - Instituto Politécnico Cavado Ave")) { pictureBox1.Show();
+                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show(); linkLabel1.Show();
                 linkLabel2.Show();
-               
-            }
-                
-                    }
-        
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            }
 
         }
 
@@ -515,20 +645,6 @@ namespace Frontend
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
-        }
-
-        private void cbxDistritos_SelectedValueChanged(object sender, EventArgs e)
-        {
-            comboBox2.Items.Clear();
-            if (cbxDistritos.SelectedValue == null)
-            {
-                return;
-            }
-
-            foreach (Concelho concelho in Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedValue).Concelhos)
-            {
-                comboBox2.Items.Add(concelho.nome);
-            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
