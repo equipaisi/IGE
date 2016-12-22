@@ -58,8 +58,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -88,6 +88,7 @@
             // 
             // cbxDistritos
             // 
+            this.cbxDistritos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxDistritos.FormattingEnabled = true;
             this.cbxDistritos.Items.AddRange(new object[] {
             "SELECIONAR",
@@ -118,6 +119,7 @@
             // 
             // cbxConcelhos
             // 
+            this.cbxConcelhos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxConcelhos.FormattingEnabled = true;
             this.cbxConcelhos.Items.AddRange(new object[] {
             "SELECIONAR"});
@@ -400,15 +402,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Curso : ";
-            // 
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
@@ -419,6 +412,15 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(176, 24);
             this.comboBox4.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Curso : ";
             // 
             // PesquisarHabitacao
             // 
