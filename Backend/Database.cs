@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Backend
 {
-    public sealed class MySqlDb : IDatabaseConnection
+    public sealed class MySqlDatabaseConnection : IDatabaseConnection
     {
         private readonly MySqlConnection _con;
 
         #region Constructors
 
         /// <summary>
-        ///     Construtor por defeito de MySqlDb.
+        ///     Construtor por defeito de MySqlDatabaseConnection.
         ///     Lê a connection string a partir da App.config do Frontend.
         /// </summary>
-        public MySqlDb()
+        public MySqlDatabaseConnection()
         {
             _con = new MySqlConnection(ConnectionStringFromAppConfig);
         }
 
-        public MySqlDb(string uid, string password, string server = "localhost", string database = "ige")
+        public MySqlDatabaseConnection(string uid, string password, string server = "localhost", string database = "ige")
         {
             _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};");
         }

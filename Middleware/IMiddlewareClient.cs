@@ -11,17 +11,18 @@ namespace Middleware
     public interface IMiddlewareClient
     {
         void DropDatabase();
+        void CreateDatabase();
         void PopulateDatabase();
         string GetUserType(string username, string password);
     }
 
     public class MiddlewareClient : IMiddlewareClient
     {
-        private readonly MySqlDb _db;
+        private readonly MySqlDatabaseConnection _db;
 
         public MiddlewareClient()
         {
-            _db = new MySqlDb();
+            _db = new MySqlDatabaseConnection();
         }
 
         public void CreateDatabase()

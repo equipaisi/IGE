@@ -6,13 +6,12 @@ namespace Frontend
 {
     public partial class FormLogin : Form
     {
-        private readonly MiddlewareClient _middleMiddlewareClient;
+        private readonly IMiddlewareClient _middleMiddlewareClient;
 
         public FormLogin()
         {
             _middleMiddlewareClient = new MiddlewareClient();
             InitializeComponent();
-
         }
         
         private void FormLogin_Load(object sender, EventArgs e)

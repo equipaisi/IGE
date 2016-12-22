@@ -63,7 +63,6 @@ namespace Frontend
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBoxRegistHab
             // 
@@ -148,7 +147,6 @@ namespace Frontend
             this.labelProprietarios.Size = new System.Drawing.Size(89, 17);
             this.labelProprietarios.TabIndex = 8;
             this.labelProprietarios.Text = "Proprietários";
-            this.labelProprietarios.Click += new System.EventHandler(this.label4_Click);
             // 
             // FormPrincipal
             // 
