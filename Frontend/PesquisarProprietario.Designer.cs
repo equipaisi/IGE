@@ -29,90 +29,98 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarProprietario));
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBI = new System.Windows.Forms.TextBox();
+            this.labelBI = new System.Windows.Forms.Label();
+            this.buttonPesquisar = new System.Windows.Forms.Button();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.labelNome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // buttonInfo
             // 
-            this.button2.Location = new System.Drawing.Point(686, 437);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "MAIS INFO";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonInfo.Location = new System.Drawing.Point(514, 355);
+            this.buttonInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(70, 24);
+            this.buttonInfo.TabIndex = 18;
+            this.buttonInfo.Text = "MAIS INFO";
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 78);
+            this.dataGridView1.Location = new System.Drawing.Point(52, 63);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(711, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 287);
             this.dataGridView1.TabIndex = 17;
             // 
-            // textBox3
+            // textBoxBI
             // 
-            this.textBox3.Location = new System.Drawing.Point(439, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 22);
-            this.textBox3.TabIndex = 16;
+            this.textBoxBI.Location = new System.Drawing.Point(329, 13);
+            this.textBoxBI.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxBI.Name = "textBoxBI";
+            this.textBoxBI.Size = new System.Drawing.Size(130, 20);
+            this.textBoxBI.TabIndex = 16;
             // 
-            // label3
+            // labelBI
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "BI:";
+            this.labelBI.AutoSize = true;
+            this.labelBI.Location = new System.Drawing.Point(307, 15);
+            this.labelBI.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBI.Name = "labelBI";
+            this.labelBI.Size = new System.Drawing.Size(20, 13);
+            this.labelBI.TabIndex = 15;
+            this.labelBI.Text = "BI:";
             // 
-            // button1
+            // buttonPesquisar
             // 
-            this.button1.Location = new System.Drawing.Point(679, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 29);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Pesquisar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonPesquisar.Location = new System.Drawing.Point(509, 11);
+            this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(76, 24);
+            this.buttonPesquisar.TabIndex = 14;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
-            // textBox1
+            // textBoxNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 22);
-            this.textBox1.TabIndex = 13;
+            this.textBoxNome.Location = new System.Drawing.Point(100, 13);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(193, 20);
+            this.textBoxNome.TabIndex = 13;
             // 
-            // label1
+            // labelNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = " Nome : ";
+            this.labelNome.AutoSize = true;
+            this.labelNome.Location = new System.Drawing.Point(50, 15);
+            this.labelNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNome.Name = "labelNome";
+            this.labelNome.Size = new System.Drawing.Size(41, 13);
+            this.labelNome.TabIndex = 12;
+            this.labelNome.Text = "Nome: ";
             // 
             // PesquisarProprietario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 479);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(635, 389);
+            this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxBI);
+            this.Controls.Add(this.labelBI);
+            this.Controls.Add(this.buttonPesquisar);
+            this.Controls.Add(this.textBoxNome);
+            this.Controls.Add(this.labelNome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "PesquisarProprietario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -125,12 +133,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxBI;
+        private System.Windows.Forms.Label labelBI;
+        private System.Windows.Forms.Button buttonPesquisar;
+        private System.Windows.Forms.TextBox textBoxNome;
+        private System.Windows.Forms.Label labelNome;
     }
 }

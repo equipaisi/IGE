@@ -8,11 +8,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Middleware.Estudante">
+  <Class Name="Middleware.Aluno">
     <Position X="13.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IQACEAAgoCAAAAAAAAAAAAIAAAAAAEAAAAAACAEAAAA=</HashCode>
-      <FileName>Estudante.cs</FileName>
+      <FileName>Aluno</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -39,11 +39,11 @@
       <FileName>Administrador.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Middleware.IEstudante">
+  <Interface Name="Middleware.IAluno">
     <Position X="15.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IQACAAAggCAAAAAAAAAAAAIAAAAAAEAAAAAACAEAAAA=</HashCode>
-      <FileName>Estudante.cs</FileName>
+      <FileName>Aluno</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Middleware.IFuncionario" Collapsed="true">

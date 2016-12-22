@@ -20,7 +20,7 @@ namespace Middleware
         /// </summary>
         public string Curso { get; set; }
         /// <summary>
-        /// O ano do curso que um determinado estudante frequenta.
+        /// O ano do curso que um determinado aluno frequenta.
         /// </summary>
         public uint Ano { get; set; }
 
@@ -30,36 +30,36 @@ namespace Middleware
     }
 
     /// <summary>
-    /// Interface IEstudante.
-    /// Representa um estudante.
+    /// Interface IAluno.
+    /// Representa um alunos.
     /// </summary>
-    public interface IEstudante//: IUtilizador
+    public interface IAluno//: IUtilizador
     {
         /// <summary>
-        /// Retorna o nome completo do estudante.
+        /// Retorna o nome completo do aluno.
         /// </summary>
         string Nome { get; set;  }
 
         /// <summary>
-        /// A data de nascimento do estudante.
+        /// A data de nascimento do aluno.
         /// <remarks>Obrigatório.</remarks>
         /// </summary>
         DateTime DataDeNascimento { get; set; }
 
         /// <summary>
-        /// O género sexual do estudante.
+        /// O género sexual do aluno.
         /// <remarks>Obrigatório.</remarks>
         /// </summary>
         GeneroSexual Genero { get; set; }
 
         /// <summary>
-        /// A nacionalidade do estudante.
+        /// A nacionalidade do aluno.
         /// <remarks>Obrigatório.</remarks>
         /// </summary>
         string Nacionalidade { get; set; }
 
         /// <summary>
-        /// A morada atual do estudante.
+        /// A morada atual do aluno.
         /// <remarks>Obrigatório.</remarks>
         /// </summary>
         Morada Morada { get; set; }
@@ -71,7 +71,7 @@ namespace Middleware
         #endregion
 
         /// <summary>
-        /// Os perfis de redes sociais do estudante.
+        /// Os perfis de redes sociais do aluno.
         /// <remarks>Não obrigatório.</remarks>
         /// </summary>
         IEnumerable<Tuple<RedeSocial, string>> PerfisRedesSociais { get; set; }
@@ -79,28 +79,28 @@ namespace Middleware
         InstituicaoDeEnsino Ensino { get; set; }
 
         /// <summary>
-        /// Os interesses e gostos do estudante.
+        /// Os interesses e gostos do aluno.
         /// <remarks>Não obrigatório.</remarks>
         /// </summary>
         IEnumerable<string> Interesses { get; set; }
     }
 
     /// <summary>
-    /// Classe estudante.
-    /// Implementa IEstudante.
+    /// Classe aluno.
+    /// Implementa IAluno.
     /// </summary>
-    public class Estudante: IEstudante
+    public class Aluno: IAluno
     {
         /// <summary>
-        /// Constrói um novo estudante.
+        /// Constrói um novo aluno.
         /// </summary>
-        /// <param name="primeiroNome">Primeiro nome do Estudante.</param>
-        /// <param name="ultimoNome">Último nome do Estudante.</param>
-        /// <param name="nomesIntermedios">Nomes intermédios do Estudante.</param>
-        /// <param name="dataDeNascimento">Data de nascimento do Estudante.</param>
-        /// <param name="sexo">Género Sexual do Estudante.</param>
-        /// <param name="ensino">InstituicaoDeEnsino (Instituição, Curso, Ano) do Estudante.</param>
-        public Estudante(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, DateTime dataDeNascimento, GeneroSexual sexo, InstituicaoDeEnsino ensino)
+        /// <param name="primeiroNome">Primeiro nome do Aluno.</param>
+        /// <param name="ultimoNome">Último nome do Aluno.</param>
+        /// <param name="nomesIntermedios">Nomes intermédios do Aluno.</param>
+        /// <param name="dataDeNascimento">Data de nascimento do Aluno.</param>
+        /// <param name="sexo">Género Sexual do Aluno.</param>
+        /// <param name="ensino">InstituicaoDeEnsino (Instituição, Curso, Ano) do Aluno.</param>
+        public Aluno(string primeiroNome, string ultimoNome, IEnumerable<string> nomesIntermedios, DateTime dataDeNascimento, GeneroSexual sexo, InstituicaoDeEnsino ensino)
         {
             PrimeiroNome = primeiroNome;
             UltimoNome = ultimoNome;
@@ -117,7 +117,7 @@ namespace Middleware
         public string PrimeiroNome { get; set; }
 
         /// <summary>
-        /// Retorna o nome do estudante.
+        /// Retorna o nome do aluno.
         /// </summary>
         public string Nome
         {
@@ -178,6 +178,6 @@ namespace Middleware
         public IEnumerable<string> Interesses { get; set; }
 
         // TODO: completar
-        public override string ToString() => $"Estudante:\nNome: {Nome}\nData de Nascimento: {DataDeNascimento}\nSexo: {Genero}";
+        public override string ToString() => $"aluno:\nNome: {Nome}\nData de Nascimento: {DataDeNascimento}\nSexo: {Genero}";
     }
 }

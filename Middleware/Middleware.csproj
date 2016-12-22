@@ -98,7 +98,7 @@
     <Compile Include="Administrador.cs" />
     <Compile Include="Cama.cs" />
     <Compile Include="Comodidades.cs" />
-    <Compile Include="Estudante.cs" />
+    <Compile Include="Aluno.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="GeneroSexual.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -114,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Proprietario.cs" />
     <Compile Include="Quarto.cs" />
     <Compile Include="RedeSocial.cs" />
     <Compile Include="Username.cs" />

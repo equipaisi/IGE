@@ -20,14 +20,14 @@
     <Position X="5.25" Y="6.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAQAAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Estudante.cs</FileName>
+      <FileName>Aluno.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Middleware.Estudante" BaseTypeListCollapsed="true">
+  <Class Name="Middleware.Aluno" BaseTypeListCollapsed="true">
     <Position X="10" Y="3.75" Width="4.25" />
     <TypeIdentifier>
       <HashCode>IQACEAAggCAAAAAEAAAAAAJAAAAAAEAABAAgCAECAAA=</HashCode>
-      <FileName>Estudante.cs</FileName>
+      <FileName>Aluno.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -120,11 +120,11 @@
       <FileName>Cama.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Middleware.IEstudante">
+  <Interface Name="Middleware.IAluno">
     <Position X="10" Y="0.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>IQACAAAggCAAAAAAAAAAAAIAAAAAAEAABAAACAEAAAA=</HashCode>
-      <FileName>Estudante.cs</FileName>
+      <FileName>Aluno.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Middleware.IFuncionario" Collapsed="true">

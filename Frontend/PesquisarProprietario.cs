@@ -10,45 +10,30 @@ namespace Frontend
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Pesquisa um <see cref="Middleware.Proprietario"/> no sistema.
+        /// </summary>
+        private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-           
-            if (textBox3.Text == " " || textBox1.Text==" ")
+            string nome = textBoxNome.Text;
+            string bi = textBoxBI.Text;
+
+            // se não for fornecido nem o nome nem o número de BI
+            if (string.IsNullOrWhiteSpace(nome) && string.IsNullOrWhiteSpace(bi))
             {
-
-
-                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
-
+                MessageBox.Show("Por favor, introduza um nome ou um número de BI para pesquisar.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
-
+            // TODO
+            throw new NotImplementedException("Ainda falta implementar esta funcionalidade.");
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Fornece informações extra sobre o <see cref="Middleware.Proprietario"/> atualmente selecionado.
+        /// </summary>
+        private void buttonInfo_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if (textBox3.Text == " " || textBox1.Text == " ")
-            {
-
-
-                MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
-
-            }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-           
             Proprietario prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
             prt.ShowDialog();

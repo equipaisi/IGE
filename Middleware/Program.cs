@@ -10,7 +10,7 @@ namespace Middleware
         [STAThread]
         static void Main()
         {
-            var e = new Estudante("Adolfo", "Silva", null, new DateTime(1992, 11, 08), GeneroSexual.Homem, null);
+            var e = new Aluno("Adolfo", "Silva", null, new DateTime(1992, 11, 08), GeneroSexual.Homem, null);
             Console.WriteLine(e);
             Console.WriteLine();
 
