@@ -103,6 +103,7 @@
     <Compile Include="GeneroSexual.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Habitacao.cs" />
+    <Compile Include="IMiddlewareClient.cs" />
     <Compile Include="IUtilizador.cs" />
     <Compile Include="Morada.cs" />
     <Compile Include="PasswordHash.cs" />
@@ -136,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{01605c68-212c-4cf3-9b70-521e13d522b7}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
