@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
-using Backend;
 using Middleware;
 
 namespace Frontend
 {
     public partial class FormLogin : Form
     {
-        private readonly MySqlDb _db;
+        private readonly MiddlewareClient _middleMiddlewareClient;
 
         public FormLogin()
         {
-            _db = new MySqlDb();
-            InitializeComponent();
-        }
-        public FormLogin(MySqlDb db)
-        {
-            _db = db;
+            _middleMiddlewareClient = new MiddlewareClient();
+            //_middleMiddlewareClient.DropDatabase();
+            _middleMiddlewareClient.CreateDatabase();
+            //_middleMiddlewareClient.PopulateDatabase();
             InitializeComponent();
         }
 
@@ -25,16 +22,14 @@ namespace Frontend
             var username = textBox_Name.Text;
             var password = textBox_Password.Text;
 
-            // se _db.ValidUser(username, password) retornar null, as credenciais eram inválidas,
+            // se _db.GetUserType(username, password) retornar null, as credenciais eram inválidas,
             // senão retorna o tipo de utilizador como string, eg: "funcionario", "administrador", ou "estudante"
-            var userType = _db.ValidUser(username, password);
+            var userType = _middleMiddlewareClient.GetUserType(username, password);
+
             if (userType != null)
             {
-                // TODO: ver que tipo de utilizador (creds.Item2) e fazer o dispatch apropriado
-                //var newForm2 = new FormPrincipal();
-                //newForm2.ShowDialog();
-                IGE xpto = new IGE();
-                xpto.Show();
+                // TODO: usar o userType para aparecer as forms correspondentes
+                new IGE().Show();
             }
             else
             {
@@ -43,3 +38,4 @@ namespace Frontend
         }
     }
 }
+

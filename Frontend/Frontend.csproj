@@ -281,10 +281,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Backend\Backend.csproj">
-      <Project>{01605c68-212c-4cf3-9b70-521e13d522b7}</Project>
-      <Name>Backend</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Middleware\Middleware.csproj">
       <Project>{4a785ed7-ca2e-4e8f-b929-dc5df9027a68}</Project>
       <Name>Middleware</Name>

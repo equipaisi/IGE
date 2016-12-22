@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Middleware;
 using MySql.Data.MySqlClient;
 
 namespace Backend
@@ -160,7 +159,7 @@ namespace Backend
         private MySqlCommand CreateUserTableCommand
             =>
                 new MySqlCommand(
-                    $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`User` 
+                    $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`User` (
                                                   `UserId` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                   `UserTypeId` INT UNSIGNED NOT NULL,
                                                   `Username` VARCHAR(45) NOT NULL,
@@ -183,28 +182,16 @@ namespace Backend
         #endregion
 
         #region PopulateDatabase
-
-        /// <summary>
-        ///     Popula a base de dados com o nome <see cref="DatabaseName" />.
-        /// </summary>
-        public void PopulateDatabase()
-        {
-            // TODO: get data from external file
-            var users = new List<IUtilizador>
-            {
-                new Funcionario("João", "Ferreira", null, "jferreira", "jfonseca", "jferreira@imovcelos.pt"),
-                new Funcionario("Sónia", "Gomes", null, "sgomes", "sgomes", "sgomes@imovcelos.pt"),
-                new Administrador("António Fonseca", "afonseca", "afonseca", "afonseca@imovcelos.pt")
-            };
-
-            // TODO: error handling, make sure each command returns the appropriate result (number of rows affected?)
-            var r1 = PopulateUserTypeTable();
-            var r2 = PopulateUserTable(PopulateUserTableCommand(users));
-        }
-
+        
         // TODO: refactor
-        private static int PopulateUserTable(IDbCommand command) => command.ExecuteNonQuery();
+        //public int PopulateUserTable(IEnumerable<IUtilizador> users) => PopulateUserTableCommand(users).ExecuteNonQuery();
 
+    //    private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
+    //new MySqlCommand(
+    //    $@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows
+    //        (users)};", _con);
+
+        /*
         private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
             new MySqlCommand(
                 $@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows
@@ -233,51 +220,37 @@ namespace Backend
                         user.TypeDescriptor,
                         ")"
                     });
+         */
 
-        private int PopulateUserTypeTable() => Convert.ToInt32(PopulateUserTypeTableCommand.ExecuteNonQuery());
+        public int PopulateUserTypeTable(IEnumerable<string> userTypes) => Convert.ToInt32(PopulateUserTypeTableCommand(userTypes).ExecuteNonQuery());
 
-        private MySqlCommand PopulateUserTypeTableCommand
+        private MySqlCommand PopulateUserTypeTableCommand(IEnumerable<string> userTypes)
             =>
                 new MySqlCommand(
-                    $"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES ('funcionario'), ('administrador'), ('estudante');",
+                    $"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES {GenerateUserTypes(userTypes)};",
                     _con);
+
+        private string GenerateUserTypes(IEnumerable<string> userTypes) => string.Join(",", userTypes.Select(user => "('" + user + "')").ToList());
 
         #endregion
 
-        /// <summary>
-        ///     Faz a autenticação de um utilizador.
-        /// </summary>
-        /// <param name="username">Username do utilizador</param>
-        /// <param name="password">Password do utilizador</param>
-        /// <returns></returns>
-        public string ValidUser(string username, string password)
-        {
-            var command = SelectPasswordHashAndUserTypeDescriptionByUsernameCommand(username);
-            //TODO: refactor
-            using (var reader = command.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    var passwordHash = reader.GetString(reader.GetOrdinal("PasswordHash"));
-                    var userType = reader.GetString(reader.GetOrdinal("userTypeDescription"));
-
-                    if (password == passwordHash) return userType;
-                    return null;
-                    //return new Tuple<bool, string>(PasswordHash.ValidatePassword(username, passwordHash), userType);
-                }
-            }
-            return null;
-        }
+        public string GetUserUserTypeDescription(string username) => SelectUserTypeDescriptionByUsernameCommand(username).ExecuteScalar() as string;
 
         /// <summary>
         ///     Retorna o comando que lê a PasswordHash e o UserTypeDescription de um determinado User pelo seu Username.
         /// </summary>
         /// <param name="username">Username do utilizador</param>
         /// <returns></returns>
-        private MySqlCommand SelectPasswordHashAndUserTypeDescriptionByUsernameCommand(string username) =>
+        private MySqlCommand SelectUserTypeDescriptionByUsernameCommand(string username) =>
             new MySqlCommand(
-                $"SELECT PasswordHash, UserTypeDescription FROM User NATURAL JOIN UserType WHERE Username = {username}",
+                $"SELECT UserTypeDescription FROM `{DatabaseName}`.`User` NATURAL JOIN `{DatabaseName}`.`UserType` WHERE Username = '{username}'",
                 _con);
+
+        public string GetUserPasswordHash(string username)
+            => SelectUserPasswordHashByUsernameCommand(username).ExecuteScalar() as string;
+
+        private MySqlCommand SelectUserPasswordHashByUsernameCommand(string username)
+            => new MySqlCommand($"SELECT PasswordHash FROM `{DatabaseName}`.`User` WHERE Username = '{username}'", _con);
 
         #endregion
     }
