@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{584307AE-C721-47F7-9319-C921DCD0599B}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Frontend</RootNamespace>
     <AssemblyName>Frontend</AssemblyName>
@@ -51,6 +51,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Logo.png.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -268,6 +271,7 @@
     <EmbeddedResource Include="RegistarHabitacao.resx">
       <DependentUpon>RegistarHabitacao.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <EmbeddedResource Include="Sobre.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
     </EmbeddedResource>

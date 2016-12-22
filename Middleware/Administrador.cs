@@ -18,6 +18,8 @@ namespace Middleware
         }
 
         #region Utilizador / IUTilizador
+
+        public override string TypeDescriptor => "administrador";
         public override string Username { get; set; }
         public override string PasswordHash { get; set; }
         public override string NomeCompleto { get; set; }

@@ -7,7 +7,7 @@ namespace Middleware
     {
         public const int SaltByteSize = 24;
         public const int HashByteSize = 20; // to match the size of the PBKDF2-HMAC-SHA-1 hash 
-        public const int Pbkdf2Iterations = 1024;
+        public const int Pbkdf2Iterations = 30000;
         public const int IterationIndex = 0;
         public const int SaltIndex = 1;
         public const int Pbkdf2Index = 2;
@@ -47,9 +47,9 @@ namespace Middleware
         }
 
         private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputBytes)
-    {
+        {
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt) {IterationCount = iterations};
             return pbkdf2.GetBytes(outputBytes);
+        }
     }
-}
 }

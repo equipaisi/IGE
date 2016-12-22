@@ -8,6 +8,7 @@ namespace Middleware
     /// </summary>
     public interface IUtilizador
     {
+        string TypeDescriptor { get;  }
         /// <summary>
         /// O username do utilizador.
         /// </summary>
@@ -44,6 +45,7 @@ namespace Middleware
            DataDeCriacao = DateTime.Now;
         }
 
+        public abstract string TypeDescriptor { get; }
         public abstract string Username { get; set; }
         public abstract string PasswordHash { get; set; }
         public abstract string NomeCompleto { get; set; }
