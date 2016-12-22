@@ -104,7 +104,6 @@
             this.label1.Size = new System.Drawing.Size(160, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "REGISTAR HABITAÇÃO";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxMetrosQuadrados
             // 
@@ -113,7 +112,6 @@
             this.textBoxMetrosQuadrados.Name = "textBoxMetrosQuadrados";
             this.textBoxMetrosQuadrados.Size = new System.Drawing.Size(97, 22);
             this.textBoxMetrosQuadrados.TabIndex = 5;
-            this.textBoxMetrosQuadrados.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBoxMetrosQuadrados.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxMetrosQuadrados_Validating);
             this.textBoxMetrosQuadrados.Validated += new System.EventHandler(this.textBoxMetrosQuadrados_Validated);
             // 
@@ -134,7 +132,6 @@
             this.labelNumDeAssoalhadas.Size = new System.Drawing.Size(136, 17);
             this.labelNumDeAssoalhadas.TabIndex = 86;
             this.labelNumDeAssoalhadas.Text = "Nº de Assoalhadas: ";
-            this.labelNumDeAssoalhadas.Click += new System.EventHandler(this.label4_Click);
             // 
             // labelAnoDeConstrucao
             // 
@@ -179,7 +176,6 @@
             this.comboBoxNumDeQuartos.Name = "comboBoxNumDeQuartos";
             this.comboBoxNumDeQuartos.Size = new System.Drawing.Size(60, 24);
             this.comboBoxNumDeQuartos.TabIndex = 8;
-            this.comboBoxNumDeQuartos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelProprietario
             // 
@@ -189,7 +185,6 @@
             this.labelProprietario.Size = new System.Drawing.Size(90, 17);
             this.labelProprietario.TabIndex = 92;
             this.labelProprietario.Text = "Proprietário: ";
-            this.labelProprietario.Click += new System.EventHandler(this.labelProprietario_Click);
             // 
             // button1
             // 
@@ -230,7 +225,6 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 17);
             this.label10.TabIndex = 21;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // checkBoxInternet
             // 
@@ -253,7 +247,6 @@
             this.checkBoxTelevisao.TabIndex = 13;
             this.checkBoxTelevisao.Text = "Televisão";
             this.checkBoxTelevisao.UseVisualStyleBackColor = true;
-            this.checkBoxTelevisao.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBoxServicosDeLimpeza
             // 
@@ -321,7 +314,6 @@
             this.textBoxLocalidade.Name = "textBoxLocalidade";
             this.textBoxLocalidade.Size = new System.Drawing.Size(189, 22);
             this.textBoxLocalidade.TabIndex = 4;
-            this.textBoxLocalidade.TextChanged += new System.EventHandler(this.textBoxLocalidade_TextChanged);
             // 
             // textBoxRua
             // 
@@ -331,7 +323,6 @@
             this.textBoxRua.Name = "textBoxRua";
             this.textBoxRua.Size = new System.Drawing.Size(456, 57);
             this.textBoxRua.TabIndex = 2;
-            this.textBoxRua.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // labelLocalidade
             // 
@@ -341,7 +332,6 @@
             this.labelLocalidade.Size = new System.Drawing.Size(81, 17);
             this.labelLocalidade.TabIndex = 89;
             this.labelLocalidade.Text = "Localidade:";
-            this.labelLocalidade.Click += new System.EventHandler(this.label11_Click);
             // 
             // labelCodigoPostal
             // 
@@ -395,7 +385,6 @@
             this.comboBoxNumDeAssoalhadas.Name = "comboBoxNumDeAssoalhadas";
             this.comboBoxNumDeAssoalhadas.Size = new System.Drawing.Size(71, 24);
             this.comboBoxNumDeAssoalhadas.TabIndex = 7;
-            this.comboBoxNumDeAssoalhadas.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumDeAssoalhadas_SelectedIndexChanged);
             // 
             // numericUpDownAnoDeConstrucao
             // 
@@ -544,7 +533,6 @@
             this.checkBoxDespesasIncluidas.TabIndex = 11;
             this.checkBoxDespesasIncluidas.Text = "Despesas Incluídas";
             this.checkBoxDespesasIncluidas.UseVisualStyleBackColor = true;
-            this.checkBoxDespesasIncluidas.CheckedChanged += new System.EventHandler(this.checkBoxDespesasIncluidas_CheckedChanged);
             // 
             // textBoxPreco
             // 
@@ -553,7 +541,6 @@
             this.textBoxPreco.Name = "textBoxPreco";
             this.textBoxPreco.Size = new System.Drawing.Size(72, 22);
             this.textBoxPreco.TabIndex = 9;
-            this.textBoxPreco.TextChanged += new System.EventHandler(this.textBoxPreco_TextChanged);
             // 
             // labelPreco
             // 
@@ -639,7 +626,6 @@
             this.Name = "RegistarHabitacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registar Habitação";
-            this.Load += new System.EventHandler(this.RegistarHabitacao_Load_1);
             this.groupBoxMorada.ResumeLayout(false);
             this.groupBoxMorada.PerformLayout();
             this.groupBoxComodidades.ResumeLayout(false);

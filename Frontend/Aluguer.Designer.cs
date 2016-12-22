@@ -251,7 +251,6 @@
             this.Name = "Aluguer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Aluguer";
-            this.Load += new System.EventHandler(this.Aluguer_Load);
             this.groupBoxMorada.ResumeLayout(false);
             this.groupBoxMorada.PerformLayout();
             this.groupBox1.ResumeLayout(false);

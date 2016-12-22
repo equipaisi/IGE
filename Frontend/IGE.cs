@@ -16,10 +16,8 @@ namespace Frontend
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-
-
-
         }
+
         //protected override void OnResize(EventArgs e)
         //{
         //    CenterForms();
@@ -37,7 +35,8 @@ namespace Frontend
         //}
         private void IGE_Load(object sender, EventArgs e)
         {
-            
+            // Mostrar o nome e a versão da aplicação como título da form
+            this.Text = Application.ProductName + " " + Application.ProductVersion;
         }
 
         private void toolStripButtonSair_Click(object sender, EventArgs e)

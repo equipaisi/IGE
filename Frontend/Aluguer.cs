@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -17,11 +10,6 @@ namespace Frontend
             InitializeComponent();
         }
 
-        private void Aluguer_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             PesquisarAluno pesqAluno = new PesquisarAluno();
@@ -31,14 +19,14 @@ namespace Frontend
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NovoAluno novo_alu = new NovoAluno();
-            novo_alu.MdiParent = IGE.ActiveForm;
-            novo_alu.Show();
+            NovoAluno novoAluno = new NovoAluno();
+            novoAluno.MdiParent = IGE.ActiveForm;
+            novoAluno.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Quarto Alugado com sucesso ");
+            MessageBox.Show("Quarto Alugado com sucesso");
             Aluguer al = new Aluguer();
             al.Close();
         }
