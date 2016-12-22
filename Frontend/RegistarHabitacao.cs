@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Middleware;
+using System.Text;
 
 namespace Frontend
 {
@@ -21,30 +22,8 @@ namespace Frontend
 
         public void RegistarHabitacao_Load(object sender, EventArgs e)
         {
-            //maskedTextBoxCodigoPostal.Mask = "4715-343";
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
 
         /// <summary>
@@ -55,6 +34,8 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
+
+            
             #region Morada
             // Rua
             var rua = textBoxRua.Text;
@@ -158,6 +139,7 @@ namespace Frontend
                     _imgFilenames.Add(filename);
                     _indexImgAtual += 1;
                     AtualizarFoto(_indexImgAtual);
+                   
                 }
             }
             MessageBox.Show(_imgFilenames.Count.ToString());      
@@ -239,37 +221,6 @@ namespace Frontend
             }
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            //if (textBox1.Text != "") { pictureBoxMapa.Show(); }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void maskedTextBoxCodigoPostal_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             toolTipCodigoPostal.ToolTipTitle = "Input Inválido";
@@ -292,36 +243,6 @@ namespace Frontend
         private void textBoxMetrosQuadrados_Validated(object sender, EventArgs e)
         {
             _errorProvider1.SetError(textBoxMetrosQuadrados, "");
-        }
-
-        private void RegistarHabitacao_Load_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void labelProprietario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxDespesasIncluidas_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxLocalidade_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxNumDeAssoalhadas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPreco_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBoxImagem_DragEnter(object sender, DragEventArgs e)
@@ -348,13 +269,34 @@ namespace Frontend
         private void button3_Click(object sender, EventArgs e)
         {
             PesquisarProprietario prop = new PesquisarProprietario();
-            prop.ShowDialog();
+            prop.MdiParent = IGE.ActiveForm;
+            prop.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             NovoProprietario newProp = new NovoProprietario();
-            newProp.ShowDialog();
+            newProp.MdiParent = IGE.ActiveForm;
+            newProp.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string rua = textBoxRua.Text;
+            string loc = textBoxLocalidade.Text;
+            string cod = maskedTextBoxCodigoPostal.Text.ToString();
+
+            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+            add.Append(rua);
+            add.Append(loc);
+            add.Append(cod);
+            webBrowser1.Navigate(add.ToString());
+         
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }

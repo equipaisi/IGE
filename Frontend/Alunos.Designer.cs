@@ -259,7 +259,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Alunos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alunos";
             this.Load += new System.EventHandler(this.Alunos_Load);
             this.groupBox1.ResumeLayout(false);

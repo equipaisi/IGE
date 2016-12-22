@@ -25,6 +25,7 @@ namespace Frontend
         {
             if (textBox1.Text == " " || textBox3.Text == " " )
             {
+               
                 MessageBox.Show("Pf introduza um Nome ou BI para pesquisa");
             }
 
@@ -33,6 +34,7 @@ namespace Frontend
         private void button2_Click(object sender, EventArgs e)
         {
             Alunos alun = new Alunos();
+            alun.MdiParent = IGE.ActiveForm;
             alun.ShowDialog();
         }
     }

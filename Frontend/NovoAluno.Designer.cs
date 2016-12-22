@@ -67,6 +67,7 @@
             this.button1.TabIndex = 43;
             this.button1.Text = "INSERIR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -116,9 +117,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 74);
+            this.textBox1.Location = new System.Drawing.Point(117, 74);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(447, 22);
+            this.textBox1.Size = new System.Drawing.Size(422, 22);
             this.textBox1.TabIndex = 35;
             // 
             // label5
@@ -183,16 +184,16 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(87, 63);
+            this.textBox8.Location = new System.Drawing.Point(93, 63);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(211, 22);
+            this.textBox8.Size = new System.Drawing.Size(205, 22);
             this.textBox8.TabIndex = 36;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(87, 28);
+            this.textBox7.Location = new System.Drawing.Point(93, 28);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(428, 22);
+            this.textBox7.Size = new System.Drawing.Size(422, 22);
             this.textBox7.TabIndex = 35;
             // 
             // label6
@@ -239,6 +240,7 @@
             this.groupBoxMorada.TabIndex = 95;
             this.groupBoxMorada.TabStop = false;
             this.groupBoxMorada.Text = "Morada";
+            this.groupBoxMorada.Enter += new System.EventHandler(this.groupBoxMorada_Enter);
             // 
             // maskedTextBoxCodigoPostal
             // 
@@ -269,11 +271,11 @@
             // 
             // textBoxRua
             // 
-            this.textBoxRua.Location = new System.Drawing.Point(59, 32);
+            this.textBoxRua.Location = new System.Drawing.Point(93, 32);
             this.textBoxRua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRua.Multiline = true;
             this.textBoxRua.Name = "textBoxRua";
-            this.textBoxRua.Size = new System.Drawing.Size(456, 57);
+            this.textBoxRua.Size = new System.Drawing.Size(422, 57);
             this.textBoxRua.TabIndex = 2;
             // 
             // labelLocalidade
@@ -325,7 +327,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "NovoAluno";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NovoAluno";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

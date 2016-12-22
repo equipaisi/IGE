@@ -121,6 +121,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "DesativarPropriatario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DesativarProprietario";
             this.Load += new System.EventHandler(this.DesativarPropriatario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -32,13 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarHabitacao));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxDistritos = new System.Windows.Forms.ComboBox();
+            this.cbxConcelhos = new System.Windows.Forms.ComboBox();
+            this.cbxUniversidades = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
@@ -60,6 +58,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -86,10 +86,10 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Concelho : ";
             // 
-            // comboBox1
+            // cbxDistritos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxDistritos.FormattingEnabled = true;
+            this.cbxDistritos.Items.AddRange(new object[] {
             "SELECIONAR",
             "Aveiro",
             "Beja",
@@ -109,36 +109,36 @@
             "Viana do Castelo",
             "Vila Real",
             " Viseu"});
-            this.comboBox1.Location = new System.Drawing.Point(25, 48);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 24);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbxDistritos.Location = new System.Drawing.Point(25, 48);
+            this.cbxDistritos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxDistritos.Name = "cbxDistritos";
+            this.cbxDistritos.Size = new System.Drawing.Size(176, 24);
+            this.cbxDistritos.TabIndex = 4;
+            this.cbxDistritos.SelectedIndexChanged += new System.EventHandler(this.cbxDistritos_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cbxConcelhos
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbxConcelhos.FormattingEnabled = true;
+            this.cbxConcelhos.Items.AddRange(new object[] {
             "SELECIONAR"});
-            this.comboBox2.Location = new System.Drawing.Point(25, 112);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(176, 24);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cbxConcelhos.Location = new System.Drawing.Point(25, 112);
+            this.cbxConcelhos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxConcelhos.Name = "cbxConcelhos";
+            this.cbxConcelhos.Size = new System.Drawing.Size(176, 24);
+            this.cbxConcelhos.TabIndex = 5;
+            this.cbxConcelhos.SelectedIndexChanged += new System.EventHandler(this.cbxConcelhos_SelectedIndexChanged);
             // 
-            // comboBox3
+            // cbxUniversidades
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbxUniversidades.FormattingEnabled = true;
+            this.cbxUniversidades.Items.AddRange(new object[] {
             "SELECIONAR"});
-            this.comboBox3.Location = new System.Drawing.Point(25, 168);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(176, 24);
-            this.comboBox3.TabIndex = 6;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.cbxUniversidades.Location = new System.Drawing.Point(25, 168);
+            this.cbxUniversidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxUniversidades.Name = "cbxUniversidades";
+            this.cbxUniversidades.Size = new System.Drawing.Size(176, 24);
+            this.cbxUniversidades.TabIndex = 6;
+            this.cbxUniversidades.SelectedIndexChanged += new System.EventHandler(this.cbxUniversidades_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -154,26 +154,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Curso : ";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "SELECIONAR"});
-            this.comboBox4.Location = new System.Drawing.Point(25, 234);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(176, 24);
-            this.comboBox4.TabIndex = 9;
             // 
             // label5
             // 
@@ -311,14 +291,16 @@
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(281, 92);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(755, 590);
+            this.groupBox2.Size = new System.Drawing.Size(1085, 590);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resultados";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // linkLabel2
             // 
@@ -391,14 +373,14 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.cbxConcelhos);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.comboBox4);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbxDistritos);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.cbxUniversidades);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(12, 33);
             this.groupBox3.Name = "groupBox3";
@@ -418,6 +400,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Curso : ";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "SELECIONAR"});
+            this.comboBox4.Location = new System.Drawing.Point(25, 234);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(176, 24);
+            this.comboBox4.TabIndex = 9;
+            // 
             // PesquisarHabitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,7 +432,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "PesquisarHabitacao";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisar Habitação";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -448,13 +450,11 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxDistritos;
+        private System.Windows.Forms.ComboBox cbxConcelhos;
+        private System.Windows.Forms.ComboBox cbxUniversidades;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
@@ -476,5 +476,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label4;
     }
 }
