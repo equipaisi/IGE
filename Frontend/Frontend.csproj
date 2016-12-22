@@ -271,7 +271,6 @@
     <EmbeddedResource Include="RegistarHabitacao.resx">
       <DependentUpon>RegistarHabitacao.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <EmbeddedResource Include="Sobre.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
     </EmbeddedResource>
