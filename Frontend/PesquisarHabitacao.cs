@@ -18,9 +18,9 @@ namespace Frontend
             Distrito braga = new Distrito("Braga");
 
             Concelho bragC = new Concelho("Braga");
-            bragC.Universidades.Add(new Universidade(" Universidade do Minho(UM)"));
+            bragC.Universidades.Add(new Universidade("Universidade do Minho(UM)"));
             bragC.Universidades.Add(new Universidade("Universidade Católica Portuguesa (UCP) - Centro Regional de Braga"));
-            bragC.Universidades.Add(new Universidade(" Instituto Politécnico de Saúde do Norte"));
+            bragC.Universidades.Add(new Universidade("Instituto Politécnico de Saúde do Norte"));
             bragC.Universidades.Add(new Universidade("Instituto Superior de Saúde do Alto Ave"));
             bragC.Universidades.Add(new Universidade("Instituto Politécnico do Cávado e do Ave(IPCA)"));
 
@@ -119,11 +119,11 @@ namespace Frontend
             aveiroC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos(IPAM) - Aveiro"));
 
             Concelho espinho = new Concelho("Espinho");
-            espinho.Universidades.Add(new Universidade(" Instituto Superior de Espinho (ISESP)"));
+            espinho.Universidades.Add(new Universidade("Instituto Superior de Espinho (ISESP)"));
             aveiro.Concelhos.Add(espinho);
 
             Concelho oliveiraAz = new Concelho("Oliveira de Azemeis");
-            oliveiraAz.Universidades.Add(new Universidade(" Escola Superior de Enfermagem da Cruz Vermelha Portuguesa de Oliveira de Azeméis"));
+            oliveiraAz.Universidades.Add(new Universidade("Escola Superior de Enfermagem da Cruz Vermelha Portuguesa de Oliveira de Azeméis"));
             aveiro.Concelhos.Add(oliveiraAz);
 
             aveiro.Concelhos.Add(aveiroC);
@@ -221,7 +221,7 @@ namespace Frontend
             Distrito coimbra = new Distrito("Coimbra");
 
             Concelho coimbC = new Concelho("Coimbra");
-            coimbC.Universidades.Add(new Universidade(" Universidade de Coimbra(UC)"));
+            coimbC.Universidades.Add(new Universidade("Universidade de Coimbra(UC)"));
 
             coimbC.Universidades.Add(new Universidade("Escola Superior de Enfermagem de Coimbra(ESEnfC)"));
             coimbC.Universidades.Add(new Universidade("Instituto Politécnico de Coimbra (IPC)"));
@@ -500,7 +500,7 @@ namespace Frontend
             Distrito porto = new Distrito("Porto");
 
             Concelho portoC = new Concelho("Porto");
-            portC.Universidades.Add(new Universidade(" Universidade do Porto(UP)"));
+            portC.Universidades.Add(new Universidade("Universidade do Porto(UP)"));
 
             portoC.Universidades.Add(new Universidade("Instituto Politécnico do Porto(IPP)"));            
 
@@ -603,7 +603,7 @@ namespace Frontend
             santarem.Concelhos.Add(tomar);
 
             Concelho torres = new Concelho("Torres Novas");
-            torres.Universidades.Add(new Universidade(" Escola Superior de Educação de Torres Novas"));
+            torres.Universidades.Add(new Universidade("Escola Superior de Educação de Torres Novas"));
 
 
             santarem.Concelhos.Add(torres);
@@ -706,7 +706,7 @@ namespace Frontend
             Concelho vilaC = new Concelho("Vila Real");
 
             vilaC.Universidades.Add(new Universidade("Universidade de Trás - os - Montes e Alto Douro(UTAD)"));
-            vilaC.Universidades.Add(new Universidade(" Escola Superior de Enfermagem Dr.José Timóteo Montalvão Machado"));
+            vilaC.Universidades.Add(new Universidade("Escola Superior de Enfermagem Dr.José Timóteo Montalvão Machado"));
 
             
             vilaReal.Concelhos.Add(vilaC);
@@ -866,21 +866,6 @@ namespace Frontend
             }
         }
 
-        private void cbxUniversidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             trackBar1.Minimum = 80;
@@ -888,20 +873,12 @@ namespace Frontend
             label8.Text = trackBar1.Value.ToString();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
-
         {
-            if (cbxDistritos.Text == "Braga" || cbxConcelhos.Text == ("Barcelos") || cbxUniversidades.Text == ("IPCA - Instituto Politécnico Cavado Ave")) { pictureBox1.Show();
+            if (cbxDistritos.Text == "Braga" || cbxConcelhos.Text == "Barcelos" || cbxUniversidades.Text == "IPCA - Instituto Politécnico Cavado Ave") { pictureBox1.Show();
                 pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show(); linkLabel1.Show();
                 linkLabel2.Show();
-
             }
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -911,14 +888,5 @@ namespace Frontend
             alun.Show();
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

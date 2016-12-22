@@ -140,7 +140,6 @@
             this.cbxUniversidades.Name = "cbxUniversidades";
             this.cbxUniversidades.Size = new System.Drawing.Size(176, 24);
             this.cbxUniversidades.TabIndex = 6;
-            this.cbxUniversidades.SelectedIndexChanged += new System.EventHandler(this.cbxUniversidades_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -165,7 +164,6 @@
             this.label5.Size = new System.Drawing.Size(41, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Valor";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // groupBox1
             // 
@@ -247,7 +245,6 @@
             this.label8.Size = new System.Drawing.Size(24, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "80";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -302,7 +299,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resultados";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // linkLabel2
             // 
@@ -359,7 +355,6 @@
             this.richTextBox1.Text = "Braga\nAlvelos , Barcelos\nIncluido : Internet , TV \n\n1 Quarto Disponível\n\nQuarto :" +
     " 210€/mes";
             this.richTextBox1.Visible = false;
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -390,7 +385,6 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pesquisar";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // button1
             // 

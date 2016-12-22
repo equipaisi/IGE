@@ -116,7 +116,7 @@
             this.MaximizeBox = false;
             this.Name = "PesquisarProprietario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PesquisarProprietario";
+            this.Text = "Pesquisar Proprietário";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

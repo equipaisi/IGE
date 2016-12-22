@@ -118,7 +118,7 @@
             this.MaximizeBox = false;
             this.Name = "PesquisarAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PesquisarAluno";
+            this.Text = "Pesquisar Aluno";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
