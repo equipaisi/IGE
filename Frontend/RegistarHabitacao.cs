@@ -34,8 +34,6 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
-
-            
             #region Morada
             // Rua
             var rua = textBoxRua.Text;

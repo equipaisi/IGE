@@ -822,7 +822,6 @@ namespace Frontend
                 Universidades = new List<Universidade>();
             }
 
-
         }
 
         public class Universidade
@@ -833,7 +832,6 @@ namespace Frontend
             {
                 nome = name;
             }
-
 
         }
 
