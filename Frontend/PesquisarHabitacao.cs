@@ -927,5 +927,10 @@ namespace Frontend
             alun.MdiParent = IGE.ActiveForm;
             alun.Show();
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

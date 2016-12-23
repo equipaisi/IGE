@@ -58,8 +58,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -71,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 28);
+            this.label1.Location = new System.Drawing.Point(24, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 2;
@@ -80,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 86);
+            this.label2.Location = new System.Drawing.Point(24, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 3;
@@ -110,7 +108,7 @@
             "Viana do Castelo",
             "Vila Real",
             " Viseu"});
-            this.cbxDistritos.Location = new System.Drawing.Point(25, 48);
+            this.cbxDistritos.Location = new System.Drawing.Point(27, 72);
             this.cbxDistritos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDistritos.Name = "cbxDistritos";
             this.cbxDistritos.Size = new System.Drawing.Size(176, 24);
@@ -123,7 +121,7 @@
             this.cbxConcelhos.FormattingEnabled = true;
             this.cbxConcelhos.Items.AddRange(new object[] {
             "SELECIONAR"});
-            this.cbxConcelhos.Location = new System.Drawing.Point(25, 112);
+            this.cbxConcelhos.Location = new System.Drawing.Point(27, 136);
             this.cbxConcelhos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxConcelhos.Name = "cbxConcelhos";
             this.cbxConcelhos.Size = new System.Drawing.Size(176, 24);
@@ -135,7 +133,7 @@
             this.cbxUniversidades.FormattingEnabled = true;
             this.cbxUniversidades.Items.AddRange(new object[] {
             "SELECIONAR"});
-            this.cbxUniversidades.Location = new System.Drawing.Point(25, 168);
+            this.cbxUniversidades.Location = new System.Drawing.Point(27, 192);
             this.cbxUniversidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxUniversidades.Name = "cbxUniversidades";
             this.cbxUniversidades.Size = new System.Drawing.Size(176, 24);
@@ -144,7 +142,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 147);
+            this.label3.Location = new System.Drawing.Point(24, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 7;
@@ -355,6 +353,7 @@
             this.richTextBox1.Text = "Braga\nAlvelos , Barcelos\nIncluido : Internet , TV \n\n1 Quarto Disponível\n\nQuarto :" +
     " 210€/mes";
             this.richTextBox1.Visible = false;
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -374,9 +373,7 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.comboBox4);
             this.groupBox3.Controls.Add(this.cbxDistritos);
-            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.cbxUniversidades);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(12, 33);
@@ -395,26 +392,6 @@
             this.button1.Text = "PESQUISAR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "SELECIONAR"});
-            this.comboBox4.Location = new System.Drawing.Point(25, 234);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(176, 24);
-            this.comboBox4.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Curso : ";
             // 
             // PesquisarHabitacao
             // 
@@ -472,7 +449,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label4;
     }
 }
