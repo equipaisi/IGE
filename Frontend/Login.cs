@@ -10,7 +10,7 @@ namespace Frontend
 
         public FormLogin()
         {
-            _middleMiddlewareClient = new MiddlewareClient();
+            //_middleMiddlewareClient = new MiddlewareClient();
             InitializeComponent();
         }
         
@@ -21,7 +21,7 @@ namespace Frontend
             // Mostrar o nome e a versão da aplicação como título da form
             this.Text = Application.ProductName + " " + Application.ProductVersion;
             //_middleMiddlewareClient.DropDatabase();
-            _middleMiddlewareClient.CreateDatabase();
+            //_middleMiddlewareClient.CreateDatabase();
             //_middleMiddlewareClient.PopulateDatabase();
         }
 
