@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Middleware;
+using Frontend.GoogleMapsService;
 
 namespace Frontend
 {
@@ -19,6 +18,8 @@ namespace Frontend
 
             try
             {
+                var place = new GoogleMapsClient().GetPlace("Rua José António Cruz, 4715-343, Braga");
+                Console.WriteLine($"Address=\"{place.FormattedAddress}\",Latitude={place.Latitude},Longitude={place.Longitude},PlaceId={place.PlaceId}");
                 Application.Run(new FormLogin());
             }
             catch (Exception e)
