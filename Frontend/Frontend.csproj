@@ -198,6 +198,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\GooglePlacesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Sobre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +311,22 @@
     <None Include="Service References\GoogleMapsService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GooglePlacesService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GooglePlacesService\Frontend.GooglePlacesService.Place.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GooglePlacesService\GooglePlaces.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GooglePlacesService\service.wsdl" />
+    <None Include="Service References\GooglePlacesService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GooglePlacesService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -330,6 +351,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.png.ico" />
+    <None Include="Service References\GooglePlacesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GooglePlacesService\configuration.svcinfo" />
+    <None Include="Service References\GooglePlacesService\configuration91.svcinfo" />
     <None Include="Service References\GoogleMapsService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -345,6 +372,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\GoogleMapsService\" />
+    <WCFMetadataStorage Include="Service References\GooglePlacesService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
