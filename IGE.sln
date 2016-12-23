@@ -8,8 +8,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareTests", "MiddlewareTests\MiddlewareTests.csproj", "{A6500A8E-CEAD-451D-ADF9-B6EE5AA21878}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{584307AE-C721-47F7-9319-C921DCD0599B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A} = {9CF13815-3072-4744-AA9D-483EC09F2D8A}
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8} = {F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{01605C68-212C-4CF3-9B70-521E13D522B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMaps", "GoogleMaps\GoogleMaps.csproj", "{9CF13815-3072-4744-AA9D-483EC09F2D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooglePlaces", "GooglePlaces\GooglePlaces.csproj", "{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +51,18 @@ Global
 		{01605C68-212C-4CF3-9B70-521E13D522B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01605C68-212C-4CF3-9B70-521E13D522B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01605C68-212C-4CF3-9B70-521E13D522B7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Debug+Contracts|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Debug+Contracts|Any CPU.Build.0 = Debug|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF13815-3072-4744-AA9D-483EC09F2D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Debug+Contracts|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Debug+Contracts|Any CPU.Build.0 = Debug|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

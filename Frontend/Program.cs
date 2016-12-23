@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Middleware;
+using Frontend.GoogleMapsService;
+using Frontend.GooglePlacesService;
 
 namespace Frontend
 {
@@ -19,6 +19,14 @@ namespace Frontend
 
             try
             {
+                var place = new GoogleMapsClient().GetPlace("Rua José António Cruz, 4715-343, Braga");
+                Console.WriteLine($"Address=\"{place.FormattedAddress}\",Latitude={place.Latitude},Longitude={place.Longitude},PlaceId={place.PlaceId}");
+                var places = new GooglePlacesClient().GetPointsOfInterest(place.Latitude, place.Longitude, 500);
+                foreach (var e in places)
+                {
+                    Console.WriteLine($"Name={e.Name},Coord=({e.Latitude},{e.Longitude})");
+                    Console.WriteLine($"PlaceId={e.PlaceId},Name={e.Name},Coord=({e.Latitude},{e.Longitude}),Types=[{string.Join(",", e.Types)}]");
+                }
                 Application.Run(new FormLogin());
             }
             catch (Exception e)
