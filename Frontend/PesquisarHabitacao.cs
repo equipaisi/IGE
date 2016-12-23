@@ -13,8 +13,11 @@ namespace Frontend
             InitializeComponent();
 
             #region Conselhos
+
             // BRAGA 
+
             #region Braga
+
             Distrito braga = new Distrito("Braga");
 
             Concelho bragC = new Concelho("Braga");
@@ -56,41 +59,35 @@ namespace Frontend
             braga.Concelhos.Add(new Concelho("Cabeceuras de Basto"));
             braga.Concelhos.Add(new Concelho("Celorico de Basto"));
             braga.Concelhos.Add(new Concelho("Esposende"));
-           // braga.Concelhos.Add(new Concelho("Fafe"));
-           // braga.Concelhos.Add(new Concelho("Guimarães"));
+            // braga.Concelhos.Add(new Concelho("Fafe"));
+            // braga.Concelhos.Add(new Concelho("Guimarães"));
             braga.Concelhos.Add(new Concelho("Póvoa de Lanhoso"));
             braga.Concelhos.Add(new Concelho("Terras de Bouro"));
             braga.Concelhos.Add(new Concelho("Vieira do Minho"));
-           // braga.Concelhos.Add(new Concelho("Vila Nova de Famalicão"));
+            // braga.Concelhos.Add(new Concelho("Vila Nova de Famalicão"));
             braga.Concelhos.Add(new Concelho("Vila Verde"));
             braga.Concelhos.Add(new Concelho("Vizela"));
 
-            
-
-
-
-         
 
             Portugal.Distritos.Add(braga);
 
             #endregion
 
-
             //CASTELO BRANCO 
+
             #region castelo branco
 
             Distrito casteloBranco = new Distrito("Castelo Branco");
             Concelho castC = new Concelho("Castelo Branco");
             castC.Universidades.Add(new Universidade("Universidade da Beira Interior (UBI)"));
             castC.Universidades.Add(new Universidade("Instituto Politécnico de Castelo Branco(IPCB)"));
-            
+
 
             casteloBranco.Concelhos.Add(castC);
 
 
-            
             casteloBranco.Concelhos.Add(new Concelho("Belmonte"));
-           // casteloBranco.Concelhos.Add(new Concelho("Castelo Branco"));
+            // casteloBranco.Concelhos.Add(new Concelho("Castelo Branco"));
             casteloBranco.Concelhos.Add(new Concelho("Covilhã"));
             casteloBranco.Concelhos.Add(new Concelho("Fundão"));
             casteloBranco.Concelhos.Add(new Concelho("Idanha a Nova"));
@@ -102,28 +99,31 @@ namespace Frontend
             casteloBranco.Concelhos.Add(new Concelho("Vila Velha de Ródão"));
 
 
-
-
             Portugal.Distritos.Add(casteloBranco);
+
             #endregion
 
-
             //AVEIRO 
+
             #region Aveiro
+
             Distrito aveiro = new Distrito("Aveiro");
 
             Concelho aveiroC = new Concelho("Aveiro");
             aveiroC.Universidades.Add(new Universidade("Universidade de Aveiro"));
             aveiroC.Universidades.Add(new Universidade("Instituto Superior de Entre Douro e Vouga(ISVOUGA)"));
-            aveiroC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Informação e da Administração(ISCIA)"));
-            aveiroC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos(IPAM) - Aveiro"));
+            aveiroC.Universidades.Add(
+                new Universidade("Instituto Superior de Ciências da Informação e da Administração(ISCIA)"));
+            aveiroC.Universidades.Add(
+                new Universidade("Instituto Português de Administração de Marketing de Matosinhos(IPAM) - Aveiro"));
 
             Concelho espinho = new Concelho("Espinho");
             espinho.Universidades.Add(new Universidade("Instituto Superior de Espinho (ISESP)"));
             aveiro.Concelhos.Add(espinho);
 
             Concelho oliveiraAz = new Concelho("Oliveira de Azemeis");
-            oliveiraAz.Universidades.Add(new Universidade("Escola Superior de Enfermagem da Cruz Vermelha Portuguesa de Oliveira de Azeméis"));
+            oliveiraAz.Universidades.Add(
+                new Universidade("Escola Superior de Enfermagem da Cruz Vermelha Portuguesa de Oliveira de Azeméis"));
             aveiro.Concelhos.Add(oliveiraAz);
 
             aveiro.Concelhos.Add(aveiroC);
@@ -131,11 +131,10 @@ namespace Frontend
             aveiro.Concelhos.Add(new Concelho("Albergaria a Velha"));
             aveiro.Concelhos.Add(new Concelho("Anadia"));
             aveiro.Concelhos.Add(new Concelho("Arouca"));
-           // aveiro.Concelhos.Add(new Concelho("Aveiro"));
+            // aveiro.Concelhos.Add(new Concelho("Aveiro"));
             aveiro.Concelhos.Add(new Concelho("Castelo de Paiva"));
             //aveiro.Concelhos.Add(new Concelho("Espinho"));
 
-            
 
             aveiro.Concelhos.Add(new Concelho("Estarreja "));
             aveiro.Concelhos.Add(new Concelho("Ilhavo"));
@@ -143,7 +142,6 @@ namespace Frontend
             aveiro.Concelhos.Add(new Concelho("Murtosa"));
             //aveiro.Concelhos.Add(new Concelho("Oliveira de Azemeis"));
 
-           
 
             aveiro.Concelhos.Add(new Concelho("Oliveira do Bairro"));
             aveiro.Concelhos.Add(new Concelho("Ovar"));
@@ -156,10 +154,11 @@ namespace Frontend
             Portugal.Distritos.Add(aveiro);
 
             #endregion
+
             //BEJA
 
-            
             #region Beja
+
             Distrito beja = new Distrito("Beja");
 
             Concelho bejC = new Concelho("Beja");
@@ -169,7 +168,7 @@ namespace Frontend
             beja.Concelhos.Add(new Concelho("Aljustrel"));
             beja.Concelhos.Add(new Concelho("Almodovar"));
             beja.Concelhos.Add(new Concelho("Alvito"));
-            beja.Concelhos.Add(new Concelho("Barrancos"));       
+            beja.Concelhos.Add(new Concelho("Barrancos"));
             beja.Concelhos.Add(new Concelho("Castro Verde"));
             beja.Concelhos.Add(new Concelho("Cuba"));
             beja.Concelhos.Add(new Concelho("Ferreira do Alentejo"));
@@ -183,6 +182,7 @@ namespace Frontend
             Portugal.Distritos.Add(beja);
 
             #endregion
+
             //BRAGANÇA
 
             #region Braganca
@@ -190,18 +190,19 @@ namespace Frontend
             Distrito braganca = new Distrito("Bragança");
 
             Concelho braganC = new Concelho("Bragança");
-            bragC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Mirandela"));
+            bragC.Universidades.Add(
+                new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Mirandela"));
 
             bragC.Universidades.Add(new Universidade("Instituto Politécnico de Bragança (IPB)"));
             bragC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Bragança"));
             bragC.Universidades.Add(new Universidade("Instituto Jean Piaget"));
 
-   
+
             braganca.Concelhos.Add(braganC);
 
 
             braganca.Concelhos.Add(new Concelho("Alfândega da Fé"));
-           // braganca.Concelhos.Add(new Concelho("Bragança"));
+            // braganca.Concelhos.Add(new Concelho("Bragança"));
             braganca.Concelhos.Add(new Concelho("Carrazeda de Ansiães"));
             braganca.Concelhos.Add(new Concelho("Freixo de Espada à Cinta"));
             braganca.Concelhos.Add(new Concelho("Macedo de Cavaleiros"));
@@ -215,9 +216,11 @@ namespace Frontend
             Portugal.Distritos.Add(braganca);
 
             #endregion
+
             //COIMBRA
 
             #region Coimbra 
+
             Distrito coimbra = new Distrito("Coimbra");
 
             Concelho coimbC = new Concelho("Coimbra");
@@ -232,8 +235,6 @@ namespace Frontend
 
 
             coimbra.Concelhos.Add(coimbC);
-
-
 
 
             coimbra.Concelhos.Add(new Concelho("Arganil"));
@@ -255,16 +256,17 @@ namespace Frontend
             coimbra.Concelhos.Add(new Concelho("Vila Nova de Poiares"));
 
             Portugal.Distritos.Add(coimbra);
+
             #endregion
+
             //EVORA
+
             #region evora
 
             Distrito evora = new Distrito("Évora");
 
             Concelho evorC = new Concelho("Évora");
             evorC.Universidades.Add(new Universidade("Universidade de Évora (UEv)"));
-
-           
 
 
             evora.Concelhos.Add(evorC);
@@ -286,9 +288,13 @@ namespace Frontend
             evora.Concelhos.Add(new Concelho("Vila Viçosa"));
 
             Portugal.Distritos.Add(evora);
+
             #endregion
+
             //FARO
+
             #region faro
+
             Distrito faro = new Distrito("Faro");
 
 
@@ -305,7 +311,7 @@ namespace Frontend
             faro.Concelhos.Add(new Concelho("Alcoutim"));
             faro.Concelhos.Add(new Concelho("Aljezur"));
             faro.Concelhos.Add(new Concelho("Castro Marim"));
-           // faro.Concelhos.Add(new Concelho("Faro"));
+            // faro.Concelhos.Add(new Concelho("Faro"));
             faro.Concelhos.Add(new Concelho("Lagoa"));
             faro.Concelhos.Add(new Concelho("Lagos"));
             faro.Concelhos.Add(new Concelho("Loulé"));
@@ -319,15 +325,18 @@ namespace Frontend
             faro.Concelhos.Add(new Concelho("Vila Real de Santo António"));
 
             Portugal.Distritos.Add(faro);
+
             #endregion
 
             //GUARDA
+
             #region Guarda
+
             Distrito guarda = new Distrito("Guarda");
 
             Concelho guarC = new Concelho("Guarda");
             guarC.Universidades.Add(new Universidade("Instituto Politécnico da Guarda (IPG)"));
-            
+
 
             guarda.Concelhos.Add(guarC);
 
@@ -338,7 +347,7 @@ namespace Frontend
             guarda.Concelhos.Add(new Concelho("Figueira de Castelo Rodrigo"));
             guarda.Concelhos.Add(new Concelho("Fornos de Algodres"));
             guarda.Concelhos.Add(new Concelho("Gouveia"));
-           // guarda.Concelhos.Add(new Concelho("Guarda"));
+            // guarda.Concelhos.Add(new Concelho("Guarda"));
             guarda.Concelhos.Add(new Concelho("Manteigas"));
             guarda.Concelhos.Add(new Concelho("Mêda"));
             guarda.Concelhos.Add(new Concelho("Pinhel"));
@@ -348,10 +357,13 @@ namespace Frontend
             guarda.Concelhos.Add(new Concelho("Vila Nova de Foz Côa"));
 
             Portugal.Distritos.Add(guarda);
+
             #endregion
+
             //LEIRIA
-        
+
             #region leiria
+
             Distrito leiria = new Distrito("Leiria");
 
             Concelho leirC = new Concelho("Leiria");
@@ -368,17 +380,15 @@ namespace Frontend
             leiria.Concelhos.Add(caldas);
 
 
-
-
             leiria.Concelhos.Add(new Concelho("Alcobaça"));
             leiria.Concelhos.Add(new Concelho("Alvaiázere"));
             leiria.Concelhos.Add(new Concelho("Ansião"));
             leiria.Concelhos.Add(new Concelho("Batalha"));
             leiria.Concelhos.Add(new Concelho("Bombarral"));
-           // leiria.Concelhos.Add(new Concelho("Caldas da Rainha"));
+            // leiria.Concelhos.Add(new Concelho("Caldas da Rainha"));
             leiria.Concelhos.Add(new Concelho("Castanheira de Pera"));
             leiria.Concelhos.Add(new Concelho("Figueiró dos Vinhos"));
-           // leiria.Concelhos.Add(new Concelho("Leiria"));
+            // leiria.Concelhos.Add(new Concelho("Leiria"));
             leiria.Concelhos.Add(new Concelho("Marinha Grande"));
             leiria.Concelhos.Add(new Concelho("Nazaré"));
             leiria.Concelhos.Add(new Concelho("Óbidos"));
@@ -388,10 +398,13 @@ namespace Frontend
             leiria.Concelhos.Add(new Concelho("Porto de Mós"));
 
             Portugal.Distritos.Add(leiria);
+
             #endregion
 
             //LISBOA
+
             #region Lisboa
+
             Distrito lisboa = new Distrito("Lisboa");
 
             Concelho lisbC = new Concelho("Lisboa");
@@ -439,9 +452,6 @@ namespace Frontend
             lisbC.Universidades.Add(new Universidade("Universidade Lusófona de Humanidades e Tecnologias(ULHT)"));
 
 
-
-
-
             lisboa.Concelhos.Add(lisbC);
 
 
@@ -463,10 +473,13 @@ namespace Frontend
             lisboa.Concelhos.Add(new Concelho("Vila Franca de Xira"));
 
             Portugal.Distritos.Add(lisboa);
+
             #endregion
 
             //PORTALEGRE 
+
             #region portalegre
+
             Distrito portalegre = new Distrito("Portalegre");
 
             Concelho portC = new Concelho("Portalegre");
@@ -475,7 +488,6 @@ namespace Frontend
 
             portalegre.Concelhos.Add(portC);
 
-            
 
             portalegre.Concelhos.Add(new Concelho("Alter do Chão"));
             portalegre.Concelhos.Add(new Concelho("Arronches"));
@@ -490,22 +502,27 @@ namespace Frontend
             portalegre.Concelhos.Add(new Concelho("Monforte"));
             portalegre.Concelhos.Add(new Concelho("Nisa"));
             portalegre.Concelhos.Add(new Concelho("Ponte de Sor"));
-           // portalegre.Concelhos.Add(new Concelho("Portalegre"));
+            // portalegre.Concelhos.Add(new Concelho("Portalegre"));
             portalegre.Concelhos.Add(new Concelho("Sousel"));
 
             Portugal.Distritos.Add(portalegre);
+
             #endregion
+
             //PORTO
+
             #region porto
+
             Distrito porto = new Distrito("Porto");
 
             Concelho portoC = new Concelho("Porto");
             portC.Universidades.Add(new Universidade("Universidade do Porto(UP)"));
 
-            portoC.Universidades.Add(new Universidade("Instituto Politécnico do Porto(IPP)"));            
+            portoC.Universidades.Add(new Universidade("Instituto Politécnico do Porto(IPP)"));
 
             portoC.Universidades.Add(new Universidade("Universidade Fernando Pessoa(UFP"));
-            portoC.Universidades.Add(new Universidade("Universidade Católica Portuguesa (UCP) - Centro Regional do Porto"));
+            portoC.Universidades.Add(
+                new Universidade("Universidade Católica Portuguesa (UCP) - Centro Regional do Porto"));
             portoC.Universidades.Add(new Universidade("Universidade Lusófona do Porto"));
             portoC.Universidades.Add(new Universidade("Instituto Superior Politécnico Gaya (ISPGaya)"));
             portoC.Universidades.Add(new Universidade("Instituto Universitário da Maia - ISMAI"));
@@ -516,7 +533,8 @@ namespace Frontend
             portoC.Universidades.Add(new Universidade("Escola Superior de Enfermagem do Porto"));
             portoC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Saúde -Norte"));
             portoC.Universidades.Add(new Universidade("Instituto Superior de Educação e Trabalho"));
-            portoC.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Vila Nova de Gaia"));
+            portoC.Universidades.Add(
+                new Universidade("Instituto Superior de Línguas e Administração de Vila Nova de Gaia"));
             portoC.Universidades.Add(new Universidade("Instituto Superior de Serviço Social do Porto"));
             portoC.Universidades.Add(new Universidade("Conservatório Superior de Música de Gaia"));
             portoC.Universidades.Add(new Universidade("Escola Superior de Artes e Design"));
@@ -526,7 +544,8 @@ namespace Frontend
             portoC.Universidades.Add(new Universidade("Escola Superior de Enfermagem de Santa Maria"));
             portoC.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget de Vila Nova de Gaia"));
             portoC.Universidades.Add(new Universidade("Instituto de Estudos Superiores Financeiros e Fiscais - Porto"));
-            portoC.Universidades.Add(new Universidade("Instituto Politécnico de Saúde do Norte - Escola Superior de Saúde do Vale do Sousa"));
+            portoC.Universidades.Add(
+                new Universidade("Instituto Politécnico de Saúde do Norte - Escola Superior de Saúde do Vale do Sousa"));
             portoC.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos"));
             portoC.Universidades.Add(new Universidade("Instituto Superior de Administração e Gestão"));
             portoC.Universidades.Add(new Universidade("Instituto Superior de Ciências Educativas de Felgueiras"));
@@ -547,14 +566,14 @@ namespace Frontend
             gaia.Universidades.Add(new Universidade("Instituto Superior de Línguas e Administração de Vila Nova de Gaia"));
             gaia.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget de Vila Nova de Gaia"));
 
-           
 
             porto.Concelhos.Add(gaia);
 
 
             Concelho matosinhos = new Concelho("Matosinhos");
-            matosinhos.Universidades.Add(new Universidade("Instituto Português de Administração de Marketing de Matosinhos"));
-            
+            matosinhos.Universidades.Add(
+                new Universidade("Instituto Português de Administração de Marketing de Matosinhos"));
+
             porto.Concelhos.Add(matosinhos);
 
 
@@ -566,12 +585,12 @@ namespace Frontend
 
             porto.Concelhos.Add(new Concelho("Amarante"));
             porto.Concelhos.Add(new Concelho("Baião"));
-           // porto.Concelhos.Add(new Concelho("Felgueiras"));
+            // porto.Concelhos.Add(new Concelho("Felgueiras"));
             porto.Concelhos.Add(new Concelho("Gondomar"));
             porto.Concelhos.Add(new Concelho("Lousada"));
-           // porto.Concelhos.Add(new Concelho("Maia"));
+            // porto.Concelhos.Add(new Concelho("Maia"));
             porto.Concelhos.Add(new Concelho("Marco de Canaveses"));
-           // porto.Concelhos.Add(new Concelho("Matosinhos"));
+            // porto.Concelhos.Add(new Concelho("Matosinhos"));
             porto.Concelhos.Add(new Concelho("Paços de Ferreira"));
             porto.Concelhos.Add(new Concelho("Paredes"));
             porto.Concelhos.Add(new Concelho("Penafiel"));
@@ -581,12 +600,16 @@ namespace Frontend
             porto.Concelhos.Add(new Concelho("Trofa"));
             porto.Concelhos.Add(new Concelho("Valongo"));
             porto.Concelhos.Add(new Concelho("Vila do Conde"));
-          //  porto.Concelhos.Add(new Concelho("Vila Nova de Gaia"));
+            //  porto.Concelhos.Add(new Concelho("Vila Nova de Gaia"));
 
             Portugal.Distritos.Add(porto);
+
             #endregion
+
             //SANTAREM
+
             #region Santarem
+
             Distrito santarem = new Distrito("Santarém");
 
             Concelho santarC = new Concelho("Santarém");
@@ -626,35 +649,42 @@ namespace Frontend
             santarem.Concelhos.Add(new Concelho("Salvaterra de Magos"));
             //santarem.Concelhos.Add(new Concelho("Santarém"));
             santarem.Concelhos.Add(new Concelho("Sardoal"));
-           // santarem.Concelhos.Add(new Concelho("Tomar"));
+            // santarem.Concelhos.Add(new Concelho("Tomar"));
             //santarem.Concelhos.Add(new Concelho("Torres Novas"));
             santarem.Concelhos.Add(new Concelho("Vila Nova da Barquinha"));
 
             Portugal.Distritos.Add(santarem);
+
             #endregion
+
             //SETUBAL
+
             #region setubal
+
             Distrito setubal = new Distrito("Setubal");
 
             Concelho setC = new Concelho("Setubal");
             setC.Universidades.Add(new Universidade("Instituto Politécnico de Setúbal"));
             setC.Universidades.Add(new Universidade("Universidade Nova de Lisboa (UNL) -Escola Naval"));
             setC.Universidades.Add(new Universidade("Instituto Superior de Ciências da Saúde Egas Moniz"));
-            setC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
-            setC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Santo André"));
+            setC.Universidades.Add(
+                new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
+            setC.Universidades.Add(
+                new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Santo André"));
             setC.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Almada"));
 
             setubal.Concelhos.Add(setC);
 
             Concelho almada = new Concelho("Almada");
-            almada.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
+            almada.Universidades.Add(
+                new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Almada"));
             almada.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Almada"));
 
             setubal.Concelhos.Add(almada);
 
             setubal.Concelhos.Add(new Concelho("Alcácer do Sal"));
             setubal.Concelhos.Add(new Concelho("Alcochete"));
-           // setubal.Concelhos.Add(new Concelho("Almada"));
+            // setubal.Concelhos.Add(new Concelho("Almada"));
             setubal.Concelhos.Add(new Concelho("Barreiro"));
             setubal.Concelhos.Add(new Concelho("Grândola"));
             setubal.Concelhos.Add(new Concelho("Moita"));
@@ -667,9 +697,13 @@ namespace Frontend
             setubal.Concelhos.Add(new Concelho("Sines"));
 
             Portugal.Distritos.Add(setubal);
+
             #endregion
+
             //VIANA DO CASTELO
+
             #region Viana do Castelo
+
             Distrito vianaDoCastelo = new Distrito("Viana do Castelo");
 
             Concelho vianC = new Concelho("Viana do Castelo");
@@ -677,10 +711,10 @@ namespace Frontend
             vianC.Universidades.Add(new Universidade("Escola Superior Gallaecia"));
             vianC.Universidades.Add(new Universidade("Universidade Fernando Pessoa (UFP) - Ponte de Lima"));
 
-           vianaDoCastelo.Concelhos.Add(vianC);
+            vianaDoCastelo.Concelhos.Add(vianC);
 
             Concelho ponteDeLima = new Concelho("Ponte de Lima");
-           
+
             ponteDeLima.Universidades.Add(new Universidade("Universidade Fernando Pessoa (UFP) - Ponte de Lima"));
 
             vianaDoCastelo.Concelhos.Add(ponteDeLima);
@@ -699,8 +733,11 @@ namespace Frontend
             Portugal.Distritos.Add(vianaDoCastelo);
 
             #endregion
+
             //VILA REAL
+
             #region Vila Real
+
             Distrito vilaReal = new Distrito("Vila Real");
 
             Concelho vilaC = new Concelho("Vila Real");
@@ -708,7 +745,7 @@ namespace Frontend
             vilaC.Universidades.Add(new Universidade("Universidade de Trás - os - Montes e Alto Douro(UTAD)"));
             vilaC.Universidades.Add(new Universidade("Escola Superior de Enfermagem Dr.José Timóteo Montalvão Machado"));
 
-            
+
             vilaReal.Concelhos.Add(vilaC);
 
             vilaReal.Concelhos.Add(new Concelho("Alijó"));
@@ -727,23 +764,26 @@ namespace Frontend
             //vilaReal.Concelhos.Add(new Concelho("Vila Real"));
 
             Portugal.Distritos.Add(vilaReal);
+
             #endregion
 
             //VISEU
+
             #region viseu
+
             Distrito viseu = new Distrito("Viseu");
 
             Concelho viseC = new Concelho("Viseu");
 
-            viseC.Universidades.Add(new Universidade("Universidade Católica Portuguesa(UCP) - Centro Regional das Beiras"));
+            viseC.Universidades.Add(
+                new Universidade("Universidade Católica Portuguesa(UCP) - Centro Regional das Beiras"));
             viseC.Universidades.Add(new Universidade("Instituto Politécnico de Viseu(IPV)"));
 
-            viseC.Universidades.Add(new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Viseu"));
+            viseC.Universidades.Add(
+                new Universidade("Instituto Superior de Estudos Interculturais e Transdisciplinares - Viseu"));
             viseC.Universidades.Add(new Universidade("Escola Superior de Educação Jean Piaget de Arcozelo -Viseu"));
             viseC.Universidades.Add(new Universidade("Escola Superior de Saúde Jean Piaget"));
 
-
-            
 
             viseu.Concelhos.Add(viseC);
 
@@ -773,9 +813,8 @@ namespace Frontend
             viseu.Concelhos.Add(new Concelho("Vouzela"));
 
             Portugal.Distritos.Add(viseu);
+
             #endregion
-
-
 
             cbxDistritos.Items.Clear();
             foreach (Distrito distrito in Portugal.Distritos)
@@ -784,8 +823,6 @@ namespace Frontend
             }
 
             #endregion
-
-
         }
 
         public class Pais
@@ -811,6 +848,7 @@ namespace Frontend
                 Concelhos = new List<Concelho>();
             }
         }
+
         public class Concelho
         {
             public string nome;
@@ -821,7 +859,6 @@ namespace Frontend
                 nome = name;
                 Universidades = new List<Universidade>();
             }
-
         }
 
         public class Universidade
@@ -832,7 +869,6 @@ namespace Frontend
             {
                 nome = name;
             }
-
         }
 
         private Distrito selectedDistrict;
@@ -844,7 +880,7 @@ namespace Frontend
             cbxConcelhos.Items.Clear();
             cbxUniversidades.Items.Clear();
 
-            selectedDistrict = Portugal.Distritos.Find(x => x.nome == (string)cbxDistritos.SelectedItem);
+            selectedDistrict = Portugal.Distritos.Find(x => x.nome == (string) cbxDistritos.SelectedItem);
 
             foreach (Concelho concelho in selectedDistrict.Concelhos)
             {
@@ -856,7 +892,7 @@ namespace Frontend
         {
             cbxUniversidades.Items.Clear();
 
-            selectedConselho = selectedDistrict.Concelhos.Find(x => x.nome == (string)cbxConcelhos.SelectedItem);
+            selectedConselho = selectedDistrict.Concelhos.Find(x => x.nome == (string) cbxConcelhos.SelectedItem);
 
             foreach (Universidade universidade in selectedConselho.Universidades)
             {
@@ -873,8 +909,14 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (cbxDistritos.Text == "Braga" || cbxConcelhos.Text == "Barcelos" || cbxUniversidades.Text == "IPCA - Instituto Politécnico Cavado Ave") { pictureBox1.Show();
-                pictureBox2.Show(); richTextBox1.Show(); richTextBox2.Show(); linkLabel1.Show();
+            if (cbxDistritos.Text == "Braga" || cbxConcelhos.Text == "Barcelos" ||
+                cbxUniversidades.Text == "IPCA - Instituto Politécnico Cavado Ave")
+            {
+                pictureBox1.Show();
+                pictureBox2.Show();
+                richTextBox1.Show();
+                richTextBox2.Show();
+                linkLabel1.Show();
                 linkLabel2.Show();
             }
         }
@@ -885,6 +927,5 @@ namespace Frontend
             alun.MdiParent = IGE.ActiveForm;
             alun.Show();
         }
-
     }
 }
