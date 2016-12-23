@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Habitação));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxFotos = new System.Windows.Forms.GroupBox();
             this.buttonPrevious = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
@@ -73,7 +72,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
@@ -86,21 +84,10 @@
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(444, 259);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBoxFotos
             // 
             this.groupBoxFotos.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxFotos.Controls.Add(this.buttonPrevious);
-            this.groupBoxFotos.Controls.Add(this.pictureBox1);
             this.groupBoxFotos.Controls.Add(this.buttonNext);
             this.groupBoxFotos.Controls.Add(this.buttonRemoverFoto);
             this.groupBoxFotos.Controls.Add(this.buttonAdicionarFotos);
@@ -584,8 +571,7 @@
             this.Name = "Habitação";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Habitação";
-          //  this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Habitação_MouseMove);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Habitação_Load);
             this.groupBoxFotos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).EndInit();
             this.groupBoxMorada.ResumeLayout(false);
@@ -609,8 +595,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBoxFotos;
         private System.Windows.Forms.Button buttonPrevious;
         private System.Windows.Forms.Button buttonNext;

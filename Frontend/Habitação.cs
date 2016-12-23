@@ -63,6 +63,9 @@ namespace Frontend
 
         }
 
-     
+        private void Habitação_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
