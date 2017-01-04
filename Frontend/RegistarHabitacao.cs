@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Middleware;
 using System.Text;
+using Facebook;
 
 namespace Frontend
 {
@@ -34,6 +35,7 @@ namespace Frontend
         /// <param name="e"></param>
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
+            #region Receber Dados
             #region Morada
             // Rua
             var rua = textBoxRua.Text;
@@ -101,9 +103,32 @@ namespace Frontend
             {
                 quartos.Add(new Quarto(new List<ICama> {new Cama(TipoCama.Single)}));
             }
-//            var morada = new Morada(null, 0, null); // TODO
-//            var habitacao = new Habitacao(quartos, numAssoalhadas, metrosQuadrados, anoDeConstrucao, null, comodidades);
-//            MessageBox.Show(habitacao.ToString());
+            //            var morada = new Morada(null, 0, null); // TODO
+            //            var habitacao = new Habitacao(quartos, numAssoalhadas, metrosQuadrados, anoDeConstrucao, null, comodidades);
+            //            MessageBox.Show(habitacao.ToString());
+            #endregion
+
+            #region Validar
+            // depois de validar
+            var habitacao = new Habitacao(numQuartos, numAssoalhadas, 0, metrosQuadrados, anoDeConstrucao, null, comodidades);
+            #endregion
+
+            #region Redes Sociais
+            if (checkBoxFacebook.Checked) PostFacebook(habitacao);
+            if (checkBoxTwitter.Checked) PostTwitter(habitacao);
+            #endregion
+        }
+
+        private void PostFacebook(Habitacao habitacao)
+        {
+            //1. descriçao textual para publicar no facebook
+            //2. publicar no facebook
+            throw new NotImplementedException();
+        }
+
+        private void PostTwitter(Habitacao habitacao)
+        {
+            throw new NotImplementedException();
         }
 
         // TODO: move this function from here
