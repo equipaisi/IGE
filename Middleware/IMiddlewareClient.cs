@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,17 @@ namespace Middleware
         {
             _db = new MySqlDatabaseConnection();
         }
+
+        public MiddlewareClient(string databaseName)
+        {
+            _db = new MySqlDatabaseConnection(ConnectionStringFromAppConfig(databaseName));
+        }
+
+        /// <summary>
+        ///     Retorna o valor da connectionString na App.config do Frontend.
+        /// </summary>
+        private static string ConnectionStringFromAppConfig(string databaseName)
+            => ConfigurationManager.ConnectionStrings[databaseName].ConnectionString;
 
         public void CreateDatabase()
         {

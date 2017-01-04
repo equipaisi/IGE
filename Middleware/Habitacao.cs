@@ -103,7 +103,7 @@ namespace Middleware
         /// <param name="anoDeConstrucao">Ano de construção</param>
         /// <param name="morada">Morada</param>
         /// <param name="comodidades">Comodidades (Televisão, Internet, Serviço de Limpeza)</param>
-        public Habitacao(int numeroDeQuartos, int numeroDeAssoalhadas, int numeroDeWcs, float metrosQuadrados,
+        public Habitacao(string descricao, int numeroDeQuartos, int numeroDeAssoalhadas, int numeroDeWcs, float metrosQuadrados,
             int anoDeConstrucao, Morada morada, Comodidades comodidades = default(Comodidades))
         {
             /*if (numeroDeAssoalhadas < quartos.Count())
@@ -112,7 +112,7 @@ namespace Middleware
             }*/
             var quartos = new List<IQuarto>(numeroDeQuartos);
             for (var _ = 0; _ < numeroDeQuartos; _++) quartos.Add(new Quarto());
-
+            Descricao = descricao;
             Quartos = quartos;
             NumeroDeAssoalhadas = numeroDeAssoalhadas;
             NumeroDeWcs = numeroDeWcs;
