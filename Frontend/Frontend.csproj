@@ -118,6 +118,7 @@
     <Compile Include="DesativarPropriatario.Designer.cs">
       <DependentUpon>DesativarPropriatario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facebook.cs" />
     <Compile Include="GerarRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>

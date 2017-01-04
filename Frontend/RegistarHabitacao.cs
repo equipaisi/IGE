@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Middleware;
@@ -41,14 +42,23 @@ namespace Frontend
             var rua = textBoxRua.Text;
 
             // Código Postal
-//            var cp = new Middleware.CodigoPostal(textBoxCodigoPostal.Text);
-//            MessageBox.Show($"O seu código postal é {cp}");
+            var cp = new CodigoPostal(maskedTextBoxCodigoPostal.Text);
+            MessageBox.Show($"O seu código postal é {cp}");
 
             // Localidade
             var localidade = textBoxLocalidade.Text;
+
+            var morada = new Morada(rua, cp, localidade);
             #endregion
 
             #region Informações
+
+            int numDeWcs;
+            if (!int.TryParse(comboBoxNumDeWC.Text, out numDeWcs))
+            {
+                MessageBox.Show("Valor de \"Número de Wcs\" inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             // Metros Quadrados
             int metrosQuadrados;
             if (!int.TryParse(textBoxMetrosQuadrados.Text, out metrosQuadrados))
@@ -97,20 +107,13 @@ namespace Frontend
             // Descrição da Habitação
             var descricao = textBoxDescricao.Text;
 
-            // Construir a habitação
-            var quartos = new List<Quarto>(numQuartos);
-            for (var i = 0; i < numQuartos; i++)
-            {
-                quartos.Add(new Quarto(new List<ICama> {new Cama(TipoCama.Single)}));
-            }
-            //            var morada = new Morada(null, 0, null); // TODO
-            //            var habitacao = new Habitacao(quartos, numAssoalhadas, metrosQuadrados, anoDeConstrucao, null, comodidades);
-            //            MessageBox.Show(habitacao.ToString());
             #endregion
 
             #region Validar
             // depois de validar
-            var habitacao = new Habitacao(numQuartos, numAssoalhadas, 0, metrosQuadrados, anoDeConstrucao, null, comodidades);
+
+            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada,
+                    comodidades);
             #endregion
 
             #region Redes Sociais
@@ -119,11 +122,55 @@ namespace Frontend
             #endregion
         }
 
-        private void PostFacebook(Habitacao habitacao)
+        private void PostFacebook(IHabitacao habitacao)
         {
+            #region Imagem
+            var ultimaFoto = _imgFilenames.LastOrDefault();
+            if (string.IsNullOrEmpty(ultimaFoto))
+            {
+                throw new Exception("Por favor, insira uma ou mais imagens da habitação");
+            }
+            var img = Image.FromFile(ultimaFoto);
+            var foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
+            var mediaObject = new FacebookMediaObject
+            {
+                ContentType = "image/jpeg",
+                FileName = "Ige2.jpg"
+            }.SetValue(foto);
+            #endregion
+
+
             //1. descriçao textual para publicar no facebook
+            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
+            #region Comodidades
+            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
+            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
+            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
+            var com = string.Join(", ", televisao, internet, limpeza);
+            //var comodidades = new StringBuilder(com) {[com.LastIndexOf(",", StringComparison.Ordinal)] = 'e'}; TODO
+            #endregion
+
+            var message = $@"{habitacao.Descricao}
+
+Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao.Morada.Localidade}
+Metros quadrados: {habitacao.MetrosQuadrados} m2
+Ano de construção: {habitacao.AnoDeConstrucao}
+Custo mensal de um quarto: {habitacao.CustoMensal}€ {despesas}
+Quartos: {habitacao.NumeroDeQuartos}
+Assoalhadas: {habitacao.NumeroDeAssoalhadas}
+Casas de banho:  {habitacao.NumeroDeWcs}
+{com}
+";
+
             //2. publicar no facebook
-            throw new NotImplementedException();
+            try
+            {
+                var resp = Facebook.PublishPost(message, mediaObject);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Facebook error: {e.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void PostTwitter(Habitacao habitacao)
@@ -307,7 +354,7 @@ namespace Frontend
         {
             string rua = textBoxRua.Text;
             string loc = textBoxLocalidade.Text;
-            string cod = maskedTextBoxCodigoPostal.Text.ToString();
+            string cod = maskedTextBoxCodigoPostal.Text;
 
             StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
             add.Append(rua);
