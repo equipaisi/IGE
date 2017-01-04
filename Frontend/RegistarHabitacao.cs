@@ -113,7 +113,7 @@ namespace Frontend
             // depois de validar
 
             var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada,
-                    comodidades);
+                    checkBoxDespesasIncluidas.Checked, comodidades);
             #endregion
 
             #region Redes Sociais

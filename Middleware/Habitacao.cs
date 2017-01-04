@@ -104,7 +104,7 @@ namespace Middleware
         /// <param name="morada">Morada</param>
         /// <param name="comodidades">Comodidades (Televisão, Internet, Serviço de Limpeza)</param>
         public Habitacao(string descricao, int numeroDeQuartos, int numeroDeAssoalhadas, int numeroDeWcs, float metrosQuadrados,
-            int anoDeConstrucao, Morada morada, Comodidades comodidades = default(Comodidades))
+            int anoDeConstrucao, Morada morada, bool incluiDespesas, Comodidades comodidades = default(Comodidades))
         {
             /*if (numeroDeAssoalhadas < quartos.Count())
             {
@@ -120,6 +120,7 @@ namespace Middleware
             AnoDeConstrucao = anoDeConstrucao;
             Morada = morada;
             Comodidades = comodidades;
+            IncluiDespesas = incluiDespesas;
         }
 
         /// <summary>
