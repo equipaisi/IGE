@@ -19,12 +19,12 @@ namespace Backend
         /// </summary>
         public MySqlDatabaseConnection()
         {
-            _con = new MySqlConnection(ConnectionStringFromAppConfig);
+            _con = new MySqlConnection(ConnectionStringFromAppConfig("IGE"));
         }
 
-        public MySqlDatabaseConnection(string uid, string password, string server = "localhost", string database = "ige")
+        public MySqlDatabaseConnection(string connectionString)
         {
-            _con = new MySqlConnection($"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};");
+            _con = new MySqlConnection(connectionString);
         }
 
         #endregion
@@ -43,8 +43,8 @@ namespace Backend
         /// <summary>
         ///     Retorna o valor da connectionString na App.config do Frontend.
         /// </summary>
-        private static string ConnectionStringFromAppConfig
-            => ConfigurationManager.ConnectionStrings["MySQL"].ConnectionString;
+        private static string ConnectionStringFromAppConfig(string databaseName)
+            => ConfigurationManager.ConnectionStrings[databaseName].ConnectionString;
 
         /// <summary>
         ///     Retorna o nome da base de dados atual ou a base de dados a ser usada após a abertura da conexão.

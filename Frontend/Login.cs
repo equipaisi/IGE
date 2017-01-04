@@ -10,7 +10,7 @@ namespace Frontend
 
         public FormLogin()
         {
-            //_middleMiddlewareClient = new MiddlewareClient();
+            //_middleMiddlewareClient = new MiddlewareClient("IGE");
             InitializeComponent();
         }
         
