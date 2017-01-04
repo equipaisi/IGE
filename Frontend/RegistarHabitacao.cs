@@ -43,7 +43,6 @@ namespace Frontend
 
             // Código Postal
             var cp = new CodigoPostal(maskedTextBoxCodigoPostal.Text);
-            MessageBox.Show($"O seu código postal é {cp}");
 
             // Localidade
             var localidade = textBoxLocalidade.Text;
@@ -51,28 +50,14 @@ namespace Frontend
             var morada = new Morada(rua, cp, localidade);
             #endregion
 
-            #region Informações
-
-            int numDeWcs;
-            if (!int.TryParse(comboBoxNumDeWC.Text, out numDeWcs))
-            {
-                MessageBox.Show("Valor de \"Número de Wcs\" inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
             // Metros Quadrados
-            int metrosQuadrados;
-            if (!int.TryParse(textBoxMetrosQuadrados.Text, out metrosQuadrados))
-            {
-                MessageBox.Show("Valor de \"Metros Quadrados\" inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show($"Metros quadrados: {metrosQuadrados} m2");
-            }
+            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text, "Valor de \"Metros Quadrados\" inválido");
+
             // Ano de Construção
-            var ac = numericUpDownAnoDeConstrucao.Text;
             int anoDeConstrucao;
-            if (!int.TryParse(ac, out anoDeConstrucao))
+            if (!int.TryParse(numericUpDownAnoDeConstrucao.Text, out anoDeConstrucao))
             {
                 MessageBox.Show("Valor de \"Ano de Construção\" inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -81,7 +66,7 @@ namespace Frontend
             {
                 MessageBox.Show(
                     $"Valor de \"Ano de Construção\" inválido: não pode ser superior ao ano atual {DateTime.Now.Year}",
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -89,15 +74,9 @@ namespace Frontend
             }
 
             // Nº de Assoalhadas
-            int numAssoalhadas;
-            if (!int.TryParse(comboBoxNumDeAssoalhadas.Text, out numAssoalhadas))
-            {
-                MessageBox.Show("Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text, "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
 
             // Nº de Quartos
-
             var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text, "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
             #endregion
 
@@ -107,13 +86,14 @@ namespace Frontend
             // Descrição da Habitação
             var descricao = textBoxDescricao.Text;
 
-            #endregion
+            // Despesas incluidas?
+            var despesasIncluidas = checkBoxDespesasIncluidas.Checked;
 
             #region Validar
-            // depois de validar
-
+            // validar
+            // e depois
             var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada,
-                    checkBoxDespesasIncluidas.Checked, comodidades);
+                    despesasIncluidas, comodidades);
             #endregion
 
             #region Redes Sociais
@@ -124,6 +104,7 @@ namespace Frontend
 
         private void PostFacebook(IHabitacao habitacao)
         {
+            //1. imagens da habitação
             #region Imagem
             var ultimaFoto = _imgFilenames.LastOrDefault();
             if (string.IsNullOrEmpty(ultimaFoto))
@@ -139,30 +120,10 @@ namespace Frontend
             }.SetValue(foto);
             #endregion
 
+            //2. descriçao textual para publicar no facebook
+            var message = HabitacaoFacebookPost(habitacao);
 
-            //1. descriçao textual para publicar no facebook
-            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
-            #region Comodidades
-            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
-            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
-            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
-            var com = string.Join(", ", televisao, internet, limpeza);
-            //var comodidades = new StringBuilder(com) {[com.LastIndexOf(",", StringComparison.Ordinal)] = 'e'}; TODO
-            #endregion
-
-            var message = $@"{habitacao.Descricao}
-
-Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao.Morada.Localidade}
-Metros quadrados: {habitacao.MetrosQuadrados} m2
-Ano de construção: {habitacao.AnoDeConstrucao}
-Custo mensal de um quarto: {habitacao.CustoMensal}€ {despesas}
-Quartos: {habitacao.NumeroDeQuartos}
-Assoalhadas: {habitacao.NumeroDeAssoalhadas}
-Casas de banho:  {habitacao.NumeroDeWcs}
-{com}
-";
-
-            //2. publicar no facebook
+            //3. publicar no facebook
             try
             {
                 var resp = Facebook.PublishPost(message, mediaObject);
@@ -171,6 +132,39 @@ Casas de banho:  {habitacao.NumeroDeWcs}
             {
                 MessageBox.Show($"Facebook error: {e.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private static string HabitacaoFacebookPost(IHabitacao habitacao)
+        {
+            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
+
+            #region Comodidades
+
+            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
+            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
+            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
+            var com = string.Join(", ", televisao, internet, limpeza);
+            //var comodidades = new StringBuilder(com) {[com.LastIndexOf(",", StringComparison.Ordinal)] = 'e'}; TODO
+
+            #endregion
+
+            var message =
+                $@"{habitacao.Descricao}
+
+Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao
+                    .Morada.Localidade}
+Metros quadrados: {habitacao.MetrosQuadrados} m2
+Ano de construção: {habitacao
+                        .AnoDeConstrucao}
+Custo mensal de um quarto: {habitacao.CustoMensal}€ {despesas}
+Quartos: {habitacao
+                            .NumeroDeQuartos}
+Assoalhadas: {habitacao.NumeroDeAssoalhadas}
+Casas de banho:  {habitacao
+                                .NumeroDeWcs}
+{com}
+";
+            return message;
         }
 
         private void PostTwitter(Habitacao habitacao)
@@ -184,7 +178,7 @@ Casas de banho:  {habitacao.NumeroDeWcs}
             int result;
             if (!int.TryParse(s, out result))
             {
-                MessageBox.Show(errorMsg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(errorMsg, "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
