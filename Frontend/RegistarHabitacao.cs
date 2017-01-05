@@ -201,11 +201,8 @@ Casas de banho:  {habitacao
             #region Mensagem
 
             var custosIncluidos = habitacao.IncluiDespesas ? " (c/ custos inc.)" : "";
-            var descricao = char.IsPunctuation(habitacao.Descricao.Last())
-                ? habitacao.Descricao
-                : $"{habitacao.Descricao}.";
             var message =
-                $"{descricao} {habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, {habitacao.Morada.Localidade}";
+                $"{habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, contruído em {habitacao.AnoDeConstrucao}, {habitacao.Morada.Localidade}";
             // Um tweet não pode ter mais do que a 140 caracteres
             if (message.Length > 140) return;
 
@@ -400,7 +397,7 @@ Casas de banho:  {habitacao
                 new GoogleMaps.GoogleMaps().GetCoordinates(
                     $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
             var position = new PointLatLng(local.lat, local.lng);
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 500);
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
 
             var markersOverlay = new GMapOverlay("markers");
 
@@ -423,7 +420,6 @@ Casas de banho:  {habitacao
                 gMapControl.Overlays.Add(markersOverlay);
             }
             #endregion
-
 
             #region Habitacao
             var marker = new GMarkerGoogle(position, GMarkerGoogleType.red_dot)
