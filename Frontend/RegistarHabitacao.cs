@@ -37,18 +37,7 @@ namespace Frontend
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
             #region Receber Dados
-            #region Morada
-            // Rua
-            var rua = textBoxRua.Text;
-
-            // Código Postal
-            var cp = new CodigoPostal(maskedTextBoxCodigoPostal.Text);
-
-            // Localidade
-            var localidade = textBoxLocalidade.Text;
-
-            var morada = new Morada(rua, cp, localidade);
-            #endregion
+            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text), textBoxLocalidade.Text);
 
             var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
@@ -84,16 +73,17 @@ namespace Frontend
             var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked, checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
-            var descricao = textBoxDescricao.Text;
+            var descricao = textBoxDescricao.Text.Trim();
 
             // Despesas incluidas?
             var despesasIncluidas = checkBoxDespesasIncluidas.Checked;
 
+            var custoMensal = decimal.Parse(textBoxPreco.Text);
+
             #region Validar
             // validar
             // e depois
-            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada,
-                    despesasIncluidas, comodidades);
+            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
             #endregion
 
             #region Redes Sociais
@@ -116,12 +106,12 @@ namespace Frontend
             var mediaObject = new FacebookMediaObject
             {
                 ContentType = "image/jpeg",
-                FileName = "Ige2.jpg"
+                FileName = Path.GetFileName(ultimaFoto),
             }.SetValue(foto);
             #endregion
 
             //2. descriçao textual para publicar no facebook
-            var message = HabitacaoFacebookPost(habitacao);
+            var message = FacebookPost(habitacao);
 
             //3. publicar no facebook
             try
@@ -134,7 +124,7 @@ namespace Frontend
             }
         }
 
-        private static string HabitacaoFacebookPost(IHabitacao habitacao)
+        private static string FacebookPost(IHabitacao habitacao)
         {
             var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
 
@@ -169,7 +159,33 @@ Casas de banho:  {habitacao
 
         private void PostTwitter(Habitacao habitacao)
         {
-            throw new NotImplementedException();
+            #region Mensagem
+
+            var custosIncluidos = habitacao.IncluiDespesas ? " (c/ custos inc.)" : "";
+            var descricao = char.IsPunctuation(habitacao.Descricao.Last())
+                ? habitacao.Descricao
+                : $"{habitacao.Descricao}.";
+            var message = $"{descricao} {habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, {habitacao.Morada.Localidade}";
+            // Um tweet não pode ter mais do que a 140 caracteres
+            if (message.Length > 140) return;
+            #endregion
+
+            #region Imagens
+            var lastPhoto = _imgFilenames.LastOrDefault();
+            if (string.IsNullOrEmpty(lastPhoto))
+            {
+                throw new Exception("Por favor, insira uma ou mais imagens da habitação");
+            }
+            #endregion
+
+            try
+            {
+                var tweetId = Twitter.PostTweet(message, lastPhoto);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Twitter error: {e.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // TODO: move this function from here
