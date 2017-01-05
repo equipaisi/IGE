@@ -30,7 +30,15 @@ namespace Frontend
         {
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
+            #region Mapa
+            gMapControl.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gMapControl.SetPositionByKeywords("Barcelos, Portugal");
             gMapControl.ShowCenter = false; // remove a cruz vermelha no centro do gMapControl
+            gMapControl.MinZoom = 3;
+            gMapControl.Zoom = 5;
+            gMapControl.MaxZoom = 12;
+            #endregion
         }
 
         /// <summary>
@@ -371,15 +379,25 @@ Casas de banho:  {habitacao
             string loc = textBoxLocalidade.Text;
             string cod = maskedTextBoxCodigoPostal.Text;
 
-            //var f = GoogleMaps.GoogleMaps();
-            //var local = f.GetCoordinates($"{rua}, {cod}, {loc}");
+            var f = new GoogleMaps.GoogleMaps();
+            var local = f.GetCoordinates($"{rua}, {cod}, {loc}");
 
-            //var markersOverlay = new GMapOverlay("markers");
+            var markersOverlay = new GMapOverlay("markers");
 
-            //GMarkerGoogle  marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green);
-            //marker.ToolTipText = string.Format("Sua Habitação");
-            //markersOverlay.Markers.Add(marker);
-            //gMapControl.Overlays.Add(markersOverlay);
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green);
+            marker.ToolTipText = string.Format("Sua Habitação");
+            marker.ToolTip.Fill = Brushes.Black;
+            marker.ToolTip.Foreground = Brushes.White;
+            marker.ToolTip.Stroke = Pens.Black;
+            marker.ToolTip.TextPadding = new Size(20, 20);
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            markersOverlay.Markers.Add(marker);
+            gMapControl.Overlays.Add(markersOverlay);
+        }
+
+        private void gMapControl_DoubleClick(object sender, EventArgs e)
+        {
+            gMapControl.Zoom += 1;
         }
     }
 }

@@ -642,7 +642,8 @@
             this.gMapControl.ShowTileGridLines = false;
             this.gMapControl.Size = new System.Drawing.Size(600, 367);
             this.gMapControl.TabIndex = 108;
-            this.gMapControl.Zoom = 0D;
+            this.gMapControl.Zoom = 2D;
+            this.gMapControl.DoubleClick += new System.EventHandler(this.gMapControl_DoubleClick);
             // 
             // RegistarHabitacao
             // 
