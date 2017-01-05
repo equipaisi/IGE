@@ -620,6 +620,7 @@
             // gMapControl
             // 
             this.gMapControl.Bearing = 0F;
+            this.gMapControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gMapControl.CanDragMap = true;
             this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
             this.gMapControl.GrayScaleMode = false;
@@ -671,6 +672,7 @@
             this.Name = "RegistarHabitacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Habitação";
+            this.Load += new System.EventHandler(this.RegistarHabitacao_Load);
             this.groupBoxMorada.ResumeLayout(false);
             this.groupBoxMorada.PerformLayout();
             this.groupBoxComodidades.ResumeLayout(false);

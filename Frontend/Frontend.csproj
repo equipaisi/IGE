@@ -383,6 +383,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GoogleMaps\GoogleMaps.csproj">
+      <Project>{9cf13815-3072-4744-aa9d-483ec09f2d8a}</Project>
+      <Name>GoogleMaps</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Middleware\Middleware.csproj">
       <Project>{4a785ed7-ca2e-4e8f-b929-dc5df9027a68}</Project>
       <Name>Middleware</Name>

@@ -6,9 +6,14 @@ using System.Text;
 
 namespace GoogleMaps
 {
-    public class GoogleMaps : IGoogleMaps
+    public class GoogleMaps //: IGoogleMaps
     {
         private const string ApiKey = "AIzaSyBPFsCVlF0_aZE46Tqutha3GVrqclwx7s0";
+
+        public GoogleMaps()
+        {
+
+        }
 
         #region Public API
         public Location GetCoordinates(string location)

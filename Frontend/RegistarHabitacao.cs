@@ -8,6 +8,10 @@ using System.Windows.Forms;
 using Middleware;
 using System.Text;
 using Facebook;
+using GoogleMaps;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET;
+using GMap.NET.WindowsForms;
 
 namespace Frontend
 {
@@ -26,6 +30,7 @@ namespace Frontend
         {
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
+            gMapControl.ShowCenter = false; // remove a cruz vermelha no centro do gMapControl
         }
 
         /// <summary>
@@ -366,17 +371,15 @@ Casas de banho:  {habitacao
             string loc = textBoxLocalidade.Text;
             string cod = maskedTextBoxCodigoPostal.Text;
 
-            //StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
-            //add.Append(rua);
-            //add.Append(loc);
-            //add.Append(cod);
-            //webBrowser1.Navigate(add.ToString());
-         
-        }
+            //var f = GoogleMaps.GoogleMaps();
+            //var local = f.GetCoordinates($"{rua}, {cod}, {loc}");
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
+            //var markersOverlay = new GMapOverlay("markers");
 
+            //GMarkerGoogle  marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green);
+            //marker.ToolTipText = string.Format("Sua Habitação");
+            //markersOverlay.Markers.Add(marker);
+            //gMapControl.Overlays.Add(markersOverlay);
         }
     }
 }
