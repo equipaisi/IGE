@@ -366,11 +366,11 @@ Casas de banho:  {habitacao
             string loc = textBoxLocalidade.Text;
             string cod = maskedTextBoxCodigoPostal.Text;
 
-            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
-            add.Append(rua);
-            add.Append(loc);
-            add.Append(cod);
-            webBrowser1.Navigate(add.ToString());
+            //StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+            //add.Append(rua);
+            //add.Append(loc);
+            //add.Append(cod);
+            //webBrowser1.Navigate(add.ToString());
          
         }
 

@@ -76,9 +76,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.checkBoxFacebook = new System.Windows.Forms.CheckBox();
             this.checkBoxTwitter = new System.Windows.Forms.CheckBox();
+            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnoDeConstrucao)).BeginInit();
@@ -94,7 +94,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1245, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1326, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -155,11 +155,11 @@
             // 
             // textBoxDescricao
             // 
-            this.textBoxDescricao.Location = new System.Drawing.Point(16, 22);
+            this.textBoxDescricao.Location = new System.Drawing.Point(16, 24);
             this.textBoxDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescricao.Multiline = true;
             this.textBoxDescricao.Name = "textBoxDescricao";
-            this.textBoxDescricao.Size = new System.Drawing.Size(509, 149);
+            this.textBoxDescricao.Size = new System.Drawing.Size(509, 166);
             this.textBoxDescricao.TabIndex = 15;
             // 
             // comboBoxNumDeQuartos
@@ -190,7 +190,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(509, 697);
+            this.button1.Location = new System.Drawing.Point(505, 716);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 32);
@@ -207,7 +207,7 @@
             // 
             // buttonAdicionarFotos
             // 
-            this.buttonAdicionarFotos.Location = new System.Drawing.Point(391, 324);
+            this.buttonAdicionarFotos.Location = new System.Drawing.Point(395, 324);
             this.buttonAdicionarFotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdicionarFotos.Name = "buttonAdicionarFotos";
             this.buttonAdicionarFotos.Size = new System.Drawing.Size(52, 33);
@@ -418,7 +418,7 @@
             this.pictureBoxImagem.Location = new System.Drawing.Point(9, 20);
             this.pictureBoxImagem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxImagem.Name = "pictureBoxImagem";
-            this.pictureBoxImagem.Size = new System.Drawing.Size(514, 294);
+            this.pictureBoxImagem.Size = new System.Drawing.Size(581, 294);
             this.pictureBoxImagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagem.TabIndex = 22;
             this.pictureBoxImagem.TabStop = false;
@@ -438,14 +438,14 @@
             this.groupBoxFotos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBoxFotos.Name = "groupBoxFotos";
             this.groupBoxFotos.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.groupBoxFotos.Size = new System.Drawing.Size(533, 367);
+            this.groupBoxFotos.Size = new System.Drawing.Size(600, 367);
             this.groupBoxFotos.TabIndex = 34;
             this.groupBoxFotos.TabStop = false;
             this.groupBoxFotos.Text = "Fotos";
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Location = new System.Drawing.Point(113, 324);
+            this.buttonPrevious.Location = new System.Drawing.Point(120, 324);
             this.buttonPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(73, 33);
@@ -456,7 +456,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(192, 324);
+            this.buttonNext.Location = new System.Drawing.Point(199, 324);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(73, 33);
@@ -467,7 +467,7 @@
             // 
             // buttonRemoverFoto
             // 
-            this.buttonRemoverFoto.Location = new System.Drawing.Point(333, 324);
+            this.buttonRemoverFoto.Location = new System.Drawing.Point(337, 324);
             this.buttonRemoverFoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRemoverFoto.Name = "buttonRemoverFoto";
             this.buttonRemoverFoto.Size = new System.Drawing.Size(52, 33);
@@ -562,7 +562,7 @@
             this.descricaoGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.descricaoGroupBox.Name = "descricaoGroupBox";
             this.descricaoGroupBox.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.descricaoGroupBox.Size = new System.Drawing.Size(543, 187);
+            this.descricaoGroupBox.Size = new System.Drawing.Size(543, 204);
             this.descricaoGroupBox.TabIndex = 82;
             this.descricaoGroupBox.TabStop = false;
             this.descricaoGroupBox.Text = "Descrição";
@@ -597,20 +597,10 @@
             this.textBox1.Size = new System.Drawing.Size(351, 22);
             this.textBox1.TabIndex = 104;
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(668, 447);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(515, 271);
-            this.webBrowser1.TabIndex = 105;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            // 
             // checkBoxFacebook
             // 
             this.checkBoxFacebook.AutoSize = true;
-            this.checkBoxFacebook.Location = new System.Drawing.Point(85, 708);
+            this.checkBoxFacebook.Location = new System.Drawing.Point(85, 723);
             this.checkBoxFacebook.Name = "checkBoxFacebook";
             this.checkBoxFacebook.Size = new System.Drawing.Size(167, 21);
             this.checkBoxFacebook.TabIndex = 106;
@@ -620,21 +610,47 @@
             // checkBoxTwitter
             // 
             this.checkBoxTwitter.AutoSize = true;
-            this.checkBoxTwitter.Location = new System.Drawing.Point(294, 708);
+            this.checkBoxTwitter.Location = new System.Drawing.Point(294, 723);
             this.checkBoxTwitter.Name = "checkBoxTwitter";
             this.checkBoxTwitter.Size = new System.Drawing.Size(147, 21);
             this.checkBoxTwitter.TabIndex = 107;
             this.checkBoxTwitter.Text = "Publicar no Twitter";
             this.checkBoxTwitter.UseVisualStyleBackColor = true;
             // 
+            // gMapControl
+            // 
+            this.gMapControl.Bearing = 0F;
+            this.gMapControl.CanDragMap = true;
+            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl.GrayScaleMode = false;
+            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl.LevelsKeepInMemmory = 5;
+            this.gMapControl.Location = new System.Drawing.Point(659, 428);
+            this.gMapControl.MarkersEnabled = true;
+            this.gMapControl.MaxZoom = 2;
+            this.gMapControl.MinZoom = 2;
+            this.gMapControl.MouseWheelZoomEnabled = true;
+            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl.Name = "gMapControl";
+            this.gMapControl.NegativeMode = false;
+            this.gMapControl.PolygonsEnabled = true;
+            this.gMapControl.RetryLoadTile = 0;
+            this.gMapControl.RoutesEnabled = true;
+            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl.ShowTileGridLines = false;
+            this.gMapControl.Size = new System.Drawing.Size(600, 367);
+            this.gMapControl.TabIndex = 108;
+            this.gMapControl.Zoom = 0D;
+            // 
             // RegistarHabitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 764);
+            this.ClientSize = new System.Drawing.Size(1326, 859);
+            this.Controls.Add(this.gMapControl);
             this.Controls.Add(this.checkBoxTwitter);
             this.Controls.Add(this.checkBoxFacebook);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -719,8 +735,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.CheckBox checkBoxFacebook;
         private System.Windows.Forms.CheckBox checkBoxTwitter;
+        private GMap.NET.WindowsForms.GMapControl gMapControl;
     }
 }
