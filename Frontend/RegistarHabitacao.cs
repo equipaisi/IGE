@@ -30,18 +30,25 @@ namespace Frontend
         {
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
+
             #region Mapa
+
             gMapControl.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl.SetPositionByKeywords("Barcelos, Portugal");
             gMapControl.ShowCenter = false; // remove a cruz vermelha no centro do gMapControl
-            gMapControl.MinZoom = 5;
+            gMapControl.MinZoom = 10;
             gMapControl.Zoom = 15;
             gMapControl.MaxZoom = 20;
             gMapControl.CanDragMap = true;
             gMapControl.DragButton = MouseButtons.Left;
             gMapControl.AutoScroll = true;
+
             #endregion
+
+            textBoxRua.Text = "R. Duques de Bragança 185";
+            maskedTextBoxCodigoPostal.Text = "4750-272";
+            textBoxLocalidade.Text = "Barcelos";
         }
 
         /// <summary>
@@ -53,18 +60,22 @@ namespace Frontend
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
             #region Receber Dados
-            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text), textBoxLocalidade.Text);
+
+            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
+                textBoxLocalidade.Text);
 
             var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
             // Metros Quadrados
-            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text, "Valor de \"Metros Quadrados\" inválido");
+            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
+                "Valor de \"Metros Quadrados\" inválido");
 
             // Ano de Construção
             int anoDeConstrucao;
             if (!int.TryParse(numericUpDownAnoDeConstrucao.Text, out anoDeConstrucao))
             {
-                MessageBox.Show("Valor de \"Ano de Construção\" inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Valor de \"Ano de Construção\" inválido", "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
             if (anoDeConstrucao > DateTime.Now.Year)
@@ -79,14 +90,18 @@ namespace Frontend
             }
 
             // Nº de Assoalhadas
-            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text, "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
+            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
+                "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
 
             // Nº de Quartos
-            var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text, "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
+            var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
+                "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
+
             #endregion
 
             // Comodidades
-            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked, checkBoxServicosDeLimpeza.Checked);
+            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
+                checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
             var descricao = textBoxDescricao.Text.Trim();
@@ -97,21 +112,28 @@ namespace Frontend
             var custoMensal = decimal.Parse(textBoxPreco.Text);
 
             #region Validar
+
             // validar
             // e depois
-            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados, anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
+            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
+                anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
+
             #endregion
 
             #region Redes Sociais
+
             if (checkBoxFacebook.Checked) PostFacebook(habitacao);
             if (checkBoxTwitter.Checked) PostTwitter(habitacao);
+
             #endregion
         }
 
         private void PostFacebook(IHabitacao habitacao)
         {
             //1. imagens da habitação
+
             #region Imagem
+
             var ultimaFoto = _imgFilenames.LastOrDefault();
             if (string.IsNullOrEmpty(ultimaFoto))
             {
@@ -124,6 +146,7 @@ namespace Frontend
                 ContentType = "image/jpeg",
                 FileName = Path.GetFileName(ultimaFoto),
             }.SetValue(foto);
+
             #endregion
 
             //2. descriçao textual para publicar no facebook
@@ -181,17 +204,21 @@ Casas de banho:  {habitacao
             var descricao = char.IsPunctuation(habitacao.Descricao.Last())
                 ? habitacao.Descricao
                 : $"{habitacao.Descricao}.";
-            var message = $"{descricao} {habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, {habitacao.Morada.Localidade}";
+            var message =
+                $"{descricao} {habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, {habitacao.Morada.Localidade}";
             // Um tweet não pode ter mais do que a 140 caracteres
             if (message.Length > 140) return;
+
             #endregion
 
             #region Imagens
+
             var lastPhoto = _imgFilenames.LastOrDefault();
             if (string.IsNullOrEmpty(lastPhoto))
             {
                 throw new Exception("Por favor, insira uma ou mais imagens da habitação");
             }
+
             #endregion
 
             try
@@ -222,7 +249,8 @@ Casas de banho:  {habitacao
         /// <param name="e"></param>
         private void buttonAdicionarFotos_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png"; // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
+            openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png";
+                // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
             openFileDialog1.Multiselect = true; // Aceitar múltiplas fotos
             var result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
             if (result == DialogResult.OK) // Test result.
@@ -235,10 +263,10 @@ Casas de banho:  {habitacao
                     _imgFilenames.Add(filename);
                     _indexImgAtual += 1;
                     AtualizarFoto(_indexImgAtual);
-                   
+
                 }
             }
-            MessageBox.Show(_imgFilenames.Count.ToString());      
+            MessageBox.Show(_imgFilenames.Count.ToString());
         }
 
         /// <summary>
@@ -250,7 +278,7 @@ Casas de banho:  {habitacao
         private void buttonRemoverFoto_Click(object sender, EventArgs e)
         {
             var ultimaFoto = _imgFilenames.LastOrDefault();
-            
+
             if (!string.IsNullOrEmpty(ultimaFoto))
             {
                 // Remover a última foto
@@ -348,7 +376,7 @@ Casas de banho:  {habitacao
 
         private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
         {
-            var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            var transfo = (PictureBox) e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
 
@@ -368,11 +396,37 @@ Casas de banho:  {habitacao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var local = new GoogleMaps.GoogleMaps().GetCoordinates($"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
+            var local =
+                new GoogleMaps.GoogleMaps().GetCoordinates(
+                    $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
+            var position = new PointLatLng(local.lat, local.lng);
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 500);
 
             var markersOverlay = new GMapOverlay("markers");
 
-            var marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green)
+            #region Pontos de Interesse
+            foreach (var ponto in pontosDeInteresse)
+            {
+                var m = new GMarkerGoogle(new PointLatLng(ponto.Latitude, ponto.Latitude), GMarkerGoogleType.red)
+                {
+                    ToolTipText = ponto.Name,
+                    ToolTip =
+                    {
+                        Fill = Brushes.Black,
+                        Foreground = Brushes.White,
+                        Stroke = Pens.Black,
+                        TextPadding = new Size(20, 20)
+                    },
+                    ToolTipMode = MarkerTooltipMode.OnMouseOver
+                };
+                markersOverlay.Markers.Add(m);
+                gMapControl.Overlays.Add(markersOverlay);
+            }
+            #endregion
+
+
+            #region Habitacao
+            var marker = new GMarkerGoogle(position, GMarkerGoogleType.red_dot)
             {
                 ToolTipText = "Habitação",
                 ToolTip =
@@ -385,9 +439,10 @@ Casas de banho:  {habitacao
                 ToolTipMode = MarkerTooltipMode.OnMouseOver
             };
             markersOverlay.Markers.Add(marker);
-            gMapControl.Overlays.Add(markersOverlay);
-            gMapControl.Position = new PointLatLng(local.lat, local.lng);
-            gMapControl.Zoom = 15;
+            #endregion
+
+            gMapControl.Position = position;
+            gMapControl.Zoom = 12;
         }
 
         private void gMapControl_DoubleClick(object sender, EventArgs e)

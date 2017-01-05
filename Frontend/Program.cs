@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Frontend.GoogleMapsService;
-using Frontend.GooglePlacesService;
 
 namespace Frontend
 {
@@ -19,7 +17,7 @@ namespace Frontend
 
             try
             {         
-                Application.Run(new FormLogin());
+                Application.Run(new RegistarHabitacao()); // FormLogin
             }
             catch (Exception e)
             {
