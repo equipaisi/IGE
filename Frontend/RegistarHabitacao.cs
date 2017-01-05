@@ -35,9 +35,12 @@ namespace Frontend
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl.SetPositionByKeywords("Barcelos, Portugal");
             gMapControl.ShowCenter = false; // remove a cruz vermelha no centro do gMapControl
-            gMapControl.MinZoom = 3;
-            gMapControl.Zoom = 5;
-            gMapControl.MaxZoom = 12;
+            gMapControl.MinZoom = 5;
+            gMapControl.Zoom = 15;
+            gMapControl.MaxZoom = 20;
+            gMapControl.CanDragMap = true;
+            gMapControl.DragButton = MouseButtons.Left;
+            gMapControl.AutoScroll = true;
             #endregion
         }
 
@@ -345,16 +348,6 @@ Casas de banho:  {habitacao
 
         private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
         {
-            /*int x = this.PointToClient(new Point(e.X, e.Y)).X;
-            int y = this.PointToClient(new Point(e.X, e.Y)).Y;
-
-            if (x >= pictureBoxImagem.Location.X && x <= pictureBoxImagem.Location.X + pictureBoxImagem.Width && y >= pictureBoxImagem.Location.Y && y <= pictureBoxImagem.Location.Y + pictureBoxImagem.Height)
-            {
-                var files = (string[]) e.Data.GetData(DataFormats.FileDrop);
-                pictureBoxImagem.Image = Image.FromFile(files[0]);
-
-            }*/
-
             var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
@@ -375,24 +368,26 @@ Casas de banho:  {habitacao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string rua = textBoxRua.Text;
-            string loc = textBoxLocalidade.Text;
-            string cod = maskedTextBoxCodigoPostal.Text;
-
-            var f = new GoogleMaps.GoogleMaps();
-            var local = f.GetCoordinates($"{rua}, {cod}, {loc}");
+            var local = new GoogleMaps.GoogleMaps().GetCoordinates($"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
 
             var markersOverlay = new GMapOverlay("markers");
 
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green);
-            marker.ToolTipText = string.Format("Sua Habitação");
-            marker.ToolTip.Fill = Brushes.Black;
-            marker.ToolTip.Foreground = Brushes.White;
-            marker.ToolTip.Stroke = Pens.Black;
-            marker.ToolTip.TextPadding = new Size(20, 20);
-            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            var marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.green)
+            {
+                ToolTipText = "Habitação",
+                ToolTip =
+                {
+                    Fill = Brushes.Black,
+                    Foreground = Brushes.White,
+                    Stroke = Pens.Black,
+                    TextPadding = new Size(20, 20)
+                },
+                ToolTipMode = MarkerTooltipMode.OnMouseOver
+            };
             markersOverlay.Markers.Add(marker);
             gMapControl.Overlays.Add(markersOverlay);
+            gMapControl.Position = new PointLatLng(local.lat, local.lng);
+            gMapControl.Zoom = 15;
         }
 
         private void gMapControl_DoubleClick(object sender, EventArgs e)
