@@ -288,7 +288,7 @@
             this.button4.TabIndex = 92;
             this.button4.Text = "Procurar";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.buttonProcurar_Click);
             // 
             // maskedTextBoxCodigoPostal
             // 
