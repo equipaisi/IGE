@@ -17,7 +17,7 @@ namespace Frontend
         private void FormLogin_Load(object sender, EventArgs e)
         {   
             // Mostrar o nome e a versão da aplicação como título da form
-            this.Text = Application.ProductName + " " + Application.ProductVersion;
+            this.Text = $"Login - {Application.ProductName} {Application.ProductVersion}";
 
             //_middleMiddlewareClient.DropDatabase();
             //_middleMiddlewareClient.CreateDatabase();
@@ -62,7 +62,7 @@ namespace Frontend
             {
                 var xpto = new IGE();
                 xpto.Show();
-                var fp = new FormPrincipal {MdiParent = xpto};
+                var fp = new Principal {MdiParent = xpto};
                 fp.Show();
                 this.Hide(); // a janela fica oculta
             }

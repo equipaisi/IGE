@@ -259,6 +259,7 @@
       <DependentUpon>Sobre.cs</DependentUpon>
     </Compile>
     <Compile Include="Twitter.cs" />
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>

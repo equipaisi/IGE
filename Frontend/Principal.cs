@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace Frontend
 {
-    public partial class FormPrincipal : Form
+    public partial class Principal : Form
     {
 
-        public FormPrincipal()
+        public Principal()
         {
             InitializeComponent();
-            this.ControlBox = false;
+            //this.ControlBox = false;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

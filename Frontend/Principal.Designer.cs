@@ -2,7 +2,7 @@
 
 namespace Frontend
 {
-    partial class FormPrincipal
+    partial class Principal
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@ namespace Frontend
             //this.StartPosition = FormStartPosition.CenterParent;
 
             //***********************************************************************************************************************************//
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxRegistHab = new System.Windows.Forms.PictureBox();
             this.labelRegistHab = new System.Windows.Forms.Label();
@@ -148,7 +148,7 @@ namespace Frontend
             this.labelProprietarios.TabIndex = 8;
             this.labelProprietarios.Text = "Proprietários";
             // 
-            // FormPrincipal
+            // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,7 +166,7 @@ namespace Frontend
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "FormPrincipal";
+            this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
