@@ -347,7 +347,7 @@ Casas de banho:  {habitacao
             foreach (var t in pontosDeInteresse)
             {
                 var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
-                marker.ToolTipText = $"{t.Name} \n {FormatPontosDeInteresse(t.Types)}";
+                marker.ToolTipText = $"{t.Name} \n {Utils.FormatPontosDeInteresse(t.Types)}";
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);
             }
@@ -357,12 +357,6 @@ Casas de banho:  {habitacao
             markersOverlay.Markers.Add(habitacaoMarker);
 
             gMapControl.ZoomAndCenterMarkers(markersOverlay.Id);
-        }
-
-        private static string FormatPontosDeInteresse(IList<string> types)
-        {
-            types.Remove("point_of_interest");
-            return $"Categoria: {types[0]}";
         }
 
         private void gMapControl_DoubleClick(object sender, EventArgs e)

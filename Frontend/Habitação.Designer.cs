@@ -595,6 +595,7 @@
             this.mapa.Size = new System.Drawing.Size(616, 326);
             this.mapa.TabIndex = 110;
             this.mapa.Zoom = 2D;
+            this.mapa.DoubleClick += new System.EventHandler(this.mapa_DoubleClick);
             // 
             // Habitação
             // 

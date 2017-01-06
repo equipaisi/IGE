@@ -28,8 +28,7 @@ namespace Frontend
             foreach (Place t in pontosDeInteresse)
             {
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
-                marker.ToolTipText =
-                    $"{t.Name} \n {FormatPontosDeInteresse(t.Types)}";
+                marker.ToolTipText =$"{t.Name} \n {Utils.FormatPontosDeInteresse(t.Types)}";
                 markersOverlay.Markers.Add(marker);
                 mapa.Overlays.Add(markersOverlay);
             }
@@ -39,12 +38,6 @@ namespace Frontend
             markersOverlay.Markers.Add(_marker);
 
             mapa.ZoomAndCenterMarkers(markersOverlay.Id);
-        }
-
-        private static string FormatPontosDeInteresse(IList<string> types)
-        {
-            types.Remove("point_of_interest");
-            return $"Categoria: {types[0]}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,6 +52,11 @@ namespace Frontend
             Aluguer alug = new Aluguer();
             alug.MdiParent = IGE.ActiveForm;
             alug.Show();
+        }
+
+        private void mapa_DoubleClick(object sender, EventArgs e)
+        {
+            mapa.Zoom += 1;
         }
     }
 }
