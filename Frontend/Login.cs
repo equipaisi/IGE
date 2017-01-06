@@ -65,7 +65,9 @@ namespace Frontend
                 Principal fp = new Principal {MdiParent = xpto};
                 fp.Show();
                 this.Hide(); // a janela fica oculta
+                return;
             }
+
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
                 IGE xpto = new IGE();
@@ -73,6 +75,7 @@ namespace Frontend
                 Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
                 adm.Show();
                 this.Hide(); // a janela fica oculta
+                return;
             }
             MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
