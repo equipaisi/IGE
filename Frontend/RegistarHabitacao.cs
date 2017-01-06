@@ -71,10 +71,6 @@ namespace Frontend
                     $"Valor de \"Ano de Construção\" inválido: não pode ser superior ao ano atual {DateTime.Now.Year}",
                     "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                MessageBox.Show($"Ano de Construção: {anoDeConstrucao}");
-            }
 
             // Nº de Assoalhadas
             var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
@@ -111,6 +107,8 @@ namespace Frontend
 
             if (checkBoxFacebook.Checked) PostFacebook(habitacao);
             if (checkBoxTwitter.Checked) PostTwitter(habitacao);
+
+            MessageBox.Show("Habitação registada com sucesso.", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             #endregion
         }
