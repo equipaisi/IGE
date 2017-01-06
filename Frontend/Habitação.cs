@@ -28,7 +28,8 @@ namespace Frontend
             PointLatLng position = new PointLatLng(local.lat, local.lng);
             List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
             GMapOverlay markersOverlay = new GMapOverlay("markers");
-
+            //limpar maps 
+            mapa.Overlays.Clear();
             for (int i = 0; i < pontosDeInteresse.Count; i++)
             {
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
