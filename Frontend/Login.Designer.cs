@@ -1,6 +1,8 @@
-﻿namespace Frontend
+﻿using System.Windows.Forms;
+
+namespace Frontend
 {
-    partial class FormLogin
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBoxLogin = new System.Windows.Forms.PictureBox();
@@ -37,6 +39,7 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.textBox_Password = new System.Windows.Forms.TextBox();
+            this.StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +85,7 @@
             this.textBox_Password.UseSystemPasswordChar = true;
             this.textBox_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Password_KeyDown);
             // 
-            // FormLogin
+            // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,7 +97,7 @@
             this.Controls.Add(this.pictureBoxLogo);
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "FormLogin";
+            this.Name = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();

@@ -4,22 +4,21 @@ using Middleware;
 
 namespace Frontend
 {
-    public partial class FormLogin : Form
+    public partial class Login : Form
     {
-        private readonly IMiddlewareClient _middleMiddlewareClient;
+        //private readonly IMiddlewareClient _middleMiddlewareClient;
 
-        public FormLogin()
+        public Login()
         {
             //_middleMiddlewareClient = new MiddlewareClient("IGE");
             InitializeComponent();
         }
         
         private void FormLogin_Load(object sender, EventArgs e)
-        {
-            // A janela do login vai ficar centralizada no monitor do pc
-            this.StartPosition = FormStartPosition.CenterScreen;
+        {   
             // Mostrar o nome e a versão da aplicação como título da form
             this.Text = Application.ProductName + " " + Application.ProductVersion;
+
             //_middleMiddlewareClient.DropDatabase();
             //_middleMiddlewareClient.CreateDatabase();
             //_middleMiddlewareClient.PopulateDatabase();
@@ -49,49 +48,31 @@ namespace Frontend
         
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-                if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
-                {
-                    IGE xpto = new IGE();
-                    xpto.Show();
-                    FormPrincipal fp = new FormPrincipal();
-                    fp.MdiParent = xpto;
-                    fp.Show();
-                    this.Hide(); // a janela fica oculta
-                }
-                if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
-                {
-                    IGE xpto = new IGE();
-                    xpto.Show();
-                    Administrador adm = new Administrador();
-                    adm.MdiParent = IGE.ActiveForm;
-                    adm.Show();
-                    this.Hide(); // a janela fica oculta
-                 }
+            ValidateCredentials();
         }
-
 
         private void textBox_Password_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter) ValidateCredentials();
+        }
+
+        private void ValidateCredentials()
+        {
+            if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
             {
-                if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
-                {
-                    IGE xpto = new IGE();
-                    xpto.Show();
-                    FormPrincipal fp = new FormPrincipal();
-                    fp.MdiParent = xpto;
-                    fp.Show();
-                    this.Hide(); // a janela fica oculta
-                }
-                if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
-                {
-                    IGE xpto = new IGE();
-                    xpto.Show();
-                    Administrador adm = new Administrador();
-                    adm.MdiParent = IGE.ActiveForm;
-                    adm.Show();
-                    this.Hide(); // a janela fica oculta
-                }
+                var xpto = new IGE();
+                xpto.Show();
+                var fp = new FormPrincipal {MdiParent = xpto};
+                fp.Show();
+                this.Hide(); // a janela fica oculta
+            }
+            if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
+            {
+                var xpto = new IGE();
+                xpto.Show();
+                var adm = new Administrador {MdiParent = IGE.ActiveForm};
+                adm.Show();
+                this.Hide(); // a janela fica oculta
             }
         }
     }

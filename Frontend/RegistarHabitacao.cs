@@ -417,8 +417,8 @@ Casas de banho:  {habitacao
                     ToolTipMode = MarkerTooltipMode.OnMouseOver
                 };
                 markersOverlay.Markers.Add(m);
-                gMapControl.Overlays.Add(markersOverlay);
             }
+            gMapControl.Overlays.Add(markersOverlay);
             #endregion
 
             #region Habitacao
@@ -435,6 +435,7 @@ Casas de banho:  {habitacao
                 ToolTipMode = MarkerTooltipMode.OnMouseOver
             };
             markersOverlay.Markers.Add(marker);
+            gMapControl.Overlays.Add(markersOverlay);
             #endregion
 
             gMapControl.Position = position;

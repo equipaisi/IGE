@@ -57,7 +57,7 @@ namespace Frontend
 
             this.Visible = false;
 
-            FormLogin login = new FormLogin();
+            Login login = new Login();
             login.ShowDialog();
             
 

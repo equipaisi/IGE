@@ -17,7 +17,7 @@ namespace Frontend
 
             try
             {         
-                Application.Run(new FormLogin()); // FormLogin
+                Application.Run(new Login()); // Login
             }
             catch (Exception e)
             {
