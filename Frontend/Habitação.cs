@@ -1,40 +1,52 @@
-﻿using System;
+﻿using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
 {
     public partial class Habitação : Form
     {
+        private GMarkerGoogle marker;
         public Habitação()
         {
             InitializeComponent();
-            StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
-            add.Append(labelRua.Text);
-            add.Append(labelLocalidade.Text);
-            add.Append(labelCodigoPostal.Text);
-            webBrowser1.Navigate(add.ToString());
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Habitação_Load(object sender, EventArgs e)        
         {
+            
+            var local =
+              new GoogleMaps.GoogleMaps().GetCoordinates(
+                  $"{labelRua.Text}, {labelCodigoPostal.Text}, {labelLocalidade.Text}");
+            var position = new PointLatLng(local.lat, local.lng);
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
+            var markersOverlay = new GMapOverlay("markers");
 
+            for (int i = 0; i < pontosDeInteresse.Count; i++)
+            {
+                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
+                marker.ToolTipText = string.Format("{0} \n {1}", pontosDeInteresse[i].Name, FormatPontosDeInteresse(pontosDeInteresse[i].Types));
+                markersOverlay.Markers.Add(marker);
+                mapa.Overlays.Add(markersOverlay);
+            }
+
+            marker = new GMarkerGoogle(new PointLatLng(local.lat,local.lng), GMarkerGoogleType.red);
+            marker.ToolTipText = string.Format("Habitação");
+            markersOverlay.Markers.Add(marker);
+
+            mapa.ZoomAndCenterMarkers(markersOverlay.Id);
         }
 
-        private void groupBoxMorada_Enter(object sender, EventArgs e)
+
+        private string FormatPontosDeInteresse(List<string> types)
         {
-
-        }
-
-        private void descricaoGroupBox_Enter(object sender, EventArgs e)
-        {
-
+            types.Remove("point_of_interest");
+            return $"Categoria: {types[0]}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +54,6 @@ namespace Frontend
             Proprietario prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
             prt.Show();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,22 +61,6 @@ namespace Frontend
             Aluguer alug = new Aluguer();
             alug.MdiParent = IGE.ActiveForm;
             alug.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
-
-        private void Habitação_Load(object sender, EventArgs e)
-        {
-           
         }
     }
 }

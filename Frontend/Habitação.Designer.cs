@@ -37,6 +37,9 @@
             this.pictureBoxImagem = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxMorada = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.labelLocalidade = new System.Windows.Forms.Label();
             this.labelCodigoPostal = new System.Windows.Forms.Label();
             this.labelRua = new System.Windows.Forms.Label();
@@ -71,7 +74,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.mapa = new Frontend.Mapa();
             this.groupBoxFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
@@ -96,14 +99,14 @@
             this.groupBoxFotos.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBoxFotos.Name = "groupBoxFotos";
             this.groupBoxFotos.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.groupBoxFotos.Size = new System.Drawing.Size(467, 336);
+            this.groupBoxFotos.Size = new System.Drawing.Size(616, 336);
             this.groupBoxFotos.TabIndex = 35;
             this.groupBoxFotos.TabStop = false;
             this.groupBoxFotos.Text = "Fotos";
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Location = new System.Drawing.Point(77, 295);
+            this.buttonPrevious.Location = new System.Drawing.Point(151, 295);
             this.buttonPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(73, 33);
@@ -113,7 +116,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(156, 295);
+            this.buttonNext.Location = new System.Drawing.Point(230, 295);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(73, 33);
@@ -123,7 +126,7 @@
             // 
             // buttonRemoverFoto
             // 
-            this.buttonRemoverFoto.Location = new System.Drawing.Point(297, 295);
+            this.buttonRemoverFoto.Location = new System.Drawing.Point(371, 295);
             this.buttonRemoverFoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRemoverFoto.Name = "buttonRemoverFoto";
             this.buttonRemoverFoto.Size = new System.Drawing.Size(52, 33);
@@ -133,7 +136,7 @@
             // 
             // buttonAdicionarFotos
             // 
-            this.buttonAdicionarFotos.Location = new System.Drawing.Point(355, 295);
+            this.buttonAdicionarFotos.Location = new System.Drawing.Point(429, 295);
             this.buttonAdicionarFotos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdicionarFotos.Name = "buttonAdicionarFotos";
             this.buttonAdicionarFotos.Size = new System.Drawing.Size(52, 33);
@@ -147,7 +150,7 @@
             this.pictureBoxImagem.Location = new System.Drawing.Point(13, 23);
             this.pictureBoxImagem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxImagem.Name = "pictureBoxImagem";
-            this.pictureBoxImagem.Size = new System.Drawing.Size(444, 260);
+            this.pictureBoxImagem.Size = new System.Drawing.Size(593, 260);
             this.pictureBoxImagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagem.TabIndex = 22;
             this.pictureBoxImagem.TabStop = false;
@@ -160,10 +163,12 @@
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 40;
             this.label1.Text = "Vivenda T2";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBoxMorada
             // 
+            this.groupBoxMorada.Controls.Add(this.label15);
+            this.groupBoxMorada.Controls.Add(this.label14);
+            this.groupBoxMorada.Controls.Add(this.label13);
             this.groupBoxMorada.Controls.Add(this.labelLocalidade);
             this.groupBoxMorada.Controls.Add(this.labelCodigoPostal);
             this.groupBoxMorada.Controls.Add(this.labelRua);
@@ -175,34 +180,60 @@
             this.groupBoxMorada.TabIndex = 94;
             this.groupBoxMorada.TabStop = false;
             this.groupBoxMorada.Text = "Morada";
-            this.groupBoxMorada.Enter += new System.EventHandler(this.groupBoxMorada_Enter);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(241, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 17);
+            this.label15.TabIndex = 95;
+            this.label15.Text = "Localidade:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(11, 85);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 17);
+            this.label14.TabIndex = 94;
+            this.label14.Text = "Codigo Postal : ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 35);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 17);
+            this.label13.TabIndex = 93;
+            this.label13.Text = "Rua:";
             // 
             // labelLocalidade
             // 
             this.labelLocalidade.AutoSize = true;
-            this.labelLocalidade.Location = new System.Drawing.Point(241, 85);
+            this.labelLocalidade.Location = new System.Drawing.Point(328, 85);
             this.labelLocalidade.Name = "labelLocalidade";
-            this.labelLocalidade.Size = new System.Drawing.Size(198, 17);
+            this.labelLocalidade.Size = new System.Drawing.Size(120, 17);
             this.labelLocalidade.TabIndex = 89;
-            this.labelLocalidade.Text = "Localidade: Alvelos - Barcelos";
+            this.labelLocalidade.Text = " Alvelos, Barcelos";
             // 
             // labelCodigoPostal
             // 
             this.labelCodigoPostal.AutoSize = true;
-            this.labelCodigoPostal.Location = new System.Drawing.Point(9, 85);
+            this.labelCodigoPostal.Location = new System.Drawing.Point(125, 85);
             this.labelCodigoPostal.Name = "labelCodigoPostal";
-            this.labelCodigoPostal.Size = new System.Drawing.Size(172, 17);
+            this.labelCodigoPostal.Size = new System.Drawing.Size(73, 17);
             this.labelCodigoPostal.TabIndex = 90;
-            this.labelCodigoPostal.Text = "Código Postal:  4755-116 ";
+            this.labelCodigoPostal.Text = "4755-116 ";
             // 
             // labelRua
             // 
             this.labelRua.AutoSize = true;
-            this.labelRua.Location = new System.Drawing.Point(9, 36);
+            this.labelRua.Location = new System.Drawing.Point(51, 35);
             this.labelRua.Name = "labelRua";
-            this.labelRua.Size = new System.Drawing.Size(222, 17);
+            this.labelRua.Size = new System.Drawing.Size(127, 17);
             this.labelRua.TabIndex = 91;
-            this.labelRua.Text = "Rua:  Rua da Estrada 31  Alvelos ";
+            this.labelRua.Text = "Rua da Estrada 31";
             // 
             // groupBoxInfo
             // 
@@ -352,7 +383,6 @@
             this.descricaoGroupBox.TabIndex = 97;
             this.descricaoGroupBox.TabStop = false;
             this.descricaoGroupBox.Text = "Descrição";
-            this.descricaoGroupBox.Enter += new System.EventHandler(this.descricaoGroupBox_Enter);
             // 
             // label9
             // 
@@ -483,7 +513,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(891, 668);
+            this.button2.Location = new System.Drawing.Point(1040, 766);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 45);
             this.button2.TabIndex = 100;
@@ -526,7 +556,7 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(596, 27);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(465, 43);
+            this.groupBox3.Size = new System.Drawing.Size(614, 43);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
             // 
@@ -539,21 +569,39 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "210€/MÊS";
             // 
-            // webBrowser1
+            // mapa
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(596, 422);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(465, 240);
-            this.webBrowser1.TabIndex = 106;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.mapa.AutoScroll = true;
+            this.mapa.Bearing = 0F;
+            this.mapa.CanDragMap = true;
+            this.mapa.EmptyTileColor = System.Drawing.Color.Navy;
+            this.mapa.GrayScaleMode = false;
+            this.mapa.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.mapa.LevelsKeepInMemmory = 5;
+            this.mapa.Location = new System.Drawing.Point(594, 422);
+            this.mapa.MarkersEnabled = true;
+            this.mapa.MaxZoom = 20;
+            this.mapa.MinZoom = 10;
+            this.mapa.MouseWheelZoomEnabled = true;
+            this.mapa.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.mapa.Name = "mapa";
+            this.mapa.NegativeMode = false;
+            this.mapa.PolygonsEnabled = true;
+            this.mapa.RetryLoadTile = 0;
+            this.mapa.RoutesEnabled = true;
+            this.mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.mapa.ShowTileGridLines = false;
+            this.mapa.Size = new System.Drawing.Size(616, 326);
+            this.mapa.TabIndex = 110;
+            this.mapa.Zoom = 2D;
             // 
             // Habitação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 725);
-            this.Controls.Add(this.webBrowser1);
+            this.ClientSize = new System.Drawing.Size(1255, 836);
+            this.Controls.Add(this.mapa);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
@@ -637,6 +685,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private Mapa mapa;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
