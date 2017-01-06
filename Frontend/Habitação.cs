@@ -4,6 +4,8 @@ using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using GooglePlaces;
+using Location = GoogleMaps.Location;
 
 namespace Frontend
 {
@@ -16,16 +18,16 @@ namespace Frontend
 
         private void Habitação_Load(object sender, EventArgs e)
         {
-            var local =
+            Location local =
                new GoogleMaps.GoogleMaps().GetCoordinates(
                    $"{labelRua.Text}, {labelCodigoPostal.Text}, {labelLocalidade.Text}");
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-            var markersOverlay = new GMapOverlay("markers");
+            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
 
             mapa.Overlays.Clear();
-            foreach (var t in pontosDeInteresse)
+            foreach (Place t in pontosDeInteresse)
             {
-                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
+                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText =
                     $"{t.Name} \n {FormatPontosDeInteresse(t.Types)}";
                 markersOverlay.Markers.Add(marker);

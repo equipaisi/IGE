@@ -9,7 +9,6 @@ namespace Frontend
         public Principal()
         {
             InitializeComponent();
-            //this.ControlBox = false;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

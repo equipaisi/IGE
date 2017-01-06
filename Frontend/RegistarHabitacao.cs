@@ -195,19 +195,10 @@ Casas de banho:  {habitacao
 
             #endregion
 
-            #region Imagens
-
-            var lastPhoto = _imgsFilepath.LastOrDefault();
-            if (string.IsNullOrEmpty(lastPhoto))
-            {
-                throw new Exception("Por favor, insira uma ou mais imagens da habitação");
-            }
-
-            #endregion
-
             try
             {
-                var tweetId = Twitter.PostTweet(message, lastPhoto);
+                var photos = _imgsFilepath.Take(Twitter.MaxAllowedUploadedPhotos);
+                var tweetId = Twitter.PostTweet(message, photos);
             }
             catch (Exception e)
             {

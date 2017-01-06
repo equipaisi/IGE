@@ -263,6 +263,12 @@
     </Compile>
     <Compile Include="Twitter.cs" />
     <Compile Include="UniqueList.cs" />
+    <Compile Include="ImageGallery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageGallery.Designer.cs">
+      <DependentUpon>ImageGallery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sobre.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageGallery.resx">
+      <DependentUpon>ImageGallery.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
