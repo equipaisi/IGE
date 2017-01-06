@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Middleware;
-using System.Text;
 using Facebook;
 using GoogleMaps;
 using GMap.NET.WindowsForms.Markers;
@@ -15,11 +14,13 @@ using GMap.NET.WindowsForms;
 
 namespace Frontend
 {
+
     public partial class RegistarHabitacao : Form
     {
         private List<string> _imgFilenames = new List<string>();
         private int _indexImgAtual = -1;
         private ErrorProvider _errorProvider1 = new ErrorProvider();
+        private GMarkerGoogle marker;
 
         public RegistarHabitacao()
         {
@@ -30,21 +31,6 @@ namespace Frontend
         {
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
-
-            #region Mapa
-
-            gMapControl.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-            gMapControl.SetPositionByKeywords("Barcelos, Portugal");
-            gMapControl.ShowCenter = false; // remove a cruz vermelha no centro do gMapControl
-            gMapControl.MinZoom = 10;
-            gMapControl.Zoom = 15;
-            gMapControl.MaxZoom = 20;
-            gMapControl.CanDragMap = true;
-            gMapControl.DragButton = MouseButtons.Left;
-            gMapControl.AutoScroll = true;
-
-            #endregion
 
             textBoxRua.Text = "R. Duques de Bragança 185";
             maskedTextBoxCodigoPostal.Text = "4750-272";
@@ -393,53 +379,31 @@ Casas de banho:  {habitacao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var local =
+            var habitacao =
                 new GoogleMaps.GoogleMaps().GetCoordinates(
                     $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
-            var position = new PointLatLng(local.lat, local.lng);
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-
+            var position = new PointLatLng(habitacao.lat, habitacao.lng);
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
             var markersOverlay = new GMapOverlay("markers");
 
-            #region Pontos de Interesse
-            foreach (var ponto in pontosDeInteresse)
+            for (int i = 0; i < pontosDeInteresse.Count; i++)
             {
-                var m = new GMarkerGoogle(new PointLatLng(ponto.Latitude, ponto.Latitude), GMarkerGoogleType.red)
-                {
-                    ToolTipText = ponto.Name,
-                    ToolTip =
-                    {
-                        Fill = Brushes.Black,
-                        Foreground = Brushes.White,
-                        Stroke = Pens.Black,
-                        TextPadding = new Size(20, 20)
-                    },
-                    ToolTipMode = MarkerTooltipMode.OnMouseOver
-                };
-                markersOverlay.Markers.Add(m);
+                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
+                marker.ToolTipText = string.Format("{0} \n {1}", pontosDeInteresse[i].Name, FormatPontosDeInteresse(pontosDeInteresse[i].Types));
+                markersOverlay.Markers.Add(marker);
+                gMapControl.Overlays.Add(markersOverlay);
             }
-            gMapControl.Overlays.Add(markersOverlay);
-            #endregion
 
-            #region Habitacao
-            var marker = new GMarkerGoogle(position, GMarkerGoogleType.red_dot)
-            {
-                ToolTipText = "Habitação",
-                ToolTip =
-                {
-                    Fill = Brushes.Black,
-                    Foreground = Brushes.White,
-                    Stroke = Pens.Black,
-                    TextPadding = new Size(20, 20)
-                },
-                ToolTipMode = MarkerTooltipMode.OnMouseOver
-            };
+            marker = new GMarkerGoogle(position, GMarkerGoogleType.red);
+            marker.ToolTipText = string.Format("Habitação");
             markersOverlay.Markers.Add(marker);
-            gMapControl.Overlays.Add(markersOverlay);
-            #endregion
 
-            gMapControl.Position = position;
-            gMapControl.Zoom = 12;
+            gMapControl.ZoomAndCenterMarkers(markersOverlay.Id);
+        }
+
+        private string FormatPontosDeInteresse(List<string> types) {
+            types.Remove("point_of_interest");
+            return $"Categoria: {types[0]}";
         }
 
         private void gMapControl_DoubleClick(object sender, EventArgs e)
