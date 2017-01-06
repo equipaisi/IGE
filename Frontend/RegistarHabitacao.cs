@@ -47,13 +47,13 @@ namespace Frontend
         {
             #region Receber Dados
 
-            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
+            Morada morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
                 textBoxLocalidade.Text);
 
-            var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
+            int numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
             // Metros Quadrados
-            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
+            int metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
                 "Valor de \"Metros Quadrados\" inválido");
 
             // Ano de Construção
@@ -76,32 +76,32 @@ namespace Frontend
             }
 
             // Nº de Assoalhadas
-            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
+            int numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
                 "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
 
             // Nº de Quartos
-            var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
+            int numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
                 "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
 
             #endregion
 
             // Comodidades
-            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
+            Comodidades comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
                 checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
-            var descricao = textBoxDescricao.Text.Trim();
+            string descricao = textBoxDescricao.Text.Trim();
 
             // Despesas incluidas?
-            var despesasIncluidas = checkBoxDespesasIncluidas.Checked;
+            bool despesasIncluidas = checkBoxDespesasIncluidas.Checked;
 
-            var custoMensal = decimal.Parse(textBoxPreco.Text);
+            decimal custoMensal = decimal.Parse(textBoxPreco.Text);
 
             #region Validar
 
             // validar
             // e depois
-            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
+            Habitacao habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
                 anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
 
             #endregion
@@ -120,14 +120,14 @@ namespace Frontend
 
             #region Imagem
 
-            var ultimaFoto = _imgFilenames.LastOrDefault();
+            string ultimaFoto = _imgFilenames.LastOrDefault();
             if (string.IsNullOrEmpty(ultimaFoto))
             {
                 throw new Exception("Por favor, insira uma ou mais imagens da habitação");
             }
-            var img = Image.FromFile(ultimaFoto);
-            var foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
-            var mediaObject = new FacebookMediaObject
+            Image img = Image.FromFile(ultimaFoto);
+            byte[] foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
+            FacebookMediaObject mediaObject = new FacebookMediaObject
             {
                 ContentType = "image/jpeg",
                 FileName = Path.GetFileName(ultimaFoto),
@@ -136,12 +136,12 @@ namespace Frontend
             #endregion
 
             //2. descriçao textual para publicar no facebook
-            var message = FacebookPost(habitacao);
+            string message = FacebookPost(habitacao);
 
             //3. publicar no facebook
             try
             {
-                var resp = Facebook.PublishPost(message, mediaObject);
+                object resp = Facebook.PublishPost(message, mediaObject);
             }
             catch (Exception e)
             {
@@ -151,19 +151,19 @@ namespace Frontend
 
         private static string FacebookPost(IHabitacao habitacao)
         {
-            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
+            string despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
 
             #region Comodidades
 
-            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
-            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
-            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
-            var com = string.Join(", ", televisao, internet, limpeza);
+            string televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
+            string internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
+            string limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
+            string com = string.Join(", ", televisao, internet, limpeza);
             //var comodidades = new StringBuilder(com) {[com.LastIndexOf(",", StringComparison.Ordinal)] = 'e'}; TODO
 
             #endregion
 
-            var message =
+            string message =
                 $@"{habitacao.Descricao}
 
 Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao
@@ -186,8 +186,8 @@ Casas de banho:  {habitacao
         {
             #region Mensagem
 
-            var custosIncluidos = habitacao.IncluiDespesas ? " (c/ custos inc.)" : "";
-            var message =
+            string custosIncluidos = habitacao.IncluiDespesas ? " (c/ custos inc.)" : "";
+            string message =
                 $"{habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, contruído em {habitacao.AnoDeConstrucao}, {habitacao.Morada.Localidade}";
             // Um tweet não pode ter mais do que a 140 caracteres
             if (message.Length > 140) return;
@@ -196,7 +196,7 @@ Casas de banho:  {habitacao
 
             #region Imagens
 
-            var lastPhoto = _imgFilenames.LastOrDefault();
+            string lastPhoto = _imgFilenames.LastOrDefault();
             if (string.IsNullOrEmpty(lastPhoto))
             {
                 throw new Exception("Por favor, insira uma ou mais imagens da habitação");
@@ -206,7 +206,7 @@ Casas de banho:  {habitacao
 
             try
             {
-                var tweetId = Twitter.PostTweet(message, lastPhoto);
+                long tweetId = Twitter.PostTweet(message, lastPhoto);
             }
             catch (Exception e)
             {
@@ -235,10 +235,10 @@ Casas de banho:  {habitacao
             openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png";
                 // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
             openFileDialog1.Multiselect = true; // Aceitar múltiplas fotos
-            var result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
+            DialogResult result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                foreach (var filename in openFileDialog1.FileNames)
+                foreach (string filename in openFileDialog1.FileNames)
                 {
                     if (_imgFilenames.Contains(filename)) continue;
 
@@ -260,7 +260,7 @@ Casas de banho:  {habitacao
         /// <param name="e"></param>
         private void buttonRemoverFoto_Click(object sender, EventArgs e)
         {
-            var ultimaFoto = _imgFilenames.LastOrDefault();
+            string ultimaFoto = _imgFilenames.LastOrDefault();
 
             if (!string.IsNullOrEmpty(ultimaFoto))
             {
@@ -318,7 +318,7 @@ Casas de banho:  {habitacao
             // bounds checking
             if (index >= 0 && index < _imgFilenames.Count)
             {
-                var img = _imgFilenames[index];
+                string img = _imgFilenames[index];
                 if (img == null) throw new ArgumentNullException(nameof(img));
                 pictureBoxImagem.Image = Image.FromFile(img);
             }
@@ -359,7 +359,7 @@ Casas de banho:  {habitacao
 
         private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
         {
-            var transfo = (PictureBox) e.Data.GetData(typeof(PictureBox));
+            PictureBox transfo = (PictureBox) e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
 
@@ -378,17 +378,19 @@ Casas de banho:  {habitacao
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            var habitacao =
-                new GoogleMaps.GoogleMaps().GetCoordinates(
-                    $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
-            var position = new PointLatLng(habitacao.lat, habitacao.lng);
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
-            var markersOverlay = new GMapOverlay("markers");
+        {       
+
+            Location habitacao = new GoogleMaps.GoogleMaps().GetCoordinates(
+                                 $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
+            PointLatLng position = new PointLatLng(habitacao.lat, habitacao.lng);
+            List<GooglePlaces.Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            //limpar maps 
+            gMapControl.Overlays.Clear();
 
             for (int i = 0; i < pontosDeInteresse.Count; i++)
             {
-                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
+                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText = string.Format("{0} \n {1}", pontosDeInteresse[i].Name, FormatPontosDeInteresse(pontosDeInteresse[i].Types));
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);

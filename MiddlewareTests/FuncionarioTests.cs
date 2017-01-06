@@ -12,7 +12,7 @@ namespace Middleware.Tests
         [TestMethod()]
         public void FuncionarioTest()
         {
-            var func = new Funcionario("Oliver", "Mota", new[] { "Silva", "キャプテン翼" }, "omota", "supersecreta182!", "omota@imovcelos.pt");
+            Funcionario func = new Funcionario("Oliver", "Mota", new[] { "Silva", "キャプテン翼" }, "omota", "supersecreta182!", "omota@imovcelos.pt");
             Assert.IsTrue(func != null);
             Assert.AreEqual(func.Username, "omota");
             Assert.AreEqual(func.Email, new MailAddress("omota@imovcelos.pt"));
@@ -26,7 +26,7 @@ namespace Middleware.Tests
         [TestMethod()]
         public void FuncionarioNomeCompletoTest()
         {
-            var f1 = new Funcionario("João", "Ferreira", null, "jferreira", "supersecreta182!", "omota@imovcelos.pt");
+            Funcionario f1 = new Funcionario("João", "Ferreira", null, "jferreira", "supersecreta182!", "omota@imovcelos.pt");
             Assert.AreEqual(f1.NomeCompleto, "João Ferreira");
             f1.NomeCompleto = "João Castro Ferreira";
             Assert.AreEqual(f1.PrimeiroNome, "João");

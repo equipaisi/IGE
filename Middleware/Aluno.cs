@@ -124,15 +124,15 @@ namespace Middleware
             // TODO: refactor this into one line solution
             get
             {
-                var names = new List<string> { PrimeiroNome };
+                List<string> names = new List<string> { PrimeiroNome };
                 names.AddRange(NomesIntermedios);
                 names.Add(UltimoNome);
                 return string.Join(" ", names);
             }
             set
             {
-                var names = value.Split(' ');
-                var namesLength = names.Length;
+                string[] names = value.Split(' ');
+                int namesLength = names.Length;
                 switch (namesLength)
                 {
                     case 1:
@@ -159,8 +159,8 @@ namespace Middleware
         // TODO: account for locale, leep years, and all that jazz
         public int Idade()
         {
-            var today = DateTime.Today;
-            var age = today.Year - DataDeNascimento.Year;
+            DateTime today = DateTime.Today;
+            int age = today.Year - DataDeNascimento.Year;
             if (today.Month < DataDeNascimento.Month ||
                 (today.Month == DataDeNascimento.Month && today.Day < DataDeNascimento.Day)) age--;
             return age;

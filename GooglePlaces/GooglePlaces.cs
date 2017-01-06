@@ -28,8 +28,8 @@ namespace GooglePlaces
         {
             if (radius <= 0 || radius > 50000)
                 throw new ArgumentOutOfRangeException("Radius must be a positive integer between 1 an 50 000");
-            var url = CreateRequestUrl(latitude, longitude, radius);
-            var root = Magic<RootObject>(url);
+            string url = CreateRequestUrl(latitude, longitude, radius);
+            RootObject root = Magic<RootObject>(url);
             if (root.status != "OK") return null; // TODO: throw new Custom Exception
             if (root.results.Count < 1) return null;
 
@@ -55,8 +55,8 @@ namespace GooglePlaces
         /// <returns></returns>
         public string CreateRequestUrl(double latitude, double longitude, int radius)
         {
-            var us = CultureInfo.CreateSpecificCulture("en-US");
-            var baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+            CultureInfo us = CultureInfo.CreateSpecificCulture("en-US");
+            string baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
             return $"{baseUrl}location={latitude.ToString(us)},{longitude.ToString(us)}&radius={radius}&key={ApiKey}";
         }
 
@@ -65,7 +65,7 @@ namespace GooglePlaces
 
         public static MemoryStream GetResponse(HttpWebRequest request)
         {
-            using (var response = request.GetResponse() as HttpWebResponse)
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
             {
                 // verificar erros na resposta
                 if (response != null && response.StatusCode != HttpStatusCode.OK)
@@ -74,7 +74,7 @@ namespace GooglePlaces
                         response.StatusCode,
                         response.StatusDescription));
 
-                var result = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                string result = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 return new MemoryStream(Encoding.Unicode.GetBytes(result)) { Position = 0 };
             }
         }

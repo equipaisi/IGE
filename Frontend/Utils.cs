@@ -7,7 +7,7 @@ namespace Frontend
     {
         private static string ParseApplicationVersion()
         {
-            var version = new Version(Application.ProductVersion);
+            Version version = new Version(Application.ProductVersion);
             return $"{version.Major}.{version.Minor}.{version.Revision}";
         }
     }

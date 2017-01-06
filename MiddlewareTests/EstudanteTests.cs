@@ -14,15 +14,15 @@ namespace Middleware.Tests
         [TestMethod()]
         public void EstudanteNomeTest()
         {
-            var e1 = new Aluno("João", null, null, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
+            Aluno e1 = new Aluno("João", null, null, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
             Assert.AreEqual(e1.Nome, "João");
-            var e2 = new Aluno("João", "Ferreira", null, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
+            Aluno e2 = new Aluno("João", "Ferreira", null, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
             Assert.AreEqual(e2.Nome, "João Ferreira");
-            var e3 = new Aluno("João", "Ferreira", new []{"Garcia"}, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
+            Aluno e3 = new Aluno("João", "Ferreira", new []{"Garcia"}, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
             Assert.AreEqual(e3.Nome, "João Garcia Ferreira");
-            var e4 = new Aluno("João", "Ferreira", new[] { "Garcia", "Hernandes" }, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
+            Aluno e4 = new Aluno("João", "Ferreira", new[] { "Garcia", "Hernandes" }, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
             Assert.AreEqual(e4.Nome, "João Garcia Hernandes Ferreira");
-            var e5 = new Aluno("João", null, new[] { "Garcia", "Hernandes" }, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
+            Aluno e5 = new Aluno("João", null, new[] { "Garcia", "Hernandes" }, new DateTime(1990, 07, 23), GeneroSexual.Desconhecido, null);
             Assert.AreEqual(e5.Nome, "João Garcia Hernandes");
         }
 

@@ -9,7 +9,7 @@ namespace Middleware.Tests
         public void ComodidadesTest()
         {
             Assert.AreEqual(new Comodidades(false, false, false), default(Comodidades));
-            var comodidades = new Comodidades(televisao: true, internet: true, servicoDeLimpeza: false);
+            Comodidades comodidades = new Comodidades(televisao: true, internet: true, servicoDeLimpeza: false);
             Assert.AreEqual(comodidades.Televisao, true);
             Assert.AreEqual(comodidades.Internet, true);
             Assert.AreEqual(comodidades.ServicoDeLimpeza, false);

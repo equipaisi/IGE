@@ -55,7 +55,7 @@ namespace Middleware
         {
             _db.Open();
             // TODO: get data from external file
-            var users = new List<IUtilizador>
+            List<IUtilizador> users = new List<IUtilizador>
             {
                 new Funcionario("João", "Ferreira", null, "jferreira", "jferreira", "jferreira@imovcelos.pt"),
                 new Funcionario("Sónia", "Gomes", null, "sgomes", "sgomes", "sgomes@imovcelos.pt"),
@@ -63,7 +63,7 @@ namespace Middleware
             };
 
             // TODO: error handling, make sure each command returns the appropriate result (number of rows affected?)
-            var r1 = _db.PopulateUserTypeTable(new List<string> {"funcionario", "administrador"});
+            int r1 = _db.PopulateUserTypeTable(new List<string> {"funcionario", "administrador"});
             // TODO: var r2 = _db.PopulateUserTable(users);
             _db.Close();
         }
@@ -72,16 +72,16 @@ namespace Middleware
         {
             _db.Open();
             //TODO: get encryption working  _db.GetUserPasswordHash(username) == PasswordHash.HashPassword(password) ? _db.GetUserUserTypeDescription(username) : null;
-            var passwordHash = _db.GetUserPasswordHash(username);
+            string passwordHash = _db.GetUserPasswordHash(username);
             if (passwordHash == null) return null;
-            var usertype =  passwordHash == password ? _db.GetUserUserTypeDescription(username) : null;
+            string usertype =  passwordHash == password ? _db.GetUserUserTypeDescription(username) : null;
             _db.Close();
             return usertype;
         }
 
         private static string CreateUserRows(IEnumerable<IUtilizador> users)
         {
-            var userRows = new List<string>();
+            List<string> userRows = new List<string>();
             userRows.AddRange(users.Select(CreateUserRow));
             return string.Join(",", userRows);
         }

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using GoogleMaps;
+using Place = GooglePlaces.Place;
 
 namespace Frontend
 {
@@ -20,16 +22,16 @@ namespace Frontend
         private void Habitação_Load(object sender, EventArgs e)        
         {
             
-            var local =
+            Location local =
               new GoogleMaps.GoogleMaps().GetCoordinates(
                   $"{labelRua.Text}, {labelCodigoPostal.Text}, {labelLocalidade.Text}");
-            var position = new PointLatLng(local.lat, local.lng);
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-            var markersOverlay = new GMapOverlay("markers");
+            PointLatLng position = new PointLatLng(local.lat, local.lng);
+            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
 
             for (int i = 0; i < pontosDeInteresse.Count; i++)
             {
-                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
+                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(pontosDeInteresse[i].Latitude.ToString()), Convert.ToDouble(pontosDeInteresse[i].Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText = string.Format("{0} \n {1}", pontosDeInteresse[i].Name, FormatPontosDeInteresse(pontosDeInteresse[i].Types));
                 markersOverlay.Markers.Add(marker);
                 mapa.Overlays.Add(markersOverlay);

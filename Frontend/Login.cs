@@ -60,17 +60,17 @@ namespace Frontend
         {
             if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
             {
-                var xpto = new IGE();
+                IGE xpto = new IGE();
                 xpto.Show();
-                var fp = new Principal {MdiParent = xpto};
+                Principal fp = new Principal {MdiParent = xpto};
                 fp.Show();
                 this.Hide(); // a janela fica oculta
             }
             if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
             {
-                var xpto = new IGE();
+                IGE xpto = new IGE();
                 xpto.Show();
-                var adm = new Administrador {MdiParent = IGE.ActiveForm};
+                Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
                 adm.Show();
                 this.Hide(); // a janela fica oculta
             }

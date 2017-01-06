@@ -14,7 +14,7 @@ namespace Frontend
 
         public static object PublishPost(string message, FacebookMediaObject media)
         {
-            var client = new FacebookClient(AccessToken)
+            FacebookClient client = new FacebookClient(AccessToken)
             {
                 AppId = AppId,
                 AppSecret = AppSecret

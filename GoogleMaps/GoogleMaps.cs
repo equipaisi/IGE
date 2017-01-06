@@ -19,7 +19,7 @@ namespace GoogleMaps
         public Location GetCoordinates(string location)
         {
             // TODO: estamos a assumir que é o primeiro elemento
-            var root = Magic<RootObject>(GetCoordinatesUrl(location));
+            RootObject root = Magic<RootObject>(GetCoordinatesUrl(location));
             if (root.status != "OK") return null; // TODO: throw new Custom Exception
             if (root.results.Count < 1) return null;
             return root.results[0].geometry.location;
@@ -28,7 +28,7 @@ namespace GoogleMaps
         public Place GetPlace(string location)
         {
             // TODO: estamos a assumir que é o primeiro elemento
-            var root = Magic<RootObject>(GetCoordinatesUrl(location));
+            RootObject root = Magic<RootObject>(GetCoordinatesUrl(location));
             if (root.status != "OK") return null;
             if (root.results.Count < 1) return null;
             return new Place
@@ -53,7 +53,7 @@ namespace GoogleMaps
 
         public static MemoryStream GetResponse(HttpWebRequest request)
         {
-            using (var response = request.GetResponse() as HttpWebResponse)
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
             {
                 // verificar erros na resposta
                 if (response != null && response.StatusCode != HttpStatusCode.OK)
@@ -62,7 +62,7 @@ namespace GoogleMaps
                         response.StatusCode,
                         response.StatusDescription));
 
-                var result = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                string result = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 return new MemoryStream(Encoding.Unicode.GetBytes(result)) { Position = 0 };
             }
         }

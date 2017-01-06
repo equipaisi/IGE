@@ -9,7 +9,7 @@ namespace Middleware.Tests
         [TestMethod()]
         public void HabitacaoAssoalhadasMaiorIgualQuartosTest()
         {
-            var habitacao = new Habitacao(new[]
+            Habitacao habitacao = new Habitacao(new[]
             {
                 new Quarto(new []{new Cama(TipoCama.Single)}),
                 new Quarto(new []{new Cama(TipoCama.Single), new Cama(TipoCama.Single) })
@@ -20,7 +20,7 @@ namespace Middleware.Tests
         [TestMethod]
         public void HabitacaoNumeroDeQuartosCamasECapacidadeTest()
         {
-            var h = new Habitacao(new[]
+            Habitacao h = new Habitacao(new[]
             {
                 new Quarto(new[] { new Cama(TipoCama.Single)}),
                 new Quarto(new[] { new Cama(TipoCama.Double), new Cama(TipoCama.Single) })
@@ -35,23 +35,23 @@ namespace Middleware.Tests
         [TestMethod()]
         public void HabitacaoTQuartosTest()
         {
-            var h0 = new Habitacao(new IQuarto[0], 3, 2, 120, 1999, new Morada("Rua das Flores", null));
-            var h1 = new Habitacao(new[] {new Quarto(new[] {new Cama(TipoCama.Single)})}, 3, 2, 120, 1999, new Morada("Rua das Flores", null));
-            var h2 = new Habitacao(
+            Habitacao h0 = new Habitacao(new IQuarto[0], 3, 2, 120, 1999, new Morada("Rua das Flores", null));
+            Habitacao h1 = new Habitacao(new[] {new Quarto(new[] {new Cama(TipoCama.Single)})}, 3, 2, 120, 1999, new Morada("Rua das Flores", null));
+            Habitacao h2 = new Habitacao(
                 new[] {new Quarto(new[] {new Cama(TipoCama.Single)}), new Quarto(new[] {new Cama(TipoCama.Single), new Cama(TipoCama.Single)})}, 3, 2, 120, 1999, new Morada("Rua das Flores", null));
-            var h3 =
+            Habitacao h3 =
                 new Habitacao(
                     new[]
                     {new Quarto(new[] {new Cama(TipoCama.Single)}), new Quarto(new[] {new Cama(TipoCama.Single)}), new Quarto(new[] {new Cama(TipoCama.Single)})},
                     3, 2, 120, 1999, new Morada("Rua das Flores", null));
-            var h4 =
+            Habitacao h4 =
                 new Habitacao(
                     new[]
                     {
                         new Quarto(new[] {new Cama(TipoCama.Single)}), new Quarto(new[] {new Cama(TipoCama.Double)}), new Quarto(new[] {new Cama(TipoCama.Single)}),
                         new Quarto(new[] {new Cama(TipoCama.Single)})
                     }, 4, 2, 120, 1999, new Morada("Rua das Flores", null));
-            var h5 =
+            Habitacao h5 =
                 new Habitacao(
                     new[]
                     {

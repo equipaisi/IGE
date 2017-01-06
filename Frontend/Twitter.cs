@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Tweetinvi;
+using Tweetinvi.Models;
 using Tweetinvi.Parameters;
 
 namespace Frontend
@@ -12,9 +13,9 @@ namespace Frontend
         public static long PostTweet(string message, string imgPath)
         {
             Auth.SetUserCredentials(ApiKey, ApiSecret, "811979534086144001-3nxRmr2fSOpLcZpFbC1BvtO8ktUGpJ0", "crTWje5UNtJyr9Ol0yzluUqrGD5xoZelJpssiPUbtjxgM");
-            var image = File.ReadAllBytes(imgPath);
-            var media = Upload.UploadImage(image);
-            var tweet = Tweet.PublishTweet(message, new PublishTweetOptionalParameters
+            byte[] image = File.ReadAllBytes(imgPath);
+            IMedia media = Upload.UploadImage(image);
+            ITweet tweet = Tweet.PublishTweet(message, new PublishTweetOptionalParameters
             {
                 Medias = { media }
             });

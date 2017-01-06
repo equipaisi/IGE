@@ -97,7 +97,7 @@ namespace Backend
         private void CreateDatabase()
         {
             const int expectedAffectedRows = 1;
-            var affectedRows = CreateDatabaseCommand.ExecuteNonQuery();
+            int affectedRows = CreateDatabaseCommand.ExecuteNonQuery();
             if (affectedRows != expectedAffectedRows)
                 throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
         }
@@ -118,7 +118,7 @@ namespace Backend
         private void CreateUserTypeTable()
         {
             const int expectedAffectedRows = 0;
-            var affectedRows = CreateUserTypeTableCommand.ExecuteNonQuery();
+            int affectedRows = CreateUserTypeTableCommand.ExecuteNonQuery();
             if (affectedRows != expectedAffectedRows)
                 throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
         }
@@ -147,7 +147,7 @@ namespace Backend
         private void CreateUserTable()
         {
             const int expectedAffectedRows = 0;
-            var affectedRows = CreateUserTableCommand.ExecuteNonQuery();
+            int affectedRows = CreateUserTableCommand.ExecuteNonQuery();
             if (affectedRows != expectedAffectedRows)
                 throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
         }

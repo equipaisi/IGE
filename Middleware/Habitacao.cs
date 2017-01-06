@@ -110,8 +110,8 @@ namespace Middleware
             {
                 throw new ArgumentException();
             }*/
-            var quartos = new List<IQuarto>(numeroDeQuartos);
-            for (var _ = 0; _ < numeroDeQuartos; _++) quartos.Add(new Quarto());
+            List<IQuarto> quartos = new List<IQuarto>(numeroDeQuartos);
+            for (int _ = 0; _ < numeroDeQuartos; _++) quartos.Add(new Quarto());
             Descricao = descricao;
             Quartos = quartos;
             NumeroDeAssoalhadas = numeroDeAssoalhadas;
