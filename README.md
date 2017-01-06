@@ -2,6 +2,8 @@
 
 Projecto de Engenharia de Software - IPCA 2016
 
+![Screenshot](./screenshot.png)
+
 ## License
 
 All rights reserved.

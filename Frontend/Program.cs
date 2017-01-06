@@ -17,7 +17,7 @@ namespace Frontend
 
             try
             {         
-                Application.Run(new RegistarHabitacao()); // FormLogin
+                Application.Run(new FormLogin()); // FormLogin
             }
             catch (Exception e)
             {
