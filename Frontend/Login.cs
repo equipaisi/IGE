@@ -74,6 +74,7 @@ namespace Frontend
                 adm.Show();
                 this.Hide(); // a janela fica oculta
             }
+            MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
