@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace Frontend
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
-        /// </summary>
+        /// </summary>  
         [STAThread]
-        static void Main()
+        private static void Main()
         { 
            
             Application.EnableVisualStyles();
@@ -17,7 +17,7 @@ namespace Frontend
 
             try
             {         
-                Application.Run(new Login()); // Login
+                Application.Run(new Login());
             }
             catch (Exception e)
             {

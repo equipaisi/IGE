@@ -56,6 +56,9 @@ namespace Frontend
             if (e.KeyCode == Keys.Enter) ValidateCredentials();
         }
 
+        /// <summary>
+        /// Valida as credencias introduzidas.
+        /// </summary>
         private void ValidateCredentials()
         {
             if (textBox_Name.Text == "a" && textBox_Password.Text == "a")

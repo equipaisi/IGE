@@ -135,7 +135,7 @@ namespace Frontend
             #endregion
 
             //2. descriçao textual para publicar no facebook
-            var message = FacebookPost(habitacao);
+            var message = Facebook.CreatePost(habitacao);
 
             //3. publicar no facebook
             try
@@ -148,55 +148,17 @@ namespace Frontend
             }
         }
 
-        private static string FacebookPost(IHabitacao habitacao)
+        private void PostTwitter(IHabitacao habitacao)
         {
-            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
-
-            #region Comodidades
-
-            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
-            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
-            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
-            var com = string.Join(", ", televisao, internet, limpeza);
-            //var comodidades = new StringBuilder(com) {[com.LastIndexOf(",", StringComparison.Ordinal)] = 'e'}; TODO
-
-            #endregion
-
-            var message =
-                $@"{habitacao.Descricao}
-
-Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao
-                    .Morada.Localidade}
-Metros quadrados: {habitacao.MetrosQuadrados} m2
-Ano de construção: {habitacao
-                        .AnoDeConstrucao}
-Custo mensal de um quarto: {habitacao.CustoMensal}€ {despesas}
-Quartos: {habitacao
-                            .NumeroDeQuartos}
-Assoalhadas: {habitacao.NumeroDeAssoalhadas}
-Casas de banho:  {habitacao
-                                .NumeroDeWcs}
-{com}
-";
-            return message;
-        }
-
-        private void PostTwitter(Habitacao habitacao)
-        {
-            #region Mensagem
-
-            var custosIncluidos = habitacao.IncluiDespesas ? " (c/ custos inc.)" : "";
-            var message =
-                $"{habitacao.TQuartos}, {habitacao.MetrosQuadrados} m2, {habitacao.CustoMensal} €/mês por quarto{custosIncluidos}, contruído em {habitacao.AnoDeConstrucao}, {habitacao.Morada.Localidade}";
-            // Um tweet não pode ter mais do que a 140 caracteres
-            if (message.Length > 140) return;
-
-            #endregion
-
             try
             {
+                var message = Twitter.CreateTweet(habitacao);
                 var photos = _imgsFilepath.Take(Twitter.MaxAllowedUploadedPhotos);
-                var tweetId = Twitter.PostTweet(message, photos);
+                Twitter.PostTweet(message, photos);
+            }
+            catch (TweetTooLongException)
+            {
+                MessageBox.Show($"O texto da publicação no Twitter excede os 140 caracteres.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception e)
             {
