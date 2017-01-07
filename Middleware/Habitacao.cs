@@ -84,6 +84,11 @@ namespace Middleware
         /// Todo o tipo de informação extra sobre a habitação deve ser introduzida nesta propriedade.
         /// </summary>
         string Descricao { get; set; }
+
+        /// <summary>
+        /// Retorna uma representação textual do número de quartos existentes na habitação.
+        /// </summary>
+        string TQuartos { get; }
     }
 
     /// <summary>
