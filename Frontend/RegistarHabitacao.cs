@@ -201,7 +201,7 @@ namespace Frontend
                 }
                 AtualizarFoto(_imgsFilepath.LastOrDefault());
             }
-            MessageBox.Show(_imgsFilepath.Count.ToString());
+            //MessageBox.Show(_imgsFilepath.Count.ToString());
         }
 
         /// <summary>

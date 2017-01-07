@@ -9,6 +9,8 @@ namespace Frontend
 {
     public static class Facebook
     {
+        private const int MaxAllowedUploadedPhotos = 5;
+
         private const string PageId = "1790653341199179";
         private const string AppId = "1797812087146101";
         private const string AppSecret = "73d6a5ade078880f0bf2e0f71360118a";
@@ -26,18 +28,6 @@ namespace Frontend
             // Precisamos de pelo menos uma foto no post
             if (images.Count < 1) throw new NoPhotosException();
 
-            // TODO: If you upload a PNG file, try keep the file size below 1 MB. PNG files larger than 1 MB may appear pixelated after upload.
-            // TODO: Check the file size of your photos. We recommend uploading photos under 4MB.
-
-            string ultimaFoto = images.First();            
-            Image img = Image.FromFile(ultimaFoto);
-            byte[] foto = (byte[])new ImageConverter().ConvertTo(img, typeof(byte[]));
-            FacebookMediaObject media = new FacebookMediaObject
-            {
-                ContentType = "image/jpeg",
-                FileName = Path.GetFileName(ultimaFoto),
-            }.SetValue(foto);
-
             // Criar um cliente autenticado
             FacebookClient client = new FacebookClient(AccessToken)
             {
@@ -45,12 +35,45 @@ namespace Frontend
                 AppSecret = AppSecret
             };
 
-            // Publicar post e retornar a resposta
-            return client.Post($"{PageId}/photos?", new Dictionary<string, object>
+            #region Imagens
+            // TODO: If you upload a PNG file, try keep the file size below 1 MB. PNG files larger than 1 MB may appear pixelated after upload.
+            // TODO: Check the file size of your photos. We recommend uploading photos under 4MB.
+
+            List<string> ids = new List<string>(MaxAllowedUploadedPhotos);
+            foreach (var imagePath in images.Take(MaxAllowedUploadedPhotos))
             {
-                {"message", message},
-                {"source", media}
-            });
+                Image img = Image.FromFile(imagePath);
+                byte[] foto = (byte[])new ImageConverter().ConvertTo(img, typeof(byte[]));
+                FacebookMediaObject media = new FacebookMediaObject
+                {
+                    ContentType = "image/jpeg", // BUG: what if this image is NOT a jpeg?
+                    FileName = Path.GetFileName(imagePath),
+                }.SetValue(foto);
+
+                var response = client.Post($"{PageId}/photos?", new Dictionary<string, object>
+                {
+                    {"source", media},
+                    {"published", false}
+                }) as JsonObject;
+
+                if (response != null) ids.Add(response["id"] as string);
+            }
+            #endregion
+
+            // Publicar post e retornar a resposta
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"message", message}
+            };
+
+            for (int i = 0; i < ids.Count; i++)
+            {
+                var a = "\"media_fbid\"";
+                var b = $"\"{ids[i]}\"";
+                parameters[$"attached_media[{i}]"] = $"{{{a}:{b}}}";
+            }
+
+            return client.Post($"{PageId}/feed?", parameters);
         }
 
         /// <summary>
