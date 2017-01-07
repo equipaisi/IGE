@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Frontend
 {
-    public class UniqueList<T> : IEnumerable<T>
+    public class UniqueList<T> : IList<T>
     {
         private List<T> _list;
 
@@ -49,6 +49,7 @@ namespace Frontend
         public bool Remove(T item) => _list.Remove(item);
 
         public int Count => _list.Count;
+        public bool IsReadOnly => false;
         public int IndexOf(T item) => _list.IndexOf(item);
 
         public void Insert(int index, T item)

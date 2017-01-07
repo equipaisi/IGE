@@ -10,6 +10,8 @@ using Facebook;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.WindowsForms;
+using GoogleMaps;
+using Place = GooglePlaces.Place;
 
 namespace Frontend
 {
@@ -48,13 +50,13 @@ namespace Frontend
         {
             #region Receber Dados
 
-            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
+            Morada morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
                 textBoxLocalidade.Text);
 
-            var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
+            int numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
             // Metros Quadrados
-            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
+            int metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
                 "Valor de \"Metros Quadrados\" inválido");
 
             // Ano de Construção
@@ -73,40 +75,51 @@ namespace Frontend
             }
 
             // Nº de Assoalhadas
-            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
+            int numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
                 "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
 
             // Nº de Quartos
-            var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
+            int numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
                 "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
 
             #endregion
 
             // Comodidades
-            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
+            Comodidades comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
                 checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
-            var descricao = textBoxDescricao.Text.Trim();
+            string descricao = textBoxDescricao.Text.Trim();
 
             // Despesas incluidas?
-            var despesasIncluidas = checkBoxDespesasIncluidas.Checked;
+            bool despesasIncluidas = checkBoxDespesasIncluidas.Checked;
 
-            var custoMensal = decimal.Parse(textBoxPreco.Text);
+            decimal custoMensal = decimal.Parse(textBoxPreco.Text);
 
             #region Validar
 
             // validar
             // e depois
-            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
+            Habitacao habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
                 anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
 
             #endregion
 
             #region Redes Sociais
 
-            if (checkBoxFacebook.Checked) PostFacebook(habitacao);
-            if (checkBoxTwitter.Checked) PostTwitter(habitacao);
+            try
+            {
+                if (checkBoxFacebook.Checked) PostFacebook(habitacao);
+                if (checkBoxTwitter.Checked) PostTwitter(habitacao);
+            }
+            catch (NoPhotosException)
+            {
+                return;
+            }
+            catch (TweetTooLongException)
+            {
+                return;
+            }
 
             MessageBox.Show("Habitação registada com sucesso.", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
@@ -115,32 +128,17 @@ namespace Frontend
 
         private void PostFacebook(IHabitacao habitacao)
         {
-            //1. imagens da habitação
-
-            #region Imagem
-
-            var ultimaFoto = _imgsFilepath.LastOrDefault();
-            if (string.IsNullOrEmpty(ultimaFoto))
-            {
-                throw new Exception("Por favor, insira uma ou mais imagens da habitação");
-            }
-            var img = Image.FromFile(ultimaFoto);
-            var foto = (byte[])new ImageConverter().ConvertTo(img, typeof(byte[]));
-            var mediaObject = new FacebookMediaObject
-            {
-                ContentType = "image/jpeg",
-                FileName = Path.GetFileName(ultimaFoto),
-            }.SetValue(foto);
-
-            #endregion
-
-            //2. descriçao textual para publicar no facebook
-            var message = Facebook.CreatePost(habitacao);
-
-            //3. publicar no facebook
             try
             {
-                var resp = Facebook.PublishPost(message, mediaObject);
+                // texto do post a publicar
+                string texto = Facebook.CreatePost(habitacao);
+                // publicar post/story
+                Facebook.PublishPost(texto, _imgsFilepath);
+            }
+            catch (NoPhotosException)
+            {
+                MessageBox.Show("Por favor, insira uma ou mais imagens da habitação.", "Publicação no Facebook", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (Exception e)
             {
@@ -152,13 +150,22 @@ namespace Frontend
         {
             try
             {
-                var message = Twitter.CreateTweet(habitacao);
-                var photos = _imgsFilepath.Take(Twitter.MaxAllowedUploadedPhotos);
-                Twitter.PostTweet(message, photos);
+                // texto do tweet a publicar
+                string texto = Twitter.CreateTweet(habitacao);
+                // fotos a publicar
+                UniqueList<string> fotos = _imgsFilepath;
+                // publicar tweet
+                Twitter.PostTweet(texto, fotos);
+            }
+            catch (NoPhotosException)
+            {
+                MessageBox.Show("Por favor, insira uma ou mais imagens da habitação.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (TweetTooLongException)
             {
-                MessageBox.Show($"O texto da publicação no Twitter excede os 140 caracteres.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O texto da publicação no Twitter excede os 140 caracteres.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             catch (Exception e)
             {
@@ -185,10 +192,10 @@ namespace Frontend
             openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png";
             // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
             openFileDialog1.Multiselect = true; // Aceitar múltiplas fotos
-            var result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
+            DialogResult result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                foreach (var filename in openFileDialog1.FileNames)
+                foreach (string filename in openFileDialog1.FileNames)
                 {
                     _imgsFilepath.Add(filename);
                 }
@@ -217,10 +224,10 @@ namespace Frontend
             // se nenhuma imagem estiver a ser exibida
             if (_displayedImage == null) return;
             // se alguma imagem estiver a ser exibida
-            var indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
+            int indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
             if (indexDisplayedImage > 0) // se houver mais de uma foto
             {
-                var previousPhoto = _imgsFilepath[indexDisplayedImage - 1];
+                string previousPhoto = _imgsFilepath[indexDisplayedImage - 1];
                 AtualizarFoto(previousPhoto);
             }
         }
@@ -233,10 +240,10 @@ namespace Frontend
             // se nenhuma imagem estiver a ser exibida
             if (_displayedImage == null) return;
             // se alguma imagem estiver a ser exibida
-            var indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
+            int indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
             if (indexDisplayedImage < _imgsFilepath.Count - 1)
             {
-                var nextPhoto = _imgsFilepath[indexDisplayedImage + 1];
+                string nextPhoto = _imgsFilepath[indexDisplayedImage + 1];
                 AtualizarFoto(nextPhoto);
             }
         }
@@ -278,7 +285,7 @@ namespace Frontend
 
         private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
         {
-            var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            PictureBox transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
 
@@ -298,23 +305,23 @@ namespace Frontend
 
         private void buttonProcurar_Click(object sender, EventArgs e)
         {
-            var local =
+            Location local =
                 new GoogleMaps.GoogleMaps().GetCoordinates(
                     $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
             if (local == null) return;
-            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-            var markersOverlay = new GMapOverlay("markers");
+            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
 
             gMapControl.Overlays.Clear();
-            foreach (var t in pontosDeInteresse)
+            foreach (Place t in pontosDeInteresse)
             {
-                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
+                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText = $"{t.Name} \n {Utils.FormatPontosDeInteresse(t.Types)}";
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);
             }
 
-            var habitacaoMarker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.red);
+            GMarkerGoogle habitacaoMarker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.red);
             habitacaoMarker.ToolTipText = "Habitação";
             markersOverlay.Markers.Add(habitacaoMarker);
 

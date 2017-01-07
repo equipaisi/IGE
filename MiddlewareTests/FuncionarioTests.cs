@@ -27,12 +27,12 @@ namespace Middleware.Tests
         public void FuncionarioNomeCompletoTest()
         {
             Funcionario f1 = new Funcionario("João", "Ferreira", null, "jferreira", "supersecreta182!", "omota@imovcelos.pt");
-            Assert.AreEqual(f1.NomeCompleto, "João Ferreira");
+            Assert.AreEqual("João Ferreira", f1.NomeCompleto);
             f1.NomeCompleto = "João Castro Ferreira";
-            Assert.AreEqual(f1.PrimeiroNome, "João");
-            Assert.AreEqual(f1.NomesIntermedios.ToList(), new List<string> { "Castro" });
-            Assert.AreEqual(f1.UltimoNome, "Ferreira");
-            Assert.AreEqual(f1.NomeCompleto, "João Castro Ferreira");
+            Assert.AreEqual("João", f1.PrimeiroNome);
+            Assert.AreEqual(new List<string> { "Castro" }, f1.NomesIntermedios.ToList());
+            Assert.AreEqual("Ferreira", f1.UltimoNome);
+            Assert.AreEqual("João Castro Ferreira", f1.NomeCompleto);
         }
     }
 }

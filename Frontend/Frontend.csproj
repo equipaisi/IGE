@@ -190,6 +190,7 @@
     <Compile Include="Mapa.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Exceptions.cs" />
     <Compile Include="NovoAluno.cs">
       <SubType>Form</SubType>
     </Compile>

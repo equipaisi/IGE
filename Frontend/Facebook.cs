@@ -1,5 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using Facebook;
 using Middleware;
 
@@ -17,13 +19,33 @@ namespace Frontend
         /// Publica um post na página do Facebook.
         /// </summary>
         /// <param name="message">Post a publicar</param>
-        public static object PublishPost(string message, FacebookMediaObject media)
+        /// <param name="images">Imagens incluídas no post</param>
+        /// <exception cref="NoPhotosException">Não foi incluida nenhuma foto no post</exception>
+        public static object PublishPost(string message, IList<string> images)
         {
+            // Precisamos de pelo menos uma foto no post
+            if (images.Count < 1) throw new NoPhotosException();
+
+            // TODO: If you upload a PNG file, try keep the file size below 1 MB. PNG files larger than 1 MB may appear pixelated after upload.
+            // TODO: Check the file size of your photos. We recommend uploading photos under 4MB.
+
+            string ultimaFoto = images.First();            
+            Image img = Image.FromFile(ultimaFoto);
+            byte[] foto = (byte[])new ImageConverter().ConvertTo(img, typeof(byte[]));
+            FacebookMediaObject media = new FacebookMediaObject
+            {
+                ContentType = "image/jpeg",
+                FileName = Path.GetFileName(ultimaFoto),
+            }.SetValue(foto);
+
+            // Criar um cliente autenticado
             FacebookClient client = new FacebookClient(AccessToken)
             {
                 AppId = AppId,
                 AppSecret = AppSecret
             };
+
+            // Publicar post e retornar a resposta
             return client.Post($"{PageId}/photos?", new Dictionary<string, object>
             {
                 {"message", message},
@@ -36,18 +58,18 @@ namespace Frontend
         /// </summary>
         public static string CreatePost(IHabitacao habitacao)
         {
-            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
+            string despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
 
             #region Comodidades
 
-            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
-            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
-            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
-            var com = string.Join(", ", new List<string> { televisao, internet, limpeza });
+            string televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
+            string internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
+            string limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
+            string com = string.Join(", ", new List<string> { televisao, internet, limpeza });
 
             #endregion
 
-            var message =
+            string message =
                 $@"{habitacao.Descricao}
 
 Morada: {habitacao.Morada.Arruamento}, {habitacao.Morada.CodigoPostal}, {habitacao
