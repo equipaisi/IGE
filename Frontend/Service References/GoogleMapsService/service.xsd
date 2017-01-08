@@ -29,4 +29,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DistanceBetween">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="origin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GoogleMaps" minOccurs="0" name="mode" type="q3:TravelMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistanceBetweenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DistanceBetweenResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

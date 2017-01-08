@@ -19,6 +19,12 @@
   <wsdl:message name="IGoogleMaps_GetPlace_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlaceResponse" />
   </wsdl:message>
+  <wsdl:message name="IGoogleMaps_DistanceBetween_InputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceBetween" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleMaps_DistanceBetween_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DistanceBetweenResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGoogleMaps">
     <wsdl:operation name="GetCoordinates">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleMaps/GetCoordinates" message="tns:IGoogleMaps_GetCoordinates_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="GetPlace">
       <wsdl:input wsaw:Action="http://tempuri.org/IGoogleMaps/GetPlace" message="tns:IGoogleMaps_GetPlace_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGoogleMaps/GetPlaceResponse" message="tns:IGoogleMaps_GetPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceBetween">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleMaps/DistanceBetween" message="tns:IGoogleMaps_DistanceBetween_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleMaps/DistanceBetweenResponse" message="tns:IGoogleMaps_DistanceBetween_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGoogleMaps" type="tns:IGoogleMaps">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlace">
       <soap:operation soapAction="http://tempuri.org/IGoogleMaps/GetPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceBetween">
+      <soap:operation soapAction="http://tempuri.org/IGoogleMaps/DistanceBetween" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

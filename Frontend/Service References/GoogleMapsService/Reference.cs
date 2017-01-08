@@ -8,180 +8,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using GoogleMaps.DistanceMatrix;
+using GoogleMaps.Geocoding;
+
 namespace Frontend.GoogleMapsService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://schemas.datacontract.org/2004/07/GoogleMaps")]
-    [System.SerializableAttribute()]
-    public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double latField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double lngField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double lat {
-            get {
-                return this.latField;
-            }
-            set {
-                if ((this.latField.Equals(value) != true)) {
-                    this.latField = value;
-                    this.RaisePropertyChanged("lat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double lng {
-            get {
-                return this.lngField;
-            }
-            set {
-                if ((this.lngField.Equals(value) != true)) {
-                    this.lngField = value;
-                    this.RaisePropertyChanged("lng");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Place", Namespace="http://schemas.datacontract.org/2004/07/GoogleMaps")]
-    [System.SerializableAttribute()]
-    public partial class Place : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FormattedAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LatitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LongitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PlaceIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FormattedAddress {
-            get {
-                return this.FormattedAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FormattedAddressField, value) != true)) {
-                    this.FormattedAddressField = value;
-                    this.RaisePropertyChanged("FormattedAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Latitude {
-            get {
-                return this.LatitudeField;
-            }
-            set {
-                if ((this.LatitudeField.Equals(value) != true)) {
-                    this.LatitudeField = value;
-                    this.RaisePropertyChanged("Latitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Longitude {
-            get {
-                return this.LongitudeField;
-            }
-            set {
-                if ((this.LongitudeField.Equals(value) != true)) {
-                    this.LongitudeField = value;
-                    this.RaisePropertyChanged("Longitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PlaceId {
-            get {
-                return this.PlaceIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlaceIdField, value) != true)) {
-                    this.PlaceIdField = value;
-                    this.RaisePropertyChanged("PlaceId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GoogleMapsService.IGoogleMaps")]
     public interface IGoogleMaps {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/GetCoordinates", ReplyAction="http://tempuri.org/IGoogleMaps/GetCoordinatesResponse")]
-        Frontend.GoogleMapsService.Location GetCoordinates(string location);
+        Location GetCoordinates(string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/GetCoordinates", ReplyAction="http://tempuri.org/IGoogleMaps/GetCoordinatesResponse")]
-        System.Threading.Tasks.Task<Frontend.GoogleMapsService.Location> GetCoordinatesAsync(string location);
+        System.Threading.Tasks.Task<Location> GetCoordinatesAsync(string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/GetPlace", ReplyAction="http://tempuri.org/IGoogleMaps/GetPlaceResponse")]
-        Frontend.GoogleMapsService.Place GetPlace(string location);
+        Place GetPlace(string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/GetPlace", ReplyAction="http://tempuri.org/IGoogleMaps/GetPlaceResponse")]
-        System.Threading.Tasks.Task<Frontend.GoogleMapsService.Place> GetPlaceAsync(string location);
+        System.Threading.Tasks.Task<Place> GetPlaceAsync(string location);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/DistanceBetween", ReplyAction="http://tempuri.org/IGoogleMaps/DistanceBetweenResponse")]
+        long DistanceBetween(string origin, string destination, TravelMode mode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGoogleMaps/DistanceBetween", ReplyAction="http://tempuri.org/IGoogleMaps/DistanceBetweenResponse")]
+        System.Threading.Tasks.Task<long> DistanceBetweenAsync(string origin, string destination, TravelMode mode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -211,20 +64,28 @@ namespace Frontend.GoogleMapsService {
                 base(binding, remoteAddress) {
         }
         
-        public Frontend.GoogleMapsService.Location GetCoordinates(string location) {
+        public Location GetCoordinates(string location) {
             return base.Channel.GetCoordinates(location);
         }
         
-        public System.Threading.Tasks.Task<Frontend.GoogleMapsService.Location> GetCoordinatesAsync(string location) {
+        public System.Threading.Tasks.Task<Location> GetCoordinatesAsync(string location) {
             return base.Channel.GetCoordinatesAsync(location);
         }
         
-        public Frontend.GoogleMapsService.Place GetPlace(string location) {
+        public Place GetPlace(string location) {
             return base.Channel.GetPlace(location);
         }
         
-        public System.Threading.Tasks.Task<Frontend.GoogleMapsService.Place> GetPlaceAsync(string location) {
+        public System.Threading.Tasks.Task<Place> GetPlaceAsync(string location) {
             return base.Channel.GetPlaceAsync(location);
+        }
+        
+        public long DistanceBetween(string origin, string destination, TravelMode mode) {
+            return base.Channel.DistanceBetween(origin, destination, mode);
+        }
+        
+        public System.Threading.Tasks.Task<long> DistanceBetweenAsync(string origin, string destination, TravelMode mode) {
+            return base.Channel.DistanceBetweenAsync(origin, destination, mode);
         }
     }
 }

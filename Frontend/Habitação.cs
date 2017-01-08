@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using GooglePlaces;
-using Location = GoogleMaps.Location;
+using Location = GoogleMaps.Geocoding.Location;
 
 namespace Frontend
 {

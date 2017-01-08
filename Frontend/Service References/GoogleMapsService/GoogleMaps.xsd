@@ -16,4 +16,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Place" nillable="true" type="tns:Place" />
+  <xs:simpleType name="TravelMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Driving" />
+      <xs:enumeration value="Walking" />
+      <xs:enumeration value="Bicycling" />
+      <xs:enumeration value="Transit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TravelMode" nillable="true" type="tns:TravelMode" />
 </xs:schema>

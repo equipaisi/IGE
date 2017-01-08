@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Middleware;
-using Facebook;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GoogleMaps;
+using GoogleMaps.DistanceMatrix;
+using GoogleMaps.Geocoding;
 using Place = GooglePlaces.Place;
 
 namespace Frontend
@@ -197,6 +197,8 @@ namespace Frontend
             return result;
         }
 
+        #region pictureBoxImagem
+
         /// <summary>
         /// Adiciona uma ou mais fotos.
         /// </summary>
@@ -261,11 +263,17 @@ namespace Frontend
             }
         }
 
+        /// <summary>
+        /// Atualiza a foto a ser apresentada no <see cref="pictureBoxImagem"/>.
+        /// </summary>
+        /// <param name="filepath">Caminho completo da foto a ser apresentada</param>
         private void AtualizarFoto(string filepath)
         {
             pictureBoxImagem.Image = filepath != null ? Image.FromFile(filepath) : null;
             _displayedImage = filepath;
         }
+
+        #endregion
 
         private void maskedTextBoxCodigoPostal_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -318,23 +326,30 @@ namespace Frontend
 
         private void buttonProcurar_Click(object sender, EventArgs e)
         {
-            Location local =
-                new GoogleMaps.GoogleMaps().GetCoordinates(
-                    $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
-            if (local == null) return;
-            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            GoogleMaps.GoogleMaps googleMaps = new GoogleMaps.GoogleMaps();
 
+            Location habitacao =
+                googleMaps.GetCoordinates(
+                    $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
+            if (habitacao == null) return;
+
+            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
+
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
             gMapControl.Overlays.Clear();
+
             foreach (Place t in pontosDeInteresse)
             {
+                Location pontoDeInteresse = new Location {lat = t.Latitude, lng = t.Longitude};
+                int distance = googleMaps.DistanceBetween(habitacao, pontoDeInteresse, TravelMode.Walking);
+
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
-                marker.ToolTipText = $"{t.Name} \n {Utils.FormatPontosDeInteresse(t.Types)}";
+                marker.ToolTipText = $"{t.Name}\n{Utils.FormatPontosDeInteresse(t.Types)}\nDistância: {distance}m";
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);
             }
 
-            GMarkerGoogle habitacaoMarker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.red);
+            GMarkerGoogle habitacaoMarker = new GMarkerGoogle(new PointLatLng(habitacao.lat, habitacao.lng), GMarkerGoogleType.red);
             habitacaoMarker.ToolTipText = "Habitação";
             markersOverlay.Markers.Add(habitacaoMarker);
 
