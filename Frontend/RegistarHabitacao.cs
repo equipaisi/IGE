@@ -38,6 +38,11 @@ namespace Frontend
             textBoxRua.Text = "R. Duques de Bragança 185";
             maskedTextBoxCodigoPostal.Text = "4750-272";
             textBoxLocalidade.Text = "Barcelos";
+            textBoxMetrosQuadrados.Text = "56";
+            comboBoxNumDeAssoalhadas.Text = "5";
+            comboBoxNumDeQuartos.Text = "3";
+            comboBoxNumDeWC.Text = "1";
+            textBoxPreco.Text = "179";
         }
 
         /// <summary>
@@ -112,15 +117,7 @@ namespace Frontend
                 if (checkBoxFacebook.Checked) PostFacebook(habitacao);
                 if (checkBoxTwitter.Checked) PostTwitter(habitacao);
             }
-            catch (NoPhotosException)
-            {
-                return;
-            }
-            catch (TweetTooLongException)
-            {
-                return;
-            }
-            catch (ExcessiveImageFilesizeException)
+            catch (Exception)
             {
                 return;
             }
@@ -176,6 +173,11 @@ namespace Frontend
             catch (TweetTooLongException)
             {
                 MessageBox.Show("O texto da publicação no Twitter excede os 140 caracteres.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            catch (ExcessiveImageFilesizeException)
+            {
+                MessageBox.Show("Uma imagem excede o tamanho permitido pelo Twitter.", "Publicação no Twitter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             catch (Exception e)

@@ -10,8 +10,14 @@ namespace Frontend
 {
     public static class Twitter
     {
-        // Número máximo de fotos permitidas pelo Twitter em cada tweet
+        /// <summary>
+        /// Número máximo de fotos permitidas pelo Twitter em cada tweet
+        /// </summary>
         private const int MaxAllowedUploadedPhotos = 4;
+        /// <summary>
+        /// Número máximo de bytes permitido por foto num tweet <see href="https://dev.twitter.com/rest/media/uploading-media#imagerecs"/>
+        /// </summary>
+        private const int MaxPhotoSizeInMegabytes = 3000000;
 
         private const string ApiKey = "S4NZKcLJteWjn65vZ8BpwIMiM";
         private const string ApiSecret = "ZCjb25BkYmv1xPcjUjSoPzh5HylLv1NCxBHGnvif4uxjGOojmG";
@@ -37,6 +43,11 @@ namespace Frontend
             List<IMedia> media = new List<IMedia>(MaxAllowedUploadedPhotos);
             foreach (var imagePath in images.Take(MaxAllowedUploadedPhotos))
             {
+                // Verificar se o tamanho da foto não excede o permitido pelo Twitter
+                long imageSize = new FileInfo(imagePath).Length;
+                if (imageSize > MaxPhotoSizeInMegabytes)
+                    throw new ExcessiveImageFilesizeException(); // Path.GetFileName(imagePath), imageSize
+
                 byte[] image = File.ReadAllBytes(imagePath);
                 media.Add(Upload.UploadImage(image));
             }
