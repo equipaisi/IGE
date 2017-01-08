@@ -11,7 +11,7 @@ namespace GoogleMaps
         /// Retorna as coordenadas de uma determinada <param name="location">localidade</param>.
         /// </summary>
         /// <param name="location">Localidade</param>
-        /// <returns></returns>
+        /// <returns>Latitude e longitude da localidade</returns>
         [OperationContract]
         Location GetCoordinates(string location);
 
@@ -19,7 +19,6 @@ namespace GoogleMaps
         /// Retorna o <see cref="Place"/> de uma determinada <param name="location">localidade</param>.
         /// </summary>
         /// <param name="location">Localidade</param>
-        /// <returns></returns>
         [OperationContract]
         Place GetPlace(string location);
     }

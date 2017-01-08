@@ -4,15 +4,14 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
-using System.ServiceModel;
 using System.Text;
 
 namespace GooglePlaces
 {
     public class GooglePlaces : IGooglePlaces
     {
+        private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
         private const string ApiKey = "AIzaSyBPFsCVlF0_aZE46Tqutha3GVrqclwx7s0";
 
         #region Public API
@@ -47,23 +46,21 @@ namespace GooglePlaces
         #region Private Methods
 
         /// <summary>
-        /// Retorna o URL para um Nearby Search. 
+        /// Retorna o URL para realizar um Nearby Search. 
         /// </summary>
         /// <param name="latitude">Latitude</param>
         /// <param name="longitude">Longitude</param>
         /// <param name="radius">Raio (em metros) da pesquisa</param>
-        /// <returns></returns>
-        public string CreateRequestUrl(double latitude, double longitude, int radius)
+        private string CreateRequestUrl(double latitude, double longitude, int radius)
         {
             CultureInfo us = CultureInfo.CreateSpecificCulture("en-US");
-            string baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
-            return $"{baseUrl}location={latitude.ToString(us)},{longitude.ToString(us)}&radius={radius}&key={ApiKey}";
+            return $"{BaseUrl}location={latitude.ToString(us)},{longitude.ToString(us)}&radius={radius}&key={ApiKey}";
         }
 
         private static T Magic<T>(string url)
             => (T)new DataContractJsonSerializer(typeof(T)).ReadObject(GetResponse(CreateRequest(url)));
 
-        public static MemoryStream GetResponse(HttpWebRequest request)
+        private static MemoryStream GetResponse(HttpWebRequest request)
         {
             using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
             {
@@ -79,7 +76,7 @@ namespace GooglePlaces
             }
         }
 
-        public static HttpWebRequest CreateRequest(string requestUrl) => WebRequest.Create(requestUrl) as HttpWebRequest;
+        private static HttpWebRequest CreateRequest(string requestUrl) => WebRequest.Create(requestUrl) as HttpWebRequest;
 
         #endregion
     }
