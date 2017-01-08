@@ -22,7 +22,7 @@ namespace Frontend
         /// Publica um tweet na conta do Twitter.
         /// </summary>
         /// <param name="message">Tweet a publicar</param>
-        /// <param name="images">Imagens incluídas no tweet</param>
+        /// <param name="images">Fotos incluídas no tweet</param>
         /// <exception cref="NoPhotosException">Não foi incluida nenhuma foto no tweet</exception>
         /// <returns>Id do Tweet publicado</returns>
         public static long PostTweet(string message, IList<string> images)

@@ -9,7 +9,8 @@ namespace Frontend
 {
     public static class Facebook
     {
-        private const int MaxAllowedUploadedPhotos = 5;
+        private const int MaxAllowedUploadedPhotos = 5;  
+        private const int MaxPhotoSizeInMegabytes = 4000000;
 
         private const string PageId = "1790653341199179";
         private const string AppId = "1797812087146101";
@@ -21,7 +22,8 @@ namespace Frontend
         /// Publica um post na página do Facebook.
         /// </summary>
         /// <param name="message">Post a publicar</param>
-        /// <param name="images">Imagens incluídas no post</param>
+        /// <param name="images">Fotos incluídas no post</param>
+        /// <exception cref="ExcessiveImageFilesizeException">Tamanho de foto demasiado grande</exception>
         /// <exception cref="NoPhotosException">Não foi incluida nenhuma foto no post</exception>
         public static object PublishPost(string message, IList<string> images)
         {
@@ -37,20 +39,24 @@ namespace Frontend
 
             #region Imagens
             // TODO: If you upload a PNG file, try keep the file size below 1 MB. PNG files larger than 1 MB may appear pixelated after upload.
-            // TODO: Check the file size of your photos. We recommend uploading photos under 4MB.
 
             List<string> ids = new List<string>(MaxAllowedUploadedPhotos);
             foreach (var imagePath in images.Take(MaxAllowedUploadedPhotos))
             {
+                // De acordo com a documentacao Graph API: "Check the file size of your photos. We recommend uploading photos under 4MB."
+                long imageSize = new FileInfo(imagePath).Length;
+                if (imageSize > MaxPhotoSizeInMegabytes)
+                    throw new ExcessiveImageFilesizeException(); // Path.GetFileName(imagePath), imageSize
+
                 Image img = Image.FromFile(imagePath);
-                byte[] foto = (byte[])new ImageConverter().ConvertTo(img, typeof(byte[]));
+                byte[] foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
                 FacebookMediaObject media = new FacebookMediaObject
                 {
                     ContentType = "image/jpeg", // BUG: what if this image is NOT a jpeg?
                     FileName = Path.GetFileName(imagePath),
                 }.SetValue(foto);
 
-                var response = client.Post($"{PageId}/photos?", new Dictionary<string, object>
+                JsonObject response = client.Post($"{PageId}/photos?", new Dictionary<string, object>
                 {
                     {"source", media},
                     {"published", false}

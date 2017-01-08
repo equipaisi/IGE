@@ -120,6 +120,10 @@ namespace Frontend
             {
                 return;
             }
+            catch (ExcessiveImageFilesizeException)
+            {
+                return;
+            }
 
             MessageBox.Show("Habitação registada com sucesso.", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
@@ -137,7 +141,14 @@ namespace Frontend
             }
             catch (NoPhotosException)
             {
-                MessageBox.Show("Por favor, insira uma ou mais imagens da habitação.", "Publicação no Facebook", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, insira uma ou mais imagens da habitação.", "Publicação no Facebook",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            catch (ExcessiveImageFilesizeException)
+            {
+                MessageBox.Show("Uma imagem excede o tamanho permitido pelo Facebook.", "Publicação no Facebook",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             catch (Exception e)
