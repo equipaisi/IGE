@@ -58,18 +58,17 @@ namespace Backend
 
         private MySqlCommand GetUserTypeCommand(string username)
         {
-            return new MySqlCommand($"SELECT CODIGO FROM `{DatabaseName}`.`TBL_UTILIZADOR` WHERE NOME_CONTA = '{username}';", _con);
+            return new MySqlCommand($"SELECT Codigo FROM `{DatabaseName}`.`Utilizador` WHERE Username = '{username}';", _con);
         }
 
         public string ValidateCredentials(string username, string password)
         {
-            string passwordDb = (string) ValidateCredentialsCommand(username).ExecuteScalar();
-            return passwordDb;
+            return (string) ValidateCredentialsCommand(username).ExecuteScalar();
         }
 
         private MySqlCommand ValidateCredentialsCommand(string username)
         {
-            return new MySqlCommand($"SELECT PASSWORD FROM `{DatabaseName}`.`TBL_UTILIZADOR` WHERE NOME_CONTA = '{username}';", _con);
+            return new MySqlCommand($"SELECT Password FROM `{DatabaseName}`.`Utilizador` WHERE Username = '{username}';", _con);
         }
 
         #endregion
