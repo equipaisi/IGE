@@ -75,6 +75,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.mapa = new Frontend.Mapa();
+            this.labelmetros = new System.Windows.Forms.Label();
+            this.labelano = new System.Windows.Forms.Label();
+            this.labelassoalhadas = new System.Windows.Forms.Label();
+            this.labelquartos = new System.Windows.Forms.Label();
+            this.labelprec = new System.Windows.Forms.Label();
+            this.labelwcs = new System.Windows.Forms.Label();
+            this.labelprop = new System.Windows.Forms.Label();
             this.groupBoxFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
@@ -395,6 +402,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelwcs);
+            this.groupBox1.Controls.Add(this.labelprec);
+            this.groupBox1.Controls.Add(this.labelquartos);
+            this.groupBox1.Controls.Add(this.labelassoalhadas);
+            this.groupBox1.Controls.Add(this.labelano);
+            this.groupBox1.Controls.Add(this.labelmetros);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label3);
@@ -416,9 +429,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(208, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(84, 17);
             this.label2.TabIndex = 83;
-            this.label2.Text = "Nº de WCs: 2 ";
+            this.label2.Text = "Nº de WCs: ";
             // 
             // checkBox1
             // 
@@ -439,48 +452,49 @@
             this.label3.Location = new System.Drawing.Point(11, 118);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 17);
+            this.label3.Size = new System.Drawing.Size(116, 17);
             this.label3.TabIndex = 84;
-            this.label3.Text = "Preço (Mensal):  210/quarto";
+            this.label3.Text = "Preço (Mensal):  ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 17);
+            this.label4.Size = new System.Drawing.Size(134, 17);
             this.label4.TabIndex = 88;
-            this.label4.Text = "Metros Quadrados: 150 ";
+            this.label4.Text = "Metros Quadrados: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 78);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 17);
+            this.label5.Size = new System.Drawing.Size(136, 17);
             this.label5.TabIndex = 86;
-            this.label5.Text = "Nº de Assoalhadas:  2";
+            this.label5.Text = "Nº de Assoalhadas: ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(289, 41);
+            this.label6.Location = new System.Drawing.Point(262, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 17);
+            this.label6.Size = new System.Drawing.Size(137, 17);
             this.label6.TabIndex = 87;
-            this.label6.Text = "Ano de Construção: 2015";
+            this.label6.Text = "Ano de Construção: ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(241, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 17);
+            this.label7.Size = new System.Drawing.Size(106, 17);
             this.label7.TabIndex = 85;
-            this.label7.Text = "Nº de Quartos: 2";
+            this.label7.Text = "Nº de Quartos: ";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelprop);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(21, 568);
@@ -507,9 +521,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(21, 38);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(189, 17);
+            this.label8.Size = new System.Drawing.Size(57, 17);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Nome : Filipe Andre Gouveia";
+            this.label8.Text = "Nome : ";
             // 
             // button2
             // 
@@ -596,6 +610,69 @@
             this.mapa.TabIndex = 110;
             this.mapa.Zoom = 2D;
             this.mapa.DoubleClick += new System.EventHandler(this.mapa_DoubleClick);
+            // 
+            // labelmetros
+            // 
+            this.labelmetros.AutoSize = true;
+            this.labelmetros.Location = new System.Drawing.Point(146, 36);
+            this.labelmetros.Name = "labelmetros";
+            this.labelmetros.Size = new System.Drawing.Size(32, 17);
+            this.labelmetros.TabIndex = 89;
+            this.labelmetros.Text = "150";
+            // 
+            // labelano
+            // 
+            this.labelano.AutoSize = true;
+            this.labelano.Location = new System.Drawing.Point(406, 35);
+            this.labelano.Name = "labelano";
+            this.labelano.Size = new System.Drawing.Size(40, 17);
+            this.labelano.TabIndex = 90;
+            this.labelano.Text = "2010";
+            // 
+            // labelassoalhadas
+            // 
+            this.labelassoalhadas.AutoSize = true;
+            this.labelassoalhadas.Location = new System.Drawing.Point(149, 77);
+            this.labelassoalhadas.Name = "labelassoalhadas";
+            this.labelassoalhadas.Size = new System.Drawing.Size(16, 17);
+            this.labelassoalhadas.TabIndex = 91;
+            this.labelassoalhadas.Text = "2";
+            // 
+            // labelquartos
+            // 
+            this.labelquartos.AutoSize = true;
+            this.labelquartos.Location = new System.Drawing.Point(353, 81);
+            this.labelquartos.Name = "labelquartos";
+            this.labelquartos.Size = new System.Drawing.Size(16, 17);
+            this.labelquartos.TabIndex = 92;
+            this.labelquartos.Text = "4";
+            // 
+            // labelprec
+            // 
+            this.labelprec.AutoSize = true;
+            this.labelprec.Location = new System.Drawing.Point(124, 118);
+            this.labelprec.Name = "labelprec";
+            this.labelprec.Size = new System.Drawing.Size(32, 17);
+            this.labelprec.TabIndex = 93;
+            this.labelprec.Text = "210";
+            // 
+            // labelwcs
+            // 
+            this.labelwcs.AutoSize = true;
+            this.labelwcs.Location = new System.Drawing.Point(299, 117);
+            this.labelwcs.Name = "labelwcs";
+            this.labelwcs.Size = new System.Drawing.Size(16, 17);
+            this.labelwcs.TabIndex = 94;
+            this.labelwcs.Text = "2";
+            // 
+            // labelprop
+            // 
+            this.labelprop.AutoSize = true;
+            this.labelprop.Location = new System.Drawing.Point(84, 38);
+            this.labelprop.Name = "labelprop";
+            this.labelprop.Size = new System.Drawing.Size(140, 17);
+            this.labelprop.TabIndex = 2;
+            this.labelprop.Text = "Filipe Andre Gouveia";
             // 
             // Habitação
             // 
@@ -690,5 +767,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelwcs;
+        private System.Windows.Forms.Label labelprec;
+        private System.Windows.Forms.Label labelquartos;
+        private System.Windows.Forms.Label labelassoalhadas;
+        private System.Windows.Forms.Label labelano;
+        private System.Windows.Forms.Label labelmetros;
+        private System.Windows.Forms.Label labelprop;
     }
 }
