@@ -44,5 +44,12 @@ namespace Frontend
             desat_aluno.MdiParent = IGE.ActiveForm;
             desat_aluno.Show();
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            NovaConta conta = new NovaConta();
+            conta.MdiParent = IGE.ActiveForm;
+            conta.Show();
+        }
     }
 }

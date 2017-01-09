@@ -196,6 +196,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Exceptions.cs" />
+    <Compile Include="NovaConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovaConta.Designer.cs">
+      <DependentUpon>NovaConta.cs</DependentUpon>
+    </Compile>
     <Compile Include="NovoAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovaConta.resx">
+      <DependentUpon>NovaConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NovoAluno.resx">
       <DependentUpon>NovoAluno.cs</DependentUpon>
