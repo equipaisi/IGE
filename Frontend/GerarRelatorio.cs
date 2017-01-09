@@ -16,5 +16,19 @@ namespace Frontend
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RelatorioAlunos alun = new RelatorioAlunos();
+            alun.MdiParent = IGE.ActiveForm;
+            alun.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RelatorioHabitacoes habt = new RelatorioHabitacoes();
+           habt.MdiParent = IGE.ActiveForm;
+            habt.Show();
+        }
     }
 }
