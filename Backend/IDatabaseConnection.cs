@@ -29,5 +29,9 @@ namespace Backend
         /// </summary>
         /// <returns>Uma task representando uma operação assíncrona.</returns>
         Task CloseAsync();
+
+        int GetUserType(string username);
+
+        string ValidateCredentials(string username, string password);
     }
 }

@@ -54,202 +54,23 @@ namespace Backend
 
         #region Queries
 
-        #region DropDatabase
+        public int GetUserType(string username) => Convert.ToInt32(GetUserTypeCommand(username).ExecuteScalar());
 
-        /// <summary>
-        ///     Apaga a base de dados com o nome <see cref="DatabaseName" />.
-        /// </summary>
-        public void DropDatabase()
+        private MySqlCommand GetUserTypeCommand(string username)
         {
-            DropDatabaseCommand.ExecuteNonQuery();
+            return new MySqlCommand($"SELECT CODIGO FROM `{DatabaseName}`.`TBL_UTILIZADOR` WHERE NOME_CONTA = '{username}';", _con);
         }
 
-        /// <summary>
-        ///     Retorna o comando que apaga a base de dados com o nome <see cref="DatabaseName" />.
-        /// </summary>
-        private MySqlCommand DropDatabaseCommand => new MySqlCommand($"DROP DATABASE IF EXISTS `{DatabaseName}`;", _con)
-            ;
-
-        #endregion
-
-        /// <summary>
-        ///     Cria a base de dados <see cref="DatabaseName" /> e as tabelas necessárias;
-        /// </summary>
-        // TODO: rename to something better, maybe SetupDatabase
-        public void CreateDatabaseAndTables()
+        public string ValidateCredentials(string username, string password)
         {
-            try
-            {
-                CreateDatabase();
-                CreateUserTypeTable();
-                CreateUserTable();
-            }
-            catch (IncorrectNumberOfAffectedRows)
-            {
-            }
+            string passwordDb = (string) ValidateCredentialsCommand(username).ExecuteScalar();
+            return passwordDb;
         }
 
-        #region CreateDatabase
-
-        /// <summary>
-        ///     Cria a base de dados com o nome <see cref="DatabaseName" />.
-        /// </summary>
-        private void CreateDatabase()
+        private MySqlCommand ValidateCredentialsCommand(string username)
         {
-            const int expectedAffectedRows = 1;
-            int affectedRows = CreateDatabaseCommand.ExecuteNonQuery();
-            if (affectedRows != expectedAffectedRows)
-                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
+            return new MySqlCommand($"SELECT PASSWORD FROM `{DatabaseName}`.`TBL_UTILIZADOR` WHERE NOME_CONTA = '{username}';", _con);
         }
-
-        /// <summary>
-        ///     Retorna o comando que cria a base de dados com o nome <see cref="DatabaseName" />.
-        /// </summary>
-        private MySqlCommand CreateDatabaseCommand
-            => new MySqlCommand($"CREATE DATABASE IF NOT EXISTS `{DatabaseName}`;", _con);
-
-        #endregion
-
-        #region CreateUserTypeTable
-
-        /// <summary>
-        ///     Cria a tabela UserType.
-        /// </summary>
-        private void CreateUserTypeTable()
-        {
-            const int expectedAffectedRows = 0;
-            int affectedRows = CreateUserTypeTableCommand.ExecuteNonQuery();
-            if (affectedRows != expectedAffectedRows)
-                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
-        }
-
-        /// <summary>
-        ///     Retorna o comando que cria a tabela UserType.
-        /// </summary>
-        private MySqlCommand CreateUserTypeTableCommand => new MySqlCommand(
-            $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`UserType` (
-                                                      `UserTypeId` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                                                      `UserTypeDescription` VARCHAR(45) NOT NULL,
-                                                      PRIMARY KEY (`UserTypeId`),
-                                                      UNIQUE INDEX `UserTypeId_UNIQUE` (`UserTypeId` ASC),
-                                                      UNIQUE INDEX `UserTypeDescription_UNIQUE` (`UserTypeDescription` ASC))
-                                                    ENGINE = InnoDB;",
-            _con);
-
-        #endregion
-
-        #region CreateUserTable
-
-        /// <summary>
-        ///     Cria a tabela User.
-        /// </summary>
-        /// <returns></returns>
-        private void CreateUserTable()
-        {
-            const int expectedAffectedRows = 0;
-            int affectedRows = CreateUserTableCommand.ExecuteNonQuery();
-            if (affectedRows != expectedAffectedRows)
-                throw new IncorrectNumberOfAffectedRows(affectedRows, expectedAffectedRows);
-        }
-
-        /// <summary>
-        ///     Retorna o comando que cria a tabela User.
-        /// </summary>
-        private MySqlCommand CreateUserTableCommand
-            =>
-                new MySqlCommand(
-                    $@"CREATE TABLE IF NOT EXISTS `{DatabaseName}`.`User` (
-                                                  `UserId` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                                                  `UserTypeId` INT UNSIGNED NOT NULL,
-                                                  `Username` VARCHAR(45) NOT NULL,
-                                                  `Email` VARCHAR(100) NOT NULL,
-                                                  `PasswordHash` CHAR(128) NOT NULL,
-                                                  `DataDeCriacao` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                                  PRIMARY KEY (`UserId`),
-                                                  UNIQUE INDEX `UserId_UNIQUE` (`UserId` ASC),
-                                                  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC),
-                                                  UNIQUE INDEX `Username_UNIQUE` (`Username` ASC),
-                                                  INDEX `fk_User_UserType_idx` (`UserTypeId` ASC),
-                                                  CONSTRAINT `fk_User_UserType`
-                                                    FOREIGN KEY (`UserTypeId`)
-                                                    REFERENCES `{DatabaseName}`.`UserType` (`UserTypeId`)
-                                                    ON DELETE NO ACTION
-                                                    ON UPDATE NO ACTION)
-                                                ENGINE = InnoDB;",
-                    _con);
-
-        #endregion
-
-        #region PopulateDatabase
-        
-        // TODO: refactor
-        //public int PopulateUserTable(IEnumerable<IUtilizador> users) => PopulateUserTableCommand(users).ExecuteNonQuery();
-
-    //    private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
-    //new MySqlCommand(
-    //    $@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows
-    //        (users)};", _con);
-
-        /*
-        private MySqlCommand PopulateUserTableCommand(IEnumerable<IUtilizador> users) =>
-            new MySqlCommand(
-                $@"INSERT INTO `{DatabaseName}`.`User` (`Username`, `Email`, `PasswordHash`, `UserTypeId`) VALUES {CreateUserRows
-                    (users)};", _con);
-
-        private static string CreateUserRows(IEnumerable<IUtilizador> users)
-        {
-            var userRows = new List<string>();
-            userRows.AddRange(users.Select(CreateUserRow));
-            return string.Join(",", userRows);
-        }
-
-        /// <summary>
-        ///     Cria uma string que representa um valor de User a ser inserido na tabela User.
-        /// </summary>
-        /// <example>('jfonseca','jfonseca@foo.com','passwordsecreta','1')</example>
-        private static string CreateUserRow(IUtilizador user)
-            =>
-                string.Join(",",
-                    new List<string>
-                    {
-                        "(",
-                        user.Username,
-                        user.Email.Address,
-                        user.PasswordHash,
-                        user.TypeDescriptor,
-                        ")"
-                    });
-         */
-
-        public int PopulateUserTypeTable(IEnumerable<string> userTypes) => Convert.ToInt32(PopulateUserTypeTableCommand(userTypes).ExecuteNonQuery());
-
-        private MySqlCommand PopulateUserTypeTableCommand(IEnumerable<string> userTypes)
-            =>
-                new MySqlCommand(
-                    $"INSERT INTO `{DatabaseName}`.`UserType` (`UserTypeDescription`) VALUES {GenerateUserTypes(userTypes)};",
-                    _con);
-
-        private string GenerateUserTypes(IEnumerable<string> userTypes) => string.Join(",", userTypes.Select(user => "('" + user + "')").ToList());
-
-        #endregion
-
-        public string GetUserUserTypeDescription(string username) => SelectUserTypeDescriptionByUsernameCommand(username).ExecuteScalar() as string;
-
-        /// <summary>
-        ///     Retorna o comando que lê a PasswordHash e o UserTypeDescription de um determinado User pelo seu Username.
-        /// </summary>
-        /// <param name="username">Username do utilizador</param>
-        /// <returns></returns>
-        private MySqlCommand SelectUserTypeDescriptionByUsernameCommand(string username) =>
-            new MySqlCommand(
-                $"SELECT UserTypeDescription FROM `{DatabaseName}`.`User` NATURAL JOIN `{DatabaseName}`.`UserType` WHERE Username = '{username}'",
-                _con);
-
-        public string GetUserPasswordHash(string username)
-            => SelectUserPasswordHashByUsernameCommand(username).ExecuteScalar() as string;
-
-        private MySqlCommand SelectUserPasswordHashByUsernameCommand(string username)
-            => new MySqlCommand($"SELECT PasswordHash FROM `{DatabaseName}`.`User` WHERE Username = '{username}'", _con);
 
         #endregion
     }

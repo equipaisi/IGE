@@ -47,7 +47,7 @@ namespace Frontend
                 {"bus_station", "estação de autocarros" },
                 {"transit_station", "estação de trânsito" },          
                 {"hair_care", "cabeleireiro" },
-
+                {"night_club", "clube noturno" },
             };
 
             var xs = new List<string>(types.Count);
