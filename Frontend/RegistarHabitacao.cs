@@ -34,7 +34,7 @@ namespace Frontend
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
             AllowDrop = true;
 
-            // TODO: eliminar
+            #if DEBUG
             textBoxRua.Text = "R. Duques de Bragança 185";
             maskedTextBoxCodigoPostal.Text = "4750-272";
             textBoxLocalidade.Text = "Barcelos";
@@ -43,6 +43,10 @@ namespace Frontend
             comboBoxNumDeQuartos.Text = "3";
             comboBoxNumDeWC.Text = "1";
             textBoxPreco.Text = "179";
+            checkBoxTelevisao.Checked = true;
+            checkBoxInternet.Checked = true;
+            textBoxDescricao.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+            #endif
         }
 
         /// <summary>
@@ -344,7 +348,7 @@ namespace Frontend
                 int distance = googleMaps.DistanceBetween(habitacao, pontoDeInteresse, TravelMode.Walking);
 
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
-                marker.ToolTipText = $"{t.Name}\n{Utils.FormatPontosDeInteresse(t.Types)}\nDistância: {distance}m";
+                marker.ToolTipText = $"{t.Name}\n{Utils.FormatPontosDeInteresse(t.Types)}\nDistância (a pé): {distance}m";
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);
             }
