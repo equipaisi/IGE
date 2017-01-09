@@ -59,8 +59,8 @@ namespace GoogleMaps
         /// <returns>Distância entre <paramref name="origin"></paramref> e <paramref name="destination"></paramref></returns>
         public int DistanceBetween(Location origin, Location destination, TravelMode mode)
         {
-            string o = $"{Convert.ToDouble(origin.lat.ToString(CultureInfo.InvariantCulture))},{Convert.ToDouble(origin.lng.ToString(CultureInfo.InvariantCulture))}";
-            string d = $"{Convert.ToDouble(destination.lat.ToString(CultureInfo.InvariantCulture))},{Convert.ToDouble(destination.lng.ToString(CultureInfo.InvariantCulture))}";
+            string o = $"{Convert.ToDouble(origin.lat.ToString())},{Convert.ToDouble(origin.lng.ToString())}";
+            string d = $"{Convert.ToDouble(destination.lat.ToString())},{Convert.ToDouble(destination.lng.ToString())}";
 
             string url = $"{MatrixBaseUrl}language=pt-PT&units=metric&origins={o}&destinations={d}&key={ApiKey}";
 
