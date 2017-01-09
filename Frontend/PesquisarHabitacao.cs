@@ -914,10 +914,7 @@ namespace Frontend
             {
                 pictureBox1.Show();
                 pictureBox2.Show();
-                richTextBox1.Show();
-                richTextBox2.Show();
                 linkLabel1.Show();
-                linkLabel2.Show();
             }
         }
 
