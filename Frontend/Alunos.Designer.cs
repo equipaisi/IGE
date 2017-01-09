@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alunos));
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelemail = new System.Windows.Forms.Label();
+            this.labeltelefone = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelescola = new System.Windows.Forms.Label();
+            this.LabelCurso = new System.Windows.Forms.Label();
+            this.labelano = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
@@ -48,6 +48,13 @@
             this.labelLocalidade = new System.Windows.Forms.Label();
             this.labelCodigoPostal = new System.Windows.Forms.Label();
             this.labelRua = new System.Windows.Forms.Label();
+            this.labelnome = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMorada.SuspendLayout();
@@ -62,23 +69,23 @@
             this.label13.TabIndex = 31;
             this.label13.Text = "12345678";
             // 
-            // label12
+            // labelemail
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(148, 366);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(159, 17);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "joaotavares@gmail.com";
+            this.labelemail.AutoSize = true;
+            this.labelemail.Location = new System.Drawing.Point(148, 366);
+            this.labelemail.Name = "labelemail";
+            this.labelemail.Size = new System.Drawing.Size(159, 17);
+            this.labelemail.TabIndex = 30;
+            this.labelemail.Text = "joaotavares@gmail.com";
             // 
-            // label11
+            // labeltelefone
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(491, 366);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 17);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "933 453 647";
+            this.labeltelefone.AutoSize = true;
+            this.labeltelefone.Location = new System.Drawing.Point(491, 366);
+            this.labeltelefone.Name = "labeltelefone";
+            this.labeltelefone.Size = new System.Drawing.Size(88, 17);
+            this.labeltelefone.TabIndex = 29;
+            this.labeltelefone.Text = "933 453 647";
             // 
             // label9
             // 
@@ -130,44 +137,47 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(83, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 17);
+            this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Nome : João Ferreira Tavares";
+            this.label1.Text = "Nome : ";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // label6
+            // labelescola
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(263, 17);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Escola : Instituto Politecnico Cavado Ave";
+            this.labelescola.AutoSize = true;
+            this.labelescola.Location = new System.Drawing.Point(24, 31);
+            this.labelescola.Name = "labelescola";
+            this.labelescola.Size = new System.Drawing.Size(58, 17);
+            this.labelescola.TabIndex = 32;
+            this.labelescola.Text = "Escola :";
             // 
-            // label8
+            // LabelCurso
             // 
-            this.label8.AutoSize = true;
-            this.label8.Cursor = System.Windows.Forms.Cursors.No;
-            this.label8.Location = new System.Drawing.Point(24, 66);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 17);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Curso : LESI ";
+            this.LabelCurso.AutoSize = true;
+            this.LabelCurso.Cursor = System.Windows.Forms.Cursors.No;
+            this.LabelCurso.Location = new System.Drawing.Point(81, 66);
+            this.LabelCurso.Name = "LabelCurso";
+            this.LabelCurso.Size = new System.Drawing.Size(45, 17);
+            this.LabelCurso.TabIndex = 33;
+            this.LabelCurso.Text = " LESI ";
             // 
-            // label14
+            // labelano
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(304, 66);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 17);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Ano : 3 ";
+            this.labelano.AutoSize = true;
+            this.labelano.Location = new System.Drawing.Point(304, 66);
+            this.labelano.Name = "labelano";
+            this.labelano.Size = new System.Drawing.Size(20, 17);
+            this.labelano.TabIndex = 34;
+            this.labelano.Text = "3 ";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.LabelCurso);
+            this.groupBox1.Controls.Add(this.labelano);
+            this.groupBox1.Controls.Add(this.labelescola);
             this.groupBox1.Location = new System.Drawing.Point(67, 242);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -197,6 +207,9 @@
             // 
             // groupBoxMorada
             // 
+            this.groupBoxMorada.Controls.Add(this.label16);
+            this.groupBoxMorada.Controls.Add(this.label10);
+            this.groupBoxMorada.Controls.Add(this.label3);
             this.groupBoxMorada.Controls.Add(this.labelLocalidade);
             this.groupBoxMorada.Controls.Add(this.labelCodigoPostal);
             this.groupBoxMorada.Controls.Add(this.labelRua);
@@ -212,42 +225,106 @@
             // labelLocalidade
             // 
             this.labelLocalidade.AutoSize = true;
-            this.labelLocalidade.Location = new System.Drawing.Point(236, 107);
+            this.labelLocalidade.Location = new System.Drawing.Point(333, 106);
             this.labelLocalidade.Name = "labelLocalidade";
-            this.labelLocalidade.Size = new System.Drawing.Size(140, 17);
+            this.labelLocalidade.Size = new System.Drawing.Size(63, 17);
             this.labelLocalidade.TabIndex = 89;
-            this.labelLocalidade.Text = "Localidade: Barcelos";
+            this.labelLocalidade.Text = "Barcelos";
             // 
             // labelCodigoPostal
             // 
             this.labelCodigoPostal.AutoSize = true;
-            this.labelCodigoPostal.Location = new System.Drawing.Point(9, 107);
+            this.labelCodigoPostal.Location = new System.Drawing.Point(124, 106);
             this.labelCodigoPostal.Name = "labelCodigoPostal";
-            this.labelCodigoPostal.Size = new System.Drawing.Size(164, 17);
+            this.labelCodigoPostal.Size = new System.Drawing.Size(73, 17);
             this.labelCodigoPostal.TabIndex = 90;
-            this.labelCodigoPostal.Text = "Código Postal: 4755-116";
+            this.labelCodigoPostal.Text = " 4755-116";
             // 
             // labelRua
             // 
             this.labelRua.AutoSize = true;
-            this.labelRua.Location = new System.Drawing.Point(9, 36);
+            this.labelRua.Location = new System.Drawing.Point(68, 36);
             this.labelRua.Name = "labelRua";
-            this.labelRua.Size = new System.Drawing.Size(218, 17);
+            this.labelRua.Size = new System.Drawing.Size(184, 17);
             this.labelRua.TabIndex = 91;
-            this.labelRua.Text = "Rua:  Rua da Arvore Grande , 45";
+            this.labelRua.Text = " Rua da Arvore Grande , 45";
+            // 
+            // labelnome
+            // 
+            this.labelnome.AutoSize = true;
+            this.labelnome.Location = new System.Drawing.Point(135, 31);
+            this.labelnome.Name = "labelnome";
+            this.labelnome.Size = new System.Drawing.Size(149, 17);
+            this.labelnome.TabIndex = 97;
+            this.labelnome.Text = "João Ferreira Tavares";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "Rua :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 17);
+            this.label10.TabIndex = 99;
+            this.label10.Text = "Código Postal:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(243, 106);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 17);
+            this.label16.TabIndex = 100;
+            this.label16.Text = "Localidade : ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(88, 31);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(213, 17);
+            this.label17.TabIndex = 35;
+            this.label17.Text = " Instituto Politecnico Cavado Ave";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 17);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Curso :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(256, 66);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 17);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Ano : ";
             // 
             // Alunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 553);
+            this.Controls.Add(this.labelnome);
             this.Controls.Add(this.groupBoxMorada);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelemail);
+            this.Controls.Add(this.labeltelefone);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -275,17 +352,17 @@
         #endregion
 
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelemail;
+        private System.Windows.Forms.Label labeltelefone;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelescola;
+        private System.Windows.Forms.Label LabelCurso;
+        private System.Windows.Forms.Label labelano;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label15;
@@ -293,5 +370,12 @@
         private System.Windows.Forms.Label labelLocalidade;
         private System.Windows.Forms.Label labelCodigoPostal;
         private System.Windows.Forms.Label labelRua;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelnome;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
     }
 }

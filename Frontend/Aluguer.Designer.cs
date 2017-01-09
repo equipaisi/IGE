@@ -48,6 +48,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.labelProprietario = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBoxMorada.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,6 +76,9 @@
             // 
             // groupBoxMorada
             // 
+            this.groupBoxMorada.Controls.Add(this.label8);
+            this.groupBoxMorada.Controls.Add(this.label7);
+            this.groupBoxMorada.Controls.Add(this.label6);
             this.groupBoxMorada.Controls.Add(this.labelLocalidade);
             this.groupBoxMorada.Controls.Add(this.label2);
             this.groupBoxMorada.Controls.Add(this.labelCodigoPostal);
@@ -89,29 +95,29 @@
             // labelLocalidade
             // 
             this.labelLocalidade.AutoSize = true;
-            this.labelLocalidade.Location = new System.Drawing.Point(241, 85);
+            this.labelLocalidade.Location = new System.Drawing.Point(345, 85);
             this.labelLocalidade.Name = "labelLocalidade";
-            this.labelLocalidade.Size = new System.Drawing.Size(198, 17);
+            this.labelLocalidade.Size = new System.Drawing.Size(125, 17);
             this.labelLocalidade.TabIndex = 89;
-            this.labelLocalidade.Text = "Localidade: Alvelos - Barcelos";
+            this.labelLocalidade.Text = " Alvelos - Barcelos";
             // 
             // labelCodigoPostal
             // 
             this.labelCodigoPostal.AutoSize = true;
-            this.labelCodigoPostal.Location = new System.Drawing.Point(9, 85);
+            this.labelCodigoPostal.Location = new System.Drawing.Point(134, 85);
             this.labelCodigoPostal.Name = "labelCodigoPostal";
-            this.labelCodigoPostal.Size = new System.Drawing.Size(172, 17);
+            this.labelCodigoPostal.Size = new System.Drawing.Size(73, 17);
             this.labelCodigoPostal.TabIndex = 90;
-            this.labelCodigoPostal.Text = "Código Postal:  4755-116 ";
+            this.labelCodigoPostal.Text = "4755-116 ";
             // 
             // labelRua
             // 
             this.labelRua.AutoSize = true;
-            this.labelRua.Location = new System.Drawing.Point(9, 36);
+            this.labelRua.Location = new System.Drawing.Point(49, 36);
             this.labelRua.Name = "labelRua";
-            this.labelRua.Size = new System.Drawing.Size(222, 17);
+            this.labelRua.Size = new System.Drawing.Size(192, 17);
             this.labelRua.TabIndex = 91;
-            this.labelRua.Text = "Rua:  Rua da Estrada 31  Alvelos ";
+            this.labelRua.Text = "  Rua da Estrada 31  Alvelos ";
             // 
             // groupBox1
             // 
@@ -236,6 +242,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 17);
+            this.label6.TabIndex = 99;
+            this.label6.Text = "Rua:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 17);
+            this.label7.TabIndex = 100;
+            this.label7.Text = "Código Postal:  ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(258, 85);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 17);
+            this.label8.TabIndex = 101;
+            this.label8.Text = "Localidade:";
+            // 
             // Aluguer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,5 +316,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
