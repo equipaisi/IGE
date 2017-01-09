@@ -51,11 +51,18 @@ namespace Frontend
 
             //Exporting to PDF
             string folderPath = "C:\\PDFs\\";
+
+            string dia , mes , ano;
+            dia = DateTime.Now.Day.ToString();
+            mes = DateTime.Now.Month.ToString();
+            ano = DateTime.Now.Year.ToString();
+            
+
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath + "RelatorioHabitacoes.pdf", FileMode.Create))
+            using (FileStream stream = new FileStream(folderPath +"RelatorioHabitacoes"+dia+mes+ano+".pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
@@ -64,6 +71,9 @@ namespace Frontend
                 pdfDoc.Close();
                 stream.Close();
             }
+
+            // Abrir documento gerado
+            System.Diagnostics.Process.Start(@"C:\\PDFs\\RelatorioHabitacoes" + dia + mes + ano + ".pdf");
         }
 
         private void RelatorioHabitacoes_Load(object sender, EventArgs e)

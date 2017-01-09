@@ -61,17 +61,24 @@ namespace Frontend
                 {
                     object cellValue = cell.Value;
                     pdfTable.AddCell(cellValue?.ToString() ?? string.Empty);
-                    
+                    //MessageBox.Show("Relatorio de Alunos Gerado com Sucesso !");
+
                 }
             }
 
             //Exporting to PDF
             string folderPath = "C:\\PDFs\\";
+
+            string dia, mes, ano;
+            dia = DateTime.Now.Day.ToString();
+            mes = DateTime.Now.Month.ToString();
+            ano = DateTime.Now.Year.ToString();
+
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath + "RelatorioAlunos.pdf", FileMode.Create))
+            using (FileStream stream = new FileStream(folderPath + "RelatorioAlunos" + dia + mes + ano + ".pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
@@ -79,7 +86,12 @@ namespace Frontend
                 pdfDoc.Add(pdfTable);
                 pdfDoc.Close();
                 stream.Close();
+            
             }
+
+            // Abrir documento gerado
+            System.Diagnostics.Process.Start(@"C:\\PDFs\\RelatorioAlunos" + dia + mes + ano + ".pdf");
+
         }
     }
 }
