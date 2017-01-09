@@ -123,6 +123,7 @@ namespace Frontend
             }
             catch (Exception)
             {
+                // se for levantada alguma excepção, ignorar
                 return;
             }
 

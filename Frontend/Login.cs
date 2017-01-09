@@ -6,11 +6,11 @@ namespace Frontend
 {
     public partial class Login : Form
     {
-        //private readonly IMiddlewareClient _middleMiddlewareClient;
+        private readonly IMiddlewareClient _middleMiddlewareClient;
 
         public Login()
         {
-            //_middleMiddlewareClient = new MiddlewareClient("IGE");
+            _middleMiddlewareClient = new MiddlewareClient("IGE");
             InitializeComponent();
         }
         
@@ -24,64 +24,93 @@ namespace Frontend
             //_middleMiddlewareClient.PopulateDatabase();
         }
 
-        /*
+        
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             var username = textBox_Name.Text;
             var password = textBox_Password.Text;
 
-            // se _db.GetUserType(username, password) retornar null, as credenciais eram inválidas,
-            // senão retorna o tipo de utilizador como string, eg: "funcionario", "administrador", ou "estudante"
-            var userType = _middleMiddlewareClient.GetUserType(username, password);
+            string pass = _middleMiddlewareClient.GetPassword(username, password);
+            if (string.IsNullOrWhiteSpace(pass))
+            {
+                MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt",
+                    "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (pass != password)
+            {
+                MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt",
+                    "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            if (userType != null)
+            #if DEBUG
+            MessageBox.Show($"Feito login como {username}");
+            #endif
+
+            var userType = _middleMiddlewareClient.GetUserType(username);
+            if (string.IsNullOrEmpty(userType))
             {
-                // TODO: usar o userType para aparecer as forms correspondentes
-                new IGE().Show();
+                MessageBox.Show("Erro no tipo de conta", "Erro fatal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+
+            // TODO: usar o userType para aparecer as forms correspondentes
+            switch (userType)
             {
-                MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                case "funcionario":
+                    IGE a = new IGE();
+                    a.Show();
+                    Principal fp = new Principal { MdiParent = a };
+                    fp.Show();
+                    this.Hide(); // a janela fica oculta
+                    break;
+                case "administrador":
+                    IGE b = new IGE();
+                    b.Show();
+                    Administrador adm = new Administrador { MdiParent = IGE.ActiveForm };
+                    adm.Show();
+                    this.Hide(); // a janela fica oculta
+                    break;
             }
         }
-        */
         
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            ValidateCredentials();
-        }
+        
+        //private void pictureBox2_Click(object sender, EventArgs e)
+        //{
+        //    ValidateCredentials();
+        //}
 
         private void textBox_Password_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) ValidateCredentials();
+            if (e.KeyCode == Keys.Enter) pictureBox2_Click(sender, e);
         }
 
-        /// <summary>
-        /// Valida as credencias introduzidas.
-        /// </summary>
-        private void ValidateCredentials()
-        {
-            if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
-            {
-                IGE xpto = new IGE();
-                xpto.Show();
-                Principal fp = new Principal {MdiParent = xpto};
-                fp.Show();
-                this.Hide(); // a janela fica oculta
-                return;
-            }
+        ///// <summary>
+        ///// Valida as credencias introduzidas.
+        ///// </summary>
+        //private void ValidateCredentials()
+        //{
+        //    if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
+        //    {
+        //        IGE xpto = new IGE();
+        //        xpto.Show();
+        //        Principal fp = new Principal {MdiParent = xpto};
+        //        fp.Show();
+        //        this.Hide(); // a janela fica oculta
+        //        return;
+        //    }
 
-            if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
-            {
-                IGE xpto = new IGE();
-                xpto.Show();
-                Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
-                adm.Show();
-                this.Hide(); // a janela fica oculta
-                return;
-            }
-            MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        //    if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
+        //    {
+        //        IGE xpto = new IGE();
+        //        xpto.Show();
+        //        Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
+        //        adm.Show();
+        //        this.Hide(); // a janela fica oculta
+        //        return;
+        //    }
+        //    MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //}
     }
 }
 
