@@ -37,7 +37,7 @@ namespace Frontend
             // TODO
             Alunos alun = new Alunos();
             alun.MdiParent = IGE.ActiveForm;
-            alun.ShowDialog();
+            alun.Show();
         }
     }
 }

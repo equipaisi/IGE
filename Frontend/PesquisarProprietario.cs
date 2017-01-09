@@ -36,7 +36,7 @@ namespace Frontend
         {
             Proprietario prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
-            prt.ShowDialog();
+            prt.Show();
         }
     }
 }

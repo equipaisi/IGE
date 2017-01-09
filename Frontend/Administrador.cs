@@ -40,14 +40,14 @@ namespace Frontend
 
         private void pictureBoxproprietario_Click(object sender, EventArgs e)
         {
-            Proprietario prop = new Proprietario();
+            PesquisarProprietario prop = new PesquisarProprietario();
             prop.MdiParent = IGE.ActiveForm;
             prop.Show();
         }
 
         private void pictureBoxAlunos_Click(object sender, EventArgs e)
         {
-            Alunos alun = new Alunos();
+            PesquisarAluno alun = new PesquisarAluno();
             alun.MdiParent = IGE.ActiveForm;
             alun.Show();
         }

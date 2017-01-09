@@ -50,20 +50,19 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -281,11 +280,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.linkLabel2);
+            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Controls.Add(this.richTextBox2);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -293,26 +290,15 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1085, 590);
+            this.groupBox2.Size = new System.Drawing.Size(1085, 692);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resultados";
             // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(285, 228);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(93, 17);
-            this.linkLabel2.TabIndex = 19;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Habitação T3";
-            this.linkLabel2.Visible = false;
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(298, 53);
+            this.linkLabel1.Location = new System.Drawing.Point(296, 17);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(80, 17);
             this.linkLabel1.TabIndex = 18;
@@ -320,17 +306,6 @@
             this.linkLabel1.Text = "Vivenda T2";
             this.linkLabel1.Visible = false;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(261, 257);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(382, 127);
-            this.richTextBox2.TabIndex = 17;
-            this.richTextBox2.Text = "Braga\nArcozelo , Barcelos\nIncluido : Internet  \n\n2 Quarto Disponível\n\nQuarto : 25" +
-    "0€/mes";
-            this.richTextBox2.Visible = false;
             // 
             // pictureBox2
             // 
@@ -342,18 +317,6 @@
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(261, 83);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(382, 126);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "Braga\nAlvelos , Barcelos\nIncluido : Internet , TV \n\n1 Quarto Disponível\n\nQuarto :" +
-    " 210€/mes";
-            this.richTextBox1.Visible = false;
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -393,6 +356,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(275, 53);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(769, 608);
+            this.dataGridView1.TabIndex = 19;
+            // 
             // PesquisarHabitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,11 +416,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
