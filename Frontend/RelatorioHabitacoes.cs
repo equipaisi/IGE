@@ -78,16 +78,17 @@ namespace Frontend
 
         private void RelatorioHabitacoes_Load(object sender, EventArgs e)
         {
-       
+
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Id", typeof(int)),
-            new DataColumn("Name", typeof(string)),
-            new DataColumn("Country",typeof(string)) });
-            dt.Rows.Add(1, "John Hammond", "United States");
-            dt.Rows.Add(2, "Mudassar Khan", "India");
-            dt.Rows.Add(3, "Suzanne Mathews", "France");
-            dt.Rows.Add(4, "Robert Schidner", "Russia");
-            this.dataGridView1.DataSource = dt;    
+            dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Id", typeof(int)),
+            new DataColumn("Morada", typeof(string)),
+            new DataColumn("Descricao",typeof(string)),
+            new DataColumn("Custo Mensal", typeof(string))});
+            dt.Rows.Add(1, "Rua da Estrada 31 Barcelos", "Casa bastante atrativa  , com internet", "210 por quarto");
+            dt.Rows.Add(2, "Lugar da Ribeira Barcelos", "4 quartos todos mobilados ", "300 por quarto");
+            dt.Rows.Add(3, "Rua da Marcelina Costa Esposende", "3 quartos para alugar Fem", "210 por quarto");
+            dt.Rows.Add(4, "Rua da Esperança 31 Lisboa", "1 quarto disponivel com tudo incluido", "410 por quarto");
+            this.dataGridView1.DataSource = dt;
         }
     }
 }

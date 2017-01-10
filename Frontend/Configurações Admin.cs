@@ -51,5 +51,12 @@ namespace Frontend
             conta.MdiParent = IGE.ActiveForm;
             conta.Show();
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            EliminarConta elconta = new EliminarConta();
+            elconta.MdiParent = IGE.ActiveForm;
+            elconta.Show();
+        }
     }
 }

@@ -37,5 +37,7 @@ namespace Backend
         int CreateFuncionario(string username, string password);
 
         int CreateAdmin(string username, string password);
+
+        int DeleteUser(string username);
     }
 }

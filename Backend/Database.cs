@@ -88,6 +88,11 @@ namespace Backend
             return new MySqlCommand($"SELECT * FROM `{DatabaseName}`.`Proprietario` WHERE Nome = '{name}';", _con);
         }
 
+        public int DeleteUser(string username)
+        {
+            var cmd = new MySqlCommand($"DELETE FROM `{DatabaseName}`.`Utilizador` WHERE Username = '{username}';", _con);
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
         #endregion
     }
 }
