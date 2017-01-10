@@ -18,14 +18,23 @@ namespace Frontend
         {   
             // Mostrar o nome e a versão da aplicação como título da form
             this.Text = $"Login - {Application.ProductName} {Application.ProductVersion}";
-
-            //_middleMiddlewareClient.DropDatabase();
-            //_middleMiddlewareClient.CreateDatabase();
-            //_middleMiddlewareClient.PopulateDatabase();
         }
 
         
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Validate();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Não foi possivel conectar à base de dados.\n{exception.Message}", "Erro fatal", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void Validate()
         {
             var username = textBox_Name.Text;
             var password = textBox_Password.Text;
@@ -44,7 +53,7 @@ namespace Frontend
                 return;
             }
 
-            #if DEBUG
+#if DEBUG
             MessageBox.Show($"Feito login como {username}");
             #endif
 
@@ -60,21 +69,21 @@ namespace Frontend
                 case "funcionario":
                     IGE a = new IGE();
                     a.Show();
-                    Principal fp = new Principal { MdiParent = a };
+                    Principal fp = new Principal {MdiParent = a};
                     fp.Show();
                     this.Hide(); // a janela fica oculta
                     break;
                 case "administrador":
                     IGE b = new IGE();
                     b.Show();
-                    Administrador adm = new Administrador { MdiParent = IGE.ActiveForm };
+                    Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
                     adm.Show();
                     this.Hide(); // a janela fica oculta
                     break;
             }
         }
-        
-        
+
+
         //private void pictureBox2_Click(object sender, EventArgs e)
         //{
         //    ValidateCredentials();
