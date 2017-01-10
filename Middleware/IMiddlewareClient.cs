@@ -15,6 +15,8 @@ namespace Middleware
         string GetPassword(string username, string password);
         bool CreateFuncionario(string username, string password);
         bool CreateAdmin(string username, string password);
+
+        bool DeleteUser(string username);
     }
 
     public class MiddlewareClient : IMiddlewareClient
@@ -79,6 +81,14 @@ namespace Middleware
             int r = _db.CreateAdmin(username, password);
             _db.Close();
             return r == 0;
+        }
+
+        public bool DeleteUser(string username)
+        {
+            _db.Open();
+            int r = _db.DeleteUser(username);
+            _db.Close();
+            return r > 0;
         }
     }
 }

@@ -27,13 +27,14 @@ namespace Frontend
         private void RelatorioAlunos_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Id", typeof(int)),
+            dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Id", typeof(int)),
             new DataColumn("Name", typeof(string)),
-            new DataColumn("Country",typeof(string)) });
-            dt.Rows.Add(1, "John Hammond", "United States");
-            dt.Rows.Add(2, "Mudassar Khan", "India");
-            dt.Rows.Add(3, "Suzanne Mathews", "France");
-            dt.Rows.Add(4, "Robert Schidner", "Russia");
+            new DataColumn("Idade",typeof(string)),
+            new DataColumn("Contactos", typeof(string))});
+            dt.Rows.Add(1, "John Hammond", "21", "933 735 467");
+            dt.Rows.Add(2, "Ricardo Costa", "22","252 637 347");
+            dt.Rows.Add(3, "Andre Perro", "23","937 765 465");
+            dt.Rows.Add(4, "Joao Costa", "34","252 367 265");
             this.dataGridView1.DataSource = dt;
         }
 
