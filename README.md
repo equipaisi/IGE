@@ -8,12 +8,14 @@ Tabela de Conteúdos
 =================
 
   * [Documentação](./Documentação)
-  * [Estrutura]()
+  * Estrutura
     * [Backend](./Backend)
     * [Middleware](./Middleware)
     * [Frontend](./Frontend)
-  * [Serviços Externos]()
+  * Serviços Externos
     * [Google Maps](./GoogleMaps)
+      * [Geocoding](./GoogleMaps/Geocoding/Geocoding.cs)
+      * [Distance Matrix](./GoogleMaps/DistanceMatrix/DistanceMatrix.cs)
     * [Google Places](./GooglePlaces)
     * [Facebook](./Frontend/Facebook.cs)
     * [Twitter](./Frontend/Twitter.cs)
