@@ -10,6 +10,14 @@ namespace Frontend
             InitializeComponent();
         }
 
+        private void PesquisarProprietario_Load(object sender, EventArgs e)
+        {
+#if DEBUG
+            textBoxNome.Text = "João Alberto da Silva Gomes";
+            textBoxBI.Text = "143687305ZZ5";
+#endif
+        }
+
         /// <summary>
         /// Pesquisa um <see cref="Middleware.Proprietario"/> no sistema.
         /// </summary>
@@ -38,5 +46,6 @@ namespace Frontend
             prt.MdiParent = IGE.ActiveForm;
             prt.Show();
         }
+
     }
 }

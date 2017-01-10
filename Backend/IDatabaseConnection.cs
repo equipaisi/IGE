@@ -33,5 +33,9 @@ namespace Backend
         int GetUserType(string username);
 
         string ValidateCredentials(string username, string password);
+
+        int CreateFuncionario(string username, string password);
+
+        int CreateAdmin(string username, string password);
     }
 }

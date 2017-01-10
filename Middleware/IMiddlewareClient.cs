@@ -13,6 +13,8 @@ namespace Middleware
     {
         string GetUserType(string username);
         string GetPassword(string username, string password);
+        bool CreateFuncionario(string username, string password);
+        bool CreateAdmin(string username, string password);
     }
 
     public class MiddlewareClient : IMiddlewareClient
@@ -59,6 +61,24 @@ namespace Middleware
             string r = _db.ValidateCredentials(username, password);
             _db.Close();
             return r;
+        }
+
+
+        public bool CreateFuncionario(string username, string password)
+        {
+            _db.Open();
+            int r = _db.CreateFuncionario(username, password);
+            _db.Close();
+            return r == 0;
+        }
+
+
+        public bool CreateAdmin(string username, string password)
+        {
+            _db.Open();
+            int r = _db.CreateAdmin(username, password);
+            _db.Close();
+            return r == 0;
         }
     }
 }

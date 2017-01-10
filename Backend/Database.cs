@@ -71,6 +71,23 @@ namespace Backend
             return new MySqlCommand($"SELECT Password FROM `{DatabaseName}`.`Utilizador` WHERE Username = '{username}';", _con);
         }
 
+        public int CreateFuncionario(string username, string password)
+        {
+            var cmd = new MySqlCommand($"INSERT INTO `{DatabaseName}`.`Utilizador` (Codigo, Username, Password) VALUES (1,'{username}','{password}');", _con);
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
+
+        public int CreateAdmin(string username, string password)
+        {
+            var cmd = new MySqlCommand($"INSERT INTO `{DatabaseName}`.`Utilizador` (Codigo, Username, Password) VALUES (0,'{username}','{password}');", _con);
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
+
+        private MySqlCommand GetProprietarioByName(string name)
+        {
+            return new MySqlCommand($"SELECT * FROM `{DatabaseName}`.`Proprietario` WHERE Nome = '{name}';", _con);
+        }
+
         #endregion
     }
 }
