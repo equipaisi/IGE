@@ -27,7 +27,6 @@ namespace Frontend
             string telefone = textBox4.Text;
             string email = textBox5.Text;
 
-
             try
             {
                 if (!_middleware.CriarProprietario(nome, bi, dt, rua, cp, localidade, telefone, email))
@@ -43,7 +42,7 @@ namespace Frontend
             }
 
 
-            MessageBox.Show("Proprietário criado com sucesso.");
+            MessageBox.Show("Proprietário criado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }

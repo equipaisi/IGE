@@ -54,7 +54,7 @@ namespace Frontend
             }
 
 #if DEBUG
-            MessageBox.Show($"Feito login como {username}");
+            //MessageBox.Show($"Feito login como {username}");
             #endif
 
             var userType = _middleMiddlewareClient.GetUserType(username);
