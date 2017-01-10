@@ -93,6 +93,17 @@ namespace Backend
             var cmd = new MySqlCommand($"DELETE FROM `{DatabaseName}`.`Utilizador` WHERE Username = '{username}';", _con);
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
+
+        public bool CreateProprietario(string nome, string bi, string dt, string rua, string cp, string localidade, string telefone, string email)
+        {
+            var cmd =
+                new MySqlCommand(
+                    $"INSERT INTO  `{DatabaseName}`.`Proprietario` (Nome, DataDeNascimento, BI, Telefone, Email, Rua, Localidade, CodigoPostal) VALUES ('{nome}', '{dt}', '{bi}', '{telefone}', '{email}','{rua}', '{localidade}', '{cp}');",
+                    _con);
+            return cmd.ExecuteNonQuery() == 1;
+        }
         #endregion
+
+
     }
 }

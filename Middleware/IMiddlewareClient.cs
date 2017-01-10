@@ -17,6 +17,10 @@ namespace Middleware
         bool CreateAdmin(string username, string password);
 
         bool DeleteUser(string username);
+
+        bool CriarProprietario(string nome, string bi, string dt, string rua, string cp, string localidade,
+            string telefone, string email);
+
     }
 
     public class MiddlewareClient : IMiddlewareClient
@@ -89,6 +93,14 @@ namespace Middleware
             int r = _db.DeleteUser(username);
             _db.Close();
             return r > 0;
+        }
+
+        public bool CriarProprietario(string nome, string bi, string dt, string rua, string cp, string localidade, string telefone, string email)
+        {
+            _db.Open();
+            bool r = _db.CreateProprietario(nome, bi, dt, rua, cp, localidade, telefone, email);
+            _db.Close();
+            return r;
         }
     }
 }

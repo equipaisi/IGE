@@ -39,5 +39,8 @@ namespace Backend
         int CreateAdmin(string username, string password);
 
         int DeleteUser(string username);
+
+        bool CreateProprietario(string nome, string bi, string dt, string rua, string cp, string localidade,
+            string telefone, string email);
     }
 }
