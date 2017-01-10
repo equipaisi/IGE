@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GooglePlaces.GooglePlaces" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAkAAAAgAAAAAAEAIAgAAAAAAAAAAA=</HashCode>
+      <FileName>GooglePlaces.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GooglePlaces.Place" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAEAAAAAAAAAIAAQAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.Location" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.Geometry" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.OpeningHours" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.Photo" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQAAABAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.AltId" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.Result" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAIAIAgAAAAAAgAAABKAAEAAAAAQAAAAIAAgA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GooglePlaces.RootObject" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GooglePlaces.IGooglePlaces" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGooglePlaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

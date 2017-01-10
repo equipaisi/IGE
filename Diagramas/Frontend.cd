@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Frontend.Administrador" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEgIAAIACAAABACAAiBAACCAAAAAAgAAAAAAABAAEQ=</HashCode>
+      <FileName>Administrador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Aluguer" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAUACBAABACAACAAACCAAA4AAAAEHAAAAAAAgA=</HashCode>
+      <FileName>Aluguer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Alunos" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3gAAAAIUACBAABAAMACAAAACAAgEAQAAACAAACAAAgA=</HashCode>
+      <FileName>Alunos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Configurações_Admin" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIhAAACAAABAAAACAQAQCAAAAAAAAAAAAAIBAAAA=</HashCode>
+      <FileName>Configurações Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.DesativarAluno" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAABCAAg4AAAAEBAAAAAAAAA=</HashCode>
+      <FileName>DesativarAluno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.DesativarHabitacao" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAg4AAAAEACAAAAAAAA=</HashCode>
+      <FileName>DesativarHabitacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.DesativarPropriatario" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAABAAAACAAABCAAg4AAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DesativarPropriatario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.ExcessiveImageFilesizeException" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.TweetTooLongException" Collapsed="true">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.NoPhotosException" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Facebook" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAAAEAAAAGAAAAEIAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Facebook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.GerarRelatorio" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAYAAAAAGAAAABAAAA=</HashCode>
+      <FileName>GerarRelatorio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Habitação" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8woAAEIUSCBACBAYIICAgAICAAAYBCSYAGIgAgEACiA=</HashCode>
+      <FileName>Habitação.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.IGE" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABABAAACAAAAAAAMCCAQACAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IGE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.ImageGallery" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAEA4AAAAAAAAAABAAAA=</HashCode>
+      <FileName>ImageGallery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Login" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACAACAAAUACAAAQCAAAAAAgAAAAQAACAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Mapa" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.NovaConta" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAKAAABAAAACRIAQCAAAIAAAAAUAAAAIAAAA=</HashCode>
+      <FileName>NovaConta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.NovoAluno" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QSAAAgAUASBAABCAGACAAAACMAAIAAAAEGCAAAAAAoA=</HashCode>
+      <FileName>NovoAluno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.NovoProprietario" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAgAUASBAABCAAACAAAACMAAIAAAAEECAAAAAAgA=</HashCode>
+      <FileName>NovoProprietario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.PesquisarAluno" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAgAACCAAAAAEACAAAACAAgAAAAAAAAAIAAAICA=</HashCode>
+      <FileName>PesquisarAluno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.PesquisarHabitacao" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAECAAAJEAAASAgAECAAgoAAACAmAAggFBAAA=</HashCode>
+      <FileName>PesquisarHabitacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.PesquisarProprietario" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAgAACCIAAAAEACAAAACAAgAAAAAAAAAIAAAICA=</HashCode>
+      <FileName>PesquisarProprietario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Principal" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgABAIACAAAAAAAACBAASCAAAAAAgAAAAAAIAAAkQ=</HashCode>
+      <FileName>Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Program" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Proprietario" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAA0ACBAABAAEACAAAACAAgAEAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Proprietario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Proprietarios" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.RegistarHabitacao" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MQokBkgVaCRgALVYAKDBwACCkEA4ACSYFDigCgQoKgE=</HashCode>
+      <FileName>RegistarHabitacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.RelatorioAlunos" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACACgIAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>RelatorioAlunos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.RelatorioHabitacoes" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAgIAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>RelatorioHabitacoes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Sobre" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAQAABAAAA=</HashCode>
+      <FileName>Sobre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Twitter" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEMAAAAGgAAAAABAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Twitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.UniqueList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAEAAAAAAABAQCAAABAQAAAAAAAAESAAAAABQIAA=</HashCode>
+      <FileName>UniqueList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Frontend.Utils" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Properties.Resources" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frontend.GoogleMapsService.GoogleMapsClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAgAAQAAAAQAIAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Service References\GoogleMapsService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Frontend.GooglePlacesService.Place" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAKAECAgAAAAAAIAAQAgAAIAAAEAAgAAAIABAA=</HashCode>
+      <FileName>Service References\GooglePlacesService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Frontend.GooglePlacesService.GooglePlacesClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\GooglePlacesService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Frontend.GoogleMapsService.IGoogleMaps" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAgAAQAAAAQAIAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Service References\GoogleMapsService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Frontend.GoogleMapsService.IGoogleMapsChannel" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\GoogleMapsService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Frontend.GooglePlacesService.IGooglePlaces" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\GooglePlacesService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Frontend.GooglePlacesService.IGooglePlacesChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\GooglePlacesService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
