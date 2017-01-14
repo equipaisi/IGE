@@ -1,6 +1,6 @@
 ﻿namespace Frontend
 {
-    partial class Configurações_Admin
+    partial class ConfiguraçõesAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configurações_Admin));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguraçõesAdmin));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -186,7 +186,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Configurações_Admin";
+            this.Name = "ConfiguraçõesAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações_Admin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
@@ -25,7 +19,7 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
         {
             //Creating iTextSharp Table from the DataTable data
-            PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
+            var pdfTable = new PdfPTable(dataGridView1.ColumnCount);
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 30;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -34,7 +28,7 @@ namespace Frontend
             //Adding Header row
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                var cell = new PdfPCell(new Phrase(column.HeaderText));
                 cell.BackgroundColor = new iTextSharp.text.Color(240, 240, 240);
                 pdfTable.AddCell(cell);
             }
@@ -44,13 +38,13 @@ namespace Frontend
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    object cellValue = cell.Value;
+                    var cellValue = cell.Value;
                     pdfTable.AddCell(cellValue?.ToString() ?? string.Empty);
                 }
             }
 
             //Exporting to PDF
-            string folderPath = "C:\\PDFs\\";
+            var folderPath = "C:\\PDFs\\";
 
             string dia , mes , ano;
             dia = DateTime.Now.Day.ToString();
@@ -62,9 +56,9 @@ namespace Frontend
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath +"RelatorioHabitacoes"+dia+mes+ano+".pdf", FileMode.Create))
+            using (var stream = new FileStream(folderPath +"RelatorioHabitacoes"+dia+mes+ano+".pdf", FileMode.Create))
             {
-                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
+                var pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
                 pdfDoc.Add(pdfTable);
@@ -79,7 +73,7 @@ namespace Frontend
         private void RelatorioHabitacoes_Load(object sender, EventArgs e)
         {
 
-            DataTable dt = new DataTable();
+            var dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Id", typeof(int)),
             new DataColumn("Morada", typeof(string)),
             new DataColumn("Descricao",typeof(string)),

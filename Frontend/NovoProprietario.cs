@@ -16,16 +16,16 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string nome = textBox1.Text;
-            string bi = textBox2.Text;
-            string dt = textBox6.Text;
+            var nome = textBox1.Text;
+            var bi = textBox2.Text;
+            var dt = textBox6.Text;
 
-            string localidade = textBoxLocalidade.Text;
-            string cp = maskedTextBoxCodigoPostal.Text;
-            string rua = textBoxRua.Text;
+            var localidade = textBoxLocalidade.Text;
+            var cp = maskedTextBoxCodigoPostal.Text;
+            var rua = textBoxRua.Text;
 
-            string telefone = textBox4.Text;
-            string email = textBox5.Text;
+            var telefone = textBox4.Text;
+            var email = textBox5.Text;
 
             try
             {

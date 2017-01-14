@@ -10,11 +10,11 @@ namespace Middleware
         [STAThread]
         static void Main()
         {
-            Aluno e = new Aluno("Adolfo", "Silva", null, new DateTime(1992, 11, 08), GeneroSexual.Homem, null);
+            var e = new Aluno("Adolfo", "Silva", null, new DateTime(1992, 11, 08), GeneroSexual.Homem, null);
             Console.WriteLine(e);
             Console.WriteLine();
 
-            Funcionario a = new Funcionario("Oliver", "Mota", new[] { "Oliveira" }, "omota", "supersecreta182!", "omota@imovcelos.pt");
+            var a = new Funcionario("Oliver", "Mota", new[] { "Oliveira" }, "omota", "supersecreta182!", "omota@imovcelos.pt");
             //var a = new Funcionario("João", "Ferreira", new[] {"Oliveira", "Garcia"}, "jferreira", "password1234", "jferreira@imovcelos.pt");;
             Console.WriteLine(a.NomeCurto);
             Console.WriteLine(a.NomeCompleto);
@@ -24,7 +24,7 @@ namespace Middleware
 
             Console.WriteLine();
             
-            Administrador admin = new Administrador("José Fonseca", "jfonseca", "passwordsupersegura", "jfonseca@imovcelos.pt");
+            var admin = new Administrador("José Fonseca", "jfonseca", "passwordsupersegura", "jfonseca@imovcelos.pt");
             Console.WriteLine(admin);
 
             Console.ReadKey();

@@ -8,7 +8,6 @@ using Middleware;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.WindowsForms;
-using GoogleMaps;
 using GoogleMaps.DistanceMatrix;
 using GoogleMaps.Geocoding;
 using Place = GooglePlaces.Place;
@@ -59,13 +58,13 @@ namespace Frontend
         {
             #region Receber Dados
 
-            Morada morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
+            var morada = new Morada(textBoxRua.Text, new CodigoPostal(maskedTextBoxCodigoPostal.Text),
                 textBoxLocalidade.Text);
 
-            int numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
+            var numDeWcs = ParseNumberOrFail(comboBoxNumDeWC.Text, "Valor de \"Número de Wcs\" inválido");
 
             // Metros Quadrados
-            int metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
+            var metrosQuadrados = ParseNumberOrFail(textBoxMetrosQuadrados.Text,
                 "Valor de \"Metros Quadrados\" inválido");
 
             // Ano de Construção
@@ -84,32 +83,32 @@ namespace Frontend
             }
 
             // Nº de Assoalhadas
-            int numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
+            var numAssoalhadas = ParseNumberOrFail(comboBoxNumDeAssoalhadas.Text,
                 "Valor de \"Nº de Assoalhadas\" inválido: não é número inteiro");
 
             // Nº de Quartos
-            int numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
+            var numQuartos = ParseNumberOrFail(comboBoxNumDeQuartos.Text,
                 "Valor de \"Nº de Quartos\" inválido: não é número inteiro");
 
             #endregion
 
             // Comodidades
-            Comodidades comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
+            var comodidades = new Comodidades(checkBoxTelevisao.Checked, checkBoxInternet.Checked,
                 checkBoxServicosDeLimpeza.Checked);
 
             // Descrição da Habitação
-            string descricao = textBoxDescricao.Text.Trim();
+            var descricao = textBoxDescricao.Text.Trim();
 
             // Despesas incluidas?
-            bool despesasIncluidas = checkBoxDespesasIncluidas.Checked;
+            var despesasIncluidas = checkBoxDespesasIncluidas.Checked;
 
-            decimal custoMensal = decimal.Parse(textBoxPreco.Text);
+            var custoMensal = decimal.Parse(textBoxPreco.Text);
 
             #region Validar
 
             // validar
             // e depois
-            Habitacao habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
+            var habitacao = new Habitacao(descricao, numQuartos, numAssoalhadas, numDeWcs, metrosQuadrados,
                 anoDeConstrucao, morada, custoMensal, despesasIncluidas, comodidades);
 
             #endregion
@@ -137,7 +136,7 @@ namespace Frontend
             try
             {
                 // texto do post a publicar
-                string texto = Facebook.CreatePost(habitacao);
+                var texto = Facebook.CreatePost(habitacao);
                 // publicar post/story
                 Facebook.PublishPost(texto, _imgsFilepath);
             }
@@ -164,9 +163,9 @@ namespace Frontend
             try
             {
                 // texto do tweet a publicar
-                string texto = Twitter.CreateTweet(habitacao);
+                var texto = Twitter.CreateTweet(habitacao);
                 // fotos a publicar
-                UniqueList<string> fotos = _imgsFilepath;
+                var fotos = _imgsFilepath;
                 // publicar tweet
                 Twitter.PostTweet(texto, fotos);
             }
@@ -212,10 +211,10 @@ namespace Frontend
             openFileDialog1.Filter = @"JPG|*.jpg;*.jpeg|PNG|*.png";
             // TODO: introduzir esta informação (e o tamanho, resolução num requisito funcional
             openFileDialog1.Multiselect = true; // Aceitar múltiplas fotos
-            DialogResult result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
+            var result = openFileDialog1.ShowDialog(); // Mostra o Dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                foreach (string filename in openFileDialog1.FileNames)
+                foreach (var filename in openFileDialog1.FileNames)
                 {
                     _imgsFilepath.Add(filename);
                 }
@@ -244,10 +243,10 @@ namespace Frontend
             // se nenhuma imagem estiver a ser exibida
             if (_displayedImage == null) return;
             // se alguma imagem estiver a ser exibida
-            int indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
+            var indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
             if (indexDisplayedImage > 0) // se houver mais de uma foto
             {
-                string previousPhoto = _imgsFilepath[indexDisplayedImage - 1];
+                var previousPhoto = _imgsFilepath[indexDisplayedImage - 1];
                 AtualizarFoto(previousPhoto);
             }
         }
@@ -260,10 +259,10 @@ namespace Frontend
             // se nenhuma imagem estiver a ser exibida
             if (_displayedImage == null) return;
             // se alguma imagem estiver a ser exibida
-            int indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
+            var indexDisplayedImage = _imgsFilepath.IndexOf(_displayedImage);
             if (indexDisplayedImage < _imgsFilepath.Count - 1)
             {
-                string nextPhoto = _imgsFilepath[indexDisplayedImage + 1];
+                var nextPhoto = _imgsFilepath[indexDisplayedImage + 1];
                 AtualizarFoto(nextPhoto);
             }
         }
@@ -311,50 +310,50 @@ namespace Frontend
 
         private void pictureBoxImagem_DragDrop(object sender, DragEventArgs e)
         {
-            PictureBox transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            var transfo = (PictureBox)e.Data.GetData(typeof(PictureBox));
             transfo.Location = PointToClient(new Point(e.X, e.Y));
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PesquisarProprietario prop = new PesquisarProprietario();
+            var prop = new PesquisarProprietario();
             prop.MdiParent = IGE.ActiveForm;
             prop.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NovoProprietario newProp = new NovoProprietario();
+            var newProp = new NovoProprietario();
             newProp.MdiParent = IGE.ActiveForm;
             newProp.Show();
         }
 
         private void buttonProcurar_Click(object sender, EventArgs e)
         {
-            GoogleMaps.GoogleMaps googleMaps = new GoogleMaps.GoogleMaps();
+            var googleMaps = new GoogleMaps.GoogleMaps();
 
-            Location habitacao =
+            var habitacao =
                 googleMaps.GetCoordinates(
                     $"{textBoxRua.Text}, {maskedTextBoxCodigoPostal.Text}, {textBoxLocalidade.Text}");
             if (habitacao == null) return;
 
-            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(habitacao.lat, habitacao.lng, 250);
 
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            var markersOverlay = new GMapOverlay("markers");
             gMapControl.Overlays.Clear();
 
-            foreach (Place t in pontosDeInteresse)
+            foreach (var t in pontosDeInteresse)
             {
-                Location pontoDeInteresse = new Location {lat = t.Latitude, lng = t.Longitude};
-                int distance = googleMaps.DistanceBetween(habitacao, pontoDeInteresse, TravelMode.Walking);
+                var pontoDeInteresse = new Location {lat = t.Latitude, lng = t.Longitude};
+                var distance = googleMaps.DistanceBetween(habitacao, pontoDeInteresse, TravelMode.Walking);
 
-                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
+                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText = $"{t.Name}\n{Utils.FormatPontosDeInteresse(t.Types)}\nDistância (a pé): {distance}m";
                 markersOverlay.Markers.Add(marker);
                 gMapControl.Overlays.Add(markersOverlay);
             }
 
-            GMarkerGoogle habitacaoMarker = new GMarkerGoogle(new PointLatLng(habitacao.lat, habitacao.lng), GMarkerGoogleType.red);
+            var habitacaoMarker = new GMarkerGoogle(new PointLatLng(habitacao.lat, habitacao.lng), GMarkerGoogleType.red);
             habitacaoMarker.ToolTipText = "Habitação";
             markersOverlay.Markers.Add(habitacaoMarker);
 

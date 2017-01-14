@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarProprietario));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarProprietario));
             this.buttonInfo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBoxBI = new System.Windows.Forms.TextBox();

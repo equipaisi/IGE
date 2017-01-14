@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alunos));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Alunos));
             this.label13 = new System.Windows.Forms.Label();
             this.labelemail = new System.Windows.Forms.Label();
             this.labeltelefone = new System.Windows.Forms.Label();

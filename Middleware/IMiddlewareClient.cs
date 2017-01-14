@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Configuration;
 using Backend;
 
 namespace Middleware
@@ -46,8 +40,8 @@ namespace Middleware
         public string GetUserType(string username)
         {
             _db.Open();
-            int userId = _db.GetUserType(username);
-            string usertype = string.Empty; 
+            var userId = _db.GetUserType(username);
+            var usertype = string.Empty; 
             switch (userId)
             {
                 case 0:
@@ -64,7 +58,7 @@ namespace Middleware
         public string GetPassword(string username, string password)
         {
             _db.Open();
-            string r = _db.ValidateCredentials(username, password);
+            var r = _db.ValidateCredentials(username, password);
             _db.Close();
             return r;
         }
@@ -73,7 +67,7 @@ namespace Middleware
         public bool CreateFuncionario(string username, string password)
         {
             _db.Open();
-            int r = _db.CreateFuncionario(username, password);
+            var r = _db.CreateFuncionario(username, password);
             _db.Close();
             return r == 0;
         }
@@ -82,7 +76,7 @@ namespace Middleware
         public bool CreateAdmin(string username, string password)
         {
             _db.Open();
-            int r = _db.CreateAdmin(username, password);
+            var r = _db.CreateAdmin(username, password);
             _db.Close();
             return r == 0;
         }
@@ -90,7 +84,7 @@ namespace Middleware
         public bool DeleteUser(string username)
         {
             _db.Open();
-            int r = _db.DeleteUser(username);
+            var r = _db.DeleteUser(username);
             _db.Close();
             return r > 0;
         }
@@ -98,7 +92,7 @@ namespace Middleware
         public bool CriarProprietario(string nome, string bi, string dt, string rua, string cp, string localidade, string telefone, string email)
         {
             _db.Open();
-            bool r = _db.CreateProprietario(nome, bi, dt, rua, cp, localidade, telefone, email);
+            var r = _db.CreateProprietario(nome, bi, dt, rua, cp, localidade, telefone, email);
             _db.Close();
             return r;
         }

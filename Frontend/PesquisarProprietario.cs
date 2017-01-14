@@ -23,8 +23,8 @@ namespace Frontend
         /// </summary>
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            string nome = textBoxNome.Text;
-            string bi = textBoxBI.Text;
+            var nome = textBoxNome.Text;
+            var bi = textBoxBI.Text;
 
             // se não for fornecido nem o nome nem o número de BI
             if (string.IsNullOrWhiteSpace(nome) && string.IsNullOrWhiteSpace(bi))
@@ -42,7 +42,7 @@ namespace Frontend
         /// </summary>
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            Proprietario prt = new Proprietario();
+            var prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
             prt.Show();
         }

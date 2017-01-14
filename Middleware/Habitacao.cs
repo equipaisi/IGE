@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
@@ -115,8 +114,8 @@ namespace Middleware
             {
                 throw new ArgumentException();
             }*/
-            List<IQuarto> quartos = new List<IQuarto>(numeroDeQuartos);
-            for (int _ = 0; _ < numeroDeQuartos; _++) quartos.Add(new Quarto());
+            var quartos = new List<IQuarto>(numeroDeQuartos);
+            for (var _ = 0; _ < numeroDeQuartos; _++) quartos.Add(new Quarto());
             Descricao = descricao;
             Quartos = quartos;
             NumeroDeAssoalhadas = numeroDeAssoalhadas;

@@ -40,21 +40,21 @@ namespace Frontend
             Auth.SetUserCredentials(ApiKey, ApiSecret, UserAcessToken, UserAcessSecret);
 
             #region Imagens
-            List<IMedia> media = new List<IMedia>(MaxAllowedUploadedPhotos);
+            var media = new List<IMedia>(MaxAllowedUploadedPhotos);
             foreach (var imagePath in images.Take(MaxAllowedUploadedPhotos))
             {
                 // Verificar se o tamanho da foto não excede o permitido pelo Twitter
-                long imageSize = new FileInfo(imagePath).Length;
+                var imageSize = new FileInfo(imagePath).Length;
                 if (imageSize > MaxPhotoSizeInMegabytes)
                     throw new ExcessiveImageFilesizeException(); // Path.GetFileName(imagePath), imageSize
 
-                byte[] image = File.ReadAllBytes(imagePath);
+                var image = File.ReadAllBytes(imagePath);
                 media.Add(Upload.UploadImage(image));
             }
             #endregion
 
             // Publicar tweet
-            ITweet tweet = Tweet.PublishTweet(message, new PublishTweetOptionalParameters
+            var tweet = Tweet.PublishTweet(message, new PublishTweetOptionalParameters
             {
                 Medias = media
             });

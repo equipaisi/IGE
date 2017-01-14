@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistarHabitacao));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistarHabitacao));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxMetrosQuadrados = new System.Windows.Forms.TextBox();

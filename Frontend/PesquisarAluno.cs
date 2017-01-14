@@ -15,8 +15,8 @@ namespace Frontend
         /// </summary>
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            string nome = textBoxNome.Text;
-            string bi = textBoxNome.Text;
+            var nome = textBoxNome.Text;
+            var bi = textBoxNome.Text;
 
             // se não for fornecido nem o nome nem o número de BI
             if (string.IsNullOrWhiteSpace(nome) && string.IsNullOrWhiteSpace(bi))
@@ -35,7 +35,7 @@ namespace Frontend
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             // TODO
-            Alunos alun = new Alunos();
+            var alun = new Alunos();
             alun.MdiParent = IGE.ActiveForm;
             alun.Show();
         }

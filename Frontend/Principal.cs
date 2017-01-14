@@ -13,28 +13,28 @@ namespace Frontend
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            RegistarHabitacao rh = new RegistarHabitacao();
+            var rh = new RegistarHabitacao();
             rh.MdiParent= IGE.ActiveForm;
             rh.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            PesquisarHabitacao ph = new PesquisarHabitacao();
+            var ph = new PesquisarHabitacao();
             ph.MdiParent = IGE.ActiveForm;
             ph.Show();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            PesquisarProprietario pp = new PesquisarProprietario();
+            var pp = new PesquisarProprietario();
             pp.MdiParent = IGE.ActiveForm;
             pp.Show();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            PesquisarAluno pa = new PesquisarAluno();
+            var pa = new PesquisarAluno();
             pa.MdiParent = IGE.ActiveForm;
             pa.Show();
         }

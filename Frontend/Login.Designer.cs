@@ -31,7 +31,7 @@ namespace Frontend
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBoxLogin = new System.Windows.Forms.PictureBox();

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Middleware;
 
@@ -27,8 +20,8 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsername.Text;
-            string password = textBoxPassword.Text;
+            var username = textBoxUsername.Text;
+            var password = textBoxPassword.Text;
 
             #region Errors
             if (!radioButtonAdmin.Checked && !radioButtonFunc.Checked)

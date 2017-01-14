@@ -12,14 +12,14 @@ namespace Frontend
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PesquisarAluno pesqAluno = new PesquisarAluno();
+            var pesqAluno = new PesquisarAluno();
             pesqAluno.MdiParent = IGE.ActiveForm;
             pesqAluno.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NovoAluno novoAluno = new NovoAluno();
+            var novoAluno = new NovoAluno();
             novoAluno.MdiParent = IGE.ActiveForm;
             novoAluno.Show();
         }
@@ -27,7 +27,7 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Quarto Alugado com sucesso");
-            Aluguer al = new Aluguer();
+            var al = new Aluguer();
             al.Close();
         }
     }

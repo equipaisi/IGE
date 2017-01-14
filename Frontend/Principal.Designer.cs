@@ -34,7 +34,7 @@ namespace Frontend
             //this.StartPosition = FormStartPosition.CenterParent;
 
             //***********************************************************************************************************************************//
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxRegistHab = new System.Windows.Forms.PictureBox();
             this.labelRegistHab = new System.Windows.Forms.Label();

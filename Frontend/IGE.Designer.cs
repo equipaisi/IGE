@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IGE));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(IGE));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSobre = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSair = new System.Windows.Forms.ToolStripButton();

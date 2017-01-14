@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Habitação));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Habitação));
             this.groupBoxFotos = new System.Windows.Forms.GroupBox();
             this.buttonPrevious = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();

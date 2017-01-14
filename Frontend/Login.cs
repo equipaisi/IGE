@@ -19,13 +19,12 @@ namespace Frontend
             // Mostrar o nome e a versão da aplicação como título da form
             this.Text = $"Login - {Application.ProductName} {Application.ProductVersion}";
         }
-
         
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             try
             {
-                Validate();
+                ValidateCretentials();
             }
             catch (Exception exception)
             {
@@ -34,12 +33,12 @@ namespace Frontend
             }
         }
 
-        private void Validate()
+        private void ValidateCretentials()
         {
             var username = textBox_Name.Text;
             var password = textBox_Password.Text;
 
-            string pass = _middleMiddlewareClient.GetPassword(username, password);
+            var pass = _middleMiddlewareClient.GetPassword(username, password);
             if (string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt",
@@ -67,16 +66,16 @@ namespace Frontend
             switch (userType)
             {
                 case "funcionario":
-                    IGE a = new IGE();
+                    var a = new IGE();
                     a.Show();
-                    Principal fp = new Principal {MdiParent = a};
+                    var fp = new Principal {MdiParent = a};
                     fp.Show();
                     this.Hide(); // a janela fica oculta
                     break;
                 case "administrador":
-                    IGE b = new IGE();
+                    var b = new IGE();
                     b.Show();
-                    Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
+                    var adm = new Administrador {MdiParent = IGE.ActiveForm};
                     adm.Show();
                     this.Hide(); // a janela fica oculta
                     break;

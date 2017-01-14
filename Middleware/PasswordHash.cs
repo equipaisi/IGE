@@ -14,11 +14,11 @@ namespace Middleware
 
         public static string HashPassword(string password)
         {
-            RNGCryptoServiceProvider cryptoProvider = new RNGCryptoServiceProvider();
-            byte[] salt = new byte[SaltByteSize];
+            var cryptoProvider = new RNGCryptoServiceProvider();
+            var salt = new byte[SaltByteSize];
             cryptoProvider.GetBytes(salt);
 
-            byte[] hash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, HashByteSize);
+            var hash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, HashByteSize);
             return Pbkdf2Iterations + ":" +
                    Convert.ToBase64String(salt) + ":" +
                    Convert.ToBase64String(hash);
@@ -27,19 +27,19 @@ namespace Middleware
         public static bool ValidatePassword(string password, string correctHash)
         {
             char[] delimiter = { ':' };
-            string[] split = correctHash.Split(delimiter);
-            int iterations = Int32.Parse(split[IterationIndex]);
-            byte[] salt = Convert.FromBase64String(split[SaltIndex]);
-            byte[] hash = Convert.FromBase64String(split[Pbkdf2Index]);
+            var split = correctHash.Split(delimiter);
+            var iterations = Int32.Parse(split[IterationIndex]);
+            var salt = Convert.FromBase64String(split[SaltIndex]);
+            var hash = Convert.FromBase64String(split[Pbkdf2Index]);
 
-            byte[] testHash = GetPbkdf2Bytes(password, salt, iterations, hash.Length);
+            var testHash = GetPbkdf2Bytes(password, salt, iterations, hash.Length);
             return SlowEquals(hash, testHash);
         }
 
         private static bool SlowEquals(byte[] a, byte[] b)
         {
-            uint diff = (uint)a.Length ^ (uint)b.Length;
-            for (int i = 0; i < a.Length && i < b.Length; i++)
+            var diff = (uint)a.Length ^ (uint)b.Length;
+            for (var i = 0; i < a.Length && i < b.Length; i++)
             {
                 diff |= (uint)(a[i] ^ b[i]);
             }
@@ -48,7 +48,7 @@ namespace Middleware
 
         private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputBytes)
         {
-            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt) {IterationCount = iterations};
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt) {IterationCount = iterations};
             return pbkdf2.GetBytes(outputBytes);
         }
     }

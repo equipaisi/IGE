@@ -27,8 +27,8 @@ namespace GooglePlaces
         {
             if (radius <= 0 || radius > 50000)
                 throw new ArgumentOutOfRangeException("Radius must be a positive integer between 1 an 50 000");
-            string url = CreateRequestUrl(latitude, longitude, radius);
-            RootObject root = Magic<RootObject>(url);
+            var url = CreateRequestUrl(latitude, longitude, radius);
+            var root = Magic<RootObject>(url);
             if (root.status != "OK") return null; // TODO: throw new Custom Exception
             if (root.results.Count < 1) return null;
 
@@ -53,7 +53,7 @@ namespace GooglePlaces
         /// <param name="radius">Raio (em metros) da pesquisa</param>
         private string CreateRequestUrl(double latitude, double longitude, int radius)
         {
-            CultureInfo us = CultureInfo.CreateSpecificCulture("en-US");
+            var us = CultureInfo.CreateSpecificCulture("en-US");
             return $"{BaseUrl}location={latitude.ToString(us)},{longitude.ToString(us)}&radius={radius}&key={ApiKey}";
         }
 
@@ -62,7 +62,7 @@ namespace GooglePlaces
 
         private static MemoryStream GetResponse(HttpWebRequest request)
         {
-            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            using (var response = request.GetResponse() as HttpWebResponse)
             {
                 // verificar erros na resposta
                 if (response != null && response.StatusCode != HttpStatusCode.OK)
@@ -71,7 +71,7 @@ namespace GooglePlaces
                         response.StatusCode,
                         response.StatusDescription));
 
-                string result = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                var result = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 return new MemoryStream(Encoding.Unicode.GetBytes(result)) { Position = 0 };
             }
         }

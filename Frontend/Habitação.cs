@@ -18,22 +18,22 @@ namespace Frontend
 
         private void Habitação_Load(object sender, EventArgs e)
         {
-            Location local =
+            var local =
                new GoogleMaps.GoogleMaps().GetCoordinates(
                    $"{labelRua.Text}, {labelCodigoPostal.Text}, {labelLocalidade.Text}");
-            List<Place> pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            var pontosDeInteresse = new GooglePlaces.GooglePlaces().GetPointsOfInterest(local.lat, local.lng, 250);
+            var markersOverlay = new GMapOverlay("markers");
 
             mapa.Overlays.Clear();
-            foreach (Place t in pontosDeInteresse)
+            foreach (var t in pontosDeInteresse)
             {
-                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
+                var marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(t.Latitude.ToString()), Convert.ToDouble(t.Longitude.ToString())), GMarkerGoogleType.green);
                 marker.ToolTipText =$"{t.Name} \n {Utils.FormatPontosDeInteresse(t.Types)}";
                 markersOverlay.Markers.Add(marker);
                 mapa.Overlays.Add(markersOverlay);
             }
 
-            GMarkerGoogle _marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.red);
+            var _marker = new GMarkerGoogle(new PointLatLng(local.lat, local.lng), GMarkerGoogleType.red);
             _marker.ToolTipText = "Habitação";
             markersOverlay.Markers.Add(_marker);
 
@@ -42,14 +42,14 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Proprietario prt = new Proprietario();
+            var prt = new Proprietario();
             prt.MdiParent = IGE.ActiveForm;
             prt.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Aluguer alug = new Aluguer();
+            var alug = new Aluguer();
             alug.MdiParent = IGE.ActiveForm;
             alug.Show();
         }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -46,7 +39,7 @@ namespace Frontend
 
         private void toolStripButtonSobre_Click(object sender, EventArgs e)
         {
-            Sobre sobreForm = new Sobre();
+            var sobreForm = new Sobre();
             sobreForm.MdiParent = this;
             sobreForm.Show();
         }
@@ -57,7 +50,7 @@ namespace Frontend
 
             this.Visible = false;
 
-            Login login = new Login();
+            var login = new Login();
             login.ShowDialog();
             
 

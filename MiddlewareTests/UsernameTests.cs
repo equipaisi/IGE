@@ -21,7 +21,7 @@ namespace Middleware.Tests
         public void ComplexValidTest()
         {
             // Username tem que começar com uma letra e tem que ter um tamanho de pelo menos 8 caracteres.
-            List<Predicate<string>> preds = new List<Predicate<string>> {s => Char.IsLetter(s[0]), s => s.Length >= 8};
+            var preds = new List<Predicate<string>> {s => Char.IsLetter(s[0]), s => s.Length >= 8};
 
             Assert.AreEqual(Username.ComplexValid("administrador", preds), true);
             Assert.AreEqual(Username.ComplexValid("a715678g", preds), true);

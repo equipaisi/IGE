@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Frontend</RootNamespace>
-    <AssemblyName>Frontend</AssemblyName>
+    <AssemblyName>IGE</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -148,11 +148,11 @@
     <Compile Include="Alunos.Designer.cs">
       <DependentUpon>Alunos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configurações Admin.cs">
+    <Compile Include="ConfiguraçõesAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configurações Admin.Designer.cs">
-      <DependentUpon>Configurações Admin.cs</DependentUpon>
+    <Compile Include="ConfiguraçõesAdmin.Designer.cs">
+      <DependentUpon>ConfiguraçõesAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="db0c197ff0dbc54f2e8d70a6f3000ae158DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -319,8 +319,8 @@
     <EmbeddedResource Include="Alunos.resx">
       <DependentUpon>Alunos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configurações Admin.resx">
-      <DependentUpon>Configurações Admin.cs</DependentUpon>
+    <EmbeddedResource Include="ConfiguraçõesAdmin.resx">
+      <DependentUpon>ConfiguraçõesAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DesativarAluno.resx">
       <DependentUpon>DesativarAluno.cs</DependentUpon>

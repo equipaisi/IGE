@@ -33,7 +33,7 @@ namespace Frontend {
         public db0c197ff0dbc54f2e8d70a6f3000ae158DataSet() {
             this.BeginInit();
             this.InitClass();
-            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            var schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
@@ -45,14 +45,14 @@ namespace Frontend {
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
-                global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+                var schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
                 return;
             }
-            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            var strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
-                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                var ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
                 if ((ds.Tables["Utilizador"] != null)) {
                     base.Tables.Add(new UtilizadorDataTable(ds.Tables["Utilizador"]));
@@ -70,7 +70,7 @@ namespace Frontend {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
             }
             this.GetSerializationData(info, context);
-            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            var schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
         }
@@ -127,7 +127,7 @@ namespace Frontend {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            db0c197ff0dbc54f2e8d70a6f3000ae158DataSet cln = ((db0c197ff0dbc54f2e8d70a6f3000ae158DataSet)(base.Clone()));
+            var cln = ((db0c197ff0dbc54f2e8d70a6f3000ae158DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -150,7 +150,7 @@ namespace Frontend {
         protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
             if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 this.Reset();
-                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                var ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
                 if ((ds.Tables["Utilizador"] != null)) {
                     base.Tables.Add(new UtilizadorDataTable(ds.Tables["Utilizador"]));
@@ -173,7 +173,7 @@ namespace Frontend {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
-            global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
+            var stream = new global::System.IO.MemoryStream();
             this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
             stream.Position = 0;
             return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
@@ -225,21 +225,21 @@ namespace Frontend {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            db0c197ff0dbc54f2e8d70a6f3000ae158DataSet ds = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet();
-            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-            global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
+            var ds = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet();
+            var type = new global::System.Xml.Schema.XmlSchemaComplexType();
+            var sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+            var any = new global::System.Xml.Schema.XmlSchemaAny();
             any.Namespace = ds.Namespace;
             sequence.Items.Add(any);
             type.Particle = sequence;
-            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+            var dsSchema = ds.GetSchemaSerializable();
             if (xs.Contains(dsSchema.TargetNamespace)) {
-                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                var s1 = new global::System.IO.MemoryStream();
+                var s2 = new global::System.IO.MemoryStream();
                 try {
                     global::System.Xml.Schema.XmlSchema schema = null;
                     dsSchema.Write(s1);
-                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                    for (var schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
                         schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
                         s2.SetLength(0);
                         schema.Write(s2);
@@ -350,8 +350,8 @@ namespace Frontend {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UtilizadorRow AddUtilizadorRow() {
-                UtilizadorRow rowUtilizadorRow = ((UtilizadorRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                var rowUtilizadorRow = ((UtilizadorRow)(this.NewRow()));
+                var columnValuesArray = new object[0];
                 rowUtilizadorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUtilizadorRow);
                 return rowUtilizadorRow;
@@ -360,7 +360,7 @@ namespace Frontend {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                UtilizadorDataTable cln = ((UtilizadorDataTable)(base.Clone()));
+                var cln = ((UtilizadorDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -444,37 +444,37 @@ namespace Frontend {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                db0c197ff0dbc54f2e8d70a6f3000ae158DataSet ds = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                var type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                var sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                var ds = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet();
+                var any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
                 any1.MaxOccurs = decimal.MaxValue;
                 any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
                 sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                var any2 = new global::System.Xml.Schema.XmlSchemaAny();
                 any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
                 any2.MinOccurs = new decimal(1);
                 any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
                 sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                var attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute1.Name = "namespace";
                 attribute1.FixedValue = ds.Namespace;
                 type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                var attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "UtilizadorDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                var dsSchema = ds.GetSchemaSerializable();
                 if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    var s1 = new global::System.IO.MemoryStream();
+                    var s2 = new global::System.IO.MemoryStream();
                     try {
                         global::System.Xml.Schema.XmlSchema schema = null;
                         dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                        for (var schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
                             schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
                             s2.SetLength(0);
                             schema.Write(s2);
@@ -616,7 +616,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                 if ((this.Adapter.UpdateCommand != null)) {
                     this.Adapter.UpdateCommand.Connection = value;
                 }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                for (var i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
                         ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
@@ -632,7 +632,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
             }
             set {
                 this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                for (var i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
@@ -704,7 +704,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
-            int returnValue = this.Adapter.Fill(dataTable);
+            var returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
         }
         
@@ -714,7 +714,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual db0c197ff0dbc54f2e8d70a6f3000ae158DataSet.UtilizadorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            db0c197ff0dbc54f2e8d70a6f3000ae158DataSet.UtilizadorDataTable dataTable = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet.UtilizadorDataTable();
+            var dataTable = new db0c197ff0dbc54f2e8d70a6f3000ae158DataSet.UtilizadorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -778,7 +778,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
         [global::System.ComponentModel.Browsable(false)]
         public int TableAdapterInstanceCount {
             get {
-                int count = 0;
+                var count = 0;
                 return count;
             }
         }
@@ -789,7 +789,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(db0c197ff0dbc54f2e8d70a6f3000ae158DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
-            int result = 0;
+            var result = 0;
             return result;
         }
         
@@ -799,7 +799,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(db0c197ff0dbc54f2e8d70a6f3000ae158DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
-            int result = 0;
+            var result = 0;
             return result;
         }
         
@@ -809,7 +809,7 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(db0c197ff0dbc54f2e8d70a6f3000ae158DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
-            int result = 0;
+            var result = 0;
             return result;
         }
         
@@ -827,9 +827,9 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                         || (allAddedRows.Count < 1))) {
                 return updatedRows;
             }
-            global::System.Collections.Generic.List<global::System.Data.DataRow> realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
-            for (int i = 0; (i < updatedRows.Length); i = (i + 1)) {
-                global::System.Data.DataRow row = updatedRows[i];
+            var realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
+            for (var i = 0; (i < updatedRows.Length); i = (i + 1)) {
+                var row = updatedRows[i];
                 if ((allAddedRows.Contains(row) == false)) {
                     realUpdatedRows.Add(row);
                 }
@@ -849,12 +849,12 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            global::System.Data.IDbConnection workConnection = this.Connection;
+            var workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
                         "ger TableAdapter property to a valid TableAdapter instance.");
             }
-            bool workConnOpened = false;
+            var workConnOpened = false;
             if (((workConnection.State & global::System.Data.ConnectionState.Broken) 
                         == global::System.Data.ConnectionState.Broken)) {
                 workConnection.Close();
@@ -863,16 +863,16 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                 workConnection.Open();
                 workConnOpened = true;
             }
-            global::System.Data.IDbTransaction workTransaction = workConnection.BeginTransaction();
+            var workTransaction = workConnection.BeginTransaction();
             if ((workTransaction == null)) {
                 throw new global::System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" +
                         "ctions or the current state is not allowing the transaction to begin.");
             }
-            global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
-            global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
-            global::System.Collections.Generic.List<global::System.Data.Common.DataAdapter> adaptersWithAcceptChangesDuringUpdate = new global::System.Collections.Generic.List<global::System.Data.Common.DataAdapter>();
-            global::System.Collections.Generic.Dictionary<object, global::System.Data.IDbConnection> revertConnections = new global::System.Collections.Generic.Dictionary<object, global::System.Data.IDbConnection>();
-            int result = 0;
+            var allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
+            var allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
+            var adaptersWithAcceptChangesDuringUpdate = new global::System.Collections.Generic.List<global::System.Data.Common.DataAdapter>();
+            var revertConnections = new global::System.Collections.Generic.Dictionary<object, global::System.Data.IDbConnection>();
+            var result = 0;
             global::System.Data.DataSet backupDataSet = null;
             if (this.BackupDataSetBeforeUpdate) {
                 backupDataSet = new global::System.Data.DataSet();
@@ -898,18 +898,18 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                 //
                 workTransaction.Commit();
                 if ((0 < allAddedRows.Count)) {
-                    global::System.Data.DataRow[] rows = new System.Data.DataRow[allAddedRows.Count];
+                    var rows = new System.Data.DataRow[allAddedRows.Count];
                     allAddedRows.CopyTo(rows);
-                    for (int i = 0; (i < rows.Length); i = (i + 1)) {
-                        global::System.Data.DataRow row = rows[i];
+                    for (var i = 0; (i < rows.Length); i = (i + 1)) {
+                        var row = rows[i];
                         row.AcceptChanges();
                     }
                 }
                 if ((0 < allChangedRows.Count)) {
-                    global::System.Data.DataRow[] rows = new System.Data.DataRow[allChangedRows.Count];
+                    var rows = new System.Data.DataRow[allChangedRows.Count];
                     allChangedRows.CopyTo(rows);
-                    for (int i = 0; (i < rows.Length); i = (i + 1)) {
-                        global::System.Data.DataRow row = rows[i];
+                    for (var i = 0; (i < rows.Length); i = (i + 1)) {
+                        var row = rows[i];
                         row.AcceptChanges();
                     }
                 }
@@ -924,10 +924,10 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                 }
                 else {
                     if ((0 < allAddedRows.Count)) {
-                        global::System.Data.DataRow[] rows = new System.Data.DataRow[allAddedRows.Count];
+                        var rows = new System.Data.DataRow[allAddedRows.Count];
                         allAddedRows.CopyTo(rows);
-                        for (int i = 0; (i < rows.Length); i = (i + 1)) {
-                            global::System.Data.DataRow row = rows[i];
+                        for (var i = 0; (i < rows.Length); i = (i + 1)) {
+                            var row = rows[i];
                             row.AcceptChanges();
                             row.SetAdded();
                         }
@@ -940,10 +940,10 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                     workConnection.Close();
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
-                    global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
+                    var adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
                     adaptersWithAcceptChangesDuringUpdate.CopyTo(adapters);
-                    for (int i = 0; (i < adapters.Length); i = (i + 1)) {
-                        global::System.Data.Common.DataAdapter adapter = adapters[i];
+                    for (var i = 0; (i < adapters.Length); i = (i + 1)) {
+                        var adapter = adapters[i];
                         adapter.AcceptChangesDuringUpdate = true;
                     }
                 }
@@ -1010,13 +1010,13 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private global::System.Data.DataRow GetRoot(global::System.Data.DataRow row, out int distance) {
                 global::System.Diagnostics.Debug.Assert((row != null));
-                global::System.Data.DataRow root = row;
+                var root = row;
                 distance = 0;
 
                 global::System.Collections.Generic.IDictionary<global::System.Data.DataRow, global::System.Data.DataRow> traversedRows = new global::System.Collections.Generic.Dictionary<global::System.Data.DataRow, global::System.Data.DataRow>();
                 traversedRows[row] = row;
 
-                global::System.Data.DataRow parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
+                var parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
                 for (
                 ; ((parent != null) 
                             && (traversedRows.ContainsKey(parent) == false)); 
@@ -1058,11 +1058,11 @@ namespace Frontend.db0c197ff0dbc54f2e8d70a6f3000ae158DataSetTableAdapters {
                     return 1;
                 }
 
-                int distance1 = 0;
-                global::System.Data.DataRow root1 = this.GetRoot(row1, out distance1);
+                var distance1 = 0;
+                var root1 = this.GetRoot(row1, out distance1);
 
-                int distance2 = 0;
-                global::System.Data.DataRow root2 = this.GetRoot(row2, out distance2);
+                var distance2 = 0;
+                var root2 = this.GetRoot(row2, out distance2);
 
                 if (object.ReferenceEquals(root1, root2)) {
                     return (this._childFirst * distance1.CompareTo(distance2));

@@ -31,7 +31,7 @@ namespace Frontend
             if (images.Count < 1) throw new NoPhotosException();
 
             // Criar um cliente autenticado
-            FacebookClient client = new FacebookClient(AccessToken)
+            var client = new FacebookClient(AccessToken)
             {
                 AppId = AppId,
                 AppSecret = AppSecret
@@ -40,23 +40,23 @@ namespace Frontend
             #region Imagens
             // TODO: If you upload a PNG file, try keep the file size below 1 MB. PNG files larger than 1 MB may appear pixelated after upload.
 
-            List<string> ids = new List<string>(MaxAllowedUploadedPhotos);
+            var ids = new List<string>(MaxAllowedUploadedPhotos);
             foreach (var imagePath in images.Take(MaxAllowedUploadedPhotos))
             {
                 // De acordo com a documentacao Graph API: "Check the file size of your photos. We recommend uploading photos under 4MB."
-                long imageSize = new FileInfo(imagePath).Length;
+                var imageSize = new FileInfo(imagePath).Length;
                 if (imageSize > MaxPhotoSizeInMegabytes)
                     throw new ExcessiveImageFilesizeException(); // Path.GetFileName(imagePath), imageSize
 
-                Image img = Image.FromFile(imagePath);
-                byte[] foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
-                FacebookMediaObject media = new FacebookMediaObject
+                var img = Image.FromFile(imagePath);
+                var foto = (byte[]) new ImageConverter().ConvertTo(img, typeof(byte[]));
+                var media = new FacebookMediaObject
                 {
                     ContentType = "image/jpeg", // BUG: what if this image is NOT a jpeg?
                     FileName = Path.GetFileName(imagePath),
                 }.SetValue(foto);
 
-                JsonObject response = client.Post($"{PageId}/photos?", new Dictionary<string, object>
+                var response = client.Post($"{PageId}/photos?", new Dictionary<string, object>
                 {
                     {"source", media},
                     {"published", false}
@@ -67,12 +67,12 @@ namespace Frontend
             #endregion
 
             // Publicar post e retornar a resposta
-            Dictionary<string, object> parameters = new Dictionary<string, object>
+            var parameters = new Dictionary<string, object>
             {
                 {"message", message}
             };
 
-            for (int i = 0; i < ids.Count; i++)
+            for (var i = 0; i < ids.Count; i++)
             {
                 var a = "\"media_fbid\"";
                 var b = $"\"{ids[i]}\"";
@@ -87,14 +87,14 @@ namespace Frontend
         /// </summary>
         public static string CreatePost(IHabitacao habitacao)
         {
-            string despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
+            var despesas = habitacao.IncluiDespesas ? "(Inclui despesas)" : "(Não inclui despesas)";
 
             #region Comodidades
 
-            string televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
-            string internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
-            string limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
-            string com = string.Join(", ", new List<string> { televisao, internet, limpeza });
+            var televisao = habitacao.Comodidades.Televisao ? "Televisão" : string.Empty;
+            var internet = habitacao.Comodidades.Internet ? "Internet" : string.Empty;
+            var limpeza = habitacao.Comodidades.ServicoDeLimpeza ? "Serviço de Limpeza" : string.Empty;
+            var com = string.Join(", ", new List<string> { televisao, internet, limpeza });
 
             #endregion
 

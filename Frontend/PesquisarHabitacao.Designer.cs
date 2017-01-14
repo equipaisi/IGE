@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarHabitacao));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarHabitacao));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxDistritos = new System.Windows.Forms.ComboBox();

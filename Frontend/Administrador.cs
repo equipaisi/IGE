@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
@@ -19,35 +12,35 @@ namespace Frontend
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Configurações_Admin config = new Configurações_Admin();
+            var config = new ConfiguraçõesAdmin();
             config.MdiParent = IGE.ActiveForm;
             config.Show();
         }
 
         private void pictureBoxPesqHab_Click(object sender, EventArgs e)
         {
-            PesquisarHabitacao pesq = new PesquisarHabitacao();
+            var pesq = new PesquisarHabitacao();
             pesq.MdiParent = IGE.ActiveForm;
             pesq.Show();
         }
 
         private void pictureBoxRegistHab_Click(object sender, EventArgs e)
         {
-            RegistarHabitacao regist = new RegistarHabitacao();
+            var regist = new RegistarHabitacao();
             regist.MdiParent = IGE.ActiveForm;
             regist.Show();
         }
 
         private void pictureBoxproprietario_Click(object sender, EventArgs e)
         {
-            PesquisarProprietario prop = new PesquisarProprietario();
+            var prop = new PesquisarProprietario();
             prop.MdiParent = IGE.ActiveForm;
             prop.Show();
         }
 
         private void pictureBoxAlunos_Click(object sender, EventArgs e)
         {
-            PesquisarAluno alun = new PesquisarAluno();
+            var alun = new PesquisarAluno();
             alun.MdiParent = IGE.ActiveForm;
             alun.Show();
         }

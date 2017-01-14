@@ -8,10 +8,9 @@ namespace Frontend
     {
         private static string ParseApplicationVersion()
         {
-            Version version = new Version(Application.ProductVersion);
+            var version = new Version(Application.ProductVersion);
             return $"{version.Major}.{version.Minor}.{version.Revision}";
         }
-
     
         public static string FormatPontosDeInteresse(IList<string> types)
         {

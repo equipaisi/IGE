@@ -68,15 +68,15 @@ namespace Middleware
             // TODO: refactor this into one line solution
             get
             {
-                List<string> names = new List<string> {PrimeiroNome};
+                var names = new List<string> {PrimeiroNome};
                 names.AddRange(NomesIntermedios);
                 names.Add(UltimoNome);
                 return string.Join(" ", names);
             }
             set
             {
-                string[] names = value.Split(' ');
-                int namesLength = names.Length;
+                var names = value.Split(' ');
+                var namesLength = names.Length;
                 switch (namesLength)
                 {
                     case 1:
