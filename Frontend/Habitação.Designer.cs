@@ -74,7 +74,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.mapa = new Frontend.Mapa();
+            this.mapa = new Frontend.Mapa("Barcelos, Portugal");
             this.labelmetros = new System.Windows.Forms.Label();
             this.labelano = new System.Windows.Forms.Label();
             this.labelassoalhadas = new System.Windows.Forms.Label();

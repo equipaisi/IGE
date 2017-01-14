@@ -16,7 +16,7 @@ namespace Frontend
             Application.SetCompatibleTextRenderingDefault(false);
 
             try
-            {         
+            {
                 Application.Run(new Login());
             }
             catch (Exception e)

@@ -6,13 +6,13 @@ using System;
 
 namespace Frontend
 {
-    public class Mapa : GMapControl
+    public sealed class Mapa : GMapControl
     {
-        public Mapa()
+        public Mapa(string position)
         {
             MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
-            SetPositionByKeywords("Barcelos, Portugal");
+            SetPositionByKeywords(position);
             ShowCenter = false; // remove a cruz vermelha no centro do MapControl
             MinZoom = 10;
             Zoom = 15;
@@ -21,11 +21,6 @@ namespace Frontend
             DragButton = MouseButtons.Left;
             AutoScroll = true;
             MouseWheelZoomEnabled = true;
-        }
-
-        public static implicit operator Mapa(GMarkerGoogle v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

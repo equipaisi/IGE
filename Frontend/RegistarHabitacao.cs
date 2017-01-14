@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Middleware;
-using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using GoogleMaps.DistanceMatrix;
 using GoogleMaps.Geocoding;
-using Place = GooglePlaces.Place;
+using Middleware;
 
 namespace Frontend
 {
@@ -31,7 +29,6 @@ namespace Frontend
         public void RegistarHabitacao_Load(object sender, EventArgs e)
         {
             maskedTextBoxCodigoPostal.MaskInputRejected += maskedTextBoxCodigoPostal_MaskInputRejected;
-            AllowDrop = true;
 
             #if DEBUG
             textBoxRua.Text = "R. Duques de Bragança 185";
@@ -316,16 +313,12 @@ namespace Frontend
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var prop = new PesquisarProprietario();
-            prop.MdiParent = IGE.ActiveForm;
-            prop.Show();
+            new PesquisarProprietario {MdiParent = ActiveForm}.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var newProp = new NovoProprietario();
-            newProp.MdiParent = IGE.ActiveForm;
-            newProp.Show();
+            new NovoProprietario {MdiParent = ActiveForm}.Show();
         }
 
         private void buttonProcurar_Click(object sender, EventArgs e)

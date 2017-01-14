@@ -78,7 +78,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBoxFacebook = new System.Windows.Forms.CheckBox();
             this.checkBoxTwitter = new System.Windows.Forms.CheckBox();
-            this.gMapControl = new Frontend.Mapa();
+            this.gMapControl = new Frontend.Mapa("Barcelos, Portugal");
             this.groupBoxMorada.SuspendLayout();
             this.groupBoxComodidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnoDeConstrucao)).BeginInit();
