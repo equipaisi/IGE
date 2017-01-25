@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware", "Middleware\Middleware.csproj", "{4A785ED7-CA2E-4E8F-B929-DC5DF9027A68}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareTests", "MiddlewareTests\MiddlewareTests.csproj", "{A6500A8E-CEAD-451D-ADF9-B6EE5AA21878}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{584307AE-C721-47F7-9319-C921DCD0599B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9CF13815-3072-4744-AA9D-483EC09F2D8A} = {9CF13815-3072-4744-AA9D-483EC09F2D8A}
 		{F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8} = {F84AB0D1-534B-40C6-BCA9-BC4A4ACCF9F8}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware", "Middleware\Middleware.csproj", "{4A785ED7-CA2E-4E8F-B929-DC5DF9027A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareTests", "MiddlewareTests\MiddlewareTests.csproj", "{A6500A8E-CEAD-451D-ADF9-B6EE5AA21878}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{01605C68-212C-4CF3-9B70-521E13D522B7}"
 EndProject
