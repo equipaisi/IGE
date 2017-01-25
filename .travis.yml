@@ -1,5 +1,0 @@
-language: csharp
-solution: IGE.sln
-
-notifications:
-  email: false
