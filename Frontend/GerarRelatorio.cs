@@ -12,16 +12,12 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var alun = new RelatorioAlunos();
-            alun.MdiParent = IGE.ActiveForm;
-            alun.Show();
+            new RelatorioAlunos {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var habt = new RelatorioHabitacoes();
-           habt.MdiParent = IGE.ActiveForm;
-            habt.Show();
+            new RelatorioHabitacoes {MdiParent = MainWindow.ActiveForm}.Show();
         }
     }
 }

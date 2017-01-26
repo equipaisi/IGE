@@ -10,39 +10,29 @@ namespace Frontend
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            var config = new ConfiguraçõesAdmin();
-            config.MdiParent = IGE.ActiveForm;
-            config.Show();
-        }
-
         private void pictureBoxPesqHab_Click(object sender, EventArgs e)
         {
-            var pesq = new PesquisarHabitacao();
-            pesq.MdiParent = IGE.ActiveForm;
-            pesq.Show();
+            new PesquisarHabitacao {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void pictureBoxRegistHab_Click(object sender, EventArgs e)
         {
-            var regist = new RegistarHabitacao();
-            regist.MdiParent = IGE.ActiveForm;
-            regist.Show();
+            new RegistarHabitacao {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void pictureBoxproprietario_Click(object sender, EventArgs e)
         {
-            var prop = new PesquisarProprietario();
-            prop.MdiParent = IGE.ActiveForm;
-            prop.Show();
+            new PesquisarProprietario {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void pictureBoxAlunos_Click(object sender, EventArgs e)
         {
-            var alun = new PesquisarAluno();
-            alun.MdiParent = IGE.ActiveForm;
-            alun.Show();
+            new PesquisarAluno {MdiParent = MainWindow.ActiveForm}.Show();
+        }
+
+        private void pictureBoxConfig_Click(object sender, EventArgs e)
+        {
+            new ConfiguraçõesAdmin { MdiParent = MainWindow.ActiveForm }.Show();
         }
     }
 }

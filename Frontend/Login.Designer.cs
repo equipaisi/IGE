@@ -30,31 +30,22 @@ namespace Frontend
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            this.logo = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogin = new System.Windows.Forms.PictureBox();
-            this.labelNome = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.textBox_Name = new System.Windows.Forms.TextBox();
-            this.textBox_Password = new System.Windows.Forms.TextBox();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxLogo
+            // logo
             // 
-            resources.ApplyResources(this.pictureBoxLogo, "pictureBoxLogo");
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            resources.ApplyResources(this.imageList1, "imageList1");
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.logo, "logo");
+            this.logo.Name = "logo";
+            this.logo.TabStop = false;
             // 
             // pictureBoxLogin
             // 
@@ -63,43 +54,45 @@ namespace Frontend
             this.pictureBoxLogin.TabStop = false;
             this.pictureBoxLogin.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // labelNome
+            // labelUsername
             // 
-            resources.ApplyResources(this.labelNome, "labelNome");
-            this.labelNome.Name = "labelNome";
+            resources.ApplyResources(this.labelUsername, "labelUsername");
+            this.labelUsername.Name = "labelUsername";
             // 
             // labelPassword
             // 
             resources.ApplyResources(this.labelPassword, "labelPassword");
             this.labelPassword.Name = "labelPassword";
             // 
-            // textBox_Name
+            // textBoxUsername
             // 
-            resources.ApplyResources(this.textBox_Name, "textBox_Name");
-            this.textBox_Name.Name = "textBox_Name";
+            resources.ApplyResources(this.textBoxUsername, "textBoxUsername");
+            this.textBoxUsername.Name = "textBoxUsername";
             // 
-            // textBox_Password
+            // textBoxPassword
             // 
-            resources.ApplyResources(this.textBox_Password, "textBox_Password");
-            this.textBox_Password.Name = "textBox_Password";
-            this.textBox_Password.UseSystemPasswordChar = true;
-            this.textBox_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Password_KeyDown);
+            resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Password_KeyDown);
             // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox_Password);
-            this.Controls.Add(this.textBox_Name);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.labelPassword);
-            this.Controls.Add(this.labelNome);
+            this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.pictureBoxLogin);
-            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.logo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,13 +101,12 @@ namespace Frontend
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.PictureBox pictureBoxLogin;
-        private System.Windows.Forms.Label labelNome;
+        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.TextBox textBox_Name;
-        private System.Windows.Forms.TextBox textBox_Password;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
     }
 }
 

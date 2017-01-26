@@ -34,10 +34,7 @@ namespace Frontend
         /// </summary>
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            // TODO
-            var alun = new Alunos();
-            alun.MdiParent = IGE.ActiveForm;
-            alun.Show();
+            new Alunos {MdiParent = MainWindow.ActiveForm}.Show();
         }
     }
 }

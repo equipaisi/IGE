@@ -43,7 +43,7 @@ namespace Frontend
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             var prt = new Proprietario();
-            prt.MdiParent = IGE.ActiveForm;
+            prt.MdiParent = MainWindow.ActiveForm;
             prt.Show();
         }
 

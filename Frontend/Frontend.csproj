@@ -196,11 +196,11 @@
     <Compile Include="Habitação.Designer.cs">
       <DependentUpon>Habitação.cs</DependentUpon>
     </Compile>
-    <Compile Include="IGE.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IGE.Designer.cs">
-      <DependentUpon>IGE.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -248,11 +248,11 @@
     <Compile Include="PesquisarProprietario.Designer.cs">
       <DependentUpon>PesquisarProprietario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="Funcionario.Designer.cs">
+      <DependentUpon>Funcionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -340,8 +340,11 @@
     <EmbeddedResource Include="Habitação.resx">
       <DependentUpon>Habitação.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IGE.resx">
-      <DependentUpon>IGE.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.pt-PT.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.pt.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -367,8 +370,8 @@
     <EmbeddedResource Include="PesquisarProprietario.resx">
       <DependentUpon>PesquisarProprietario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="Funcionario.resx">
+      <DependentUpon>Funcionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

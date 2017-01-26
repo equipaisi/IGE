@@ -2,7 +2,6 @@
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using GooglePlaces;
 using Location = GoogleMaps.Geocoding.Location;
@@ -42,16 +41,12 @@ namespace Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var prt = new Proprietario();
-            prt.MdiParent = IGE.ActiveForm;
-            prt.Show();
+            new Proprietario {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var alug = new Aluguer();
-            alug.MdiParent = IGE.ActiveForm;
-            alug.Show();
+            new Aluguer {MdiParent = MainWindow.ActiveForm}.Show();
         }
 
         private void mapa_DoubleClick(object sender, EventArgs e)

@@ -6,20 +6,28 @@ namespace Frontend
 {
     public partial class Login : Form
     {
-        private readonly IMiddlewareClient _middleMiddlewareClient;
+        private readonly IMiddlewareClient _middlewareClient;
 
-        public Login()
+        #region Constructors
+
+        public Login() : this(new MiddlewareClient("IGE"))
         {
-            _middleMiddlewareClient = new MiddlewareClient("IGE");
+        }
+
+        public Login(IMiddlewareClient middlewareClient)
+        {
+            _middlewareClient = middlewareClient;
             InitializeComponent();
         }
-        
+
+        #endregion
+
         private void FormLogin_Load(object sender, EventArgs e)
-        {   
+        {
             // Mostrar o nome e a versão da aplicação como título da form
-            this.Text = $"Login - {Application.ProductName} {Application.ProductVersion}";
+            Text = $"Login - {Application.ProductName} {Application.ProductVersion}";
         }
-        
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             try
@@ -28,17 +36,18 @@ namespace Frontend
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Não foi possivel conectar à base de dados.\n{exception.Message}", "Erro fatal", MessageBoxButtons.OK,
+                MessageBox.Show($"Não foi possivel conectar à base de dados.\n{exception.Message}", "Erro fatal",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
         private void ValidateCretentials()
         {
-            var username = textBox_Name.Text;
-            var password = textBox_Password.Text;
+            var username = textBoxUsername.Text;
+            var password = textBoxPassword.Text;
 
-            var pass = _middleMiddlewareClient.GetPassword(username, password);
+            var pass = _middlewareClient.GetPassword(username, password);
             if (string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt",
@@ -54,9 +63,9 @@ namespace Frontend
 
 #if DEBUG
             //MessageBox.Show($"Feito login como {username}");
-            #endif
+#endif
 
-            var userType = _middleMiddlewareClient.GetUserType(username);
+            var userType = _middlewareClient.GetUserType(username);
             if (string.IsNullOrEmpty(userType))
             {
                 MessageBox.Show("Erro no tipo de conta", "Erro fatal", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -66,59 +75,26 @@ namespace Frontend
             switch (userType)
             {
                 case "funcionario":
-                    var a = new IGE();
+                    var a = new MainWindow();
                     a.Show();
-                    var fp = new Principal {MdiParent = a};
-                    fp.Show();
-                    this.Hide(); // a janela fica oculta
+                    //var fp = new Funcionario {MdiParent = a};
+                    //fp.Show();
+                    Hide(); // a janela fica oculta
                     break;
                 case "administrador":
-                    var b = new IGE();
+                    var b = new MainWindow();
                     b.Show();
-                    var adm = new Administrador {MdiParent = IGE.ActiveForm};
+                    var adm = new Administrador {MdiParent = ActiveForm};
                     adm.Show();
-                    this.Hide(); // a janela fica oculta
+                    Hide(); // a janela fica oculta
                     break;
             }
         }
 
 
-        //private void pictureBox2_Click(object sender, EventArgs e)
-        //{
-        //    ValidateCredentials();
-        //}
-
         private void textBox_Password_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) pictureBox2_Click(sender, e);
         }
-
-        ///// <summary>
-        ///// Valida as credencias introduzidas.
-        ///// </summary>
-        //private void ValidateCredentials()
-        //{
-        //    if (textBox_Name.Text == "a" && textBox_Password.Text == "a")
-        //    {
-        //        IGE xpto = new IGE();
-        //        xpto.Show();
-        //        Principal fp = new Principal {MdiParent = xpto};
-        //        fp.Show();
-        //        this.Hide(); // a janela fica oculta
-        //        return;
-        //    }
-
-        //    if (textBox_Name.Text == "admin" && textBox_Password.Text == "admin")
-        //    {
-        //        IGE xpto = new IGE();
-        //        xpto.Show();
-        //        Administrador adm = new Administrador {MdiParent = IGE.ActiveForm};
-        //        adm.Show();
-        //        this.Hide(); // a janela fica oculta
-        //        return;
-        //    }
-        //    MessageBox.Show("Username ou password incorrecta.\n\nPor favor, contacte apoiotecnico@imovcelos.pt", "Credenciais inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //}
     }
 }
-
